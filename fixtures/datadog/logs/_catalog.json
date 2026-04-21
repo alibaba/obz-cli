@@ -1,0 +1,157 @@
+{
+  "catalog_version": "1.0",
+  "backend": "datadog/logs",
+  "generated_at": "2026-04-02T13:42:45Z",
+  "fixtures": [
+    {
+      "file": "logs-aggregate-by-service.json",
+      "id": "datadog/logs/logs-aggregate-by-service",
+      "description": "Datadog logs aggregate: count by service",
+      "result_type": "logs_aggregate",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1846,
+      "tags": [
+        "logs",
+        "aggregate",
+        "group-by",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "logs-aggregate-by-status.json",
+      "id": "datadog/logs/logs-aggregate-by-status",
+      "description": "Datadog logs aggregate: count by status",
+      "result_type": "logs_aggregate",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1810,
+      "tags": [
+        "logs",
+        "aggregate",
+        "group-by",
+        "status",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "logs-aggregate-timeseries.json",
+      "id": "datadog/logs/logs-aggregate-timeseries",
+      "description": "Datadog logs aggregate: count timeseries (5m interval)",
+      "result_type": "logs_aggregate",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 3016,
+      "tags": [
+        "logs",
+        "aggregate",
+        "timeseries",
+        "histogram",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "logs-search.json",
+      "id": "datadog/logs/logs-search",
+      "description": "Datadog logs search: all logs from last 1h",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 31419,
+      "tags": [
+        "logs",
+        "query",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "logs-search-empty.json",
+      "id": "datadog/logs/logs-search-empty",
+      "description": "Datadog logs search: nonexistent query — empty",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1175,
+      "tags": [
+        "logs",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "logs-search-error.json",
+      "id": "datadog/logs/logs-search-error",
+      "description": "Datadog logs search: error status logs",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 35498,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "error",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "logs-search-fulltext.json",
+      "id": "datadog/logs/logs-search-fulltext",
+      "description": "Datadog logs search: fulltext search for error/timeout/exception keywords",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 39115,
+      "tags": [
+        "logs",
+        "query",
+        "fulltext",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "logs-search-service.json",
+      "id": "datadog/logs/logs-search-service",
+      "description": "Datadog logs search: logs filtered by service otelcol-contrib",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 23375,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

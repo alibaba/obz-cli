@@ -1,0 +1,90 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/logs/agg-count-by-service",
+  "description": "ES aggregation: log count by service",
+  "backend": "elasticsearch",
+  "tags": [
+    "logs",
+    "aggregate",
+    "count",
+    "group-by",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/logs-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "size": 0,
+      "aggs": {
+        "by_service": {
+          "terms": {
+            "field": "resource.attributes.service.name",
+            "size": 20
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 28,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 7046,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+      },
+      "aggregations": {
+        "by_service": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "load-generator",
+              "doc_count": 6683
+            },
+            {
+              "key": "recommendation",
+              "doc_count": 201
+            },
+            {
+              "key": "ad",
+              "doc_count": 155
+            },
+            {
+              "key": "product-reviews",
+              "doc_count": 6
+            },
+            {
+              "key": "checkout",
+              "doc_count": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "aggs",
+    "data_count": 7046,
+    "response_bytes": 449,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

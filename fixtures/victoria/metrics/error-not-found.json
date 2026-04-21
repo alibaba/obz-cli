@@ -1,0 +1,36 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/metrics/error-not-found",
+  "description": "Error: unknown API path",
+  "backend": "victoriametrics",
+  "tags": [
+    "metrics",
+    "error",
+    "not-found",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/nonexistent",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8"
+    },
+    "body_raw": "remoteAddr: \"11.167.34.27:25432\"; requestURI: /api/v1/nonexistent; unsupported path requested: \"/api/v1/nonexistent\""
+  },
+  "facts": {
+    "result_type": "error",
+    "series_count": 0,
+    "total_points": 0,
+    "response_bytes": 116,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:59:20Z",
+  "source": "recorded",
+  "generator": "scripts/vm/record-live.sh"
+}

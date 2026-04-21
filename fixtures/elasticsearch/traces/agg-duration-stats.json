@@ -1,0 +1,132 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/traces/agg-duration-stats",
+  "description": "ES traces aggregation: duration stats (min/max/avg/sum) by service",
+  "backend": "elasticsearch",
+  "tags": [
+    "traces",
+    "aggregate",
+    "stats",
+    "duration",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/traces-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "size": 0,
+      "aggs": {
+        "by_service": {
+          "terms": {
+            "field": "resource.attributes.service.name",
+            "size": 10
+          },
+          "aggs": {
+            "duration_stats": {
+              "stats": {
+                "field": "duration"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 6,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 5603,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+      },
+      "aggregations": {
+        "by_service": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "load-generator",
+              "doc_count": 4927,
+              "duration_stats": {
+                "count": 4927,
+                "min": 851495,
+                "max": 242470802,
+                "avg": 6494725.068804546,
+                "sum": 31999510414
+              }
+            },
+            {
+              "key": "image-provider",
+              "doc_count": 399,
+              "duration_stats": {
+                "count": 399,
+                "min": 0,
+                "max": 0,
+                "avg": 0,
+                "sum": 0
+              }
+            },
+            {
+              "key": "cart",
+              "doc_count": 266,
+              "duration_stats": {
+                "count": 266,
+                "min": 447800,
+                "max": 988500,
+                "avg": 653405.2631578947,
+                "sum": 173805800
+              }
+            },
+            {
+              "key": "product-reviews",
+              "doc_count": 6,
+              "duration_stats": {
+                "count": 6,
+                "min": 600002703703,
+                "max": 600003872658,
+                "avg": 600003041684.1666,
+                "sum": 3600018250105
+              }
+            },
+            {
+              "key": "ad",
+              "doc_count": 5,
+              "duration_stats": {
+                "count": 5,
+                "min": 599999965347,
+                "max": 600000766060,
+                "avg": 600000188073,
+                "sum": 3000000940365
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "aggs",
+    "data_count": 5603,
+    "response_bytes": 976,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

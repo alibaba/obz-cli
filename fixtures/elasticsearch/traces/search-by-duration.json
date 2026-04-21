@@ -1,0 +1,637 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/traces/search-by-duration",
+  "description": "ES traces: slow spans (duration > 1s = 1000000000 ns)",
+  "backend": "elasticsearch",
+  "tags": [
+    "traces",
+    "query",
+    "filter",
+    "duration",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/traces-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "range": {
+          "duration": {
+            "gte": 1000000000
+          }
+        }
+      },
+      "size": 10,
+      "sort": [
+        {
+          "duration": "desc"
+        }
+      ]
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 4,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 11,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": [
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nJICWNE2GulRha7aC",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775551319495.916448",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "dbb6539622075d88e6c20b045a270ced",
+              "span_id": "bd14fa8a03e3dc73",
+              "name": "flagd.evaluation.v1.Service/EventStream",
+              "kind": "Client",
+              "duration": 600003872658,
+              "attributes": {
+                "rpc.system": "grpc",
+                "rpc.method": "EventStream",
+                "rpc.service": "flagd.evaluation.v1.Service",
+                "rpc.grpc.status_code": 4,
+                "original_span_name": "/flagd.evaluation.v1.Service/EventStream"
+              },
+              "links": [],
+              "status": {
+                "message": "_MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:\n\tstatus = StatusCode.DEADLINE_EXCEEDED\n\tdetails = \"Deadline Exceeded\"\n\tdebug_error_string = \"UNKNOWN:Error received from peer  {grpc_status:4, grpc_message:\"Deadline Exceeded\"}\"\n>",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "product-reviews",
+                  "telemetry.auto.version": "0.61b0",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.grpc",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              600003872658
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1m9qqbv9id40WBs0S8",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775548319480.780041",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "c345e7e2d38b2f91206c44b1f06d55c4",
+              "span_id": "e71f6bbf1119090e",
+              "name": "flagd.evaluation.v1.Service/EventStream",
+              "kind": "Client",
+              "duration": 600003276853,
+              "attributes": {
+                "rpc.system": "grpc",
+                "rpc.method": "EventStream",
+                "rpc.service": "flagd.evaluation.v1.Service",
+                "rpc.grpc.status_code": 4,
+                "original_span_name": "/flagd.evaluation.v1.Service/EventStream"
+              },
+              "links": [],
+              "status": {
+                "message": "_MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:\n\tstatus = StatusCode.DEADLINE_EXCEEDED\n\tdetails = \"Deadline Exceeded\"\n\tdebug_error_string = \"UNKNOWN:Error received from peer  {grpc_message:\"Deadline Exceeded\", grpc_status:4}\"\n>",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "product-reviews",
+                  "telemetry.auto.version": "0.61b0",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.grpc",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              600003276853
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nETkIlwjYHpL7LQo6",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775550119489.997623",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "094e1f37cd8525e45e8107de7abd02e2",
+              "span_id": "c5c68c83079ad46e",
+              "name": "flagd.evaluation.v1.Service/EventStream",
+              "kind": "Client",
+              "duration": 600002842463,
+              "attributes": {
+                "rpc.system": "grpc",
+                "rpc.method": "EventStream",
+                "rpc.service": "flagd.evaluation.v1.Service",
+                "rpc.grpc.status_code": 4,
+                "original_span_name": "/flagd.evaluation.v1.Service/EventStream"
+              },
+              "links": [],
+              "status": {
+                "message": "_MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:\n\tstatus = StatusCode.DEADLINE_EXCEEDED\n\tdetails = \"Deadline Exceeded\"\n\tdebug_error_string = \"UNKNOWN:Error received from peer  {grpc_message:\"Deadline Exceeded\", grpc_status:4}\"\n>",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "product-reviews",
+                  "telemetry.auto.version": "0.61b0",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.grpc",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              600002842463
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nCDkIlwjYHpLmIK8I",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775549519487.66499",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "09740cb37242a7ca9ce936e607b1d6b1",
+              "span_id": "4463f034ce9cac53",
+              "name": "flagd.evaluation.v1.Service/EventStream",
+              "kind": "Client",
+              "duration": 600002778760,
+              "attributes": {
+                "rpc.system": "grpc",
+                "rpc.method": "EventStream",
+                "rpc.service": "flagd.evaluation.v1.Service",
+                "rpc.grpc.status_code": 4,
+                "original_span_name": "/flagd.evaluation.v1.Service/EventStream"
+              },
+              "links": [],
+              "status": {
+                "message": "_MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:\n\tstatus = StatusCode.DEADLINE_EXCEEDED\n\tdetails = \"Deadline Exceeded\"\n\tdebug_error_string = \"UNKNOWN:Error received from peer  {grpc_message:\"Deadline Exceeded\", grpc_status:4}\"\n>",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "product-reviews",
+                  "telemetry.auto.version": "0.61b0",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.grpc",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              600002778760
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nGzkIlwjYHpI4OqR3",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775550719492.990673",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "c16365baf609ad62a3f59d1d788fa4ba",
+              "span_id": "366e4570f0ef08d9",
+              "name": "flagd.evaluation.v1.Service/EventStream",
+              "kind": "Client",
+              "duration": 600002775668,
+              "attributes": {
+                "rpc.system": "grpc",
+                "rpc.method": "EventStream",
+                "rpc.service": "flagd.evaluation.v1.Service",
+                "rpc.grpc.status_code": 4,
+                "original_span_name": "/flagd.evaluation.v1.Service/EventStream"
+              },
+              "links": [],
+              "status": {
+                "message": "_MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:\n\tstatus = StatusCode.DEADLINE_EXCEEDED\n\tdetails = \"Deadline Exceeded\"\n\tdebug_error_string = \"UNKNOWN:Error received from peer  {grpc_message:\"Deadline Exceeded\", grpc_status:4}\"\n>",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "product-reviews",
+                  "telemetry.auto.version": "0.61b0",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.grpc",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              600002775668
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1m_zkIlwjYHpK9E-NP",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775548919484.207609",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "c528585d34d22e24862d21f11864da15",
+              "span_id": "8fa0f97dc653ac5e",
+              "name": "flagd.evaluation.v1.Service/EventStream",
+              "kind": "Client",
+              "duration": 600002703703,
+              "attributes": {
+                "rpc.system": "grpc",
+                "rpc.method": "EventStream",
+                "rpc.service": "flagd.evaluation.v1.Service",
+                "rpc.grpc.status_code": 4,
+                "original_span_name": "/flagd.evaluation.v1.Service/EventStream"
+              },
+              "links": [],
+              "status": {
+                "message": "_MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:\n\tstatus = StatusCode.DEADLINE_EXCEEDED\n\tdetails = \"stream closed due to server-side timeout\"\n\tdebug_error_string = \"UNKNOWN:Error received from peer ipv4:192.168.16.5:8013 {grpc_status:4, grpc_message:\"stream closed due to server-side timeout\"}\"\n>",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "product-reviews",
+                  "telemetry.auto.version": "0.61b0",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.grpc",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              600002703703
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nCDkIlwjYHpK_H6XD",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775549517106.106652",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "e7356af53aa2db8215f10766c97a892e",
+              "span_id": "c672801e87b85122",
+              "name": "flagd.evaluation.v1.Service/EventStream",
+              "kind": "Client",
+              "duration": 600000766060,
+              "attributes": {
+                "rpc.service": "flagd.evaluation.v1.Service",
+                "thread.id": 41,
+                "rpc.method": "EventStream",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "network.peer.port": 8013,
+                "rpc.grpc.status_code": 4,
+                "network.peer.address": "192.168.16.5",
+                "rpc.system": "grpc",
+                "thread.name": "Thread-2",
+                "network.type": "ipv4"
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.24.0",
+                "attributes": {
+                  "container.id": "28dc642cfe3a1ef79aedcb0fa35e61e613a87c51e400cd8dd1e3853f4ff7db7a",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "host.arch": "amd64",
+                  "host.name": "demo-host-01",
+                  "os.description": "Linux 5.10.134-18.al8.x86_64",
+                  "os.type": "linux",
+                  "process.command_line": "/opt/java/openjdk/bin/java -javaagent:/usr/src/app/opentelemetry-javaagent.jar -Xmx200m oteldemo.AdService",
+                  "process.executable.path": "/opt/java/openjdk/bin/java",
+                  "process.pid": 1,
+                  "process.runtime.description": "Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.10+7-LTS",
+                  "process.runtime.name": "OpenJDK Runtime Environment",
+                  "process.runtime.version": "21.0.10+7-LTS",
+                  "service.instance.id": "17fd8516-3de2-4ccc-ac4d-4853dd6da14c",
+                  "service.name": "ad",
+                  "telemetry.distro.name": "opentelemetry-java-instrumentation",
+                  "telemetry.distro.version": "2.25.0",
+                  "telemetry.sdk.language": "java",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.59.0"
+                }
+              },
+              "scope": {
+                "name": "io.opentelemetry.grpc-1.6",
+                "version": "2.25.0-alpha"
+              }
+            },
+            "sort": [
+              600000766060
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1m_zkIlwjYHpKWEsj1",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775548917105.583337",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "da2c635885e603fd1df14fe7c8c20b95",
+              "span_id": "99affa739a32bcca",
+              "name": "flagd.evaluation.v1.Service/EventStream",
+              "kind": "Client",
+              "duration": 600000163292,
+              "attributes": {
+                "rpc.service": "flagd.evaluation.v1.Service",
+                "thread.id": 41,
+                "rpc.method": "EventStream",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "network.peer.port": 8013,
+                "rpc.grpc.status_code": 4,
+                "network.peer.address": "192.168.16.5",
+                "rpc.system": "grpc",
+                "thread.name": "Thread-2",
+                "network.type": "ipv4"
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.24.0",
+                "attributes": {
+                  "container.id": "28dc642cfe3a1ef79aedcb0fa35e61e613a87c51e400cd8dd1e3853f4ff7db7a",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "host.arch": "amd64",
+                  "host.name": "demo-host-01",
+                  "os.description": "Linux 5.10.134-18.al8.x86_64",
+                  "os.type": "linux",
+                  "process.command_line": "/opt/java/openjdk/bin/java -javaagent:/usr/src/app/opentelemetry-javaagent.jar -Xmx200m oteldemo.AdService",
+                  "process.executable.path": "/opt/java/openjdk/bin/java",
+                  "process.pid": 1,
+                  "process.runtime.description": "Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.10+7-LTS",
+                  "process.runtime.name": "OpenJDK Runtime Environment",
+                  "process.runtime.version": "21.0.10+7-LTS",
+                  "service.instance.id": "17fd8516-3de2-4ccc-ac4d-4853dd6da14c",
+                  "service.name": "ad",
+                  "telemetry.distro.name": "opentelemetry-java-instrumentation",
+                  "telemetry.distro.version": "2.25.0",
+                  "telemetry.sdk.language": "java",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.59.0"
+                }
+              },
+              "scope": {
+                "name": "io.opentelemetry.grpc-1.6",
+                "version": "2.25.0-alpha"
+              }
+            },
+            "sort": [
+              600000163292
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1m9qqbv9id40WBs0SP",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775548317105.233785",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "288aa637e36d655405449f2c6532e97f",
+              "span_id": "b7ca31280645e9e9",
+              "name": "flagd.evaluation.v1.Service/EventStream",
+              "kind": "Client",
+              "duration": 600000036838,
+              "attributes": {
+                "rpc.service": "flagd.evaluation.v1.Service",
+                "thread.id": 41,
+                "rpc.method": "EventStream",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "network.peer.port": 8013,
+                "rpc.grpc.status_code": 4,
+                "network.peer.address": "192.168.16.5",
+                "rpc.system": "grpc",
+                "thread.name": "Thread-2",
+                "network.type": "ipv4"
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.24.0",
+                "attributes": {
+                  "container.id": "28dc642cfe3a1ef79aedcb0fa35e61e613a87c51e400cd8dd1e3853f4ff7db7a",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "host.arch": "amd64",
+                  "host.name": "demo-host-01",
+                  "os.description": "Linux 5.10.134-18.al8.x86_64",
+                  "os.type": "linux",
+                  "process.command_line": "/opt/java/openjdk/bin/java -javaagent:/usr/src/app/opentelemetry-javaagent.jar -Xmx200m oteldemo.AdService",
+                  "process.executable.path": "/opt/java/openjdk/bin/java",
+                  "process.pid": 1,
+                  "process.runtime.description": "Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.10+7-LTS",
+                  "process.runtime.name": "OpenJDK Runtime Environment",
+                  "process.runtime.version": "21.0.10+7-LTS",
+                  "service.instance.id": "17fd8516-3de2-4ccc-ac4d-4853dd6da14c",
+                  "service.name": "ad",
+                  "telemetry.distro.name": "opentelemetry-java-instrumentation",
+                  "telemetry.distro.version": "2.25.0",
+                  "telemetry.sdk.language": "java",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.59.0"
+                }
+              },
+              "scope": {
+                "name": "io.opentelemetry.grpc-1.6",
+                "version": "2.25.0-alpha"
+              }
+            },
+            "sort": [
+              600000036838
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nETkIlwjYHpL7LAr3",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775550117107.144363",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "b295995ab456a7fb0153d1432358287b",
+              "span_id": "1297f01638611bc8",
+              "name": "flagd.evaluation.v1.Service/EventStream",
+              "kind": "Client",
+              "duration": 600000008828,
+              "attributes": {
+                "rpc.service": "flagd.evaluation.v1.Service",
+                "thread.id": 41,
+                "rpc.method": "EventStream",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "network.peer.port": 8013,
+                "rpc.grpc.status_code": 4,
+                "network.peer.address": "192.168.16.5",
+                "rpc.system": "grpc",
+                "thread.name": "Thread-2",
+                "network.type": "ipv4"
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.24.0",
+                "attributes": {
+                  "container.id": "28dc642cfe3a1ef79aedcb0fa35e61e613a87c51e400cd8dd1e3853f4ff7db7a",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "host.arch": "amd64",
+                  "host.name": "demo-host-01",
+                  "os.description": "Linux 5.10.134-18.al8.x86_64",
+                  "os.type": "linux",
+                  "process.command_line": "/opt/java/openjdk/bin/java -javaagent:/usr/src/app/opentelemetry-javaagent.jar -Xmx200m oteldemo.AdService",
+                  "process.executable.path": "/opt/java/openjdk/bin/java",
+                  "process.pid": 1,
+                  "process.runtime.description": "Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.10+7-LTS",
+                  "process.runtime.name": "OpenJDK Runtime Environment",
+                  "process.runtime.version": "21.0.10+7-LTS",
+                  "service.instance.id": "17fd8516-3de2-4ccc-ac4d-4853dd6da14c",
+                  "service.name": "ad",
+                  "telemetry.distro.name": "opentelemetry-java-instrumentation",
+                  "telemetry.distro.version": "2.25.0",
+                  "telemetry.sdk.language": "java",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.59.0"
+                }
+              },
+              "scope": {
+                "name": "io.opentelemetry.grpc-1.6",
+                "version": "2.25.0-alpha"
+              }
+            },
+            "sort": [
+              600000008828
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "traces",
+    "data_count": 11,
+    "response_bytes": 16151,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

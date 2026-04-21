@@ -1,0 +1,33 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/traces/error-not-found",
+  "description": "Tempo error: unknown API path — 404",
+  "backend": "tempo",
+  "tags": [
+    "traces",
+    "error",
+    "not-found",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/nonexistent",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 404,
+    "headers": {
+      "Content-Type": "text/plain"
+    },
+    "body_raw": "404 page not found"
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 18,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:02:37Z",
+  "source": "recorded",
+  "generator": "scripts/tempo-record-live.sh"
+}

@@ -1,0 +1,555 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/traces/search-by-operation",
+  "description": "ES traces: spans named GET",
+  "backend": "elasticsearch",
+  "tags": [
+    "traces",
+    "query",
+    "filter",
+    "operation",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/traces-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "match": {
+          "name": "GET"
+        }
+      },
+      "size": 10,
+      "sort": [
+        {
+          "@timestamp": "desc"
+        }
+      ]
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 3,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 1889,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": [
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZV54y0e",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552455276.958146",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "feee2927be365c008aec8dc610a4aa9a",
+              "span_id": "91d79a6aa1de191d",
+              "parent_span_id": "cd1902e48838d46b",
+              "name": "GET",
+              "kind": "Client",
+              "duration": 5164824,
+              "attributes": {
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/products/LS4PSXUNUM",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "links": [],
+              "status": {
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/LS4PSXUNUM (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "load-generator",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.requests",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              1775552455276
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZV54y0c",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552453704.142132",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "00ae2e0f0a37661871f6a0cacfcb65a9",
+              "span_id": "2badc38b74218e25",
+              "parent_span_id": "fd88ef2fd6f498f3",
+              "name": "GET",
+              "kind": "Client",
+              "duration": 5320325,
+              "attributes": {
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/products/66VCHSJNUP",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "links": [],
+              "status": {
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/66VCHSJNUP (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "load-generator",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.requests",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              1775552453704
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZV54y0X",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552450832.189305",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "009d0de9b8669f1c50f2b7fffddf31b5",
+              "span_id": "989b925273d73da9",
+              "parent_span_id": "3ea27a8405f8cb41",
+              "name": "GET",
+              "kind": "Client",
+              "duration": 5004000,
+              "attributes": {
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/data/?contextKeys=travel",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "links": [],
+              "status": {
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/data/?contextKeys=travel (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "load-generator",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.requests",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              1775552450832
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZV54y0V",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552450355.693744",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "1368452fedd581c1d5f3b6125453eddb",
+              "span_id": "c0430261d7f6512c",
+              "parent_span_id": "dac4b1e45675c86e",
+              "name": "GET",
+              "kind": "Client",
+              "duration": 5113021,
+              "attributes": {
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/data/?contextKeys=accessories",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "links": [],
+              "status": {
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/data/?contextKeys=accessories (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "load-generator",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.requests",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              1775552450355
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZV54y0R",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552448258.141284",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "eb5f20cd2088bf36ca1925afa7ebb421",
+              "span_id": "336fd39664d4a4b2",
+              "parent_span_id": "5a03bb0f503f2536",
+              "name": "GET",
+              "kind": "Client",
+              "duration": 5312830,
+              "attributes": {
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/products/OLJCESPC7Z",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "links": [],
+              "status": {
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/OLJCESPC7Z (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "load-generator",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.requests",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              1775552448258
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZVS4hXi",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552444540.166296",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "175202893ef3bf8a7944827dd0123a5c",
+              "span_id": "75688d8120e8d11e",
+              "parent_span_id": "5e17153fd345c63b",
+              "name": "GET",
+              "kind": "Client",
+              "duration": 5194652,
+              "attributes": {
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/recommendations?productIds=2ZYFJ3GM2N",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "links": [],
+              "status": {
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/recommendations?productIds=2ZYFJ3GM2N (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "load-generator",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.requests",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              1775552444540
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZVS4hXg",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552442028.26315",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "30256a999750672471a017c9b849ca0d",
+              "span_id": "f93ae44a5a5d27d5",
+              "parent_span_id": "1974549238d89db2",
+              "name": "GET",
+              "kind": "Client",
+              "duration": 6701853,
+              "attributes": {
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/products/6E92ZMYYFZ",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "links": [],
+              "status": {
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/6E92ZMYYFZ (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "load-generator",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.requests",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              1775552442028
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZVS4hXe",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552442027.272179",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "7e25caf94f6b40b19918d0422a2dc957",
+              "span_id": "987ec1af76df729f",
+              "parent_span_id": "8e00cab0a22f4ff9",
+              "name": "GET",
+              "kind": "Client",
+              "duration": 6049187,
+              "attributes": {
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/products/HQTGWGPNH4",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "links": [],
+              "status": {
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/HQTGWGPNH4 (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "load-generator",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.requests",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              1775552442027
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZVS4hXa",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552436688.783590",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "ce722876784e596218953ac61ad3ed81",
+              "span_id": "45853a34615e90d0",
+              "parent_span_id": "e2f444ff25eb2cf3",
+              "name": "GET",
+              "kind": "Client",
+              "duration": 5144101,
+              "attributes": {
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/products/6E92ZMYYFZ",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "links": [],
+              "status": {
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/6E92ZMYYFZ (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "load-generator",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.requests",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              1775552436688
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZVS4hXX",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552432079.510923",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "aea26f89ec16f7ea85375a0054b9bfff",
+              "span_id": "9336e3b508be24cf",
+              "parent_span_id": "6c4963ae0d75d0bf",
+              "name": "GET",
+              "kind": "Client",
+              "duration": 4810858,
+              "attributes": {
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/products/OLJCESPC7Z",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "links": [],
+              "status": {
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/OLJCESPC7Z (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "telemetry.sdk.language": "python",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.version": "1.40.0",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "service.name": "load-generator",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "schema_url": "https://opentelemetry.io/schemas/1.11.0",
+                "name": "opentelemetry.instrumentation.requests",
+                "version": "0.61b0"
+              }
+            },
+            "sort": [
+              1775552432079
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "traces",
+    "data_count": 1889,
+    "response_bytes": 13767,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

@@ -1,0 +1,190 @@
+{
+  "catalog_version": "1.0",
+  "backend": "datadog/metrics",
+  "generated_at": "2026-04-02T13:42:46Z",
+  "fixtures": [
+    {
+      "file": "error-invalid-query.json",
+      "id": "datadog/metrics/error-invalid-query",
+      "description": "Datadog error: invalid metric query syntax",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1232,
+      "tags": [
+        "metrics",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-list.json",
+      "id": "datadog/metrics/metric-list",
+      "description": "Datadog list metrics: all metric names from last 1h",
+      "result_type": "metrics_list",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 16935,
+      "tags": [
+        "metrics",
+        "metadata",
+        "list",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-metadata.json",
+      "id": "datadog/metrics/metric-metadata",
+      "description": "Datadog metric metadata: container.cpu.usage.total",
+      "result_type": "metric_metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 963,
+      "tags": [
+        "metrics",
+        "metadata",
+        "detail",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-query-cpu.json",
+      "id": "datadog/metrics/metric-query-cpu",
+      "description": "Datadog metric query: avg container CPU usage for OTel Demo containers",
+      "result_type": "timeseries",
+      "series_count": 6,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 94737,
+      "tags": [
+        "metrics",
+        "query",
+        "timeseries",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-query-empty.json",
+      "id": "datadog/metrics/metric-query-empty",
+      "description": "Datadog metric query: nonexistent metric — empty result",
+      "result_type": "timeseries",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1154,
+      "tags": [
+        "metrics",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-query-otel-spans.json",
+      "id": "datadog/metrics/metric-query-otel-spans",
+      "description": "Datadog metric query: otelcol exporter sent spans",
+      "result_type": "timeseries",
+      "series_count": 1,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 6416,
+      "tags": [
+        "metrics",
+        "query",
+        "timeseries",
+        "otel",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-query-span-calls.json",
+      "id": "datadog/metrics/metric-query-span-calls",
+      "description": "Datadog metric query: traces span metrics calls total",
+      "result_type": "timeseries",
+      "series_count": 1,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 6255,
+      "tags": [
+        "metrics",
+        "query",
+        "timeseries",
+        "span-metrics",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-search-container.json",
+      "id": "datadog/metrics/metric-search-container",
+      "description": "Datadog search metrics: search for container.* metrics",
+      "result_type": "search",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 1726,
+      "tags": [
+        "metrics",
+        "metadata",
+        "search",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-search-otel.json",
+      "id": "datadog/metrics/metric-search-otel",
+      "description": "Datadog search metrics: search for otel.* metrics",
+      "result_type": "search",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 5243,
+      "tags": [
+        "metrics",
+        "metadata",
+        "search",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "tags-list.json",
+      "id": "datadog/metrics/tags-list",
+      "description": "Datadog tags: list all host tags",
+      "result_type": "tags",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 716,
+      "tags": [
+        "metrics",
+        "tags",
+        "list",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

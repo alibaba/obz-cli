@@ -1,0 +1,43 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/logs/labels",
+  "description": "Loki labels: all label names",
+  "backend": "loki",
+  "tags": [
+    "logs",
+    "metadata",
+    "labels",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/loki/api/v1/labels",
+    "query_params": {
+      "start": "1775534747000000000",
+      "end": "1775538347000000000"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": [
+        "service_instance_id",
+        "service_name"
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "labels",
+    "log_count": 0,
+    "data_count": 2,
+    "response_bytes": 66,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:05:47Z",
+  "source": "recorded",
+  "generator": "scripts/loki-record-live.sh"
+}

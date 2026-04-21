@@ -1,0 +1,155 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/common/hosts-list",
+  "description": "Datadog list hosts",
+  "backend": "datadog",
+  "tags": [
+    "infrastructure",
+    "hosts",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/hosts",
+    "query_params": {
+      "count": "10",
+      "from": "1775133269"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "host_list": [
+        {
+          "id": 17592229956097,
+          "tags_by_source": {
+            "Datadog": [
+              "host:btorch011167034027.cm10"
+            ]
+          },
+          "aliases": [
+            "btorch011167034027.cm10"
+          ],
+          "apps": [
+            "(no-namespace)",
+            "agent",
+            "container",
+            "cpython",
+            "db",
+            "dotnet",
+            "feature_flag",
+            "go",
+            "http",
+            "httpcheck",
+            "jvm",
+            "nginx",
+            "otel",
+            "otlp",
+            "postgresql",
+            "redis",
+            "rpc",
+            "traces"
+          ],
+          "sources": [
+            "otel",
+            "agent"
+          ],
+          "name": "btorch011167034027.cm10",
+          "host_name": "btorch011167034027.cm10",
+          "up": true,
+          "last_reported_time": 1775136213,
+          "is_muted": false,
+          "mute_timeout": null,
+          "meta": {},
+          "metrics": {
+            "cpu": 9.204971,
+            "iowait": 0.0072981007,
+            "load": null
+          }
+        },
+        {
+          "id": 17592229956258,
+          "tags_by_source": {
+            "Datadog": [
+              "host:i-bp16shzfdzz1sew1m9i7"
+            ]
+          },
+          "aliases": [
+            "i-bp16shzfdzz1sew1m9i7"
+          ],
+          "apps": [
+            "nodejs",
+            "otel",
+            "v8js"
+          ],
+          "sources": [
+            "otel"
+          ],
+          "name": "i-bp16shzfdzz1sew1m9i7",
+          "host_name": "i-bp16shzfdzz1sew1m9i7",
+          "up": true,
+          "last_reported_time": 1775135277,
+          "is_muted": false,
+          "mute_timeout": null,
+          "meta": {},
+          "metrics": {
+            "cpu": null,
+            "iowait": null,
+            "load": null
+          }
+        },
+        {
+          "id": 17592230563249,
+          "tags_by_source": {
+            "Datadog": [
+              "host:553e8e1dede3"
+            ]
+          },
+          "aliases": [
+            "553e8e1dede3"
+          ],
+          "apps": [
+            "agent"
+          ],
+          "sources": [
+            "agent"
+          ],
+          "name": "553e8e1dede3",
+          "host_name": "553e8e1dede3",
+          "up": true,
+          "last_reported_time": 1775136211,
+          "is_muted": false,
+          "mute_timeout": null,
+          "meta": {
+            "gohai": "{\"cpu\":{\"cache_size\":\"516096 KB\",\"cpu_cores\":\"64\",\"cpu_logical_processors\":\"128\",\"family\":\"6\",\"mhz\":\"800.000\",\"model\":\"173\",\"model_name\":\"Intel(R) Xeon(R) 6982P-C\",\"stepping\":\"1\",\"vendor_id\":\"GenuineIntel\"},\"filesystem\":null,\"memory\":{\"swap_total\":\"0kB\",\"total\":\"519717020kB\"},\"network\":{\"interfaces\":[{\"ipv4\":[\"192.168.16.13\"],\"ipv4-network\":\"192.168.16.0/20\",\"ipv6\":[],\"macaddress\":\"02:42:c0:a8:10:0d\",\"name\":\"eth0\"}],\"ipaddress\":\"192.168.16.13\",\"macaddress\":\"02:42:c0:a8:10:0d\"},\"platform\":null}",
+            "socket-hostname": "553e8e1dede3",
+            "otel_version": "0.146.1",
+            "agent_flavor": "otelcol-contrib",
+            "host_id": 17592230563249
+          },
+          "metrics": {
+            "cpu": null,
+            "iowait": null,
+            "load": null
+          }
+        }
+      ],
+      "total_returned": 3,
+      "total_matching": 3,
+      "exact_total_matching": true
+    }
+  },
+  "facts": {
+    "result_type": "hosts",
+    "data_count": 3,
+    "series_count": 0,
+    "response_bytes": 2032,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

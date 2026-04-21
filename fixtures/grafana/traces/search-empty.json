@@ -1,0 +1,50 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/traces/search-empty",
+  "description": "Tempo search: {resource.service.name=\"nonexistent\"} — no matches",
+  "backend": "tempo",
+  "tags": [
+    "traces",
+    "search",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/search",
+    "query_params": {
+      "q": "{resource.service.name=\"nonexistent_xyz\"}",
+      "start": "1775534557",
+      "end": "1775538157",
+      "limit": "5"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "traces": [],
+      "metrics": {
+        "inspectedBytes": "132074",
+        "totalBlocks": 1,
+        "completedJobs": 4,
+        "totalJobs": 4,
+        "totalBlockBytes": "749832"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "search",
+    "data_count": 0,
+    "trace_count": 0,
+    "span_count": 0,
+    "response_bytes": 126,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:02:37Z",
+  "source": "recorded",
+  "generator": "scripts/tempo-record-live.sh"
+}

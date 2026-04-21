@@ -1,0 +1,61 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/traces/tag-values-service",
+  "description": "Tempo tag values: resource.service.name",
+  "backend": "tempo",
+  "tags": [
+    "traces",
+    "metadata",
+    "tag-values",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v2/search/tag/resource.service.name/values",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "tagValues": [
+        {
+          "type": "string",
+          "value": "image-provider"
+        },
+        {
+          "type": "string",
+          "value": "cart"
+        },
+        {
+          "type": "string",
+          "value": "ad"
+        },
+        {
+          "type": "string",
+          "value": "product-reviews"
+        },
+        {
+          "type": "string",
+          "value": "load-generator"
+        }
+      ],
+      "metrics": {
+        "inspectedBytes": "99823"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "tag_values",
+    "data_count": 5,
+    "trace_count": 0,
+    "span_count": 0,
+    "response_bytes": 246,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:02:37Z",
+  "source": "recorded",
+  "generator": "scripts/tempo-record-live.sh"
+}

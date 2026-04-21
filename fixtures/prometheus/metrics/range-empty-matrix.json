@@ -1,0 +1,50 @@
+{
+  "fixture_version": "1.0",
+  "id": "prometheus/metrics/range-empty-matrix",
+  "description": "PromQL range query: no matching series",
+  "backend": "prometheus",
+  "tags": [
+    "metrics",
+    "query",
+    "range",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query_range",
+    "query_params": {
+      "query": "nonexistent_metric_xyz",
+      "start": "1775536413",
+      "end": "1775538213",
+      "step": "60"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "matrix",
+        "result": []
+      }
+    }
+  },
+  "facts": {
+    "result_type": "matrix",
+    "series_count": 0,
+    "total_points": 0,
+    "data_count": 0,
+    "response_bytes": 63,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:03:33Z",
+  "source": "recorded",
+  "generator": "scripts/prometheus-record-live.sh"
+}

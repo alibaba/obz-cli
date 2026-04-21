@@ -1,0 +1,69 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/metrics/metric-label-values-container",
+  "description": "SLS MetricStore PromQL: values of container_name label",
+  "backend": "sls",
+  "tags": [
+    "metrics",
+    "metadata",
+    "promql",
+    "label-values",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/prometheus/sunfire-cli-test/cli-test-metrics/api/v1/label/container_name/values",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": [
+        "",
+        "ad",
+        "cart",
+        "checkout",
+        "currency",
+        "email",
+        "flagd",
+        "frontend",
+        "image-provider",
+        "llm",
+        "load-generator",
+        "loki",
+        "otel-collector",
+        "payment",
+        "postgresql",
+        "product-catalog",
+        "product-reviews",
+        "prometheus",
+        "proton-benchmark",
+        "quote",
+        "recommendation",
+        "shipping",
+        "tempo",
+        "valkey-cart",
+        "vlogs",
+        "vm",
+        "vtraces",
+        "app-a-1.0.19",
+        "app-a-1.0.20",
+        "app-b-1.0.21"
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "label_values",
+    "series_count": 0,
+    "data_count": 30,
+    "response_bytes": 411,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

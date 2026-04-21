@@ -1,0 +1,134 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.*"
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+  BIN_NAME: obz
+
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        id: release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          generate_release_notes: true
+
+  build:
+    name: Build ${{ matrix.platform }}
+    needs: create-release
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-latest
+            platform: linux-x86_64
+            use-cross: true
+          - target: aarch64-unknown-linux-gnu
+            os: ubuntu-latest
+            platform: linux-aarch64
+            use-cross: true
+          - target: x86_64-apple-darwin
+            os: macos-13
+            platform: darwin-x86_64
+            use-cross: false
+          - target: aarch64-apple-darwin
+            os: macos-latest
+            platform: darwin-aarch64
+            use-cross: false
+          - target: x86_64-pc-windows-msvc
+            os: windows-latest
+            platform: windows-x86_64
+            use-cross: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
+
+      - name: Install cross
+        if: matrix.use-cross
+        run: |
+          CROSS_VERSION="v0.2.5"
+          curl -sSL "https://github.com/cross-rs/cross/releases/download/${CROSS_VERSION}/cross-x86_64-unknown-linux-gnu.tar.gz" \
+            | tar xz -C "$HOME/.cargo/bin"
+        shell: bash
+
+      - name: Build
+        env:
+          CARGO_PROFILE_RELEASE_STRIP: "true"
+        run: |
+          if [ "${{ matrix.use-cross }}" = "true" ]; then
+            cross build --release --target ${{ matrix.target }}
+          else
+            cargo build --release --target ${{ matrix.target }}
+          fi
+        shell: bash
+
+      - name: Package (Unix)
+        if: runner.os != 'Windows'
+        run: |
+          VERSION="${{ needs.create-release.outputs.version }}"
+          ARCHIVE="${{ env.BIN_NAME }}-${VERSION}-${{ matrix.platform }}.tar.gz"
+
+          STAGING="/tmp/staging"
+          rm -rf "$STAGING"
+          mkdir -p "$STAGING"
+          cp "target/${{ matrix.target }}/release/${{ env.BIN_NAME }}" "$STAGING/"
+          cp README.md LICENSE "$STAGING/"
+
+          tar czf "$ARCHIVE" -C "$STAGING" .
+          shasum -a 256 "$ARCHIVE" > "${ARCHIVE}.sha256"
+          echo "ARCHIVE=$ARCHIVE" >> "$GITHUB_ENV"
+        shell: bash
+
+      - name: Package (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          $VERSION = "${{ needs.create-release.outputs.version }}"
+          $ARCHIVE = "${{ env.BIN_NAME }}-${VERSION}-${{ matrix.platform }}.zip"
+
+          $STAGING = "$env:TEMP\staging"
+          New-Item -ItemType Directory -Force -Path $STAGING
+          Copy-Item "target/${{ matrix.target }}/release/${{ env.BIN_NAME }}.exe" $STAGING
+          Copy-Item README.md $STAGING
+          Copy-Item LICENSE $STAGING
+
+          Compress-Archive -Path "$STAGING\*" -DestinationPath $ARCHIVE
+          $hash = (Get-FileHash $ARCHIVE -Algorithm SHA256).Hash.ToLower()
+          "$hash  $ARCHIVE" | Out-File -Encoding utf8 "${ARCHIVE}.sha256"
+          echo "ARCHIVE=$ARCHIVE" >> $env:GITHUB_ENV
+        shell: pwsh
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{ env.ARCHIVE }}
+            ${{ env.ARCHIVE }}.sha256

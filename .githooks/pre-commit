@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# obz-cli pre-commit hook — enforces code quality before every commit.
+# Installed via: ./scripts/install-hooks.sh
+# Do NOT bypass with --no-verify.
+
+set -euo pipefail
+
+# Always run from the repository root so cargo commands find Cargo.toml
+# regardless of where git or an IDE invoked this hook.
+cd "$(git rev-parse --show-toplevel)"
+
+# Use ~/.cargo/bin/ toolchain (system rustc may be too old).
+if [ ! -x "$HOME/.cargo/bin/cargo" ]; then
+    echo "ERROR: cargo not found at $HOME/.cargo/bin/cargo"
+    exit 1
+fi
+export PATH="$HOME/.cargo/bin:$PATH"
+
+echo "==> Running cargo fmt --check..."
+if ! cargo fmt --all -- --check; then
+    echo ""
+    echo "ERROR: Code is not formatted. Run 'cargo fmt --all' and try again."
+    exit 1
+fi
+
+echo "==> Running cargo clippy..."
+if ! cargo clippy --workspace --all-targets -- -D warnings; then
+    echo ""
+    echo "ERROR: Clippy warnings found. Fix them and try again."
+    exit 1
+fi
+
+# Check staged .rs files for debug macros.
+# Uses 'git show :FILE' to read the staged (index) content, not the working
+# tree — so the check cannot be bypassed by modifying the file after staging.
+# Note: this is text-based matching, not syntax-aware; it will also flag
+# macros that appear inside comments or string literals.
+FOUND=0
+
+while IFS= read -r -d '' file; do
+    content=$(git show ":$file")
+
+    if echo "$content" | grep -nE '(^|[^[:alnum:]_])todo![[:space:]]*\(' > /dev/null 2>&1; then
+        echo "$content" | grep -nE '(^|[^[:alnum:]_])todo![[:space:]]*\(' | sed "s|^|$file:|"
+        echo ""
+        echo "ERROR: Found todo!() in staged file: $file"
+        echo "       Use // TODO: comments instead."
+        FOUND=1
+    fi
+
+    if echo "$content" | grep -nE '(^|[^[:alnum:]_])unimplemented![[:space:]]*\(' > /dev/null 2>&1; then
+        echo "$content" | grep -nE '(^|[^[:alnum:]_])unimplemented![[:space:]]*\(' | sed "s|^|$file:|"
+        echo ""
+        echo "ERROR: Found unimplemented!() in staged file: $file"
+        FOUND=1
+    fi
+
+    if echo "$content" | grep -nE '(^|[^[:alnum:]_])dbg![[:space:]]*\(' > /dev/null 2>&1; then
+        echo "$content" | grep -nE '(^|[^[:alnum:]_])dbg![[:space:]]*\(' | sed "s|^|$file:|"
+        echo ""
+        echo "ERROR: Found dbg!() in staged file: $file"
+        echo "       Remove debugging macros before committing."
+        FOUND=1
+    fi
+done < <(git diff --cached --name-only -z --diff-filter=ACM -- '*.rs')
+
+if [ "$FOUND" -eq 1 ]; then
+    exit 1
+fi
+
+echo "==> Pre-commit checks passed."

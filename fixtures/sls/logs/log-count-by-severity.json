@@ -1,0 +1,73 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/logs/log-count-by-severity",
+  "description": "SLS Log SQL: log count by severity",
+  "backend": "sls",
+  "tags": [
+    "logs",
+    "sql",
+    "count",
+    "group-by",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logstores/cli-test-logs",
+    "query_params": {
+      "type": "log",
+      "from": "1775136067",
+      "to": "1775139667",
+      "query": "* | SELECT severityText, COUNT(*) as cnt GROUP BY severityText ORDER BY cnt DESC"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "x-log-progress": "Complete",
+      "x-log-count": "5"
+    },
+    "body": [
+      {
+        "severityText": "info",
+        "cnt": "6872",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "severityText": "error",
+        "cnt": "4640",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "severityText": "INFO",
+        "cnt": "3840",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "severityText": "warn",
+        "cnt": "1182",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "severityText": "WARN",
+        "cnt": "59",
+        "__source__": "",
+        "__time__": "1775136067"
+      }
+    ]
+  },
+  "facts": {
+    "result_type": "sql",
+    "log_count": 5,
+    "data_count": 5,
+    "response_bytes": 424,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

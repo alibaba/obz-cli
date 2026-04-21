@@ -1,0 +1,758 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/facets-all",
+  "description": "LogsQL facets: * — top values for each field",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "facets",
+    "basic",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/facets",
+    "query_params": {},
+    "body": {
+      "query": "*",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "facets": [
+        {
+          "field_name": "_stream_id",
+          "values": [
+            {
+              "field_value": "0000000000000000f9e0d2cda468d0595bfc0f86f23e6166",
+              "hits": 12638
+            },
+            {
+              "field_value": "0000000000000000ebdd567f4fa04e35343695240334782f",
+              "hits": 3848
+            },
+            {
+              "field_value": "0000000000000000ab74bb566f0e83e9ba6ada9186bf08fa",
+              "hits": 116
+            },
+            {
+              "field_value": "0000000000000000e5ed7a32966bc1c838d070a7d65cf857",
+              "hits": 58
+            }
+          ]
+        },
+        {
+          "field_name": "code.function.name",
+          "values": [
+            {
+              "field_value": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON",
+              "hits": 1856
+            },
+            {
+              "field_value": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/opensearchexporter.(*clientLogger).LogRoundTrip",
+              "hits": 1200
+            },
+            {
+              "field_value": "go.opentelemetry.io/collector/exporter/exporterhelper/internal.NewQueueSender.func1",
+              "hits": 1200
+            },
+            {
+              "field_value": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs.transform.func1",
+              "hits": 1162
+            },
+            {
+              "field_value": "browse_product",
+              "hits": 614
+            },
+            {
+              "field_value": "add_to_cart",
+              "hits": 384
+            },
+            {
+              "field_value": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1",
+              "hits": 374
+            },
+            {
+              "field_value": "get_ads",
+              "hits": 202
+            },
+            {
+              "field_value": "view_cart",
+              "hits": 195
+            },
+            {
+              "field_value": "get_recommendations",
+              "hits": 181
+            }
+          ]
+        },
+        {
+          "field_name": "code.line.number",
+          "values": [
+            {
+              "field_value": "196",
+              "hits": 1856
+            },
+            {
+              "field_value": "36",
+              "hits": 1200
+            },
+            {
+              "field_value": "50",
+              "hits": 1200
+            },
+            {
+              "field_value": "130",
+              "hits": 614
+            },
+            {
+              "field_value": "109",
+              "hits": 581
+            },
+            {
+              "field_value": "97",
+              "hits": 581
+            },
+            {
+              "field_value": "184",
+              "hits": 384
+            },
+            {
+              "field_value": "61",
+              "hits": 374
+            },
+            {
+              "field_value": "165",
+              "hits": 202
+            },
+            {
+              "field_value": "174",
+              "hits": 195
+            }
+          ]
+        },
+        {
+          "field_name": "data points",
+          "values": [
+            {
+              "field_value": "7",
+              "hits": 379
+            },
+            {
+              "field_value": "128",
+              "hits": 340
+            },
+            {
+              "field_value": "34",
+              "hits": 329
+            },
+            {
+              "field_value": "1110",
+              "hits": 60
+            },
+            {
+              "field_value": "18",
+              "hits": 60
+            },
+            {
+              "field_value": "44",
+              "hits": 60
+            },
+            {
+              "field_value": "53",
+              "hits": 60
+            },
+            {
+              "field_value": "61",
+              "hits": 60
+            },
+            {
+              "field_value": "68",
+              "hits": 60
+            },
+            {
+              "field_value": "9",
+              "hits": 60
+            }
+          ]
+        },
+        {
+          "field_name": "docker.cli.cobra.command_path",
+          "values": [
+            {
+              "field_value": "docker compose",
+              "hits": 4022
+            }
+          ]
+        },
+        {
+          "field_name": "dropped_items",
+          "values": [
+            {
+              "field_value": "3",
+              "hits": 273
+            },
+            {
+              "field_value": "5",
+              "hits": 132
+            },
+            {
+              "field_value": "6",
+              "hits": 114
+            },
+            {
+              "field_value": "4",
+              "hits": 87
+            },
+            {
+              "field_value": "7",
+              "hits": 55
+            },
+            {
+              "field_value": "8",
+              "hits": 48
+            },
+            {
+              "field_value": "2",
+              "hits": 45
+            },
+            {
+              "field_value": "10",
+              "hits": 36
+            },
+            {
+              "field_value": "11",
+              "hits": 34
+            },
+            {
+              "field_value": "9",
+              "hits": 27
+            }
+          ]
+        },
+        {
+          "field_name": "grpc_log",
+          "values": [
+            {
+              "field_value": "true",
+              "hits": 2
+            }
+          ]
+        },
+        {
+          "field_name": "host",
+          "values": [
+            {
+              "field_value": "553e8e1dede3",
+              "hits": 2
+            }
+          ]
+        },
+        {
+          "field_name": "id",
+          "values": [
+            {
+              "field_value": "6489e04b792221b1d37b416bdf2f63deb74cf0ecd9d71206fb9add95880e111f",
+              "hits": 83
+            },
+            {
+              "field_value": "7a399ae677e34f2d0c89620f6512ca9b0f35e684e0aa87397231510039fe375b",
+              "hits": 81
+            },
+            {
+              "field_value": "28dc642cfe3a1ef79aedcb0fa35e61e613a87c51e400cd8dd1e3853f4ff7db7a",
+              "hits": 77
+            },
+            {
+              "field_value": "1f4051c77ae9ac0059206e1f0366e05a70ab160529a8b4df02231752e99c9bc4",
+              "hits": 76
+            },
+            {
+              "field_value": "4fc13125a9ab46f96c4e0afc150d1f96db36e0d365b9c74277b58f6005b37c5f",
+              "hits": 75
+            },
+            {
+              "field_value": "b4cd0c040ef98422149313a3063d527a1367a58317a12b48d45fd7ce40df7993",
+              "hits": 75
+            },
+            {
+              "field_value": "f49cba40513cd8a203479d3f1ca2b41ea89d5e4f6eef92cddc82dee3c485b183",
+              "hits": 75
+            },
+            {
+              "field_value": "68816571f99c4f85fcf0c5ec69e1c0ef89bc5b7e730b6be87847ad609156d2f7",
+              "hits": 74
+            },
+            {
+              "field_value": "696286740ca31e389219a25f8af3b07f6e3db5908e7a3ddbac066cb7bc906ed7",
+              "hits": 74
+            },
+            {
+              "field_value": "8ed3b322ef068060ac4f06756a35025dbfeddb61bd3f542e80950b2aadd0e426",
+              "hits": 73
+            }
+          ]
+        },
+        {
+          "field_name": "log records",
+          "values": [
+            {
+              "field_value": "1",
+              "hits": 931
+            },
+            {
+              "field_value": "3",
+              "hits": 541
+            },
+            {
+              "field_value": "2",
+              "hits": 513
+            },
+            {
+              "field_value": "4",
+              "hits": 419
+            },
+            {
+              "field_value": "6",
+              "hits": 318
+            },
+            {
+              "field_value": "5",
+              "hits": 221
+            },
+            {
+              "field_value": "8",
+              "hits": 167
+            },
+            {
+              "field_value": "7",
+              "hits": 111
+            },
+            {
+              "field_value": "10",
+              "hits": 75
+            },
+            {
+              "field_value": "9",
+              "hits": 63
+            }
+          ]
+        },
+        {
+          "field_name": "method",
+          "values": [
+            {
+              "field_value": "POST",
+              "hits": 1200
+            }
+          ]
+        },
+        {
+          "field_name": "metrics",
+          "values": [
+            {
+              "field_value": "70",
+              "hits": 340
+            },
+            {
+              "field_value": "29",
+              "hits": 329
+            },
+            {
+              "field_value": "4",
+              "hits": 319
+            },
+            {
+              "field_value": "15",
+              "hits": 120
+            },
+            {
+              "field_value": "10",
+              "hits": 60
+            },
+            {
+              "field_value": "16",
+              "hits": 60
+            },
+            {
+              "field_value": "23",
+              "hits": 60
+            },
+            {
+              "field_value": "33",
+              "hits": 60
+            },
+            {
+              "field_value": "8",
+              "hits": 60
+            },
+            {
+              "field_value": "82",
+              "hits": 60
+            }
+          ]
+        },
+        {
+          "field_name": "otelServiceName",
+          "values": [
+            {
+              "field_value": "load-generator",
+              "hits": 3848
+            },
+            {
+              "field_value": "recommendation",
+              "hits": 174
+            }
+          ]
+        },
+        {
+          "field_name": "otelTraceSampled",
+          "values": [
+            {
+              "field_value": "true",
+              "hits": 3848
+            },
+            {
+              "field_value": "false",
+              "hits": 174
+            }
+          ]
+        },
+        {
+          "field_name": "path",
+          "values": [
+            {
+              "field_value": "/_bulk",
+              "hits": 1200
+            }
+          ]
+        },
+        {
+          "field_name": "reason",
+          "values": [
+            {
+              "field_value": "dial tcp 33.31.130.103:9200: i/o timeout",
+              "hits": 407
+            },
+            {
+              "field_value": "dial tcp 11.231.220.118:9200: i/o timeout",
+              "hits": 404
+            },
+            {
+              "field_value": "dial tcp 11.226.7.127:9200: i/o timeout",
+              "hits": 389
+            }
+          ]
+        },
+        {
+          "field_name": "resource logs",
+          "values": [
+            {
+              "field_value": "1",
+              "hits": 3515
+            }
+          ]
+        },
+        {
+          "field_name": "resource metrics",
+          "values": [
+            {
+              "field_value": "1",
+              "hits": 1311
+            },
+            {
+              "field_value": "14",
+              "hits": 340
+            },
+            {
+              "field_value": "23",
+              "hits": 76
+            },
+            {
+              "field_value": "24",
+              "hits": 68
+            },
+            {
+              "field_value": "25",
+              "hits": 66
+            },
+            {
+              "field_value": "5",
+              "hits": 60
+            },
+            {
+              "field_value": "26",
+              "hits": 37
+            },
+            {
+              "field_value": "22",
+              "hits": 35
+            },
+            {
+              "field_value": "21",
+              "hits": 27
+            },
+            {
+              "field_value": "27",
+              "hits": 23
+            }
+          ]
+        },
+        {
+          "field_name": "resource spans",
+          "values": [
+            {
+              "field_value": "1",
+              "hits": 1197
+            }
+          ]
+        },
+        {
+          "field_name": "scope.attributes.otelcol.component.id",
+          "values": [
+            {
+              "field_value": "debug",
+              "hits": 6842
+            },
+            {
+              "field_value": "opensearch",
+              "hits": 2400
+            },
+            {
+              "field_value": "docker_stats",
+              "hits": 2214
+            },
+            {
+              "field_value": "datadog",
+              "hits": 1164
+            },
+            {
+              "field_value": "hostmetrics",
+              "hits": 16
+            }
+          ]
+        },
+        {
+          "field_name": "scope.attributes.otelcol.component.kind",
+          "values": [
+            {
+              "field_value": "exporter",
+              "hits": 10406
+            },
+            {
+              "field_value": "receiver",
+              "hits": 2230
+            }
+          ]
+        },
+        {
+          "field_name": "scope.attributes.otelcol.signal",
+          "values": [
+            {
+              "field_value": "logs",
+              "hits": 7077
+            },
+            {
+              "field_value": "metrics",
+              "hits": 4362
+            },
+            {
+              "field_value": "traces",
+              "hits": 1197
+            }
+          ]
+        },
+        {
+          "field_name": "scope.name",
+          "values": [
+            {
+              "field_value": "go.opentelemetry.io/collector/service",
+              "hits": 12638
+            },
+            {
+              "field_value": "root",
+              "hits": 3848
+            },
+            {
+              "field_value": "main",
+              "hits": 116
+            },
+            {
+              "field_value": "opentelemetry._logs._internal",
+              "hits": 58
+            }
+          ]
+        },
+        {
+          "field_name": "scraper",
+          "values": [
+            {
+              "field_value": "docker_stats",
+              "hits": 358
+            },
+            {
+              "field_value": "process",
+              "hits": 16
+            }
+          ]
+        },
+        {
+          "field_name": "service.instance.id",
+          "values": [
+            {
+              "field_value": "907a5888-24ca-4898-af4c-f201cd414d5a",
+              "hits": 12638
+            }
+          ]
+        },
+        {
+          "field_name": "service.name",
+          "values": [
+            {
+              "field_value": "otelcol-contrib",
+              "hits": 12638
+            },
+            {
+              "field_value": "load-generator",
+              "hits": 3848
+            },
+            {
+              "field_value": "recommendation",
+              "hits": 174
+            }
+          ]
+        },
+        {
+          "field_name": "service.version",
+          "values": [
+            {
+              "field_value": "0.146.1",
+              "hits": 12638
+            }
+          ]
+        },
+        {
+          "field_name": "severity",
+          "values": [
+            {
+              "field_value": "info",
+              "hits": 6844
+            },
+            {
+              "field_value": "error",
+              "hits": 4630
+            },
+            {
+              "field_value": "INFO",
+              "hits": 3964
+            },
+            {
+              "field_value": "warn",
+              "hits": 1164
+            },
+            {
+              "field_value": "WARN",
+              "hits": 58
+            }
+          ]
+        },
+        {
+          "field_name": "spans",
+          "values": [
+            {
+              "field_value": "1",
+              "hits": 391
+            },
+            {
+              "field_value": "2",
+              "hits": 176
+            },
+            {
+              "field_value": "4",
+              "hits": 126
+            },
+            {
+              "field_value": "6",
+              "hits": 126
+            },
+            {
+              "field_value": "5",
+              "hits": 80
+            },
+            {
+              "field_value": "7",
+              "hits": 59
+            },
+            {
+              "field_value": "8",
+              "hits": 59
+            },
+            {
+              "field_value": "3",
+              "hits": 44
+            },
+            {
+              "field_value": "10",
+              "hits": 31
+            },
+            {
+              "field_value": "9",
+              "hits": 27
+            }
+          ]
+        },
+        {
+          "field_name": "telemetry.auto.version",
+          "values": [
+            {
+              "field_value": "0.61b0",
+              "hits": 116
+            }
+          ]
+        },
+        {
+          "field_name": "telemetry.sdk.language",
+          "values": [
+            {
+              "field_value": "python",
+              "hits": 4022
+            }
+          ]
+        },
+        {
+          "field_name": "telemetry.sdk.name",
+          "values": [
+            {
+              "field_value": "opentelemetry",
+              "hits": 4022
+            }
+          ]
+        },
+        {
+          "field_name": "telemetry.sdk.version",
+          "values": [
+            {
+              "field_value": "1.40.0",
+              "hits": 4022
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "facets",
+    "data_count": 33,
+    "response_bytes": 7552,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

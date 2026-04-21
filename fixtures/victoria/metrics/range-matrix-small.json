@@ -1,0 +1,187 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/metrics/range-matrix-small",
+  "description": "PromQL range query: single series over 30m — container cpu utilization",
+  "backend": "victoriametrics",
+  "tags": [
+    "metrics",
+    "query",
+    "range",
+    "matrix",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query_range",
+    "query_params": {
+      "query": "container_cpu_utilization_ratio",
+      "start": "1775136560",
+      "end": "1775138360",
+      "step": "60"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "matrix",
+        "result": [
+          {
+            "metric": {
+              "__name__": "container_cpu_utilization_ratio",
+              "otel_scope_name": "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver",
+              "otel_scope_version": "0.146.1"
+            },
+            "values": [
+              [
+                1775136560,
+                "0.01787657574612"
+              ],
+              [
+                1775136620,
+                "1.816176376193"
+              ],
+              [
+                1775136680,
+                "376.93806806"
+              ],
+              [
+                1775136740,
+                "0.976520451823"
+              ],
+              [
+                1775136800,
+                "0"
+              ],
+              [
+                1775136860,
+                "0.953595263279"
+              ],
+              [
+                1775136920,
+                "0.211678263566"
+              ],
+              [
+                1775136980,
+                "0.01707903567405"
+              ],
+              [
+                1775137040,
+                "7.867808346251"
+              ],
+              [
+                1775137100,
+                "0.15173473270321"
+              ],
+              [
+                1775137160,
+                "0.32831466748958"
+              ],
+              [
+                1775137220,
+                "0.337779431652"
+              ],
+              [
+                1775137280,
+                "0.12517866872348"
+              ],
+              [
+                1775137340,
+                "1.015875682218"
+              ],
+              [
+                1775137400,
+                "0.19974689928865"
+              ],
+              [
+                1775137460,
+                "0.536753264279"
+              ],
+              [
+                1775137520,
+                "0.00307744884242"
+              ],
+              [
+                1775137580,
+                "0.03212924703572"
+              ],
+              [
+                1775137640,
+                "0"
+              ],
+              [
+                1775137700,
+                "8.089224575874"
+              ],
+              [
+                1775137760,
+                "0.03357132564624"
+              ],
+              [
+                1775137820,
+                "32.9264390597"
+              ],
+              [
+                1775137880,
+                "0.03136145520691"
+              ],
+              [
+                1775137940,
+                "0.04198374695863"
+              ],
+              [
+                1775138000,
+                "0"
+              ],
+              [
+                1775138060,
+                "0.01032377764494"
+              ],
+              [
+                1775138120,
+                "0.363305044723"
+              ],
+              [
+                1775138180,
+                "0.485431592697"
+              ],
+              [
+                1775138240,
+                "0.03409986991378"
+              ],
+              [
+                1775138300,
+                "0.0373661426293"
+              ],
+              [
+                1775138360,
+                "2.891625300927"
+              ]
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "1",
+        "executionTimeMsec": 21
+      }
+    }
+  },
+  "facts": {
+    "result_type": "matrix",
+    "series_count": 1,
+    "total_points": 31,
+    "data_count": 0,
+    "response_bytes": 1238,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:20Z",
+  "source": "recorded",
+  "generator": "scripts/vm/record-live.sh"
+}

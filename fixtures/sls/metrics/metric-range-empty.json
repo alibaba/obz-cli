@@ -1,0 +1,48 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/metrics/metric-range-empty",
+  "description": "SLS MetricStore PromQL: range query — nonexistent metric, empty result",
+  "backend": "sls",
+  "tags": [
+    "metrics",
+    "query",
+    "promql",
+    "range",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/prometheus/sunfire-cli-test/cli-test-metrics/api/v1/query_range",
+    "query_params": {
+      "query": "nonexistent_metric_xyz",
+      "start": "1775139067",
+      "end": "1775139667",
+      "step": "60"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "matrix",
+        "result": []
+      }
+    }
+  },
+  "facts": {
+    "result_type": "matrix",
+    "series_count": 0,
+    "data_count": 0,
+    "response_bytes": 69,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

@@ -1,0 +1,59 @@
+[workspace]
+resolver = "2"
+members = ["crates/core", "crates/providers", "crates/obz"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+license = "Apache-2.0"
+repository = "https://github.com/alibaba/obz-cli"
+homepage = "https://github.com/alibaba/obz-cli"
+readme = "README.md"
+keywords = ["observability", "cli", "metrics", "logs", "traces"]
+categories = ["command-line-utilities", "development-tools"]
+description = "A multi-backend observability CLI tool"
+
+[workspace.lints.rust]
+unreachable_pub = "warn"
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+correctness = { level = "deny", priority = -1 }
+enum_glob_use = "warn"
+redundant_closure_for_method_calls = "warn"
+semicolon_if_nothing_returned = "warn"
+manual_let_else = "warn"
+needless_pass_by_value = "warn"
+doc_markdown = "warn"
+missing_errors_doc = "warn"
+missing_panics_doc = "warn"
+
+[workspace.dependencies]
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+
+# Async
+tokio = { version = "1", features = ["rt", "macros", "net", "time"] }
+
+# HTTP — use rustls with ring crypto provider (pure Rust, no C dependencies).
+# reqwest 0.13's "rustls" feature pulls aws-lc-rs which fails on older GCC.
+# "rustls-no-provider" avoids that; we explicitly select ring via the rustls crate.
+rustls = { version = "0.23", default-features = false, features = ["ring", "logging", "std", "tls12"] }
+
+# Error handling
+async-trait = "0.1"
+
+# Time
+jiff = "0.2"
+
+# Workspace crates
+obz-core = { path = "crates/core" }
+obz-providers = { path = "crates/providers" }
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
+panic = "abort"

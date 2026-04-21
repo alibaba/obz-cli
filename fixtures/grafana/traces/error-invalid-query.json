@@ -1,0 +1,38 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/traces/error-invalid-query",
+  "description": "Tempo error: invalid TraceQL syntax",
+  "backend": "tempo",
+  "tags": [
+    "traces",
+    "error",
+    "syntax",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/search",
+    "query_params": {
+      "q": "{{{invalid+syntax",
+      "start": "1775534557",
+      "end": "1775538157",
+      "limit": "5"
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "text/plain"
+    },
+    "body_raw": "invalid TraceQL query: parse error at line 1, col 2: syntax error: unexpected {"
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 79,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:02:37Z",
+  "source": "recorded",
+  "generator": "scripts/tempo-record-live.sh"
+}

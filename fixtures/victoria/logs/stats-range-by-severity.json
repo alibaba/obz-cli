@@ -1,0 +1,227 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/stats-range-by-severity",
+  "description": "LogsQL stats_query_range: * | stats by (severity) count(*)",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "stats",
+    "range",
+    "prometheus-compat",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/stats_query_range",
+    "query_params": {},
+    "body": {
+      "query": "*+|+stats+by+(severity)+count(*)",
+      "step": "600s",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "matrix",
+        "result": [
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "severity": "INFO"
+            },
+            "values": [
+              [
+                1775134200,
+                "644"
+              ],
+              [
+                1775134800,
+                "722"
+              ],
+              [
+                1775135400,
+                "636"
+              ],
+              [
+                1775136000,
+                "620"
+              ],
+              [
+                1775136600,
+                "670"
+              ],
+              [
+                1775137200,
+                "668"
+              ],
+              [
+                1775137800,
+                "594"
+              ]
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "severity": "WARN"
+            },
+            "values": [
+              [
+                1775134200,
+                "10"
+              ],
+              [
+                1775134800,
+                "10"
+              ],
+              [
+                1775135400,
+                "10"
+              ],
+              [
+                1775136000,
+                "10"
+              ],
+              [
+                1775136600,
+                "10"
+              ],
+              [
+                1775137200,
+                "9"
+              ],
+              [
+                1775137800,
+                "8"
+              ]
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "severity": "error"
+            },
+            "values": [
+              [
+                1775134200,
+                "752"
+              ],
+              [
+                1775134800,
+                "766"
+              ],
+              [
+                1775135400,
+                "805"
+              ],
+              [
+                1775136000,
+                "766"
+              ],
+              [
+                1775136600,
+                "768"
+              ],
+              [
+                1775137200,
+                "760"
+              ],
+              [
+                1775137800,
+                "691"
+              ]
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "severity": "info"
+            },
+            "values": [
+              [
+                1775134200,
+                "1141"
+              ],
+              [
+                1775134800,
+                "1147"
+              ],
+              [
+                1775135400,
+                "1131"
+              ],
+              [
+                1775136000,
+                "1149"
+              ],
+              [
+                1775136600,
+                "1160"
+              ],
+              [
+                1775137200,
+                "1125"
+              ],
+              [
+                1775137800,
+                "1033"
+              ]
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "severity": "warn"
+            },
+            "values": [
+              [
+                1775134200,
+                "200"
+              ],
+              [
+                1775134800,
+                "200"
+              ],
+              [
+                1775135400,
+                "201"
+              ],
+              [
+                1775136000,
+                "200"
+              ],
+              [
+                1775136600,
+                "198"
+              ],
+              [
+                1775137200,
+                "183"
+              ],
+              [
+                1775137800,
+                "162"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "stats_range",
+    "data_count": 5,
+    "response_bytes": 1046,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

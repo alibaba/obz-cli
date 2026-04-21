@@ -1,0 +1,44 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/metrics/metric-series-empty",
+  "description": "SLS MetricStore PromQL: series for nonexistent metric — empty",
+  "backend": "sls",
+  "tags": [
+    "metrics",
+    "metadata",
+    "promql",
+    "series",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/prometheus/sunfire-cli-test/cli-test-metrics/api/v1/series",
+    "query_params": {
+      "match[]": "nonexistent_metric_xyz",
+      "start": "1775136067",
+      "end": "1775139667"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": []
+    }
+  },
+  "facts": {
+    "result_type": "series",
+    "series_count": 0,
+    "data_count": 0,
+    "response_bytes": 33,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

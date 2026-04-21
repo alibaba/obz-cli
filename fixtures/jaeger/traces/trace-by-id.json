@@ -1,0 +1,242 @@
+{
+  "fixture_version": "1.0",
+  "id": "jaeger/traces/trace-by-id",
+  "description": "Jaeger API: single trace by ID — real trace from cart service",
+  "backend": "jaeger",
+  "tags": [
+    "traces",
+    "trace-detail",
+    "basic",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/traces/48cb55e5961967938343ac3d39cc3b57",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [
+        {
+          "traceID": "48cb55e5961967938343ac3d39cc3b57",
+          "spans": [
+            {
+              "traceID": "48cb55e5961967938343ac3d39cc3b57",
+              "spanID": "acf31f1f4a5f5dbc",
+              "operationName": "POST",
+              "references": [
+                {
+                  "refType": "CHILD_OF",
+                  "traceID": "48cb55e5961967938343ac3d39cc3b57",
+                  "spanID": "9b611fe2ea1d4c78"
+                }
+              ],
+              "startTime": 1775538598719363,
+              "duration": 519,
+              "tags": [
+                {
+                  "key": "error",
+                  "type": "bool",
+                  "value": true
+                },
+                {
+                  "key": "error.type",
+                  "type": "string",
+                  "value": "404"
+                },
+                {
+                  "key": "http.request.method",
+                  "type": "string",
+                  "value": "POST"
+                },
+                {
+                  "key": "http.response.status_code",
+                  "type": "int64",
+                  "value": 404
+                },
+                {
+                  "key": "network.protocol.version",
+                  "type": "string",
+                  "value": "2"
+                },
+                {
+                  "key": "otel.scope.name",
+                  "type": "string",
+                  "value": "System.Net.Http"
+                },
+                {
+                  "key": "otel.status_code",
+                  "type": "string",
+                  "value": "ERROR"
+                },
+                {
+                  "key": "server.address",
+                  "type": "string",
+                  "value": "flagd"
+                },
+                {
+                  "key": "server.port",
+                  "type": "int64",
+                  "value": 8013
+                },
+                {
+                  "key": "span.kind",
+                  "type": "string",
+                  "value": "client"
+                },
+                {
+                  "key": "url.full",
+                  "type": "string",
+                  "value": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean"
+                }
+              ],
+              "logs": [],
+              "processID": "p1",
+              "warnings": null
+            },
+            {
+              "traceID": "48cb55e5961967938343ac3d39cc3b57",
+              "spanID": "9b611fe2ea1d4c78",
+              "operationName": "flagd.evaluation.v2.Service/ResolveBoolean",
+              "references": [],
+              "startTime": 1775538598719323,
+              "duration": 576,
+              "tags": [
+                {
+                  "key": "error",
+                  "type": "bool",
+                  "value": true
+                },
+                {
+                  "key": "otel.scope.name",
+                  "type": "string",
+                  "value": "OpenTelemetry.Instrumentation.GrpcNetClient"
+                },
+                {
+                  "key": "otel.scope.version",
+                  "type": "string",
+                  "value": "1.15.0-beta.1"
+                },
+                {
+                  "key": "otel.status_code",
+                  "type": "string",
+                  "value": "ERROR"
+                },
+                {
+                  "key": "rpc.grpc.status_code",
+                  "type": "int64",
+                  "value": 12
+                },
+                {
+                  "key": "rpc.method",
+                  "type": "string",
+                  "value": "ResolveBoolean"
+                },
+                {
+                  "key": "rpc.service",
+                  "type": "string",
+                  "value": "flagd.evaluation.v2.Service"
+                },
+                {
+                  "key": "rpc.system",
+                  "type": "string",
+                  "value": "grpc"
+                },
+                {
+                  "key": "server.address",
+                  "type": "string",
+                  "value": "flagd"
+                },
+                {
+                  "key": "server.port",
+                  "type": "int64",
+                  "value": 8013
+                },
+                {
+                  "key": "span.kind",
+                  "type": "string",
+                  "value": "client"
+                }
+              ],
+              "logs": [],
+              "processID": "p1",
+              "warnings": null
+            }
+          ],
+          "processes": {
+            "p1": {
+              "serviceName": "cart",
+              "tags": [
+                {
+                  "key": "container.id",
+                  "type": "string",
+                  "value": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+                },
+                {
+                  "key": "docker.cli.cobra.command_path",
+                  "type": "string",
+                  "value": "docker compose"
+                },
+                {
+                  "key": "host.arch",
+                  "type": "string",
+                  "value": "amd64"
+                },
+                {
+                  "key": "host.name",
+                  "type": "string",
+                  "value": "demo-host-01"
+                },
+                {
+                  "key": "os.type",
+                  "type": "string",
+                  "value": "linux"
+                },
+                {
+                  "key": "service.instance.id",
+                  "type": "string",
+                  "value": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                },
+                {
+                  "key": "telemetry.sdk.language",
+                  "type": "string",
+                  "value": "dotnet"
+                },
+                {
+                  "key": "telemetry.sdk.name",
+                  "type": "string",
+                  "value": "opentelemetry"
+                },
+                {
+                  "key": "telemetry.sdk.version",
+                  "type": "string",
+                  "value": "1.15.0"
+                }
+              ]
+            }
+          },
+          "warnings": null
+        }
+      ],
+      "total": 0,
+      "limit": 0,
+      "offset": 0,
+      "errors": null
+    }
+  },
+  "facts": {
+    "result_type": "trace_detail",
+    "data_count": 1,
+    "trace_count": 1,
+    "span_count": 2,
+    "response_bytes": 2740,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:10:17Z",
+  "source": "recorded",
+  "generator": "scripts/jaeger-record-live.sh"
+}

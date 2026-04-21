@@ -1,0 +1,704 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/logs/query-by-service",
+  "description": "Loki LogQL: {service_name=\"otelcol-contrib\"} — logs from otelcol-contrib service",
+  "backend": "loki",
+  "tags": [
+    "logs",
+    "query",
+    "filter",
+    "service",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/loki/api/v1/query_range",
+    "query_params": {
+      "query": "{service_name=\"otelcol-contrib\"}",
+      "start": "1775534747000000000",
+      "end": "1775538347000000000",
+      "limit": "20"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "streams",
+        "result": [
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "observed_timestamp": "1775538346468312361",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "traces",
+              "resource_spans": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info",
+              "spans": "6"
+            },
+            "values": [
+              [
+                "1775538346468275580",
+                "Traces"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "observed_timestamp": "1775538342220330790",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "traces",
+              "resource_spans": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info",
+              "spans": "1"
+            },
+            "values": [
+              [
+                "1775538342220312958",
+                "Traces"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "observed_timestamp": "1775538341465114326",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "traces",
+              "resource_spans": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info",
+              "spans": "4"
+            },
+            "values": [
+              [
+                "1775538341465083820",
+                "Traces"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "observed_timestamp": "1775538336461782923",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "traces",
+              "resource_spans": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info",
+              "spans": "8"
+            },
+            "values": [
+              [
+                "1775538336461756976",
+                "Traces"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "6",
+              "observed_timestamp": "1775538346464438966",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538346464389235",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "6",
+              "observed_timestamp": "1775538336457427419",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538336457396532",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "4",
+              "observed_timestamp": "1775538341460731847",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538341460696522",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "4",
+              "observed_timestamp": "1775538339090766176",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538339090741575",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "3",
+              "observed_timestamp": "1775538342090867366",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538342090827512",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "3",
+              "observed_timestamp": "1775538341091099608",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538341091012351",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "2",
+              "observed_timestamp": "1775538343091198281",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538343091168606",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "2",
+              "observed_timestamp": "1775538337090873274",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538337090817228",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "1",
+              "observed_timestamp": "1775538344090456193",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538344090399777",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "1",
+              "observed_timestamp": "1775538340090869511",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538340090807055",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "log_records": "1",
+              "observed_timestamp": "1775538338091277987",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "logs",
+              "resource_logs": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538338091217562",
+                "Logs"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "data_points": "7",
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "metrics": "4",
+              "observed_timestamp": "1775538338520364773",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "metrics",
+              "resource_metrics": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538338520325863",
+                "Metrics"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "data_points": "511",
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "metrics": "391",
+              "observed_timestamp": "1775538340590515572",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "metrics",
+              "resource_metrics": "32",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538340590485101",
+                "Metrics"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "data_points": "38",
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "metrics": "26",
+              "observed_timestamp": "1775538340178562590",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "metrics",
+              "resource_metrics": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538340178531263",
+                "Metrics"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "data_points": "34",
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "metrics": "29",
+              "observed_timestamp": "1775538338520528465",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "metrics",
+              "resource_metrics": "1",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538338520498841",
+                "Metrics"
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "data_points": "128",
+              "detected_level": "info",
+              "host_name": "demo-host-01",
+              "metrics": "70",
+              "observed_timestamp": "1775538338531211568",
+              "os_type": "linux",
+              "otelcol_component_id": "debug",
+              "otelcol_component_kind": "exporter",
+              "otelcol_signal": "metrics",
+              "resource_metrics": "14",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "9",
+              "severity_text": "info"
+            },
+            "values": [
+              [
+                "1775538338531191772",
+                "Metrics"
+              ]
+            ]
+          }
+        ],
+        "stats": {
+          "summary": {
+            "bytesProcessedPerSecond": 9096556,
+            "linesProcessedPerSecond": 76028,
+            "totalBytesProcessed": 98948,
+            "totalLinesProcessed": 827,
+            "execTime": 0.010878,
+            "queueTime": 9e-05,
+            "subqueries": 0,
+            "totalEntriesReturned": 20,
+            "splits": 1,
+            "shards": 1,
+            "totalPostFilterLines": 827,
+            "totalStructuredMetadataBytesProcessed": 91312
+          },
+          "querier": {
+            "store": {
+              "totalChunksRef": 0,
+              "totalChunksDownloaded": 0,
+              "chunksDownloadTime": 0,
+              "queryReferencedStructuredMetadata": false,
+              "chunk": {
+                "headChunkBytes": 0,
+                "headChunkLines": 0,
+                "decompressedBytes": 0,
+                "decompressedLines": 0,
+                "compressedBytes": 0,
+                "totalDuplicates": 0,
+                "postFilterLines": 0,
+                "headChunkStructuredMetadataBytes": 0,
+                "decompressedStructuredMetadataBytes": 0
+              },
+              "chunkRefsFetchTime": 0,
+              "congestionControlLatency": 0,
+              "pipelineWrapperFilteredLines": 0
+            }
+          },
+          "ingester": {
+            "totalReached": 1,
+            "totalChunksMatched": 1,
+            "totalBatches": 1,
+            "totalLinesSent": 20,
+            "store": {
+              "totalChunksRef": 0,
+              "totalChunksDownloaded": 0,
+              "chunksDownloadTime": 0,
+              "queryReferencedStructuredMetadata": false,
+              "chunk": {
+                "headChunkBytes": 98948,
+                "headChunkLines": 827,
+                "decompressedBytes": 0,
+                "decompressedLines": 0,
+                "compressedBytes": 0,
+                "totalDuplicates": 0,
+                "postFilterLines": 827,
+                "headChunkStructuredMetadataBytes": 91312,
+                "decompressedStructuredMetadataBytes": 0
+              },
+              "chunkRefsFetchTime": 105343,
+              "congestionControlLatency": 0,
+              "pipelineWrapperFilteredLines": 0
+            }
+          },
+          "cache": {
+            "chunk": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "index": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "result": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "statsResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "volumeResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "seriesResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "labelResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "instantMetricResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            }
+          },
+          "index": {
+            "totalChunks": 0,
+            "postFilterChunks": 0,
+            "shardsDuration": 0,
+            "usedBloomFilters": false
+          }
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs",
+    "log_count": 20,
+    "data_count": 20,
+    "response_bytes": 13374,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:05:47Z",
+  "source": "recorded",
+  "generator": "scripts/loki-record-live.sh"
+}

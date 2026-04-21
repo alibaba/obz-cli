@@ -1,0 +1,59 @@
+{
+  "fixture_version": "1.0",
+  "id": "opensearch/traces/search-empty",
+  "description": "OpenSearch traces: match nonexistent — empty",
+  "backend": "opensearch",
+  "tags": [
+    "traces",
+    "query",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/otel-traces-2026-04-07/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "match": {
+          "resource.service.name": "nonexistent_xyz"
+        }
+      },
+      "size": 10
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 1,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 0,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+      }
+    }
+  },
+  "facts": {
+    "result_type": "traces",
+    "data_count": 0,
+    "response_bytes": 160,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:06:25Z",
+  "source": "recorded",
+  "generator": "scripts/opensearch-record-live.sh"
+}

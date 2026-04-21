@@ -1,0 +1,77 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/stats-count-by-service",
+  "description": "LogsQL stats_query: * | stats by (service.name) count(*)",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "stats",
+    "count",
+    "group-by",
+    "prometheus-compat",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/stats_query",
+    "query_params": {},
+    "body": {
+      "query": "*+|+stats+by+(service.name)+count(*)",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "service.name": "recommendation"
+            },
+            "value": [
+              1775138352,
+              "174"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "service.name": "otelcol-contrib"
+            },
+            "value": [
+              1775138352,
+              "12637"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "service.name": "load-generator"
+            },
+            "value": [
+              1775138352,
+              "3848"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "stats",
+    "data_count": 3,
+    "response_bytes": 348,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

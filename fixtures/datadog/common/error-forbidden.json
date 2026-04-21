@@ -1,0 +1,40 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/common/error-forbidden",
+  "description": "Datadog error: forbidden — invalid API key on metrics endpoint",
+  "backend": "datadog",
+  "tags": [
+    "error",
+    "auth",
+    "forbidden",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/metrics",
+    "query_params": {
+      "from": "1775133269"
+    }
+  },
+  "response": {
+    "status_code": 401,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "errors": [
+        "Unauthorized"
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "series_count": 0,
+    "response_bytes": 27,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

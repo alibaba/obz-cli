@@ -1,0 +1,34 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/traces/trace-not-found",
+  "description": "Tempo trace by ID: nonexistent trace ID",
+  "backend": "tempo",
+  "tags": [
+    "traces",
+    "trace-detail",
+    "not-found",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/traces/00000000000000000000000099999999",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 404,
+    "headers": {
+      "Content-Type": "text/plain"
+    },
+    "body_raw": ""
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 0,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:02:37Z",
+  "source": "recorded",
+  "generator": "scripts/tempo-record-live.sh"
+}

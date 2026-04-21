@@ -1,0 +1,49 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/logs/cluster-info",
+  "description": "ES cluster info: version, cluster name",
+  "backend": "elasticsearch",
+  "tags": [
+    "logs",
+    "metadata",
+    "cluster",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "c27ead2d28ee",
+      "cluster_name": "docker-cluster",
+      "cluster_uuid": "nXrfZAuCSt-2Xz_iAkEPOg",
+      "version": {
+        "number": "8.18.8",
+        "build_flavor": "default",
+        "build_type": "docker",
+        "build_hash": "c1310008a98b8bb63c9fc08e763de1d065b943ce",
+        "build_date": "2025-10-02T22:10:40.225397673Z",
+        "build_snapshot": false,
+        "lucene_version": "9.12.1",
+        "minimum_wire_compatibility_version": "7.17.0",
+        "minimum_index_compatibility_version": "7.0.0"
+      },
+      "tagline": "You Know, for Search"
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "data_count": 0,
+    "response_bytes": 541,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

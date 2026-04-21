@@ -1,0 +1,82 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/traces/agg-count-by-kind",
+  "description": "ES traces aggregation: span count by kind",
+  "backend": "elasticsearch",
+  "tags": [
+    "traces",
+    "aggregate",
+    "count",
+    "group-by",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/traces-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "size": 0,
+      "aggs": {
+        "by_kind": {
+          "terms": {
+            "field": "kind",
+            "size": 10
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 2,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 5603,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+      },
+      "aggregations": {
+        "by_kind": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "Client",
+              "doc_count": 3115
+            },
+            {
+              "key": "Internal",
+              "doc_count": 2089
+            },
+            {
+              "key": "Server",
+              "doc_count": 399
+            }
+          ]
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "aggs",
+    "data_count": 5603,
+    "response_bytes": 363,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

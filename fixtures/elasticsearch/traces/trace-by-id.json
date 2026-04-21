@@ -1,0 +1,115 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/traces/trace-by-id",
+  "description": "ES trace by ID: all spans for a specific trace",
+  "backend": "elasticsearch",
+  "tags": [
+    "traces",
+    "query",
+    "trace-by-id",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/traces-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "term": {
+          "trace_id": "2499b2eb00bb611f8635341cd1c49afa"
+        }
+      },
+      "size": 100,
+      "sort": [
+        {
+          "@timestamp": "asc"
+        }
+      ]
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 1,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 1,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": [
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZUD4umA",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552419393.0",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "2499b2eb00bb611f8635341cd1c49afa",
+              "span_id": "80275b887381aa5b",
+              "name": "GET /status",
+              "kind": "Server",
+              "duration": 0,
+              "attributes": {
+                "http.method": "GET",
+                "http.target": "/status",
+                "http.route": "/status",
+                "http.scheme": "http",
+                "http.flavor": "1.1",
+                "http.user_agent": "Go-http-client/1.1",
+                "http.request_content_length": 0,
+                "http.response_content_length": 105,
+                "http.status_code": 200,
+                "net.host.name": "_",
+                "net.host.port": 8081,
+                "net.sock.peer.addr": "192.168.16.13",
+                "net.sock.peer.port": 50330,
+                "original_span_name": "image-provider"
+              },
+              "links": [],
+              "status": {},
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "service.name": "image-provider",
+                  "host.name": "demo-host-01",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "nginx",
+                "version": "1.29.0"
+              }
+            },
+            "sort": [
+              1775552419393
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "traces",
+    "data_count": 1,
+    "response_bytes": 1168,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

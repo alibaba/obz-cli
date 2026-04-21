@@ -1,0 +1,53 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/metrics/label-values-job",
+  "description": "Label values: job — list all job label values",
+  "backend": "mimir",
+  "tags": [
+    "metrics",
+    "metadata",
+    "label-values",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/label/job/values",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": [
+        "ad",
+        "cart",
+        "checkout",
+        "frontend",
+        "image-provider",
+        "jaeger",
+        "load-generator",
+        "otelcol-contrib",
+        "payment",
+        "product-catalog",
+        "product-reviews",
+        "quote"
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "series_count": 0,
+    "total_points": 0,
+    "data_count": 12,
+    "response_bytes": 178,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:03:45Z",
+  "source": "recorded",
+  "generator": "scripts/mimir-record-live.sh"
+}

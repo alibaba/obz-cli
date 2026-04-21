@@ -1,0 +1,443 @@
+{
+  "fixture_version": "1.0",
+  "id": "opensearch/logs/search-by-service",
+  "description": "OpenSearch search: match resource.service.name=otelcol-contrib",
+  "backend": "opensearch",
+  "tags": [
+    "logs",
+    "query",
+    "filter",
+    "service",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/otel-logs-2026-04-07/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "match": {
+          "resource.service.name": "otelcol-contrib"
+        }
+      },
+      "size": 10
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 9,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 10000,
+          "relation": "gte"
+        },
+        "max_score": 0.33782828,
+        "hits": [
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "1voNZp0BwrU6vbR8090c",
+            "_score": 0.33782828,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "log records": 6,
+                "resource logs": 1
+              },
+              "body": "Logs",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:47:55.291721293Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T03:47:54.090553016Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "1_oNZp0BwrU6vbR8090c",
+            "_score": 0.33782828,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "resource spans": 1,
+                "spans": 7
+              },
+              "body": "Traces",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "traces"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:47:55.291754803Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T03:47:54.351936197Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "2PoNZp0BwrU6vbR8090c",
+            "_score": 0.33782828,
+            "_source": {
+              "attributes": {
+                "data points": 61,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "metrics": 15,
+                "resource metrics": 1
+              },
+              "body": "Metrics",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:47:55.291760822Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T03:47:54.698232133Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "2foNZp0BwrU6vbR8090c",
+            "_score": 0.33782828,
+            "_source": {
+              "attributes": {
+                "data points": 68,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "metrics": 15,
+                "resource metrics": 1
+              },
+              "body": "Metrics",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:47:55.291782374Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T03:47:54.926355147Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "2voNZp0BwrU6vbR8190E",
+            "_score": 0.33782828,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "log records": 4,
+                "resource logs": 1
+              },
+              "body": "Logs",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:47:56.292182873Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T03:47:55.090451128Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "2_oNZp0BwrU6vbR8190E",
+            "_score": 0.33782828,
+            "_source": {
+              "attributes": {
+                "data points": 57,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "metrics": 14,
+                "resource metrics": 1
+              },
+              "body": "Metrics",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:47:56.292220259Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T03:47:55.162564474Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "3PoNZp0BwrU6vbR82t3r",
+            "_score": 0.33782828,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "log records": 2,
+                "resource logs": 1
+              },
+              "body": "Logs",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:47:57.290901947Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T03:47:56.09092552Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "4foNZp0BwrU6vbR84t16",
+            "_score": 0.33782828,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "log records": 4,
+                "resource logs": 1
+              },
+              "body": "Logs",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:47:59.226144516Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T03:47:59.023518052Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "5_oNZp0BwrU6vbR85t2l",
+            "_score": 0.33782828,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "log records": 1,
+                "resource logs": 1
+              },
+              "body": "Logs",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:48:00.293004672Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T03:47:59.091214223Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "6PoNZp0BwrU6vbR85t2l",
+            "_score": 0.33782828,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "resource spans": 1,
+                "spans": 1
+              },
+              "body": "Traces",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "traces"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:48:00.293034071Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T03:47:59.293596686Z"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs",
+    "data_count": 10000,
+    "response_bytes": 7636,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:06:25Z",
+  "source": "recorded",
+  "generator": "scripts/opensearch-record-live.sh"
+}

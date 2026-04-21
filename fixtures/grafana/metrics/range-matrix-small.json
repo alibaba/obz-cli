@@ -1,0 +1,183 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/metrics/range-matrix-small",
+  "description": "PromQL range query: single series over 30m — container cpu utilization",
+  "backend": "mimir",
+  "tags": [
+    "metrics",
+    "query",
+    "range",
+    "matrix",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query_range",
+    "query_params": {
+      "query": "container_cpu_utilization_ratio",
+      "start": "1775536425",
+      "end": "1775538225",
+      "step": "60"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "matrix",
+        "result": [
+          {
+            "metric": {
+              "__name__": "container_cpu_utilization_ratio",
+              "otel_scope_name": "github.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver",
+              "otel_scope_version": "0.146.1"
+            },
+            "values": [
+              [
+                1775536425,
+                "0"
+              ],
+              [
+                1775536485,
+                "0"
+              ],
+              [
+                1775536545,
+                "0"
+              ],
+              [
+                1775536605,
+                "0"
+              ],
+              [
+                1775536665,
+                "0"
+              ],
+              [
+                1775536725,
+                "0"
+              ],
+              [
+                1775536785,
+                "0"
+              ],
+              [
+                1775536845,
+                "0"
+              ],
+              [
+                1775536905,
+                "0"
+              ],
+              [
+                1775536965,
+                "0"
+              ],
+              [
+                1775537025,
+                "0"
+              ],
+              [
+                1775537085,
+                "0"
+              ],
+              [
+                1775537145,
+                "0"
+              ],
+              [
+                1775537205,
+                "0"
+              ],
+              [
+                1775537265,
+                "0"
+              ],
+              [
+                1775537325,
+                "0"
+              ],
+              [
+                1775537385,
+                "0"
+              ],
+              [
+                1775537445,
+                "0"
+              ],
+              [
+                1775537505,
+                "0.10737738462719804"
+              ],
+              [
+                1775537565,
+                "0"
+              ],
+              [
+                1775537625,
+                "0"
+              ],
+              [
+                1775537685,
+                "0"
+              ],
+              [
+                1775537745,
+                "0"
+              ],
+              [
+                1775537805,
+                "0"
+              ],
+              [
+                1775537865,
+                "0"
+              ],
+              [
+                1775537925,
+                "0"
+              ],
+              [
+                1775537985,
+                "0"
+              ],
+              [
+                1775538045,
+                "0"
+              ],
+              [
+                1775538105,
+                "0"
+              ],
+              [
+                1775538165,
+                "0"
+              ],
+              [
+                1775538225,
+                "0"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "matrix",
+    "series_count": 1,
+    "total_points": 31,
+    "data_count": 1,
+    "response_bytes": 814,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:03:45Z",
+  "source": "recorded",
+  "generator": "scripts/mimir-record-live.sh"
+}

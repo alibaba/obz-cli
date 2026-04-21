@@ -1,0 +1,37 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/traces/error-missing-service",
+  "description": "Jaeger API error: search traces without required service param",
+  "backend": "victoriatraces",
+  "tags": [
+    "traces",
+    "error",
+    "missing-param",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/select/jaeger/api/traces",
+    "query_params": {
+      "start": "1775134633000000",
+      "end": "1775138233000000",
+      "limit": "3"
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8"
+    },
+    "body_raw": "incorrect trace query params: service name is required"
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 54,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:57:13Z",
+  "source": "recorded",
+  "generator": "scripts/vtraces/record-live.sh"
+}

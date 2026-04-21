@@ -1,0 +1,76 @@
+{
+  "catalog_version": "1.0",
+  "backend": "datadog/common",
+  "generated_at": "2026-04-02T13:42:44Z",
+  "fixtures": [
+    {
+      "file": "error-forbidden.json",
+      "id": "datadog/common/error-forbidden",
+      "description": "Datadog error: forbidden — invalid API key on metrics endpoint",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 817,
+      "tags": [
+        "error",
+        "auth",
+        "forbidden",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-invalid-api-key.json",
+      "id": "datadog/common/error-invalid-api-key",
+      "description": "Datadog error: invalid API key — 403 forbidden",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 756,
+      "tags": [
+        "error",
+        "auth",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "hosts-list.json",
+      "id": "datadog/common/hosts-list",
+      "description": "Datadog list hosts",
+      "result_type": "hosts",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 4199,
+      "tags": [
+        "infrastructure",
+        "hosts",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "validate-ok.json",
+      "id": "datadog/common/validate-ok",
+      "description": "Datadog validate: API key is valid",
+      "result_type": "validate",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 712,
+      "tags": [
+        "auth",
+        "validate",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

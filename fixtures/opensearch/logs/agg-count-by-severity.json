@@ -1,0 +1,95 @@
+{
+  "fixture_version": "1.0",
+  "id": "opensearch/logs/agg-count-by-severity",
+  "description": "OpenSearch aggregation: count by severity.text",
+  "backend": "opensearch",
+  "tags": [
+    "logs",
+    "aggregate",
+    "count",
+    "group-by",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/otel-logs-2026-04-07/_search",
+    "query_params": {},
+    "body": {
+      "size": 0,
+      "aggs": {
+        "by_severity": {
+          "terms": {
+            "field": "severity.text.keyword",
+            "size": 20
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 3,
+      "timed_out": false,
+      "terminated_early": true,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 10000,
+          "relation": "gte"
+        },
+        "max_score": null,
+        "hits": []
+      },
+      "aggregations": {
+        "by_severity": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "info",
+              "doc_count": 9887
+            },
+            {
+              "key": "INFO",
+              "doc_count": 5282
+            },
+            {
+              "key": "warn",
+              "doc_count": 1668
+            },
+            {
+              "key": "error",
+              "doc_count": 337
+            },
+            {
+              "key": "WARN",
+              "doc_count": 87
+            },
+            {
+              "key": "ERROR",
+              "doc_count": 2
+            }
+          ]
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "aggs",
+    "data_count": 10000,
+    "response_bytes": 478,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:06:25Z",
+  "source": "recorded",
+  "generator": "scripts/opensearch-record-live.sh"
+}

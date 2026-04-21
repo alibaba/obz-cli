@@ -1,0 +1,1823 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/logs/field-caps",
+  "description": "ES field capabilities: discover searchable fields for logs",
+  "backend": "elasticsearch",
+  "tags": [
+    "logs",
+    "metadata",
+    "field-caps",
+    "medium"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logs-generic.otel-default/_field_caps?fields=*&include_unmapped=true",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "indices": [
+        ".ds-logs-generic.otel-default-2026.04.07-000001"
+      ],
+      "fields": {
+        "resource.attributes.telemetry.sdk.name.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "kubernetes.node.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.namespace.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "container.image.tag": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.exception.message": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_ignored_source": {
+          "_ignored_source": {
+            "type": "_ignored_source",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "scope.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.code": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.replicaset": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "body.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "service.language.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "scope.dropped_attributes_count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "container.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "telemetry.sdk.language": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "host.os.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.event.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_version": {
+          "_version": {
+            "type": "_version",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": true
+          }
+        },
+        "observed_timestamp": {
+          "date_nanos": {
+            "type": "date_nanos",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "span_id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.daemonset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.cronjob.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "span.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.os.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.runtime.description": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.pod.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.otelServiceName": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "otelTraceID": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.container.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.os.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.node.hostname": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.docker": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "error.exception.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.distro.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "service.node.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.runtime": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.service.instance": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.cronjob": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "telemetry.sdk.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "otelServiceName": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "host.arch": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.docker.cli": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.job.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "service.environment": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.container.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "message.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.message.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.otelTraceID": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "body.structured": {
+          "flattened": {
+            "type": "flattened",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "otelTraceSampled": {
+          "boolean": {
+            "type": "boolean",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_field_names": {
+          "_field_names": {
+            "type": "_field_names",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "host.os.platform": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.auto.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.command_line": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.service": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "host.os.full": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.pod.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "code.function.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.runtime.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.job": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "_ignored": {
+          "_ignored": {
+            "type": "_ignored",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.runtime.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.cloud.platform": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.code.line.number": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "exception.message": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.deployment.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "host.os.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "log.level": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "os.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.distro.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "exception.stacktrace": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.daemonset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "deployment.environment": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_routing": {
+          "_routing": {
+            "type": "_routing",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "_doc_count": {
+          "integer": {
+            "type": "integer",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "exception.escaped": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.host.arch": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "event.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.replicaset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.pod.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.deployment": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.os": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.host": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.exception.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.namespace": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.telemetry.sdk.language": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "os.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.pod.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.message.id": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.distro": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.exception.escaped": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "scope": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "kubernetes.pod.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.code.file.path.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "service.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.code.file.path": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "message": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "attributes.event.name.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "dropped_attributes_count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.container": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "k8s.node.hostname": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.node.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.runtime.description": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.sdk.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.deployment.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.executable": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.process.runtime.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.service.instance.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.node.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.auto": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.replicaset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_inference_fields": {
+          "_inference_fields": {
+            "type": "_inference_fields",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.process.executable.path": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "service.runtime.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "host.architecture": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.node.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.sdk.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.deployment.environment": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_source": {
+          "_source": {
+            "type": "_source",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.service.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "severity_text": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.cronjob.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.statefulset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.docker.cli.cobra.command_path": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.event": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.exception": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.exception.stacktrace.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "service.instance.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.cronjob.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "message.id": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.host.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.distro.name.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "telemetry.auto.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "cloud.platform": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "code.line.number": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.deployment.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "docker.cli.cobra.command_path": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.replicaset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.message": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.code.function.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.otelSpanID": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.sdk": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.container.image": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "k8s.node.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "@timestamp": {
+          "date": {
+            "type": "date",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_nested_path": {
+          "_nested_path": {
+            "type": "_nested_path",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "data_stream": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "data_stream.dataset": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "severity_number": {
+          "byte": {
+            "type": "byte",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.daemonset": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "scope.version": {
+          "version": {
+            "type": "version",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.process": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "error.exception.message": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.container.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.daemonset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.os.description": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_feature": {
+          "_feature": {
+            "type": "_feature",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.code.line": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.node": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.statefulset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "body": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "process.pid": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.statefulset": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.process.pid": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.namespace": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.os.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.schema_url": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "telemetry.sdk.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "host.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "otelSpanID": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.deployment": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "code.file.path": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "data_stream.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_tier": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_seq_no": {
+          "_seq_no": {
+            "type": "_seq_no",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.job.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "cloud.service.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.executable.path": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.container": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "event_name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.container.image.tags": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_id": {
+          "_id": {
+            "type": "_id",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "container.image.tags": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.service.name.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "resource.dropped_attributes_count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.node.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "telemetry.distro.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_index": {
+          "_index": {
+            "type": "_index",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.namespace.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.exception.stacktrace": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "os.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.pod.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.docker.cli.cobra": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "trace.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_data_stream_timestamp": {
+          "_data_stream_timestamp": {
+            "type": "_data_stream_timestamp",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "os.description": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.container.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.code.function.name.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "process.executable": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "trace_id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "data_stream.namespace": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "exception.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "service.runtime.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "telemetry.distro.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.pod": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.process.command_line.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "_index_mode": {
+          "_index_mode": {
+            "type": "_index_mode",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.runtime.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.job.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.statefulset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.otelTraceSampled": {
+          "boolean": {
+            "type": "boolean",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.code.file": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "process.command_line": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.code.function": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "error.stack_trace": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.cloud": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.telemetry": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.node.hostname": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "event.dataset": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "scope.schema_url": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "data_count": 0,
+    "response_bytes": 26306,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

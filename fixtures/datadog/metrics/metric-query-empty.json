@@ -1,0 +1,51 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/metrics/metric-query-empty",
+  "description": "Datadog metric query: nonexistent metric — empty result",
+  "backend": "datadog",
+  "tags": [
+    "metrics",
+    "query",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "from": "1775133269",
+      "to": "1775136869",
+      "query": "avg:nonexistent_metric_xyz{*}"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "ok",
+      "res_type": "time_series",
+      "resp_version": 1,
+      "query": "avg:nonexistent_metric_xyz{*}",
+      "from_date": 1775133269000,
+      "to_date": 1775136869000,
+      "series": [],
+      "values": [],
+      "times": [],
+      "message": "",
+      "group_by": []
+    }
+  },
+  "facts": {
+    "result_type": "timeseries",
+    "data_count": 0,
+    "series_count": 0,
+    "response_bytes": 209,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

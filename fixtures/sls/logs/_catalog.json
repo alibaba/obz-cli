@@ -1,0 +1,249 @@
+{
+  "catalog_version": "1.0",
+  "backend": "sls/logs",
+  "generated_at": "2026-04-02T14:21:22Z",
+  "fixtures": [
+    {
+      "file": "log-by-service.json",
+      "id": "sls/logs/log-by-service",
+      "description": "SLS Log: service:otelcol-contrib — logs from otelcol-contrib service",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 8172,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-count-by-service.json",
+      "id": "sls/logs/log-count-by-service",
+      "description": "SLS Log SQL: log count by service",
+      "result_type": "sql",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1350,
+      "tags": [
+        "logs",
+        "sql",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-count-by-severity.json",
+      "id": "sls/logs/log-count-by-severity",
+      "description": "SLS Log SQL: log count by severity",
+      "result_type": "sql",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1607,
+      "tags": [
+        "logs",
+        "sql",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-empty.json",
+      "id": "sls/logs/log-empty",
+      "description": "SLS Log: nonexistent_xyz — no matching logs",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 896,
+      "tags": [
+        "logs",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-error-syntax.json",
+      "id": "sls/logs/log-error-syntax",
+      "description": "SLS Log SQL error: invalid SQL syntax",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 977,
+      "tags": [
+        "logs",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-field-names.json",
+      "id": "sls/logs/log-field-names",
+      "description": "SLS Log: sample log entry to discover field names",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1594,
+      "tags": [
+        "logs",
+        "metadata",
+        "field-names",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-field-values-service.json",
+      "id": "sls/logs/log-field-values-service",
+      "description": "SLS Log SQL: distinct values of service field",
+      "result_type": "sql",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1382,
+      "tags": [
+        "logs",
+        "sql",
+        "metadata",
+        "field-values",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-field-values-severity.json",
+      "id": "sls/logs/log-field-values-severity",
+      "description": "SLS Log SQL: distinct values of severityText field",
+      "result_type": "sql",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1643,
+      "tags": [
+        "logs",
+        "sql",
+        "metadata",
+        "field-values",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-fulltext.json",
+      "id": "sls/logs/log-fulltext",
+      "description": "SLS Log: fulltext search for 'error OR timeout OR exception'",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 32051,
+      "tags": [
+        "logs",
+        "query",
+        "fulltext",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-histogram.json",
+      "id": "sls/logs/log-histogram",
+      "description": "SLS Log GetHistograms: * — log distribution over time",
+      "result_type": "histogram",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 8372,
+      "tags": [
+        "logs",
+        "histogram",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-histogram-error.json",
+      "id": "sls/logs/log-histogram-error",
+      "description": "SLS Log GetHistograms: severityText:ERROR — error log distribution",
+      "result_type": "histogram",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 8361,
+      "tags": [
+        "logs",
+        "histogram",
+        "filter",
+        "error",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-query-all.json",
+      "id": "sls/logs/log-query-all",
+      "description": "SLS Log: * — all logs from OTel Demo",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 9151,
+      "tags": [
+        "logs",
+        "query",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "log-severity-error.json",
+      "id": "sls/logs/log-severity-error",
+      "description": "SLS Log: severityText:ERROR — error logs",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 32042,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "severity",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

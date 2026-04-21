@@ -1,0 +1,115 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/hits-by-service",
+  "description": "LogsQL hits: * grouped by service.name — hits per service",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "hits",
+    "group-by",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/hits",
+    "query_params": {},
+    "body": {
+      "query": "*",
+      "step": "600s",
+      "field": "service.name",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "hits": [
+        {
+          "fields": {
+            "service.name": "load-generator"
+          },
+          "timestamps": [
+            "2026-04-02T12:50:00Z",
+            "2026-04-02T13:00:00Z",
+            "2026-04-02T13:10:00Z",
+            "2026-04-02T13:20:00Z",
+            "2026-04-02T13:30:00Z",
+            "2026-04-02T13:40:00Z",
+            "2026-04-02T13:50:00Z"
+          ],
+          "values": [
+            624,
+            702,
+            616,
+            600,
+            650,
+            650,
+            578
+          ],
+          "total": 4420
+        },
+        {
+          "fields": {
+            "service.name": "otelcol-contrib"
+          },
+          "timestamps": [
+            "2026-04-02T12:50:00Z",
+            "2026-04-02T13:00:00Z",
+            "2026-04-02T13:10:00Z",
+            "2026-04-02T13:20:00Z",
+            "2026-04-02T13:30:00Z",
+            "2026-04-02T13:40:00Z",
+            "2026-04-02T13:50:00Z"
+          ],
+          "values": [
+            2093,
+            2113,
+            2137,
+            2115,
+            2126,
+            2068,
+            1886
+          ],
+          "total": 14538
+        },
+        {
+          "fields": {
+            "service.name": "recommendation"
+          },
+          "timestamps": [
+            "2026-04-02T12:50:00Z",
+            "2026-04-02T13:00:00Z",
+            "2026-04-02T13:10:00Z",
+            "2026-04-02T13:20:00Z",
+            "2026-04-02T13:30:00Z",
+            "2026-04-02T13:40:00Z",
+            "2026-04-02T13:50:00Z"
+          ],
+          "values": [
+            30,
+            30,
+            30,
+            30,
+            30,
+            27,
+            24
+          ],
+          "total": 201
+        }
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "hits",
+    "data_count": 3,
+    "response_bytes": 830,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

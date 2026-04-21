@@ -1,0 +1,41 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/traces/operations-payment",
+  "description": "Jaeger API: operations for payment service",
+  "backend": "victoriatraces",
+  "tags": [
+    "traces",
+    "operations",
+    "metadata",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/select/jaeger/api/services/payment/operations",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [],
+      "errors": null,
+      "limit": 0,
+      "offset": 0,
+      "total": 0
+    }
+  },
+  "facts": {
+    "result_type": "operations",
+    "data_count": 0,
+    "trace_count": 0,
+    "span_count": 0,
+    "response_bytes": 59,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:57:13Z",
+  "source": "recorded",
+  "generator": "scripts/vtraces/record-live.sh"
+}

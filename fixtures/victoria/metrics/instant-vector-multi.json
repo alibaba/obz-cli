@@ -1,0 +1,357 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/metrics/instant-vector-multi",
+  "description": "PromQL instant query: multiple series — traces_span_metrics_calls_total by service",
+  "backend": "victoriametrics",
+  "tags": [
+    "metrics",
+    "query",
+    "instant",
+    "vector",
+    "multi",
+    "medium"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "query": "traces_span_metrics_calls_total",
+      "time": "1775138360"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "instance": "17fd8516-3de2-4ccc-ac4d-4853dd6da14c",
+              "job": "ad",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "ad",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "flagd.evaluation.v1.Service/EventStream",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775138360,
+              "443"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "instance": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+              "job": "cart",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "cart",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "POST",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775138360,
+              "8880"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "instance": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+              "job": "cart",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "cart",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "flagd.evaluation.v2.Service/EventStream",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775138360,
+              "8"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "instance": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+              "job": "cart",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "cart",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "flagd.evaluation.v2.Service/ResolveBoolean",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775138360,
+              "8872"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "image-provider",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "image-provider",
+              "span_kind": "SPAN_KIND_SERVER",
+              "span_name": "GET /status",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "26616"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "GET",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775138360,
+              "126663"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "POST",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775138360,
+              "40725"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "POST",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "22615"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_add_to_cart",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "27151"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_ask_product_ai_assistant",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "4521"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_browse_product",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "45441"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_checkout_multi",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "4526"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_checkout_single",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "4527"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_get_ads",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "13497"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_get_product_reviews",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "9131"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_get_recommendations",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "13360"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_index",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "4497"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_session_start",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "3"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "load-generator",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_view_cart",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775138360,
+              "13586"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "job": "product-reviews",
+              "otel_scope_name": "spanmetricsconnector",
+              "service_name": "product-reviews",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "flagd.evaluation.v1.Service/EventStream",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775138360,
+              "443"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "20",
+        "executionTimeMsec": 33
+      }
+    }
+  },
+  "facts": {
+    "result_type": "vector",
+    "series_count": 20,
+    "total_points": 20,
+    "data_count": 0,
+    "response_bytes": 5889,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:20Z",
+  "source": "recorded",
+  "generator": "scripts/vm/record-live.sh"
+}

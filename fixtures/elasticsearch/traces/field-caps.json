@@ -1,0 +1,2356 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/traces/field-caps",
+  "description": "ES trace field capabilities: discover searchable fields",
+  "backend": "elasticsearch",
+  "tags": [
+    "traces",
+    "metadata",
+    "field-caps",
+    "medium"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/traces-generic.otel-default/_field_caps?fields=*&include_unmapped=true",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "indices": [
+        ".ds-traces-generic.otel-default-2026.04.07-000001"
+      ],
+      "fields": {
+        "resource.attributes.telemetry.sdk.name.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "kubernetes.node.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.rpc.service": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.namespace.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "container.image.tag": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "scope.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_ignored_source": {
+          "_ignored_source": {
+            "type": "_ignored_source",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.replicaset": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "product.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.user_agent.original": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "scope.dropped_attributes_count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "service.language.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "container.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "server.address": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.item.count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "telemetry.sdk.language": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.thread.id": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.net.sock.peer": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "host.os.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.thread": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.user_agent.original.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "_version": {
+          "_version": {
+            "type": "_version",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": true
+          }
+        },
+        "user_agent.original": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.net.host.name.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "span_id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.daemonset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.cronjob.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "span.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.user": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.user_agent": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.os.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.rpc.method": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.runtime.description": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.pod.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "span.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.container.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.os.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.node.hostname": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.docker": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.telemetry.distro.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "service.node.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.url": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.server.port": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.runtime": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.service.instance": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.cronjob": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "status.code": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "telemetry.sdk.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "network.peer.address": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "server.port": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "host.arch": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "rpc.grpc.status_code": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.docker.cli": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.job.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "service.environment": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.container.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "network.protocol.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "network.peer.port": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.status_code": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_field_names": {
+          "_field_names": {
+            "type": "_field_names",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "host.os.platform": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.auto.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.command_line": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.service": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "rpc.service": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "host.os.full": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.pod.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.runtime.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.job": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "_ignored": {
+          "_ignored": {
+            "type": "_ignored",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.runtime.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.cloud.platform": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "http.user_agent": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.net.sock.peer.port": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.net": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "host.os.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.deployment.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "os.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.network": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.telemetry.distro.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.daemonset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "deployment.environment": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_routing": {
+          "_routing": {
+            "type": "_routing",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "parent_span_id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.url": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_doc_count": {
+          "integer": {
+            "type": "integer",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.host.arch": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.replicaset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "http.request_content_length": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.url.full": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.route": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.pod.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.deployment": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.thread.name.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.os": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.host": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.error": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "net.host.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "trace_state": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.namespace": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "net.sock.peer.addr": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.rpc.system": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.sdk.language": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.network.peer.port": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "os.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "duration": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true,
+            "meta": {
+              "unit": [
+                "nanos"
+              ]
+            }
+          }
+        },
+        "links.trace_id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.pod.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.scheme": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.distro": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "rpc.method": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "scope": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "kubernetes.pod.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "url.full": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "network.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.rpc": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.product": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "service.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "dropped_links_count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "http.status_code": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.node.hostname": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "dropped_attributes_count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.container": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.node.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.runtime.description": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.flavor": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.server": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.http.request_content_length": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.sdk.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.deployment.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.network.protocol.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "http.url": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.executable": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.process.runtime.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.net.host.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.service.instance.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.rpc.grpc.status_code": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.thread.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.url.full.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "k8s.node.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.auto": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "http.response.status_code": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.replicaset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.net.host.port": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_inference_fields": {
+          "_inference_fields": {
+            "type": "_inference_fields",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "user.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "http.target": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.executable.path": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "service.runtime.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.network.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.node.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "host.architecture": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.sdk.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.rpc.grpc": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.deployment.environment": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "net.host.port": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_source": {
+          "_source": {
+            "type": "_source",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "http.scheme": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "status": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.service.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.network.peer": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "k8s.cronjob.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.statefulset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.docker.cli.cobra.command_path": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.network.protocol": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "item.count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "service.instance.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.cronjob.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.host.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "net.sock.peer.port": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry.distro.name.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "cloud.platform": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "telemetry.auto.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.target": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.deployment.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "question": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.replicaset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "docker.cli.cobra.command_path": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.item": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.telemetry.sdk": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "rpc.system": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.net.sock.peer.addr": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.container.image": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "k8s.node.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "@timestamp": {
+          "date": {
+            "type": "date",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_nested_path": {
+          "_nested_path": {
+            "type": "_nested_path",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "links.trace_state": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "data_stream": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "data_stream.dataset": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.daemonset": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.question": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "scope.version": {
+          "version": {
+            "type": "version",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.error.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "k8s.container.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "original_span_name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.daemonset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.response_content_length": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.net.sock": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "_feature": {
+          "_feature": {
+            "type": "_feature",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.os.description": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "http.flavor": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.quantity": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.node": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.statefulset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "links.dropped_attributes_count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.pid": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "thread.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.request.method": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.statefulset": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "http.request.method": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.process.pid": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.namespace": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.schema_url": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.os.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.response.status_code": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "links": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "telemetry.sdk.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "host.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "thread.id": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "links.span_id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.request": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.original_span_name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.product.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "kind": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.deployment": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "status.message": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "data_stream.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_tier": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_seq_no": {
+          "_seq_no": {
+            "type": "_seq_no",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "error.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "k8s.job.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.net.host": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "cloud.service.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.method": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.executable.path": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.container": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.container.image.tags": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "parent.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "container.image.tags": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_id": {
+          "_id": {
+            "type": "_id",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.service.name.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "resource.dropped_attributes_count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.node.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "telemetry.distro.version": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.server.address": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_index": {
+          "_index": {
+            "type": "_index",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.namespace.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.pod.uid": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "os.type": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.docker.cli.cobra": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "attributes.category": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.network.peer.address": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "trace.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "os.description": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "_data_stream_timestamp": {
+          "_data_stream_timestamp": {
+            "type": "_data_stream_timestamp",
+            "metadata_field": true,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.container.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "http.method": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.executable": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "dropped_events_count": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.user.id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "trace_id": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "quantity": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "data_stream.namespace": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "service.runtime.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "telemetry.distro.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.k8s.pod": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.process.command_line.text": {
+          "text": {
+            "type": "text",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.process.runtime.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.response": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "_index_mode": {
+          "_index_mode": {
+            "type": "_index_mode",
+            "metadata_field": true,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "attributes.http.user_agent": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.job.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "kubernetes.statefulset.name": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "http.response_content_length": {
+          "long": {
+            "type": "long",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "http.route": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "process.command_line": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.cloud": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "category": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "resource.attributes.telemetry": {
+          "object": {
+            "type": "object",
+            "metadata_field": false,
+            "searchable": false,
+            "aggregatable": false
+          }
+        },
+        "resource.attributes.k8s.node.hostname": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "event.dataset": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        },
+        "scope.schema_url": {
+          "keyword": {
+            "type": "keyword",
+            "metadata_field": false,
+            "searchable": true,
+            "aggregatable": true
+          }
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "data_count": 0,
+    "response_bytes": 33664,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

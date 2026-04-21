@@ -1,0 +1,51 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/metrics/error-invalid-query",
+  "description": "Datadog error: invalid metric query syntax",
+  "backend": "datadog",
+  "tags": [
+    "metrics",
+    "error",
+    "syntax",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "from": "1775133269",
+      "to": "1775136869",
+      "query": "invalid{{{syntax"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "error",
+      "res_type": "time_series",
+      "resp_version": 1,
+      "query": "invalid{{{syntax",
+      "from_date": 1775133269000,
+      "to_date": 1775136869000,
+      "series": [],
+      "values": [],
+      "times": [],
+      "message": "",
+      "group_by": [],
+      "error": "Error parsing query: unable to parse invalid{{{syntax: Rule 'scope_or' didn't match at '{{syntax' (line 1, column 9)."
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "series_count": 0,
+    "response_bytes": 327,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

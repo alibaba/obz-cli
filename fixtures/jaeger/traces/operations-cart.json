@@ -1,0 +1,44 @@
+{
+  "fixture_version": "1.0",
+  "id": "jaeger/traces/operations-cart",
+  "description": "Jaeger API: operations for cart service",
+  "backend": "jaeger",
+  "tags": [
+    "traces",
+    "operations",
+    "metadata",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/services/cart/operations",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [
+        "POST",
+        "flagd.evaluation.v2.Service/ResolveBoolean"
+      ],
+      "total": 2,
+      "limit": 0,
+      "offset": 0,
+      "errors": null
+    }
+  },
+  "facts": {
+    "result_type": "operations",
+    "data_count": 2,
+    "trace_count": 0,
+    "span_count": 0,
+    "response_bytes": 107,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:10:17Z",
+  "source": "recorded",
+  "generator": "scripts/jaeger-record-live.sh"
+}

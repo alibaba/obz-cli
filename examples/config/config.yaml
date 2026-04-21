@@ -1,0 +1,374 @@
+# obz CLI — provider configuration
+#
+# Copy this file to ~/.config/obz/config.yaml and edit the values:
+#   mkdir -p ~/.config/obz
+#   cp examples/config/config.yaml ~/.config/obz/config.yaml
+#   chmod 600 ~/.config/obz/config.yaml
+#
+# Usage:
+#   obz metric list --limit 10                  # uses default provider for metrics
+#   obz metric list -p vm --limit 10            # explicit provider overrides default
+#   obz log search -p sls -q '*' --from now-1h  # use SLS config
+#   obz log search -p sls --logstore other -q '*'  # override logstore from config
+#   obz metric list -p dd-prod                  # use named instance
+#
+# Each entry under `providers` is a named configuration. The key is the
+# name you pass to `-p`. Two reserved fields are NOT injected into the
+# provider config:
+#   - provider:   declares the provider type (required for named instances)
+#   - timeout:    per-provider request timeout (e.g. 30s, 2m)
+#
+# All other key-value pairs are passed to the provider as-is.
+#
+# ── Authentication ────────────────────────────────────────
+#
+# Credentials are configured under `auth:` within each provider entry.
+# Supported auth fields (provider-dependent):
+#   token              Bearer token
+#   username           Basic auth username
+#   password           Basic auth password
+#   access-key-id      Alibaba Cloud AccessKey ID (SLS)
+#   access-key-secret  Alibaba Cloud AccessKey Secret (SLS)
+#   api-key            API key (Datadog, Elasticsearch)
+#   app-key            Application key (Datadog)
+#
+# ── Variable References ───────────────────────────────────
+#
+# Config values support variable references resolved at load time:
+#   ${env:VAR}    environment variable (error if unset)
+#   ${env?:VAR}   environment variable (empty string if unset)
+#   ${file:path}  file contents (~ expanded; relative to config dir)
+#
+# Examples:
+#   token: ${env:MY_TOKEN}
+#   access-key-secret: ${file:~/.obz/sls-secret.txt}
+#
+# ── Custom Headers ────────────────────────────────────────
+#
+# Any provider entry can include a `headers:` block to inject custom
+# HTTP headers into every request. Useful for multi-tenancy (e.g.
+# Grafana Mimir's X-Scope-OrgID) or proxy authentication.
+#
+# ── Credential Process ────────────────────────────────────
+#
+# For dynamic credential retrieval (e.g. from a vault), configure
+# `credential-process` inside the `auth:` block. The external command
+# must output a JSON object with `version: 1`. See the Mimir example
+# below for the full syntax.
+#
+# Note: credential-process fields (command, args, timeout, cache-ttl)
+# do NOT support variable references — they are used as-is.
+
+# ── Default Provider Selection ──────────────────────────────
+#
+# Omit `-p` and obz will use these defaults:
+#   - Per-signal defaults (`metric`, `log`, `trace`) take priority
+#   - Global `provider` is the fallback for any signal not listed
+#   - `-p` on the command line always wins
+#
+# defaults:
+#   provider: vm         # fallback for all signals (optional)
+#   metric: vm           # default for `obz metric` commands (optional)
+#   log: vl              # default for `obz log` commands (optional)
+#   trace: tempo         # default for `obz trace` commands (optional)
+
+providers:
+
+  # ──────────────────────────────────────────────────────
+  # VictoriaMetrics  (provider type: vm)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://docs.victoriametrics.com/
+  # Capabilities: metric
+  #
+  # Required:
+  #   endpoint    Base URL of the VictoriaMetrics instance
+  # Auth (optional):
+  #   token       Bearer token (enterprise auth)
+  #   username    Basic auth username
+  #   password    Basic auth password
+
+  vm:
+    endpoint: http://localhost:8428
+
+  # Named instance with bearer token auth
+  # vm-prod:
+  #   provider: vm
+  #   endpoint: https://vm.prod.example.com
+  #   timeout: 30s
+  #   auth:
+  #     token: ${env:VM_PROD_TOKEN}
+
+  # ──────────────────────────────────────────────────────
+  # Prometheus  (provider type: prom)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://prometheus.io/docs/
+  # Capabilities: metric
+  #
+  # Required:
+  #   endpoint    Base URL of the Prometheus instance
+  # Auth (optional):
+  #   token       Bearer token
+  #   username    Basic auth username
+  #   password    Basic auth password
+
+  prom:
+    endpoint: http://localhost:9090
+
+  # ──────────────────────────────────────────────────────
+  # Grafana Mimir  (provider type: mimir)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://grafana.com/docs/mimir/
+  # Capabilities: metric
+  #
+  # Required:
+  #   endpoint    Base URL of the Mimir instance
+  # Auth (optional):
+  #   token       Bearer token
+  #   username    Basic auth username
+  #   password    Basic auth password
+  # Headers:
+  #   x-scope-orgid   Multi-tenancy tenant ID (required for multi-tenant mode)
+  #
+  # Mimir does not have a dedicated `org-id` config field. Use the
+  # `headers:` block to set the `X-Scope-OrgID` header.
+
+  mimir:
+    endpoint: http://localhost:9009
+    headers:
+      x-scope-orgid: my-tenant
+
+  # Named instance with credential-process for dynamic auth
+  # mimir-prod:
+  #   provider: mimir
+  #   endpoint: https://mimir.prod.example.com
+  #   timeout: 1m
+  #   headers:
+  #     x-scope-orgid: prod-tenant
+  #   auth:
+  #     credential-process:
+  #       command: vault
+  #       args: ["kv", "get", "-format=json", "secret/mimir-prod"]
+  #       timeout: 10s
+  #       cache-ttl: 5m
+
+  # ──────────────────────────────────────────────────────
+  # VictoriaLogs  (provider type: vl)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://docs.victoriametrics.com/victorialogs/
+  # Capabilities: log
+  #
+  # Required:
+  #   endpoint    Base URL of the VictoriaLogs instance
+  # Optional:
+  #   account-id  Multi-tenant AccountID (affects URL path routing)
+  #   project-id  Multi-tenant ProjectID (used with account-id)
+  # Auth (optional):
+  #   token       Bearer token (enterprise auth)
+  #   username    Basic auth username
+  #   password    Basic auth password
+
+  vl:
+    endpoint: http://localhost:9428
+
+  # Multi-tenant VictoriaLogs
+  # vl-tenant:
+  #   provider: vl
+  #   endpoint: http://localhost:9428
+  #   account-id: "123"
+  #   project-id: "456"
+  #   auth:
+  #     token: ${file:~/.obz/vl-token.txt}
+
+  # ──────────────────────────────────────────────────────
+  # Grafana Loki  (provider type: loki)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://grafana.com/docs/loki/
+  # Capabilities: log
+  #
+  # Required:
+  #   endpoint    Base URL of the Loki instance
+  # Auth (optional):
+  #   token       Bearer token
+  #   username    Basic auth username
+  #   password    Basic auth password
+
+  loki:
+    endpoint: http://localhost:3100
+
+  # ──────────────────────────────────────────────────────
+  # VictoriaTraces  (provider type: vt)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://docs.victoriametrics.com/victoriametrics-cloud/
+  # Capabilities: trace
+  #
+  # Required:
+  #   endpoint    Base URL of the VictoriaTraces instance
+  # Auth (optional):
+  #   token       Bearer token (enterprise auth)
+
+  vt:
+    endpoint: http://localhost:10428
+
+  # ──────────────────────────────────────────────────────
+  # Jaeger  (provider type: jg)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://www.jaegertracing.io/docs/
+  # Capabilities: trace
+  #
+  # Required:
+  #   endpoint    Base URL of the Jaeger Query API
+  # Auth (optional):
+  #   token       Bearer token
+  #   username    Basic auth username
+  #   password    Basic auth password
+
+  jg:
+    endpoint: http://localhost:16686
+
+  # ──────────────────────────────────────────────────────
+  # Grafana Tempo  (provider type: tempo)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://grafana.com/docs/tempo/
+  # Capabilities: trace
+  #
+  # Required:
+  #   endpoint    Base URL of the Tempo instance
+  # Auth (optional):
+  #   token       Bearer token
+  #   username    Basic auth username
+  #   password    Basic auth password
+
+  tempo:
+    endpoint: http://localhost:3200
+
+  # ──────────────────────────────────────────────────────
+  # OpenSearch  (provider type: os)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://opensearch.org/docs/
+  # Capabilities: log, trace
+  #
+  # Required:
+  #   endpoint    Base URL of the OpenSearch cluster
+  # Optional:
+  #   index       Index name or pattern (e.g. otel-logs-*, required at query time)
+  # Auth (optional):
+  #   token       Bearer token
+  #   username    Basic auth username
+  #   password    Basic auth password
+
+  os:
+    endpoint: http://localhost:9200
+    index: otel-logs-*
+
+  # ──────────────────────────────────────────────────────
+  # Elasticsearch  (provider type: es)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://www.elastic.co/docs/
+  # Capabilities: log, trace
+  #
+  # Required:
+  #   endpoint    Base URL of the Elasticsearch cluster
+  # Optional:
+  #   index       Index or data stream name (e.g. logs-generic.otel-default,
+  #               required at query time)
+  # Auth (optional):
+  #   token       Bearer token
+  #   username    Basic auth username
+  #   password    Basic auth password
+  #   api-key     Elasticsearch API key (base64-encoded id:api_key)
+
+  es:
+    endpoint: http://localhost:9200
+    index: logs-generic.otel-default
+
+  # Elasticsearch with API key auth
+  # es-prod:
+  #   provider: es
+  #   endpoint: https://es.prod.example.com:9200
+  #   index: logs-generic.otel-default
+  #   timeout: 30s
+  #   auth:
+  #     api-key: ${env:ES_API_KEY}
+
+  # Elasticsearch with credential-process
+  # es-vault:
+  #   provider: es
+  #   endpoint: https://es.prod.internal:9200
+  #   index: logs-generic.otel-default
+  #   auth:
+  #     username: elastic
+  #     credential-process:
+  #       command: vault
+  #       args: ["kv", "get", "-format=json", "secret/es-prod"]
+  #       timeout: 10s
+
+  # ──────────────────────────────────────────────────────
+  # SLS — Alibaba Cloud Log Service  (provider type: sls)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://help.aliyun.com/zh/sls/
+  # Capabilities: metric, log, trace (each requires its own store config)
+  #
+  # Required:
+  #   endpoint        SLS region endpoint (e.g. http://cn-hangzhou.log.aliyuncs.com)
+  #   project         SLS project name
+  # Required per signal:
+  #   metricstore     SLS metricstore name   (for metric commands)
+  #   logstore        SLS logstore name      (for log commands)
+  #   trace-logstore  SLS trace logstore     (for trace commands)
+  # Auth (required):
+  #   access-key-id       Alibaba Cloud AccessKey ID
+  #   access-key-secret   Alibaba Cloud AccessKey Secret
+  #
+  # Tip: configure one entry with all stores, then override with --logstore
+  # at query time if you have multiple logstores under the same project.
+
+  sls:
+    endpoint: http://cn-hangzhou.log.aliyuncs.com
+    project: my-project
+    metricstore: my-metricstore
+    logstore: my-logstore
+    trace-logstore: my-trace-logstore
+    auth:
+      access-key-id: ${env:SLS_ACCESS_KEY_ID}
+      access-key-secret: ${env:SLS_ACCESS_KEY_SECRET}
+
+  # SLS with credentials from file
+  # sls-prod:
+  #   provider: sls
+  #   endpoint: http://cn-shanghai.log.aliyuncs.com
+  #   project: prod-project
+  #   logstore: app-logs
+  #   auth:
+  #     access-key-id: ${file:~/.obz/sls-ak.txt}
+  #     access-key-secret: ${file:~/.obz/sls-sk.txt}
+
+  # ──────────────────────────────────────────────────────
+  # Datadog  (provider type: dd)
+  # ──────────────────────────────────────────────────────
+  # Docs: https://docs.datadoghq.com/api/
+  # Capabilities: metric, log, trace
+  #
+  # Required:
+  #   endpoint    Datadog API base URL (varies by region):
+  #               US1:  https://api.datadoghq.com
+  #               US3:  https://api.us3.datadoghq.com
+  #               US5:  https://api.us5.datadoghq.com
+  #               EU1:  https://api.datadoghq.eu
+  #               AP1:  https://api.ap1.datadoghq.com
+  # Auth (required):
+  #   api-key     Datadog API key      (DD-API-KEY header)
+  #   app-key     Datadog App key      (DD-APPLICATION-KEY header)
+
+  dd:
+    endpoint: https://api.datadoghq.com
+    auth:
+      api-key: ${env:DD_API_KEY}
+      app-key: ${env:DD_APP_KEY}
+
+  # Datadog EU region
+  # dd-eu:
+  #   provider: dd
+  #   endpoint: https://api.datadoghq.eu
+  #   auth:
+  #     api-key: ${env:DD_EU_API_KEY}
+  #     app-key: ${env:DD_EU_APP_KEY}

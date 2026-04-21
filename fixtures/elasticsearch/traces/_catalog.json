@@ -1,0 +1,380 @@
+{
+  "catalog_version": "1.0",
+  "backend": "elasticsearch/traces",
+  "generated_at": "2026-04-07T08:55:01Z",
+  "fixtures": [
+    {
+      "file": "agg-count-by-kind.json",
+      "id": "elasticsearch/traces/agg-count-by-kind",
+      "description": "ES traces aggregation: span count by kind",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 1698,
+      "tags": [
+        "traces",
+        "aggregate",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-count-by-service.json",
+      "id": "elasticsearch/traces/agg-count-by-service",
+      "description": "ES traces aggregation: span count by service",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 1932,
+      "tags": [
+        "traces",
+        "aggregate",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-count-by-status.json",
+      "id": "elasticsearch/traces/agg-count-by-status",
+      "description": "ES traces aggregation: span count by status.code",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 1532,
+      "tags": [
+        "traces",
+        "aggregate",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-duration-percentiles.json",
+      "id": "elasticsearch/traces/agg-duration-percentiles",
+      "description": "ES traces aggregation: duration percentiles (p50/p90/p95/p99)",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 1639,
+      "tags": [
+        "traces",
+        "aggregate",
+        "percentiles",
+        "duration",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-duration-stats.json",
+      "id": "elasticsearch/traces/agg-duration-stats",
+      "description": "ES traces aggregation: duration stats (min/max/avg/sum) by service",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 3193,
+      "tags": [
+        "traces",
+        "aggregate",
+        "stats",
+        "duration",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-histogram.json",
+      "id": "elasticsearch/traces/agg-histogram",
+      "description": "ES traces aggregation: span count histogram over time (5m interval)",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 3398,
+      "tags": [
+        "traces",
+        "aggregate",
+        "histogram",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-sort-unmapped.json",
+      "id": "elasticsearch/traces/error-sort-unmapped",
+      "description": "ES traces error: sort on unmapped field",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1860,
+      "tags": [
+        "traces",
+        "error",
+        "sort",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-syntax.json",
+      "id": "elasticsearch/traces/error-syntax",
+      "description": "ES traces error: invalid query syntax (parsing_exception)",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1355,
+      "tags": [
+        "traces",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "field-caps.json",
+      "id": "elasticsearch/traces/field-caps",
+      "description": "ES trace field capabilities: discover searchable fields",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 62885,
+      "tags": [
+        "traces",
+        "metadata",
+        "field-caps",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "index-mapping.json",
+      "id": "elasticsearch/traces/index-mapping",
+      "description": "ES trace index mapping: field types and structure",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 33602,
+      "tags": [
+        "traces",
+        "metadata",
+        "mapping",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "index-stats.json",
+      "id": "elasticsearch/traces/index-stats",
+      "description": "ES trace index stats: doc count, store size",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 20223,
+      "tags": [
+        "traces",
+        "metadata",
+        "stats",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-all.json",
+      "id": "elasticsearch/traces/search-all",
+      "description": "ES traces: all spans (match_all)",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 20155,
+      "tags": [
+        "traces",
+        "query",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-duration.json",
+      "id": "elasticsearch/traces/search-by-duration",
+      "description": "ES traces: slow spans (duration > 1s = 1000000000 ns)",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 26885,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "duration",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-error.json",
+      "id": "elasticsearch/traces/search-by-error",
+      "description": "ES traces: spans with status.code=Error",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 22741,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "error",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-kind.json",
+      "id": "elasticsearch/traces/search-by-kind",
+      "description": "ES traces: spans with kind=Client",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 22398,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "kind",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-operation.json",
+      "id": "elasticsearch/traces/search-by-operation",
+      "description": "ES traces: spans named GET",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 22789,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "operation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-service.json",
+      "id": "elasticsearch/traces/search-by-service",
+      "description": "ES traces: spans from cart service",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 22090,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-empty.json",
+      "id": "elasticsearch/traces/search-empty",
+      "description": "ES traces: match nonexistent service — empty result",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1219,
+      "tags": [
+        "traces",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-by-id.json",
+      "id": "elasticsearch/traces/trace-by-id",
+      "description": "ES trace by ID: all spans for a specific trace",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 3129,
+      "tags": [
+        "traces",
+        "query",
+        "trace-by-id",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-by-id-not-found.json",
+      "id": "elasticsearch/traces/trace-by-id-not-found",
+      "description": "ES trace by ID: nonexistent trace_id — empty result",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1241,
+      "tags": [
+        "traces",
+        "query",
+        "trace-by-id",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}
