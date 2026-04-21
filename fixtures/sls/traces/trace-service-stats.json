@@ -1,0 +1,78 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/traces/trace-service-stats",
+  "description": "SLS Trace SQL: span count and avg duration by service",
+  "backend": "sls",
+  "tags": [
+    "traces",
+    "sql",
+    "stats",
+    "group-by",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logstores/cli-test-traces",
+    "query_params": {
+      "type": "log",
+      "from": "1775136067",
+      "to": "1775139667",
+      "query": "* | SELECT service, COUNT(*) as span_count, AVG(CAST(duration AS BIGINT)) as avg_duration_us GROUP BY service ORDER BY span_count DESC"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "x-log-progress": "Complete",
+      "x-log-count": "5"
+    },
+    "body": [
+      {
+        "service": "load-generator",
+        "span_count": "4396",
+        "avg_duration_us": "6254.039808917198",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "service": "image-provider",
+        "span_count": "360",
+        "avg_duration_us": "0.0",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "service": "cart",
+        "span_count": "240",
+        "avg_duration_us": "719.875",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "service": "ad",
+        "span_count": "6",
+        "avg_duration_us": "600000972.3333334",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "service": "product-reviews",
+        "span_count": "6",
+        "avg_duration_us": "600003196.8333334",
+        "__source__": "",
+        "__time__": "1775136067"
+      }
+    ]
+  },
+  "facts": {
+    "result_type": "sql",
+    "log_count": 5,
+    "data_count": 5,
+    "response_bytes": 632,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

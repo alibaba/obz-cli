@@ -1,0 +1,76 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/logs/error-field-type",
+  "description": "ES error: aggregation on text field without keyword (search_phase_execution_exception)",
+  "backend": "elasticsearch",
+  "tags": [
+    "logs",
+    "error",
+    "field-type",
+    "tiny"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/logs-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "size": 0,
+      "aggs": {
+        "bad": {
+          "terms": {
+            "field": "body.text"
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "error": {
+        "root_cause": [
+          {
+            "type": "illegal_argument_exception",
+            "reason": "match_only_text fields do not support sorting and aggregations"
+          }
+        ],
+        "type": "search_phase_execution_exception",
+        "reason": "all shards failed",
+        "phase": "query",
+        "grouped": true,
+        "failed_shards": [
+          {
+            "shard": 0,
+            "index": ".ds-logs-generic.otel-default-2026.04.07-000001",
+            "node": "Lsd0kM3RR8WNRKnNdmMIsQ",
+            "reason": {
+              "type": "illegal_argument_exception",
+              "reason": "match_only_text fields do not support sorting and aggregations"
+            }
+          }
+        ],
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "match_only_text fields do not support sorting and aggregations",
+          "caused_by": {
+            "type": "illegal_argument_exception",
+            "reason": "match_only_text fields do not support sorting and aggregations"
+          }
+        }
+      },
+      "status": 400
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 742,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

@@ -1,0 +1,63 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/metrics/metric-search-container",
+  "description": "Datadog search metrics: search for container.* metrics",
+  "backend": "datadog",
+  "tags": [
+    "metrics",
+    "metadata",
+    "search",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/search",
+    "query_params": {
+      "q": "metrics:container"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "results": {
+        "metrics": [
+          "container.blockio.io_service_bytes_recursive",
+          "container.cpu.usage",
+          "container.cpu.usage.kernelmode",
+          "container.cpu.usage.total",
+          "container.cpu.usage.usermode",
+          "container.cpu.user",
+          "container.cpu.utilization",
+          "container.io.read",
+          "container.io.write",
+          "container.memory.cache",
+          "container.memory.percent",
+          "container.memory.soft_limit",
+          "container.memory.total_cache",
+          "container.memory.usage",
+          "container.memory.usage.limit",
+          "container.memory.usage.total",
+          "container.net.rcvd",
+          "container.net.sent",
+          "container.network.io.usage.rx_bytes",
+          "container.network.io.usage.rx_dropped",
+          "container.network.io.usage.tx_bytes",
+          "container.network.io.usage.tx_dropped"
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "search",
+    "data_count": 22,
+    "series_count": 0,
+    "response_bytes": 674,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

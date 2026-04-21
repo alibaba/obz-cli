@@ -1,0 +1,246 @@
+{
+  "catalog_version": "1.0",
+  "backend": "grafana/logs",
+  "generated_at": "2026-04-07T05:07:17Z",
+  "fixtures": [
+    {
+      "file": "error-syntax.json",
+      "id": "grafana/logs/error-syntax",
+      "description": "Loki error: invalid LogQL syntax",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 893,
+      "tags": [
+        "logs",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "label-values-instance.json",
+      "id": "grafana/logs/label-values-instance",
+      "description": "Loki label values: service_instance_id",
+      "result_type": "label_values",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 975,
+      "tags": [
+        "logs",
+        "metadata",
+        "label-values",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "label-values-service.json",
+      "id": "grafana/logs/label-values-service",
+      "description": "Loki label values: service_name",
+      "result_type": "label_values",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 990,
+      "tags": [
+        "logs",
+        "metadata",
+        "label-values",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "labels.json",
+      "id": "grafana/logs/labels",
+      "description": "Loki labels: all label names",
+      "result_type": "labels",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 870,
+      "tags": [
+        "logs",
+        "metadata",
+        "labels",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-all.json",
+      "id": "grafana/logs/query-all",
+      "description": "Loki LogQL: {service_name=~\".+\"} — all logs",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 25740,
+      "tags": [
+        "logs",
+        "query",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-by-service.json",
+      "id": "grafana/logs/query-by-service",
+      "description": "Loki LogQL: {service_name=\"otelcol-contrib\"} — logs from otelcol-contrib service",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 24345,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-empty.json",
+      "id": "grafana/logs/query-empty",
+      "description": "Loki LogQL: {service_name=\"nonexistent_xyz\"} — no matching logs",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 5934,
+      "tags": [
+        "logs",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-fulltext.json",
+      "id": "grafana/logs/query-fulltext",
+      "description": "Loki query: fulltext search for error keywords",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 9607,
+      "tags": [
+        "logs",
+        "query",
+        "fulltext",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-json-filter.json",
+      "id": "grafana/logs/query-json-filter",
+      "description": "Loki LogQL: {service_name=~\".+\"} | json | line_format — structured json parse + format",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 17659,
+      "tags": [
+        "logs",
+        "query",
+        "json-filter",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-severity-error.json",
+      "id": "grafana/logs/query-severity-error",
+      "description": "Loki LogQL: {service_name=~\".+\"} |= \"error\" — error logs via line filter",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 9657,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "error",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "series.json",
+      "id": "grafana/logs/series",
+      "description": "Loki series: all log streams",
+      "result_type": "series",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1125,
+      "tags": [
+        "logs",
+        "metadata",
+        "series",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "stats-count-by-service.json",
+      "id": "grafana/logs/stats-count-by-service",
+      "description": "Loki LogQL metric query: count_over_time by service",
+      "result_type": "stats",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 6571,
+      "tags": [
+        "logs",
+        "stats",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "stats-count-by-severity.json",
+      "id": "grafana/logs/stats-count-by-severity",
+      "description": "Loki metric query: count logs by detected_level",
+      "result_type": "stats",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 6916,
+      "tags": [
+        "logs",
+        "stats",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

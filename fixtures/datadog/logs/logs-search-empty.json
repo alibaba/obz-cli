@@ -1,0 +1,53 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/logs/logs-search-empty",
+  "description": "Datadog logs search: nonexistent query — empty",
+  "backend": "datadog",
+  "tags": [
+    "logs",
+    "query",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/logs/events/search",
+    "query_params": {},
+    "body": {
+      "filter": {
+        "from": "now-1h",
+        "to": "now",
+        "query": "nonexistent_xyz_never_matches"
+      },
+      "sort": "timestamp",
+      "page": {
+        "limit": 10
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [],
+      "meta": {
+        "elapsed": 60,
+        "request_id": "pddv1ChZZTTRNMGJxWlF6aV9jcDFHN2N4UFdnIiwKHKIk58fzQ6PAhyK8a4BvQ2XZoUDo-T_IG4Xze-ISDAJM7bLL9YL_ehyvLQ",
+        "status": "done"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs",
+    "data_count": 0,
+    "series_count": 0,
+    "response_bytes": 164,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

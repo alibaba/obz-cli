@@ -1,0 +1,270 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/logs/query-fulltext",
+  "description": "Loki query: fulltext search for error keywords",
+  "backend": "loki",
+  "tags": [
+    "logs",
+    "query",
+    "fulltext",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/loki/api/v1/query_range",
+    "query_params": {
+      "query": "{service_name=~\".+\"}+|=+\"error\"",
+      "start": "1775534747000000000",
+      "end": "1775538347000000000",
+      "limit": "10"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "streams",
+        "result": [
+          {
+            "stream": {
+              "code_file_path": "google.golang.org/grpc@v1.79.1/clientconn.go",
+              "code_function_name": "google.golang.org/grpc.(*addrConn).createTransport",
+              "code_line_number": "1525",
+              "detected_level": "warn",
+              "grpc_log": "true",
+              "host_name": "demo-host-01",
+              "observed_timestamp": "1775538112362471423",
+              "os_type": "linux",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "13",
+              "severity_text": "warn"
+            },
+            "values": [
+              [
+                "1775538112362421800",
+                "[core] [Channel #2 SubChannel #7] grpc: addrConn.createTransport failed to connect to {Addr: \"192.168.16.4:4317\", ServerName: \"tempo:4317\", }. Err: connection error: desc = \"transport: Error while dialing: dial tcp 192.168.16.4:4317: connect: connection refused\""
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "code_file_path": "google.golang.org/grpc@v1.79.1/clientconn.go",
+              "code_function_name": "google.golang.org/grpc.(*addrConn).createTransport",
+              "code_line_number": "1525",
+              "detected_level": "warn",
+              "grpc_log": "true",
+              "host_name": "demo-host-01",
+              "observed_timestamp": "1775535365799624373",
+              "os_type": "linux",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "13",
+              "severity_text": "warn"
+            },
+            "values": [
+              [
+                "1775535365799557423",
+                "[core] [Channel #2 SubChannel #7] grpc: addrConn.createTransport failed to connect to {Addr: \"192.168.16.4:4317\", ServerName: \"tempo:4317\", }. Err: connection error: desc = \"transport: Error while dialing: dial tcp 192.168.16.4:4317: connect: connection refused\""
+              ]
+            ]
+          },
+          {
+            "stream": {
+              "code_file_path": "google.golang.org/grpc@v1.79.1/clientconn.go",
+              "code_function_name": "google.golang.org/grpc.(*addrConn).createTransport",
+              "code_line_number": "1525",
+              "detected_level": "warn",
+              "grpc_log": "true",
+              "host_name": "demo-host-01",
+              "observed_timestamp": "1775535361558880307",
+              "os_type": "linux",
+              "scope_name": "go.opentelemetry.io/collector/service",
+              "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+              "service_name": "otelcol-contrib",
+              "service_version": "0.146.1",
+              "severity_number": "13",
+              "severity_text": "warn"
+            },
+            "values": [
+              [
+                "1775535361558822870",
+                "[core] [Channel #2 SubChannel #7] grpc: addrConn.createTransport failed to connect to {Addr: \"192.168.16.4:4317\", ServerName: \"tempo:4317\", }. Err: connection error: desc = \"transport: Error while dialing: dial tcp 192.168.16.4:4317: connect: connection refused\""
+              ]
+            ]
+          }
+        ],
+        "stats": {
+          "summary": {
+            "bytesProcessedPerSecond": 43690225,
+            "linesProcessedPerSecond": 135184,
+            "totalBytesProcessed": 3935143,
+            "totalLinesProcessed": 12176,
+            "execTime": 0.090069,
+            "queueTime": 0.00044,
+            "subqueries": 0,
+            "totalEntriesReturned": 3,
+            "splits": 2,
+            "shards": 2,
+            "totalPostFilterLines": 3,
+            "totalStructuredMetadataBytesProcessed": 3517022
+          },
+          "querier": {
+            "store": {
+              "totalChunksRef": 0,
+              "totalChunksDownloaded": 0,
+              "chunksDownloadTime": 0,
+              "queryReferencedStructuredMetadata": false,
+              "chunk": {
+                "headChunkBytes": 0,
+                "headChunkLines": 0,
+                "decompressedBytes": 0,
+                "decompressedLines": 0,
+                "compressedBytes": 0,
+                "totalDuplicates": 0,
+                "postFilterLines": 0,
+                "headChunkStructuredMetadataBytes": 0,
+                "decompressedStructuredMetadataBytes": 0
+              },
+              "chunkRefsFetchTime": 0,
+              "congestionControlLatency": 0,
+              "pipelineWrapperFilteredLines": 0
+            }
+          },
+          "ingester": {
+            "totalReached": 2,
+            "totalChunksMatched": 6,
+            "totalBatches": 4,
+            "totalLinesSent": 3,
+            "store": {
+              "totalChunksRef": 1,
+              "totalChunksDownloaded": 1,
+              "chunksDownloadTime": 1097997,
+              "queryReferencedStructuredMetadata": false,
+              "chunk": {
+                "headChunkBytes": 233810,
+                "headChunkLines": 1531,
+                "decompressedBytes": 3701333,
+                "decompressedLines": 10645,
+                "compressedBytes": 154891,
+                "totalDuplicates": 0,
+                "postFilterLines": 3,
+                "headChunkStructuredMetadataBytes": 197152,
+                "decompressedStructuredMetadataBytes": 3319870
+              },
+              "chunkRefsFetchTime": 255769,
+              "congestionControlLatency": 0,
+              "pipelineWrapperFilteredLines": 0
+            }
+          },
+          "cache": {
+            "chunk": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "index": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "result": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "statsResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "volumeResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "seriesResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "labelResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "instantMetricResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            }
+          },
+          "index": {
+            "totalChunks": 0,
+            "postFilterChunks": 0,
+            "shardsDuration": 0,
+            "usedBloomFilters": false
+          }
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs",
+    "log_count": 3,
+    "data_count": 3,
+    "response_bytes": 5277,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:05:47Z",
+  "source": "recorded",
+  "generator": "scripts/loki-record-live.sh"
+}

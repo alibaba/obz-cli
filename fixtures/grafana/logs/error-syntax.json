@@ -1,0 +1,38 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/logs/error-syntax",
+  "description": "Loki error: invalid LogQL syntax",
+  "backend": "loki",
+  "tags": [
+    "logs",
+    "error",
+    "syntax",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/loki/api/v1/query_range",
+    "query_params": {
+      "query": "{invalid+{{+syntax",
+      "start": "1775534747000000000",
+      "end": "1775538347000000000",
+      "limit": "10"
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "text/plain"
+    },
+    "body_raw": "parse error at line 1, col 10: syntax error: unexpected {, expecting = or =~ or !~ or !="
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 88,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:05:47Z",
+  "source": "recorded",
+  "generator": "scripts/loki-record-live.sh"
+}

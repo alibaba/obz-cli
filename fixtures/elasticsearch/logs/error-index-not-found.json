@@ -1,0 +1,58 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/logs/error-index-not-found",
+  "description": "ES error: search on nonexistent index (index_not_found_exception)",
+  "backend": "elasticsearch",
+  "tags": [
+    "logs",
+    "error",
+    "not-found",
+    "tiny"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/nonexistent_index_xyz/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "match_all": {}
+      }
+    }
+  },
+  "response": {
+    "status_code": 404,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "error": {
+        "root_cause": [
+          {
+            "type": "index_not_found_exception",
+            "reason": "no such index [nonexistent_index_xyz]",
+            "resource.type": "index_or_alias",
+            "resource.id": "nonexistent_index_xyz",
+            "index_uuid": "_na_",
+            "index": "nonexistent_index_xyz"
+          }
+        ],
+        "type": "index_not_found_exception",
+        "reason": "no such index [nonexistent_index_xyz]",
+        "resource.type": "index_or_alias",
+        "resource.id": "nonexistent_index_xyz",
+        "index_uuid": "_na_",
+        "index": "nonexistent_index_xyz"
+      },
+      "status": 404
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 455,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

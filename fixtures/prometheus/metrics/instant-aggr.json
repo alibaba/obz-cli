@@ -1,0 +1,93 @@
+{
+  "fixture_version": "1.0",
+  "id": "prometheus/metrics/instant-aggr",
+  "description": "PromQL instant query: sum by job — total span calls per service",
+  "backend": "prometheus",
+  "tags": [
+    "metrics",
+    "query",
+    "instant",
+    "aggregation",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "query": "sum+by+(job)+(traces_span_metrics_calls_total)",
+      "time": "1775538213"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "job": "load-generator"
+            },
+            "value": [
+              1775538213,
+              "5813"
+            ]
+          },
+          {
+            "metric": {
+              "job": "cart"
+            },
+            "value": [
+              1775538213,
+              "324"
+            ]
+          },
+          {
+            "metric": {
+              "job": "image-provider"
+            },
+            "value": [
+              1775538213,
+              "486"
+            ]
+          },
+          {
+            "metric": {
+              "job": "product-reviews"
+            },
+            "value": [
+              1775538213,
+              "8"
+            ]
+          },
+          {
+            "metric": {
+              "job": "ad"
+            },
+            "value": [
+              1775538213,
+              "8"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "vector",
+    "series_count": 5,
+    "total_points": 5,
+    "data_count": 5,
+    "response_bytes": 353,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:03:33Z",
+  "source": "recorded",
+  "generator": "scripts/prometheus-record-live.sh"
+}

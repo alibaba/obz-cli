@@ -1,0 +1,88 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/logs/logs-aggregate-by-service",
+  "description": "Datadog logs aggregate: count by service",
+  "backend": "datadog",
+  "tags": [
+    "logs",
+    "aggregate",
+    "group-by",
+    "service",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/logs/analytics/aggregate",
+    "query_params": {},
+    "body": {
+      "compute": [
+        {
+          "aggregation": "count",
+          "type": "total"
+        }
+      ],
+      "filter": {
+        "from": "now-1h",
+        "to": "now",
+        "query": "*"
+      },
+      "group_by": [
+        {
+          "facet": "service",
+          "limit": 10
+        }
+      ]
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "meta": {
+        "elapsed": 41,
+        "request_id": "pddv1ChZSVjZlbmVRclRsV3FYVzczekpnMlJ3IiwKHJRR5BF3KYQEopo43d7aaDZEl9X2abTQmvvsgAUSDATt1Y0w1sTc0gzCEw",
+        "status": "done"
+      },
+      "data": {
+        "buckets": [
+          {
+            "by": {
+              "service": "load-generator"
+            },
+            "computes": {
+              "c0": 3768
+            }
+          },
+          {
+            "by": {
+              "service": "otelcol-contrib"
+            },
+            "computes": {
+              "c0": 12670
+            }
+          },
+          {
+            "by": {
+              "service": "recommendation"
+            },
+            "computes": {
+              "c0": 177
+            }
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs_aggregate",
+    "data_count": 3,
+    "series_count": 0,
+    "response_bytes": 353,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

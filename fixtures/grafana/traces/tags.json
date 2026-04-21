@@ -1,0 +1,145 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/traces/tags",
+  "description": "Tempo tags: all span tag names",
+  "backend": "tempo",
+  "tags": [
+    "traces",
+    "metadata",
+    "tags",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v2/search/tags",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "scopes": [
+        {
+          "name": "intrinsic",
+          "tags": [
+            "duration",
+            "event:name",
+            "event:timeSinceStart",
+            "instrumentation:name",
+            "instrumentation:version",
+            "kind",
+            "name",
+            "rootName",
+            "rootServiceName",
+            "span:duration",
+            "span:kind",
+            "span:name",
+            "span:status",
+            "span:statusMessage",
+            "status",
+            "statusMessage",
+            "trace:duration",
+            "trace:rootName",
+            "trace:rootService",
+            "traceDuration"
+          ]
+        },
+        {
+          "name": "resource",
+          "tags": [
+            "container.id",
+            "docker.cli.cobra.command_path",
+            "host.arch",
+            "host.name",
+            "os.description",
+            "os.type",
+            "process.command_line",
+            "process.executable.path",
+            "process.pid",
+            "process.runtime.description",
+            "process.runtime.name",
+            "process.runtime.version",
+            "service.instance.id",
+            "service.name",
+            "telemetry.auto.version",
+            "telemetry.distro.name",
+            "telemetry.distro.version",
+            "telemetry.sdk.language",
+            "telemetry.sdk.name",
+            "telemetry.sdk.version"
+          ]
+        },
+        {
+          "name": "span",
+          "tags": [
+            "category",
+            "error.type",
+            "http.flavor",
+            "http.method",
+            "http.request.method",
+            "http.request_content_length",
+            "http.response.status_code",
+            "http.response_content_length",
+            "http.route",
+            "http.scheme",
+            "http.status_code",
+            "http.target",
+            "http.url",
+            "http.user_agent",
+            "item.count",
+            "net.host.name",
+            "net.host.port",
+            "net.sock.peer.addr",
+            "net.sock.peer.port",
+            "network.peer.address",
+            "network.peer.port",
+            "network.protocol.version",
+            "network.type",
+            "original_span_name",
+            "product.id",
+            "quantity",
+            "question",
+            "rpc.grpc.status_code",
+            "rpc.method",
+            "rpc.service",
+            "rpc.system",
+            "server.address",
+            "server.port",
+            "thread.id",
+            "thread.name",
+            "url.full",
+            "user.id",
+            "user_agent.original"
+          ]
+        },
+        {
+          "name": "event",
+          "tags": [
+            "exception.escaped",
+            "exception.message",
+            "exception.stacktrace",
+            "exception.type",
+            "message.id",
+            "message.type"
+          ]
+        }
+      ],
+      "metrics": {
+        "inspectedBytes": "120606"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "tags",
+    "data_count": 20,
+    "trace_count": 0,
+    "span_count": 0,
+    "response_bytes": 1643,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:02:37Z",
+  "source": "recorded",
+  "generator": "scripts/tempo-record-live.sh"
+}

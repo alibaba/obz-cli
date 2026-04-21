@@ -1,0 +1,333 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/metrics/metric-series",
+  "description": "SLS MetricStore PromQL: series for container_cpu_utilization",
+  "backend": "sls",
+  "tags": [
+    "metrics",
+    "metadata",
+    "promql",
+    "series",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/prometheus/sunfire-cli-test/cli-test-metrics/api/v1/series",
+    "query_params": {
+      "match[]": "container_cpu_utilization",
+      "start": "1775136067",
+      "end": "1775139667"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": [
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "0453a58964e3",
+          "container_id": "0453a58964e32871b0462d3f490e6bc1c5ca3d0f1cd30c94d79a86e0b79a118e",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-shipping",
+          "container_name": "shipping",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "1f4051c77ae9",
+          "container_id": "1f4051c77ae9ac0059206e1f0366e05a70ab160529a8b4df02231752e99c9bc4",
+          "container_image_name": "victoriametrics/victoria-traces:v0.8.0",
+          "container_name": "vtraces",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "28dc642cfe3a",
+          "container_id": "28dc642cfe3a1ef79aedcb0fa35e61e613a87c51e400cd8dd1e3853f4ff7db7a",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-ad",
+          "container_name": "ad",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "39e6a8d9fe1d",
+          "container_id": "39e6a8d9fe1d45cc1f2883dbd13091c887e9ba8da243133ce0e4986d001cbfb7",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-recommendation",
+          "container_name": "recommendation",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "43525c54e852",
+          "container_id": "43525c54e8524de86d3568bd3784ebd021f78b1570eafd17f0260b19ed7f82cf",
+          "container_image_name": "ghcr.io/open-feature/flagd:v0.13.3",
+          "container_name": "flagd",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "43ed7139166a",
+          "container_id": "43ed7139166acc5e269f04cd1c789c3d4e1835ddb6aa1adb295b176437321d33",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-payment",
+          "container_name": "payment",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "4c6ce0927440",
+          "container_id": "4c6ce09274402f9996d7fe488757cd119f25c5c691a0bc9bc534e0529b6d0172",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-llm",
+          "container_name": "llm",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "4fc13125a9ab",
+          "container_id": "4fc13125a9ab46f96c4e0afc150d1f96db36e0d365b9c74277b58f6005b37c5f",
+          "container_image_name": "grafana/loki:3.5.0",
+          "container_name": "loki",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "53f0e8ee992a",
+          "container_id": "53f0e8ee992ab6916fec09993ed8fdb822dae824986f1fa8f9b50a0f77706b82",
+          "container_image_name": "victoriametrics/victoria-metrics:v1.106.1",
+          "container_name": "vm",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "553e8e1dede3",
+          "container_id": "553e8e1dede36443ba0306f976afdb7032b8f54f3ac1f777acb4e7723488de77",
+          "container_image_name": "ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.146.1",
+          "container_name": "otel-collector",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "64aed22f01d4",
+          "container_id": "64aed22f01d4a62c278a6823fa8dcfc92effd3a8fae611a0355a4f1f8732e857",
+          "container_image_name": "victoriametrics/victoria-logs:v1.48.0",
+          "container_name": "vlogs",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "68816571f99c",
+          "container_id": "68816571f99c4f85fcf0c5ec69e1c0ef89bc5b7e730b6be87847ad609156d2f7",
+          "container_image_name": "quay.io/prometheus/prometheus:v3.9.1",
+          "container_name": "prometheus",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "696286740ca3",
+          "container_id": "696286740ca31e389219a25f8af3b07f6e3db5908e7a3ddbac066cb7bc906ed7",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-currency",
+          "container_name": "currency",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "6ecb6b71ee82",
+          "container_id": "6ecb6b71ee8244d4792a09c8a14ee812806bbfaef35baa819586f22da11b90a1",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-frontend",
+          "container_name": "frontend",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "7a399ae677e3",
+          "container_id": "7a399ae677e34f2d0c89620f6512ca9b0f35e684e0aa87397231510039fe375b",
+          "container_image_name": "postgres:17.8",
+          "container_name": "postgresql",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "8ed3b322ef06",
+          "container_id": "8ed3b322ef068060ac4f06756a35025dbfeddb61bd3f542e80950b2aadd0e426",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-image-provider",
+          "container_name": "image-provider",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "a1dcdad3a3bf",
+          "container_id": "a1dcdad3a3bf9c781321285b7c23a8e6288fc28bb96203738701c26b7bbb21ce",
+          "container_image_name": "grafana/tempo:2.7.2",
+          "container_name": "tempo",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "a464fd591bc8",
+          "container_id": "a464fd591bc8d536f097bcd3afb94dcaa9255cadcc34a71640202749aa7ac3de",
+          "container_image_name": "valkey/valkey:9.0.2-alpine3.23",
+          "container_name": "valkey-cart",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "ab6af45e3b30",
+          "container_id": "ab6af45e3b30a7d680f7075327bec1fd5b5b9a0943986f8973e870b08262bde9",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-checkout",
+          "container_name": "checkout",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "b4cd0c040ef9",
+          "container_id": "b4cd0c040ef98422149313a3063d527a1367a58317a12b48d45fd7ce40df7993",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-email",
+          "container_name": "email",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "btorch011167034027.cm10",
+          "container_id": "29207c273e6d16e1cd89f3f5db7c938b9924a2e9a422fea1199e2604cfc59614",
+          "container_image_name": "registry.example.com/app/service:0.1.0.20",
+          "container_name": "app-a-1.0.20",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "btorch011167034027.cm10",
+          "container_id": "3353cfaf6135703b29dc7ed15b76354238b4972e6e7410a9d46fa5a7ba87b6c6",
+          "container_image_name": "registry.example.com/app/service:0.1.0.21",
+          "container_name": "app-b-1.0.21",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "btorch011167034027.cm10",
+          "container_id": "6489e04b792221b1d37b416bdf2f63deb74cf0ecd9d71206fb9add95880e111f",
+          "container_image_name": "registry.example.com/app/service:0.1.0.19",
+          "container_name": "app-a-1.0.19",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "c02edf4020b6",
+          "container_id": "c02edf4020b69de24e022b924a3f2f7c931d8aaa7355cc16ce59e5ef647bcd43",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-quote",
+          "container_name": "quote",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "ca10c6e86399",
+          "container_id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-cart",
+          "container_name": "cart",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "d54fa40ffce8",
+          "container_id": "d54fa40ffce86ecd34cd07e0e7b229651d1214dc50e57e8a30b693cd64f0bde5",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-load-generator",
+          "container_name": "load-generator",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "d80dd208f3fe",
+          "container_id": "d80dd208f3fec6a792ca648f33a977c010f860aabe33544580a24d9d10aaf287",
+          "container_image_name": "ghcr.io/timeplus-io/proton:latest",
+          "container_name": "proton-benchmark",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "e04aa3ab30ca",
+          "container_id": "e04aa3ab30caebd01a34aece0ab0921a4c1c79bfd87f215d74930afaca29147d",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-product-reviews",
+          "container_name": "product-reviews",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        },
+        {
+          "__name__": "container_cpu_utilization",
+          "container_hostname": "f49cba40513c",
+          "container_id": "f49cba40513cd8a203479d3f1ca2b41ea89d5e4f6eef92cddc82dee3c485b183",
+          "container_image_name": "ghcr.io/open-telemetry/demo:latest-product-catalog",
+          "container_name": "product-catalog",
+          "container_runtime": "docker",
+          "host_name": "btorch011167034027.cm10",
+          "os_type": "linux"
+        }
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "series",
+    "series_count": 0,
+    "data_count": 29,
+    "response_bytes": 10439,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

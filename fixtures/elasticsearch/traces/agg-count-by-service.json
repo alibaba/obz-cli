@@ -1,0 +1,90 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/traces/agg-count-by-service",
+  "description": "ES traces aggregation: span count by service",
+  "backend": "elasticsearch",
+  "tags": [
+    "traces",
+    "aggregate",
+    "count",
+    "group-by",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/traces-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "size": 0,
+      "aggs": {
+        "by_service": {
+          "terms": {
+            "field": "resource.attributes.service.name",
+            "size": 20
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 3,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 5603,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+      },
+      "aggregations": {
+        "by_service": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "load-generator",
+              "doc_count": 4927
+            },
+            {
+              "key": "image-provider",
+              "doc_count": 399
+            },
+            {
+              "key": "cart",
+              "doc_count": 266
+            },
+            {
+              "key": "product-reviews",
+              "doc_count": 6
+            },
+            {
+              "key": "ad",
+              "doc_count": 5
+            }
+          ]
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "aggs",
+    "data_count": 5603,
+    "response_bytes": 444,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

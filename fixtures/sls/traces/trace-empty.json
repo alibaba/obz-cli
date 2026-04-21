@@ -1,0 +1,42 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/traces/trace-empty",
+  "description": "SLS Trace: nonexistent — no matching spans",
+  "backend": "sls",
+  "tags": [
+    "traces",
+    "query",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logstores/cli-test-traces",
+    "query_params": {
+      "type": "log",
+      "from": "1775136067",
+      "to": "1775139667",
+      "query": "service:nonexistent_xyz",
+      "line": "10"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "x-log-progress": "Complete",
+      "x-log-count": "0"
+    },
+    "body": []
+  },
+  "facts": {
+    "result_type": "logs",
+    "log_count": 0,
+    "response_bytes": 2,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

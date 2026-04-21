@@ -1,0 +1,161 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/traces/search-by-operation",
+  "description": "Tempo search: traces filtered by span name",
+  "backend": "tempo",
+  "tags": [
+    "traces",
+    "search",
+    "operation",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/search",
+    "query_params": {
+      "q": "{name=\"GET\"}",
+      "start": "1775534557",
+      "end": "1775538157",
+      "limit": "3"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "traces": [
+        {
+          "traceID": "85646466e72edc3e5563f9124c7e5646",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_get_ads",
+          "startTimeUnixNano": "1775538118616032102",
+          "durationMs": 5,
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "559b6c22fe2effa7",
+                "name": "GET",
+                "startTimeUnixNano": "1775538118616578790",
+                "durationNanos": "5083992"
+              }
+            ],
+            "matched": 1
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "559b6c22fe2effa7",
+                  "name": "GET",
+                  "startTimeUnixNano": "1775538118616578790",
+                  "durationNanos": "5083992"
+                }
+              ],
+              "matched": 1
+            }
+          ],
+          "serviceStats": {
+            "load-generator": {
+              "spanCount": 2,
+              "errorCount": 1
+            }
+          }
+        },
+        {
+          "traceID": "560dc67fb18341098c7633dc178a4c17",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_get_product_reviews",
+          "startTimeUnixNano": "1775538114084205689",
+          "durationMs": 5,
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "f594271aa3bec960",
+                "name": "GET",
+                "startTimeUnixNano": "1775538114084716616",
+                "durationNanos": "5158125"
+              }
+            ],
+            "matched": 1
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "f594271aa3bec960",
+                  "name": "GET",
+                  "startTimeUnixNano": "1775538114084716616",
+                  "durationNanos": "5158125"
+                }
+              ],
+              "matched": 1
+            }
+          ],
+          "serviceStats": {
+            "load-generator": {
+              "spanCount": 2,
+              "errorCount": 1
+            }
+          }
+        },
+        {
+          "traceID": "1ce23993917a0365d9a8997d9cd096e4",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_browse_product",
+          "startTimeUnixNano": "1775538114016558201",
+          "durationMs": 5,
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "1288e105fe61061f",
+                "name": "GET",
+                "startTimeUnixNano": "1775538114017098155",
+                "durationNanos": "4566888"
+              }
+            ],
+            "matched": 1
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "1288e105fe61061f",
+                  "name": "GET",
+                  "startTimeUnixNano": "1775538114017098155",
+                  "durationNanos": "4566888"
+                }
+              ],
+              "matched": 1
+            }
+          ],
+          "serviceStats": {
+            "load-generator": {
+              "spanCount": 2,
+              "errorCount": 1
+            }
+          }
+        }
+      ],
+      "metrics": {
+        "inspectedBytes": "74955",
+        "totalBlocks": 1,
+        "completedJobs": 2,
+        "totalJobs": 4,
+        "totalBlockBytes": "749832"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "search",
+    "data_count": 3,
+    "trace_count": 3,
+    "span_count": 0,
+    "response_bytes": 1727,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:02:37Z",
+  "source": "recorded",
+  "generator": "scripts/tempo-record-live.sh"
+}

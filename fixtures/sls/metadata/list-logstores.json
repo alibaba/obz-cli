@@ -1,0 +1,49 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/metadata/list-logstores",
+  "description": "SLS ListLogStores: all logstores in project",
+  "backend": "sls",
+  "tags": [
+    "metadata",
+    "logstores",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logstores",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "count": 12,
+      "total": 12,
+      "logstores": [
+        "cli-test-entity-deps",
+        "cli-test-events",
+        "cli-test-logs",
+        "cli-test-metrics",
+        "cli-test-processed",
+        "cli-test-raw",
+        "cli-test-traces",
+        "cli-test-traces-deps",
+        "cli-test-traces-metrics",
+        "test-logs",
+        "test-metrics",
+        "test-traces"
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "data_count": 12,
+    "response_bytes": 273,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

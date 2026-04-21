@@ -1,0 +1,233 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/field-names",
+  "description": "VictoriaLogs field_names: all log field names",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "metadata",
+    "field-names",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/field_names",
+    "query_params": {},
+    "body": {
+      "query": "*",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "values": [
+        {
+          "value": "_msg",
+          "hits": 16659
+        },
+        {
+          "value": "_stream",
+          "hits": 16659
+        },
+        {
+          "value": "_stream_id",
+          "hits": 16659
+        },
+        {
+          "value": "_time",
+          "hits": 16659
+        },
+        {
+          "value": "host.name",
+          "hits": 16659
+        },
+        {
+          "value": "os.type",
+          "hits": 16659
+        },
+        {
+          "value": "scope.name",
+          "hits": 16659
+        },
+        {
+          "value": "scope.version",
+          "hits": 16659
+        },
+        {
+          "value": "service.name",
+          "hits": 16659
+        },
+        {
+          "value": "severity",
+          "hits": 16659
+        },
+        {
+          "value": "code.file.path",
+          "hits": 16525
+        },
+        {
+          "value": "code.function.name",
+          "hits": 16525
+        },
+        {
+          "value": "code.line.number",
+          "hits": 16525
+        },
+        {
+          "value": "span_id",
+          "hits": 16205
+        },
+        {
+          "value": "trace_id",
+          "hits": 16205
+        },
+        {
+          "value": "scope.attributes.otelcol.component.id",
+          "hits": 12637
+        },
+        {
+          "value": "scope.attributes.otelcol.component.kind",
+          "hits": 12637
+        },
+        {
+          "value": "scope.attributes.otelcol.signal",
+          "hits": 12637
+        },
+        {
+          "value": "service.instance.id",
+          "hits": 12637
+        },
+        {
+          "value": "service.version",
+          "hits": 12637
+        },
+        {
+          "value": "log records",
+          "hits": 12634
+        },
+        {
+          "value": "resource logs",
+          "hits": 12634
+        },
+        {
+          "value": "data points",
+          "hits": 12631
+        },
+        {
+          "value": "metrics",
+          "hits": 12631
+        },
+        {
+          "value": "resource metrics",
+          "hits": 12631
+        },
+        {
+          "value": "code.stacktrace",
+          "hits": 12619
+        },
+        {
+          "value": "error",
+          "hits": 12619
+        },
+        {
+          "value": "resource spans",
+          "hits": 12597
+        },
+        {
+          "value": "spans",
+          "hits": 12597
+        },
+        {
+          "value": "dropped_items",
+          "hits": 12571
+        },
+        {
+          "value": "duration",
+          "hits": 12571
+        },
+        {
+          "value": "method",
+          "hits": 12571
+        },
+        {
+          "value": "path",
+          "hits": 12571
+        },
+        {
+          "value": "reason",
+          "hits": 12571
+        },
+        {
+          "value": "id",
+          "hits": 12553
+        },
+        {
+          "value": "errorCauses",
+          "hits": 12524
+        },
+        {
+          "value": "scraper",
+          "hits": 12524
+        },
+        {
+          "value": "host",
+          "hits": 4186
+        },
+        {
+          "value": "docker.cli.cobra.command_path",
+          "hits": 4022
+        },
+        {
+          "value": "otelServiceName",
+          "hits": 4022
+        },
+        {
+          "value": "otelSpanID",
+          "hits": 4022
+        },
+        {
+          "value": "otelTraceID",
+          "hits": 4022
+        },
+        {
+          "value": "otelTraceSampled",
+          "hits": 4022
+        },
+        {
+          "value": "telemetry.sdk.language",
+          "hits": 4022
+        },
+        {
+          "value": "telemetry.sdk.name",
+          "hits": 4022
+        },
+        {
+          "value": "telemetry.sdk.version",
+          "hits": 4022
+        },
+        {
+          "value": "grpc_log",
+          "hits": 3340
+        },
+        {
+          "value": "telemetry.auto.version",
+          "hits": 116
+        }
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "field_names",
+    "data_count": 48,
+    "response_bytes": 1867,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

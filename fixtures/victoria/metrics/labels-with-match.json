@@ -1,0 +1,52 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/metrics/labels-with-match",
+  "description": "Labels: label names for specific metric — traces_span_metrics_calls_total",
+  "backend": "victoriametrics",
+  "tags": [
+    "metrics",
+    "metadata",
+    "labels",
+    "match",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/labels",
+    "query_params": {
+      "match[]": "traces_span_metrics_calls_total"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": [
+        "__name__",
+        "instance",
+        "job",
+        "otel_scope_name",
+        "service_name",
+        "span_kind",
+        "span_name",
+        "status_code"
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "series_count": 0,
+    "total_points": 0,
+    "data_count": 8,
+    "response_bytes": 128,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:20Z",
+  "source": "recorded",
+  "generator": "scripts/vm/record-live.sh"
+}

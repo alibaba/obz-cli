@@ -1,0 +1,98 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/metrics/instant-vector-single",
+  "description": "PromQL instant query: single series — http_client_duration for frontend",
+  "backend": "victoriametrics",
+  "tags": [
+    "metrics",
+    "query",
+    "instant",
+    "vector",
+    "single",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "query": "http_client_duration_milliseconds_count{job=\"frontend\",http_method=\"GET\"}",
+      "time": "1775138360"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "http_client_duration_milliseconds_count",
+              "http_flavor": "1.1",
+              "http_method": "GET",
+              "http_status_code": "200",
+              "job": "frontend",
+              "net_peer_name": "100.100.100.200",
+              "net_peer_port": "80",
+              "otel_scope_name": "@opentelemetry/instrumentation-http",
+              "otel_scope_version": "0.213.0"
+            },
+            "value": [
+              1775138360,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "http_client_duration_milliseconds_count",
+              "http_method": "GET",
+              "job": "frontend",
+              "net_peer_name": "169.254.169.254",
+              "otel_scope_name": "@opentelemetry/instrumentation-http",
+              "otel_scope_version": "0.213.0"
+            },
+            "value": [
+              1775138360,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "http_client_duration_milliseconds_count",
+              "http_method": "GET",
+              "job": "frontend",
+              "net_peer_name": "metadata.google.internal.",
+              "otel_scope_name": "@opentelemetry/instrumentation-http",
+              "otel_scope_version": "0.213.0"
+            },
+            "value": [
+              1775138360,
+              "1"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "3",
+        "executionTimeMsec": 31
+      }
+    }
+  },
+  "facts": {
+    "result_type": "vector",
+    "series_count": 3,
+    "total_points": 3,
+    "data_count": 0,
+    "response_bytes": 939,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:20Z",
+  "source": "recorded",
+  "generator": "scripts/vm/record-live.sh"
+}

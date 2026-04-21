@@ -1,0 +1,176 @@
+{
+  "catalog_version": "1.0",
+  "backend": "sls/traces",
+  "generated_at": "2026-04-02T14:21:28Z",
+  "fixtures": [
+    {
+      "file": "trace-by-id.json",
+      "id": "sls/traces/trace-by-id",
+      "description": "SLS Trace: traceID:8602204f8304513d402b93bb816262de — all spans for a specific trace",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 9786,
+      "tags": [
+        "traces",
+        "query",
+        "trace-by-id",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-by-id-not-found.json",
+      "id": "sls/traces/trace-by-id-not-found",
+      "description": "SLS Trace: nonexistent traceID — empty result",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 946,
+      "tags": [
+        "traces",
+        "query",
+        "trace-by-id",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-by-operation.json",
+      "id": "sls/traces/trace-by-operation",
+      "description": "SLS Trace: name:POST — spans filtered by operation name",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 52855,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "operation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-by-service.json",
+      "id": "sls/traces/trace-by-service",
+      "description": "SLS Trace: service:cart — spans for cart service",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 14388,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-empty.json",
+      "id": "sls/traces/trace-empty",
+      "description": "SLS Trace: nonexistent — no matching spans",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 897,
+      "tags": [
+        "traces",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-error-spans.json",
+      "id": "sls/traces/trace-error-spans",
+      "description": "SLS Trace: statusCode:ERROR — error spans",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 79437,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "error",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-query-all.json",
+      "id": "sls/traces/trace-query-all",
+      "description": "SLS Trace: * — all spans from OTel Demo",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 38355,
+      "tags": [
+        "traces",
+        "query",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-service-stats.json",
+      "id": "sls/traces/trace-service-stats",
+      "description": "SLS Trace SQL: span count and avg duration by service",
+      "result_type": "sql",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1932,
+      "tags": [
+        "traces",
+        "sql",
+        "stats",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-top-slow.json",
+      "id": "sls/traces/trace-top-slow",
+      "description": "SLS Trace SQL: top 10 slowest spans",
+      "result_type": "sql",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 3498,
+      "tags": [
+        "traces",
+        "sql",
+        "top-n",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

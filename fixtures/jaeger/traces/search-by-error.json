@@ -1,0 +1,47 @@
+{
+  "fixture_version": "1.0",
+  "id": "jaeger/traces/search-by-error",
+  "description": "Jaeger API: search traces with error=true tag for cart service",
+  "backend": "jaeger",
+  "tags": [
+    "traces",
+    "search",
+    "error",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/traces",
+    "query_params": {
+      "service": "cart",
+      "tags": "{\"error\":\"true\"}",
+      "start": "1775535017000000",
+      "end": "1775538617000000",
+      "limit": "3"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [],
+      "total": 0,
+      "limit": 0,
+      "offset": 0,
+      "errors": null
+    }
+  },
+  "facts": {
+    "result_type": "traces",
+    "data_count": 0,
+    "trace_count": 0,
+    "span_count": 0,
+    "response_bytes": 56,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:10:17Z",
+  "source": "recorded",
+  "generator": "scripts/jaeger-record-live.sh"
+}

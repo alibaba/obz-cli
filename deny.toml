@@ -1,0 +1,100 @@
+# cargo-deny configuration for obz-cli workspace
+# https://embarkstudios.github.io/cargo-deny/
+#
+# Run locally: cargo deny check
+# Four check categories: advisories | licenses | bans | sources
+
+[graph]
+all-features = true
+
+# -- Advisories: check for known security vulnerabilities (RustSec) -----------
+# https://rustsec.org/advisories/
+[advisories]
+# Yanked versions on crates.io must never be used.
+yanked = "deny"
+ignore = [
+    # Add advisory IDs here only when there is no fix available and the
+    # vulnerability does not affect our usage. Always include a reason.
+    # Example:
+    # { id = "RUSTSEC-2023-0001", reason = "only affects Windows target, we ship Linux/macOS" },
+]
+
+# -- Licenses: enforce allowed open-source licenses --------------------------
+# Anything not in this list causes a hard error.
+[licenses]
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "BSL-1.0",
+    "ISC",
+    "Unicode-3.0",
+    "CDLA-Permissive-2.0",
+    "Zlib",
+]
+confidence-threshold = 0.8
+
+[licenses.private]
+# Workspace-internal crates (path deps) don't need a license declaration.
+ignore = true
+
+# -- Bans: detect duplicate / forbidden crates --------------------------------
+[bans]
+# Hard-deny multiple versions of the same crate. This prevents accidental
+# version splits that compile silently but break cross-crate type compatibility
+# (e.g. http = "0.2" in one crate vs http = "1" in another produces two
+# incompatible HeaderMap types even though names look identical).
+multiple-versions = "deny"
+wildcards = "allow"
+highlight = "all"
+
+# Crates that must never appear in the dependency graph.
+deny = [
+    # openssl pulls in C build deps and complicates cross-compilation.
+    # We use rustls everywhere instead.
+    { name = "openssl" },
+    { name = "openssl-sys" },
+]
+
+# Known / unavoidable duplicate versions.
+# Add an entry here ONLY when:
+#   1. The duplicate comes from a transitive dependency we don't control, AND
+#   2. The two versions do not exchange types across the crate boundary.
+# Always include a `reason` explaining why it is safe to skip.
+skip = [
+    # rustls-platform-verifier pulls in jni, which still depends on windows-sys 0.45
+    # and windows-targets 0.42. All other deps use 0.52+. Safe to skip: these are
+    # platform-specific binary blobs that never exchange types across crate boundaries.
+    { name = "windows-sys", version = "<0.53" },
+    { name = "windows-targets", version = "<0.53" },
+    { name = "windows_aarch64_gnullvm", version = "<0.53" },
+    { name = "windows_aarch64_msvc", version = "<0.53" },
+    { name = "windows_i686_gnu", version = "<0.53" },
+    { name = "windows_i686_msvc", version = "<0.53" },
+    { name = "windows_x86_64_gnu", version = "<0.53" },
+    { name = "windows_x86_64_gnullvm", version = "<0.53" },
+    { name = "windows_x86_64_msvc", version = "<0.53" },
+
+    # rustls-platform-verifier → jni uses thiserror 1.x; our code uses thiserror 2.x.
+    # No types are exchanged across the boundary. Range match avoids manual bumps
+    # when jni updates to a newer 1.x patch.
+    { name = "thiserror", version = "<2" },
+    { name = "thiserror-impl", version = "<2" },
+
+    # tempfile 3.27+ depends on getrandom 0.4, while ring (via rustls) still
+    # uses getrandom 0.2. No types are exchanged across the boundary — both are
+    # used internally for random byte generation.
+    { name = "getrandom", version = "<0.3" },
+]
+
+# -- Sources: restrict where crates can come from -----------------------------
+[sources]
+# Crates from unknown registries or arbitrary git repos are a supply-chain risk.
+unknown-registry = "deny"
+unknown-git = "deny"
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+# Add specific git repos here if you ever need a git dependency:
+# allow-git = ["https://github.com/some-org/some-repo"]
+allow-git = []

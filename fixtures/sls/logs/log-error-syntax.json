@@ -1,0 +1,38 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/logs/log-error-syntax",
+  "description": "SLS Log SQL error: invalid SQL syntax",
+  "backend": "sls",
+  "tags": [
+    "logs",
+    "error",
+    "syntax",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logstores/cli-test-logs",
+    "query_params": {
+      "type": "log",
+      "from": "1775136067",
+      "to": "1775139667",
+      "query": "* | SELECT INVALID_FUNC(((("
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body_raw": "{\"errorCode\":\"ParameterInvalid\",\"errorMessage\":\"ErrorType:SyntaxError.ErrorPosition,line:1,column:4.ErrorMessage:line 1:4: no viable alternative at input '((( from'\"}"
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 166,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

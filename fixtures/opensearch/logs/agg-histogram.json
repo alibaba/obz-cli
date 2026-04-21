@@ -1,0 +1,158 @@
+{
+  "fixture_version": "1.0",
+  "id": "opensearch/logs/agg-histogram",
+  "description": "OpenSearch aggregation: log count histogram over time",
+  "backend": "opensearch",
+  "tags": [
+    "logs",
+    "aggregate",
+    "histogram",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/otel-logs-2026-04-07/_search",
+    "query_params": {},
+    "body": {
+      "size": 0,
+      "aggs": {
+        "over_time": {
+          "date_histogram": {
+            "field": "@timestamp",
+            "fixed_interval": "5m"
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 9,
+      "timed_out": false,
+      "terminated_early": true,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 10000,
+          "relation": "gte"
+        },
+        "max_score": null,
+        "hits": []
+      },
+      "aggregations": {
+        "over_time": {
+          "buckets": [
+            {
+              "key_as_string": "2026-04-07T03:40:00.000Z",
+              "key": 1775533200000,
+              "doc_count": 518
+            },
+            {
+              "key_as_string": "2026-04-07T03:45:00.000Z",
+              "key": 1775533500000,
+              "doc_count": 1033
+            },
+            {
+              "key_as_string": "2026-04-07T03:50:00.000Z",
+              "key": 1775533800000,
+              "doc_count": 1049
+            },
+            {
+              "key_as_string": "2026-04-07T03:55:00.000Z",
+              "key": 1775534100000,
+              "doc_count": 1073
+            },
+            {
+              "key_as_string": "2026-04-07T04:00:00.000Z",
+              "key": 1775534400000,
+              "doc_count": 1061
+            },
+            {
+              "key_as_string": "2026-04-07T04:05:00.000Z",
+              "key": 1775534700000,
+              "doc_count": 1014
+            },
+            {
+              "key_as_string": "2026-04-07T04:10:00.000Z",
+              "key": 1775535000000,
+              "doc_count": 1045
+            },
+            {
+              "key_as_string": "2026-04-07T04:15:00.000Z",
+              "key": 1775535300000,
+              "doc_count": 999
+            },
+            {
+              "key_as_string": "2026-04-07T04:20:00.000Z",
+              "key": 1775535600000,
+              "doc_count": 999
+            },
+            {
+              "key_as_string": "2026-04-07T04:25:00.000Z",
+              "key": 1775535900000,
+              "doc_count": 1030
+            },
+            {
+              "key_as_string": "2026-04-07T04:30:00.000Z",
+              "key": 1775536200000,
+              "doc_count": 1021
+            },
+            {
+              "key_as_string": "2026-04-07T04:35:00.000Z",
+              "key": 1775536500000,
+              "doc_count": 1004
+            },
+            {
+              "key_as_string": "2026-04-07T04:40:00.000Z",
+              "key": 1775536800000,
+              "doc_count": 993
+            },
+            {
+              "key_as_string": "2026-04-07T04:45:00.000Z",
+              "key": 1775537100000,
+              "doc_count": 989
+            },
+            {
+              "key_as_string": "2026-04-07T04:50:00.000Z",
+              "key": 1775537400000,
+              "doc_count": 1063
+            },
+            {
+              "key_as_string": "2026-04-07T04:55:00.000Z",
+              "key": 1775537700000,
+              "doc_count": 1022
+            },
+            {
+              "key_as_string": "2026-04-07T05:00:00.000Z",
+              "key": 1775538000000,
+              "doc_count": 1057
+            },
+            {
+              "key_as_string": "2026-04-07T05:05:00.000Z",
+              "key": 1775538300000,
+              "doc_count": 293
+            }
+          ]
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "aggs",
+    "data_count": 10000,
+    "response_bytes": 1702,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:06:25Z",
+  "source": "recorded",
+  "generator": "scripts/opensearch-record-live.sh"
+}

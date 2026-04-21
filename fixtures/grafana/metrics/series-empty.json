@@ -1,0 +1,46 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/metrics/series-empty",
+  "description": "Series: no matching series",
+  "backend": "mimir",
+  "tags": [
+    "metrics",
+    "metadata",
+    "series",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/series",
+    "query_params": {
+      "match[]": "nonexistent_metric_xyz",
+      "start": "1775534625",
+      "end": "1775538225"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": []
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "series_count": 0,
+    "total_points": 0,
+    "data_count": 0,
+    "response_bytes": 30,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:03:45Z",
+  "source": "recorded",
+  "generator": "scripts/mimir-record-live.sh"
+}

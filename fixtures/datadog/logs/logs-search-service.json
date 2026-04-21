@@ -1,0 +1,618 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/logs/logs-search-service",
+  "description": "Datadog logs search: logs filtered by service otelcol-contrib",
+  "backend": "datadog",
+  "tags": [
+    "logs",
+    "query",
+    "filter",
+    "service",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/logs/events/search",
+    "query_params": {},
+    "body": {
+      "filter": {
+        "from": "now-1h",
+        "to": "now",
+        "query": "service:otelcol-contrib"
+      },
+      "sort": "timestamp",
+      "page": {
+        "limit": 10
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [
+        {
+          "id": "AwAAAZ1OMTSC6R-eywAAABhBWjFPTVVub0FBQ0lIaFh6cFd2RWh3QUEAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAFNw",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:40.802Z",
+              "otelcol": {
+                "component": {
+                  "kind": "exporter",
+                  "id": "debug"
+                },
+                "signal": "logs"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "info",
+                "severity_number": "9",
+                "timestamp": "1775133340802788765"
+              },
+              "resource logs": 1,
+              "log records": 1,
+              "status": "info"
+            },
+            "message": "Logs",
+            "status": "info",
+            "timestamp": "2026-04-02T12:35:40.802Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMThn6R-ezAAAABhBWjFPTVVub0FBQ0lIaFh6cFd2RWh3QUIAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAFNg",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:41.799Z",
+              "otelcol": {
+                "component": {
+                  "kind": "exporter",
+                  "id": "debug"
+                },
+                "signal": "logs"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "info",
+                "severity_number": "9",
+                "timestamp": "1775133341799094980"
+              },
+              "resource logs": 1,
+              "log records": 1,
+              "status": "info"
+            },
+            "message": "Logs",
+            "status": "info",
+            "timestamp": "2026-04-02T12:35:41.799Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMTpD6R-ezQAAABhBWjFPTVVub0FBQ0lIaFh6cFd2RWh3QUMAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAFNQ",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:42.275Z",
+              "otelcol": {
+                "component": {
+                  "kind": "exporter",
+                  "id": "debug"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "resource metrics": 1,
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "data points": 7,
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "info",
+                "severity_number": "9",
+                "timestamp": "1775133342275157735"
+              },
+              "metrics": 4,
+              "status": "info"
+            },
+            "message": "Metrics",
+            "status": "info",
+            "timestamp": "2026-04-02T12:35:42.275Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMTpN6R-ezgAAABhBWjFPTVVub0FBQ0lIaFh6cFd2RWh3QUQAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAFNA",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:42.285Z",
+              "otelcol": {
+                "component": {
+                  "kind": "exporter",
+                  "id": "debug"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "resource metrics": 1,
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "data points": 34,
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "info",
+                "severity_number": "9",
+                "timestamp": "1775133342285967222"
+              },
+              "metrics": 29,
+              "status": "info"
+            },
+            "message": "Metrics",
+            "status": "info",
+            "timestamp": "2026-04-02T12:35:42.285Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMTps6R-ezwAAABhBWjFPTVVub0FBQ0lIaFh6cFd2RWh3QUUAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAFMw",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:42.316Z",
+              "otelcol": {
+                "component": {
+                  "kind": "exporter",
+                  "id": "debug"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "resource metrics": 14,
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "data points": 128,
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "info",
+                "severity_number": "9",
+                "timestamp": "1775133342316564889"
+              },
+              "metrics": 70,
+              "status": "info"
+            },
+            "message": "Metrics",
+            "status": "info",
+            "timestamp": "2026-04-02T12:35:42.316Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMUJc6R-e1AAAABhBWjFPTVVub0FBQ0lIaFh6cFd2RWh3QUoAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACiw",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:44.348Z",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "line": {
+                  "number": 196
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON"
+                }
+              },
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133344348994464"
+              },
+              "id": "4fc13125a9ab46f96c4e0afc150d1f96db36e0d365b9c74277b58f6005b37c5f",
+              "error": "context canceled",
+              "status": "error"
+            },
+            "message": "Could not parse docker containerStats for container id",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:44.348Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMUJh6R-e1QAAABhBWjFPTVVub0FBQ0lIaFh6cFd2RWh3QUsAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACig",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:44.353Z",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "line": {
+                  "number": 196
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON"
+                }
+              },
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133344353530844"
+              },
+              "id": "d54fa40ffce86ecd34cd07e0e7b229651d1214dc50e57e8a30b693cd64f0bde5",
+              "error": "context canceled",
+              "status": "error"
+            },
+            "message": "Could not parse docker containerStats for container id",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:44.353Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMUJz6R-e1gAAABhBWjFPTVVub0FBQ0lIaFh6cFd2RWh3QUwAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACiQ",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:35:44.371Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133344371263256"
+              },
+              "error": "context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:44.371Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMUJ56R-e1wAAABhBWjFPTVVub0FBQ0lIaFh6cFd2RWh3QU0AAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAFMg",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:44.377Z",
+              "otelcol": {
+                "component": {
+                  "kind": "exporter",
+                  "id": "debug"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "resource metrics": 27,
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "data points": 427,
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "info",
+                "severity_number": "9",
+                "timestamp": "1775133344377745998"
+              },
+              "metrics": 327,
+              "status": "info"
+            },
+            "message": "Metrics",
+            "status": "info",
+            "timestamp": "2026-04-02T12:35:44.377Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMUKe6R-e2AAAABhBWjFPTVVub0FBQ0lIaFh6cFd2RWh3QU4AAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAFMQ",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "spans": 4,
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:44.414Z",
+              "otelcol": {
+                "component": {
+                  "kind": "exporter",
+                  "id": "debug"
+                },
+                "signal": "traces"
+              },
+              "resource spans": 1,
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "info",
+                "severity_number": "9",
+                "timestamp": "1775133344414194273"
+              },
+              "status": "info"
+            },
+            "message": "Traces",
+            "status": "info",
+            "timestamp": "2026-04-02T12:35:44.414Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        }
+      ],
+      "meta": {
+        "page": {
+          "after": "eyJhZnRlciI6IkF3QUFBWjFPTVVLZTZSLWUyQUFBQUJoQldqRlBUVlZ1YjBGQlEwbElhRmg2Y0ZkMlJXaDNRVTRBQUFBa1pqRTVaRFJsTXpNdE5ERXpPUzAwWmpRekxUazJaV1F0Wm1KaU1tTmpaamxrT0RVeEFBQUZNUSIsInZhbHVlcyI6WyIyMDI2LTA0LTAyVDEyOjM1OjQ0LjQxNFoiLC0zODM4MDM2ODhdfQ"
+        },
+        "elapsed": 49,
+        "request_id": "pddv1ChZfM2VJQTFJYlN5ZTZSVXJJV1FPVV93IioKGuzFh3dJbQx4ZBbMcyCbrylbxfT_lTY4qG8-Egyfx94VCvSa7iCYjms",
+        "status": "done"
+      },
+      "links": {
+        "next": "https://ap1.datadoghq.com/api/v2/logs/events?filter%5Bfrom%5D=now-1h&filter%5Bquery%5D=service%3Aotelcol-contrib&filter%5Bto%5D=now&page%5Bcursor%5D=eyJhZnRlciI6IkF3QUFBWjFPTVVLZTZSLWUyQUFBQUJoQldqRlBUVlZ1YjBGQlEwbElhRmg2Y0ZkMlJXaDNRVTRBQUFBa1pqRTVaRFJsTXpNdE5ERXpPUzAwWmpRekxUazJaV1F0Wm1KaU1tTmpaamxrT0RVeEFBQUZNUSIsInZhbHVlcyI6WyIyMDI2LTA0LTAyVDEyOjM1OjQ0LjQxNFoiLC0zODM4MDM2ODhdfQ&page%5Blimit%5D=10&sort=timestamp"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs",
+    "data_count": 10,
+    "series_count": 0,
+    "response_bytes": 13563,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

@@ -1,0 +1,46 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/metrics/error-step-zero",
+  "description": "Error: step=0 in range query",
+  "backend": "mimir",
+  "tags": [
+    "metrics",
+    "error",
+    "step-zero",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query_range",
+    "query_params": {
+      "query": "up",
+      "start": "1775534625",
+      "end": "1775538225",
+      "step": "0"
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "error",
+      "errorType": "bad_data",
+      "error": "invalid parameter \"step\": zero or negative query resolution step widths are not accepted. Try a positive integer"
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "series_count": 0,
+    "total_points": 0,
+    "data_count": 0,
+    "response_bytes": 166,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:03:45Z",
+  "source": "recorded",
+  "generator": "scripts/mimir-record-live.sh"
+}

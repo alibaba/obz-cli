@@ -1,0 +1,36 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/metrics/error-not-found",
+  "description": "Error: unknown API path",
+  "backend": "mimir",
+  "tags": [
+    "metrics",
+    "error",
+    "not-found",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/nonexistent",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 404,
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8"
+    },
+    "body_raw": "404 page not found"
+  },
+  "facts": {
+    "result_type": "error",
+    "series_count": 0,
+    "total_points": 0,
+    "response_bytes": 18,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:03:45Z",
+  "source": "recorded",
+  "generator": "scripts/mimir-record-live.sh"
+}

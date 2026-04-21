@@ -1,0 +1,91 @@
+{
+  "fixture_version": "1.0",
+  "id": "opensearch/traces/agg-count-by-service",
+  "description": "OpenSearch traces aggregation: count by service",
+  "backend": "opensearch",
+  "tags": [
+    "traces",
+    "aggregate",
+    "count",
+    "group-by",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/otel-traces-2026-04-07/_search",
+    "query_params": {},
+    "body": {
+      "size": 0,
+      "aggs": {
+        "by_service": {
+          "terms": {
+            "field": "resource.service.name.keyword",
+            "size": 20
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 3,
+      "timed_out": false,
+      "terminated_early": true,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 6882,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+      },
+      "aggregations": {
+        "by_service": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "load-generator",
+              "doc_count": 6027
+            },
+            {
+              "key": "image-provider",
+              "doc_count": 503
+            },
+            {
+              "key": "cart",
+              "doc_count": 336
+            },
+            {
+              "key": "ad",
+              "doc_count": 8
+            },
+            {
+              "key": "product-reviews",
+              "doc_count": 8
+            }
+          ]
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "aggs",
+    "data_count": 6882,
+    "response_bytes": 468,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:06:25Z",
+  "source": "recorded",
+  "generator": "scripts/opensearch-record-live.sh"
+}

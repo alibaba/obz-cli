@@ -1,0 +1,62 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/field-values-severity",
+  "description": "VictoriaLogs field_values: values of severity",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "metadata",
+    "field-values",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/field_values",
+    "query_params": {},
+    "body": {
+      "query": "*",
+      "field": "severity",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "values": [
+        {
+          "value": "info",
+          "hits": 6843
+        },
+        {
+          "value": "error",
+          "hits": 4630
+        },
+        {
+          "value": "INFO",
+          "hits": 3964
+        },
+        {
+          "value": "warn",
+          "hits": 1164
+        },
+        {
+          "value": "WARN",
+          "hits": 58
+        }
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "field_values",
+    "data_count": 5,
+    "response_bytes": 156,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

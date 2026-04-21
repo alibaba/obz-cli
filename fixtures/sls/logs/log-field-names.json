@@ -1,0 +1,60 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/logs/log-field-names",
+  "description": "SLS Log: sample log entry to discover field names",
+  "backend": "sls",
+  "tags": [
+    "logs",
+    "metadata",
+    "field-names",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logstores/cli-test-logs",
+    "query_params": {
+      "type": "log",
+      "from": "1775136067",
+      "to": "1775139667",
+      "query": "*",
+      "line": "1"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "x-log-progress": "Complete",
+      "x-log-count": "1"
+    },
+    "body": [
+      {
+        "host": "btorch011167034027.cm10",
+        "service": "otelcol-contrib",
+        "resource": "{\"os.type\":\"linux\",\"service.instance.id\":\"907a5888-24ca-4898-af4c-f201cd414d5a\",\"service.version\":\"0.146.1\"}",
+        "otlp.name": "go.opentelemetry.io/collector/service",
+        "otlp.version": "",
+        "timeUnixNano": "1775136067041230110",
+        "severityNumber": "9",
+        "severityText": "info",
+        "attribute": "{\"log records\":\"8\",\"resource logs\":\"1\"}",
+        "content": "Logs",
+        "flags": "0",
+        "traceID": "",
+        "spanID": "",
+        "__topic__": "553e8e1dede3",
+        "__source__": "192.168.16.13",
+        "__time__": "1775136067"
+      }
+    ]
+  },
+  "facts": {
+    "result_type": "logs",
+    "log_count": 1,
+    "response_bytes": 575,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

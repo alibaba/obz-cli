@@ -1,0 +1,242 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/logs/stats-count-by-severity",
+  "description": "Loki metric query: count logs by detected_level",
+  "backend": "loki",
+  "tags": [
+    "logs",
+    "stats",
+    "count",
+    "group-by",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/loki/api/v1/query",
+    "query_params": {
+      "query": "sum+by+(detected_level)+(count_over_time({service_name=~\".+\"}[1h]))",
+      "time": "1775538347"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "detected_level": "INFO"
+            },
+            "value": [
+              1775538347,
+              "1847"
+            ]
+          },
+          {
+            "metric": {
+              "detected_level": "WARN"
+            },
+            "value": [
+              1775538347,
+              "59"
+            ]
+          },
+          {
+            "metric": {
+              "detected_level": "error"
+            },
+            "value": [
+              1775538347,
+              "228"
+            ]
+          },
+          {
+            "metric": {
+              "detected_level": "info"
+            },
+            "value": [
+              1775538347,
+              "7067"
+            ]
+          },
+          {
+            "metric": {
+              "detected_level": "warn"
+            },
+            "value": [
+              1775538347,
+              "1183"
+            ]
+          }
+        ],
+        "stats": {
+          "summary": {
+            "bytesProcessedPerSecond": 188322748,
+            "linesProcessedPerSecond": 582702,
+            "totalBytesProcessed": 3935143,
+            "totalLinesProcessed": 12176,
+            "execTime": 0.020895739,
+            "queueTime": 9.3789e-05,
+            "subqueries": 0,
+            "totalEntriesReturned": 5,
+            "splits": 0,
+            "shards": 1,
+            "totalPostFilterLines": 12176,
+            "totalStructuredMetadataBytesProcessed": 3517022
+          },
+          "querier": {
+            "store": {
+              "totalChunksRef": 0,
+              "totalChunksDownloaded": 0,
+              "chunksDownloadTime": 0,
+              "queryReferencedStructuredMetadata": false,
+              "chunk": {
+                "headChunkBytes": 0,
+                "headChunkLines": 0,
+                "decompressedBytes": 0,
+                "decompressedLines": 0,
+                "compressedBytes": 0,
+                "totalDuplicates": 0,
+                "postFilterLines": 0,
+                "headChunkStructuredMetadataBytes": 0,
+                "decompressedStructuredMetadataBytes": 0
+              },
+              "chunkRefsFetchTime": 0,
+              "congestionControlLatency": 0,
+              "pipelineWrapperFilteredLines": 0
+            }
+          },
+          "ingester": {
+            "totalReached": 1,
+            "totalChunksMatched": 3,
+            "totalBatches": 22,
+            "totalLinesSent": 10384,
+            "store": {
+              "totalChunksRef": 1,
+              "totalChunksDownloaded": 1,
+              "chunksDownloadTime": 1085733,
+              "queryReferencedStructuredMetadata": true,
+              "chunk": {
+                "headChunkBytes": 233810,
+                "headChunkLines": 1531,
+                "decompressedBytes": 3701333,
+                "decompressedLines": 10645,
+                "compressedBytes": 154891,
+                "totalDuplicates": 0,
+                "postFilterLines": 12176,
+                "headChunkStructuredMetadataBytes": 197152,
+                "decompressedStructuredMetadataBytes": 3319870
+              },
+              "chunkRefsFetchTime": 152800,
+              "congestionControlLatency": 0,
+              "pipelineWrapperFilteredLines": 0
+            }
+          },
+          "cache": {
+            "chunk": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "index": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "result": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "statsResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "volumeResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "seriesResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "labelResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            },
+            "instantMetricResult": {
+              "entriesFound": 0,
+              "entriesRequested": 0,
+              "entriesStored": 0,
+              "bytesReceived": 0,
+              "bytesSent": 0,
+              "requests": 0,
+              "downloadTime": 0,
+              "queryLengthServed": 0
+            }
+          },
+          "index": {
+            "totalChunks": 0,
+            "postFilterChunks": 0,
+            "shardsDuration": 0,
+            "usedBloomFilters": false
+          }
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "stats",
+    "log_count": 0,
+    "data_count": 5,
+    "response_bytes": 3084,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:05:47Z",
+  "source": "recorded",
+  "generator": "scripts/loki-record-live.sh"
+}

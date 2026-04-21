@@ -1,0 +1,73 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/logs/indices",
+  "description": "ES list indices: _cat/indices",
+  "backend": "elasticsearch",
+  "tags": [
+    "logs",
+    "metadata",
+    "indices",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/_cat/indices?format=json",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": [
+      {
+        "health": "green",
+        "status": "open",
+        "index": ".ds-logs-collectortelemetry.otel-default-2026.04.07-000001",
+        "uuid": "5g56iKLzSm64JyB4Wbyffw",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "9426",
+        "docs.deleted": "0",
+        "store.size": "1.5mb",
+        "pri.store.size": "1.5mb",
+        "dataset.size": "1.5mb"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+        "uuid": "btZ78dWBSVKlrlOnDvEkhA",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "5603",
+        "docs.deleted": "0",
+        "store.size": "1.3mb",
+        "pri.store.size": "1.3mb",
+        "dataset.size": "1.3mb"
+      },
+      {
+        "health": "green",
+        "status": "open",
+        "index": ".ds-logs-generic.otel-default-2026.04.07-000001",
+        "uuid": "CAO1b-OnS0iiNtAt9YTNWA",
+        "pri": "1",
+        "rep": "0",
+        "docs.count": "7046",
+        "docs.deleted": "0",
+        "store.size": "17.5mb",
+        "pri.store.size": "17.5mb",
+        "dataset.size": "17.5mb"
+      }
+    ]
+  },
+  "facts": {
+    "result_type": "metadata",
+    "data_count": 0,
+    "response_bytes": 776,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

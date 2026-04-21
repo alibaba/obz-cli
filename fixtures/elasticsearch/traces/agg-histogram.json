@@ -1,0 +1,142 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/traces/agg-histogram",
+  "description": "ES traces aggregation: span count histogram over time (5m interval)",
+  "backend": "elasticsearch",
+  "tags": [
+    "traces",
+    "aggregate",
+    "histogram",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/traces-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "size": 0,
+      "aggs": {
+        "over_time": {
+          "date_histogram": {
+            "field": "@timestamp",
+            "fixed_interval": "5m"
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 2,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 5603,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+      },
+      "aggregations": {
+        "over_time": {
+          "buckets": [
+            {
+              "key_as_string": "2026-04-07T07:50:00.000Z",
+              "key": 1775548200000,
+              "doc_count": 165
+            },
+            {
+              "key_as_string": "2026-04-07T07:55:00.000Z",
+              "key": 1775548500000,
+              "doc_count": 384
+            },
+            {
+              "key_as_string": "2026-04-07T08:00:00.000Z",
+              "key": 1775548800000,
+              "doc_count": 430
+            },
+            {
+              "key_as_string": "2026-04-07T08:05:00.000Z",
+              "key": 1775549100000,
+              "doc_count": 374
+            },
+            {
+              "key_as_string": "2026-04-07T08:10:00.000Z",
+              "key": 1775549400000,
+              "doc_count": 385
+            },
+            {
+              "key_as_string": "2026-04-07T08:15:00.000Z",
+              "key": 1775549700000,
+              "doc_count": 425
+            },
+            {
+              "key_as_string": "2026-04-07T08:20:00.000Z",
+              "key": 1775550000000,
+              "doc_count": 442
+            },
+            {
+              "key_as_string": "2026-04-07T08:25:00.000Z",
+              "key": 1775550300000,
+              "doc_count": 427
+            },
+            {
+              "key_as_string": "2026-04-07T08:30:00.000Z",
+              "key": 1775550600000,
+              "doc_count": 423
+            },
+            {
+              "key_as_string": "2026-04-07T08:35:00.000Z",
+              "key": 1775550900000,
+              "doc_count": 418
+            },
+            {
+              "key_as_string": "2026-04-07T08:40:00.000Z",
+              "key": 1775551200000,
+              "doc_count": 442
+            },
+            {
+              "key_as_string": "2026-04-07T08:45:00.000Z",
+              "key": 1775551500000,
+              "doc_count": 422
+            },
+            {
+              "key_as_string": "2026-04-07T08:50:00.000Z",
+              "key": 1775551800000,
+              "doc_count": 392
+            },
+            {
+              "key_as_string": "2026-04-07T08:55:00.000Z",
+              "key": 1775552100000,
+              "doc_count": 399
+            },
+            {
+              "key_as_string": "2026-04-07T09:00:00.000Z",
+              "key": 1775552400000,
+              "doc_count": 75
+            }
+          ]
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "aggs",
+    "data_count": 5603,
+    "response_bytes": 1420,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

@@ -1,0 +1,616 @@
+{
+  "fixture_version": "1.0",
+  "id": "opensearch/traces/search-all",
+  "description": "OpenSearch traces: all spans",
+  "backend": "opensearch",
+  "tags": [
+    "traces",
+    "query",
+    "basic",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/otel-traces-2026-04-07/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "match_all": {}
+      },
+      "size": 10,
+      "sort": [
+        {
+          "startTime": {
+            "order": "desc"
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 406,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 6882,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": [
+          {
+            "_index": "otel-traces-2026-04-07",
+            "_id": "B_tVZp0BwrU6vbR8uDYA",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "span"
+                },
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/cart",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "droppedAttributesCount": 0,
+              "droppedEventsCount": 0,
+              "droppedLinksCount": 0,
+              "endTime": "2026-04-07T05:06:25.050711687Z",
+              "events": [
+                {
+                  "attributes": {
+                    "exception.escaped": "False",
+                    "exception.message": "HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/cart (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                    "exception.stacktrace": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 204, in _new_conn\n    sock = connection.create_connection(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py\", line 60, in create_connection\n    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/gevent/_socketcommon.py\", line 221, in getaddrinfo\n    addrlist = get_hub().resolver.getaddrinfo(host, port, family, type, proto, flags)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/gevent/resolver/thread.py\", line 63, in getaddrinfo\n    return self.pool.apply(_socket.getaddrinfo, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/gevent/pool.py\", line 161, in apply\n    return self.spawn(func, *args, **kwds).get()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"src/gevent/event.py\", line 332, in gevent._gevent_cevent.AsyncResult.get\n  File \"src/gevent/event.py\", line 362, in gevent._gevent_cevent.AsyncResult.get\n  File \"src/gevent/event.py\", line 350, in gevent._gevent_cevent.AsyncResult.get\n  File \"src/gevent/event.py\", line 330, in gevent._gevent_cevent.AsyncResult._raise_exception\n  File \"/usr/local/lib/python3.12/site-packages/gevent/_compat.py\", line 89, in reraise\n    raise value.with_traceback(tb)\n  File \"/usr/local/lib/python3.12/site-packages/gevent/threadpool.py\", line 173, in __run_task\n    thread_result.set(func(*args, **kwargs))\n    ^^^^^^^^^^^^^^^^^\nsocket.gaierror: [Errno -2] Name or service not known\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n               ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 493, in _make_request\n    conn.request(\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 500, in request\n    self.endheaders()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1353, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1113, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1057, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 331, in connect\n    self.sock = self._new_conn()\n                ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 211, in _new_conn\n    raise NameResolutionError(self.host, self, e) from e\nurllib3.exceptions.NameResolutionError: HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/requests/adapters.py\", line 645, in send\n    resp = conn.urlopen(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/urllib3/__init__.py\", line 451, in instrumented_urlopen\n    return wrapped(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n              ^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py\", line 535, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nurllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/cart (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 619, in use_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1173, in start_as_current_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/requests/__init__.py\", line 505, in instrumented_send\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/requests/__init__.py\", line 432, in instrumented_send\n    result = wrapped_send(\n             ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/requests/sessions.py\", line 706, in send\n    r = adapter.send(request, **kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/requests/adapters.py\", line 678, in send\n    raise ConnectionError(e, request=request)\nrequests.exceptions.ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/cart (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))\n",
+                    "exception.type": "requests.exceptions.ConnectionError"
+                  },
+                  "droppedAttributesCount": 0,
+                  "name": "exception",
+                  "@timestamp": "2026-04-07T05:06:25.050697148Z"
+                }
+              ],
+              "instrumentationScope": {
+                "droppedAttributesCount": 0,
+                "name": "opentelemetry.instrumentation.requests",
+                "schemaUrl": "https://opentelemetry.io/schemas/1.11.0",
+                "version": "0.61b0"
+              },
+              "kind": "Client",
+              "name": "GET",
+              "parentSpanId": "77bf5ecb72173597",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "spanId": "a4e94d8773086c1b",
+              "startTime": "2026-04-07T05:06:25.046414149Z",
+              "status": {
+                "code": "Error",
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/cart (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))"
+              },
+              "@timestamp": "0001-01-01T00:00:00Z",
+              "traceId": "80b3ad9554b514fb4ffb7a1bfbfafdf9",
+              "traceState": ""
+            },
+            "sort": [
+              1775538385046
+            ]
+          },
+          {
+            "_index": "otel-traces-2026-04-07",
+            "_id": "CPtVZp0BwrU6vbR8uDYA",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "span"
+                }
+              },
+              "droppedAttributesCount": 0,
+              "droppedEventsCount": 0,
+              "droppedLinksCount": 0,
+              "endTime": "2026-04-07T05:06:25.0508737Z",
+              "instrumentationScope": {
+                "droppedAttributesCount": 0,
+                "name": "locustfile",
+                "schemaUrl": "",
+                "version": ""
+              },
+              "kind": "Internal",
+              "name": "user_view_cart",
+              "parentSpanId": "",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "spanId": "77bf5ecb72173597",
+              "startTime": "2026-04-07T05:06:25.045905662Z",
+              "status": {
+                "code": "Unset",
+                "message": ""
+              },
+              "@timestamp": "0001-01-01T00:00:00Z",
+              "traceId": "80b3ad9554b514fb4ffb7a1bfbfafdf9",
+              "traceState": ""
+            },
+            "sort": [
+              1775538385045
+            ]
+          },
+          {
+            "_index": "otel-traces-2026-04-07",
+            "_id": "BvtVZp0BwrU6vbR8uDYA",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "span"
+                },
+                "http.method": "POST",
+                "http.status_code": 200,
+                "http.url": "http://flagd:8016/ofrep/v1/evaluate/flags/loadGeneratorFloodHomepage",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "droppedAttributesCount": 0,
+              "droppedEventsCount": 0,
+              "droppedLinksCount": 0,
+              "endTime": "2026-04-07T05:06:23.554083546Z",
+              "instrumentationScope": {
+                "droppedAttributesCount": 0,
+                "name": "opentelemetry.instrumentation.requests",
+                "schemaUrl": "https://opentelemetry.io/schemas/1.11.0",
+                "version": "0.61b0"
+              },
+              "kind": "Client",
+              "name": "POST",
+              "parentSpanId": "",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "spanId": "b6a724ad8c15d4c6",
+              "startTime": "2026-04-07T05:06:23.553022627Z",
+              "status": {
+                "code": "Unset",
+                "message": ""
+              },
+              "@timestamp": "0001-01-01T00:00:00Z",
+              "traceId": "98cc100b1b543cd392e10677d71fc958",
+              "traceState": ""
+            },
+            "sort": [
+              1775538383553
+            ]
+          },
+          {
+            "_index": "otel-traces-2026-04-07",
+            "_id": "7ftVZp0BwrU6vbR8pDV8",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "span"
+                },
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/product-reviews/L9ECAV7KIM",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "droppedAttributesCount": 0,
+              "droppedEventsCount": 0,
+              "droppedLinksCount": 0,
+              "endTime": "2026-04-07T05:06:21.683904455Z",
+              "events": [
+                {
+                  "attributes": {
+                    "exception.escaped": "False",
+                    "exception.message": "HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/product-reviews/L9ECAV7KIM (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                    "exception.stacktrace": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 204, in _new_conn\n    sock = connection.create_connection(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py\", line 60, in create_connection\n    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/gevent/_socketcommon.py\", line 221, in getaddrinfo\n    addrlist = get_hub().resolver.getaddrinfo(host, port, family, type, proto, flags)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/gevent/resolver/thread.py\", line 63, in getaddrinfo\n    return self.pool.apply(_socket.getaddrinfo, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/gevent/pool.py\", line 161, in apply\n    return self.spawn(func, *args, **kwds).get()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"src/gevent/event.py\", line 332, in gevent._gevent_cevent.AsyncResult.get\n  File \"src/gevent/event.py\", line 362, in gevent._gevent_cevent.AsyncResult.get\n  File \"src/gevent/event.py\", line 350, in gevent._gevent_cevent.AsyncResult.get\n  File \"src/gevent/event.py\", line 330, in gevent._gevent_cevent.AsyncResult._raise_exception\n  File \"/usr/local/lib/python3.12/site-packages/gevent/_compat.py\", line 89, in reraise\n    raise value.with_traceback(tb)\n  File \"/usr/local/lib/python3.12/site-packages/gevent/threadpool.py\", line 173, in __run_task\n    thread_result.set(func(*args, **kwargs))\n    ^^^^^^^^^^^^^^^^^\nsocket.gaierror: [Errno -2] Name or service not known\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n               ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 493, in _make_request\n    conn.request(\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 500, in request\n    self.endheaders()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1353, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1113, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1057, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 331, in connect\n    self.sock = self._new_conn()\n                ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 211, in _new_conn\n    raise NameResolutionError(self.host, self, e) from e\nurllib3.exceptions.NameResolutionError: HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/requests/adapters.py\", line 645, in send\n    resp = conn.urlopen(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/urllib3/__init__.py\", line 451, in instrumented_urlopen\n    return wrapped(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n              ^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py\", line 535, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nurllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/product-reviews/L9ECAV7KIM (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 619, in use_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1173, in start_as_current_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/requests/__init__.py\", line 505, in instrumented_send\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/requests/__init__.py\", line 432, in instrumented_send\n    result = wrapped_send(\n             ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/requests/sessions.py\", line 706, in send\n    r = adapter.send(request, **kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/requests/adapters.py\", line 678, in send\n    raise ConnectionError(e, request=request)\nrequests.exceptions.ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/product-reviews/L9ECAV7KIM (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))\n",
+                    "exception.type": "requests.exceptions.ConnectionError"
+                  },
+                  "droppedAttributesCount": 0,
+                  "name": "exception",
+                  "@timestamp": "2026-04-07T05:06:21.68389152Z"
+                }
+              ],
+              "instrumentationScope": {
+                "droppedAttributesCount": 0,
+                "name": "opentelemetry.instrumentation.requests",
+                "schemaUrl": "https://opentelemetry.io/schemas/1.11.0",
+                "version": "0.61b0"
+              },
+              "kind": "Client",
+              "name": "GET",
+              "parentSpanId": "cac35d12e10e9d1b",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "spanId": "dac41f6b03c26cf0",
+              "startTime": "2026-04-07T05:06:21.679364788Z",
+              "status": {
+                "code": "Error",
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/product-reviews/L9ECAV7KIM (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))"
+              },
+              "@timestamp": "0001-01-01T00:00:00Z",
+              "traceId": "441faa4884cc05e4fc0186032e679968",
+              "traceState": ""
+            },
+            "sort": [
+              1775538381679
+            ]
+          },
+          {
+            "_index": "otel-traces-2026-04-07",
+            "_id": "7_tVZp0BwrU6vbR8pDV8",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "span"
+                },
+                "product.id": "L9ECAV7KIM"
+              },
+              "droppedAttributesCount": 0,
+              "droppedEventsCount": 0,
+              "droppedLinksCount": 0,
+              "endTime": "2026-04-07T05:06:21.684053266Z",
+              "instrumentationScope": {
+                "droppedAttributesCount": 0,
+                "name": "locustfile",
+                "schemaUrl": "",
+                "version": ""
+              },
+              "kind": "Internal",
+              "name": "user_get_product_reviews",
+              "parentSpanId": "",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "spanId": "cac35d12e10e9d1b",
+              "startTime": "2026-04-07T05:06:21.678882362Z",
+              "status": {
+                "code": "Unset",
+                "message": ""
+              },
+              "@timestamp": "0001-01-01T00:00:00Z",
+              "traceId": "441faa4884cc05e4fc0186032e679968",
+              "traceState": ""
+            },
+            "sort": [
+              1775538381678
+            ]
+          },
+          {
+            "_index": "otel-traces-2026-04-07",
+            "_id": "7PtVZp0BwrU6vbR8pDV8",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "span"
+                },
+                "http.method": "POST",
+                "http.status_code": 200,
+                "http.url": "http://flagd:8016/ofrep/v1/evaluate/flags/loadGeneratorFloodHomepage",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "droppedAttributesCount": 0,
+              "droppedEventsCount": 0,
+              "droppedLinksCount": 0,
+              "endTime": "2026-04-07T05:06:21.484388796Z",
+              "instrumentationScope": {
+                "droppedAttributesCount": 0,
+                "name": "opentelemetry.instrumentation.requests",
+                "schemaUrl": "https://opentelemetry.io/schemas/1.11.0",
+                "version": "0.61b0"
+              },
+              "kind": "Client",
+              "name": "POST",
+              "parentSpanId": "",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "spanId": "603c6ed1bdcc4103",
+              "startTime": "2026-04-07T05:06:21.483298259Z",
+              "status": {
+                "code": "Unset",
+                "message": ""
+              },
+              "@timestamp": "0001-01-01T00:00:00Z",
+              "traceId": "9da27db3bf474242eef667592e9b1aca",
+              "traceState": ""
+            },
+            "sort": [
+              1775538381483
+            ]
+          },
+          {
+            "_index": "otel-traces-2026-04-07",
+            "_id": "6_tVZp0BwrU6vbR8pDV8",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "span"
+                },
+                "http.method": "POST",
+                "http.status_code": 200,
+                "http.url": "http://flagd:8016/ofrep/v1/evaluate/flags/loadGeneratorFloodHomepage",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "droppedAttributesCount": 0,
+              "droppedEventsCount": 0,
+              "droppedLinksCount": 0,
+              "endTime": "2026-04-07T05:06:19.616539929Z",
+              "instrumentationScope": {
+                "droppedAttributesCount": 0,
+                "name": "opentelemetry.instrumentation.requests",
+                "schemaUrl": "https://opentelemetry.io/schemas/1.11.0",
+                "version": "0.61b0"
+              },
+              "kind": "Client",
+              "name": "POST",
+              "parentSpanId": "",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "spanId": "5a836f3c773bc597",
+              "startTime": "2026-04-07T05:06:19.615469496Z",
+              "status": {
+                "code": "Unset",
+                "message": ""
+              },
+              "@timestamp": "0001-01-01T00:00:00Z",
+              "traceId": "6bb964484b219864f1c31c6b42e1db5e",
+              "traceState": ""
+            },
+            "sort": [
+              1775538379615
+            ]
+          },
+          {
+            "_index": "otel-traces-2026-04-07",
+            "_id": "6vtVZp0BwrU6vbR8pDV8",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "span"
+                },
+                "http.method": "GET",
+                "http.url": "http://frontend-proxy:8080/api/products/6E92ZMYYFZ",
+                "user_agent.original": "python-requests/2.33.0"
+              },
+              "droppedAttributesCount": 0,
+              "droppedEventsCount": 0,
+              "droppedLinksCount": 0,
+              "endTime": "2026-04-07T05:06:18.814647152Z",
+              "events": [
+                {
+                  "attributes": {
+                    "exception.escaped": "False",
+                    "exception.message": "HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/6E92ZMYYFZ (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))",
+                    "exception.stacktrace": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 204, in _new_conn\n    sock = connection.create_connection(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/util/connection.py\", line 60, in create_connection\n    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/gevent/_socketcommon.py\", line 221, in getaddrinfo\n    addrlist = get_hub().resolver.getaddrinfo(host, port, family, type, proto, flags)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/gevent/resolver/thread.py\", line 63, in getaddrinfo\n    return self.pool.apply(_socket.getaddrinfo, args, kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/gevent/pool.py\", line 161, in apply\n    return self.spawn(func, *args, **kwds).get()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"src/gevent/event.py\", line 332, in gevent._gevent_cevent.AsyncResult.get\n  File \"src/gevent/event.py\", line 362, in gevent._gevent_cevent.AsyncResult.get\n  File \"src/gevent/event.py\", line 350, in gevent._gevent_cevent.AsyncResult.get\n  File \"src/gevent/event.py\", line 330, in gevent._gevent_cevent.AsyncResult._raise_exception\n  File \"/usr/local/lib/python3.12/site-packages/gevent/_compat.py\", line 89, in reraise\n    raise value.with_traceback(tb)\n  File \"/usr/local/lib/python3.12/site-packages/gevent/threadpool.py\", line 173, in __run_task\n    thread_result.set(func(*args, **kwargs))\n    ^^^^^^^^^^^^^^^^^\nsocket.gaierror: [Errno -2] Name or service not known\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 787, in urlopen\n    response = self._make_request(\n               ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 493, in _make_request\n    conn.request(\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 500, in request\n    self.endheaders()\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1353, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1113, in _send_output\n    self.send(msg)\n  File \"/usr/local/lib/python3.12/http/client.py\", line 1057, in send\n    self.connect()\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 331, in connect\n    self.sock = self._new_conn()\n                ^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connection.py\", line 211, in _new_conn\n    raise NameResolutionError(self.host, self, e) from e\nurllib3.exceptions.NameResolutionError: HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/requests/adapters.py\", line 645, in send\n    resp = conn.urlopen(\n           ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/urllib3/__init__.py\", line 451, in instrumented_urlopen\n    return wrapped(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/connectionpool.py\", line 841, in urlopen\n    retries = retries.increment(\n              ^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/urllib3/util/retry.py\", line 535, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nurllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/6E92ZMYYFZ (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/trace/__init__.py\", line 619, in use_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/sdk/trace/__init__.py\", line 1173, in start_as_current_span\n    yield span\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/requests/__init__.py\", line 505, in instrumented_send\n    raise exception.with_traceback(exception.__traceback__)\n  File \"/usr/local/lib/python3.12/site-packages/opentelemetry/instrumentation/requests/__init__.py\", line 432, in instrumented_send\n    result = wrapped_send(\n             ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/requests/sessions.py\", line 706, in send\n    r = adapter.send(request, **kwargs)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/requests/adapters.py\", line 678, in send\n    raise ConnectionError(e, request=request)\nrequests.exceptions.ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/6E92ZMYYFZ (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))\n",
+                    "exception.type": "requests.exceptions.ConnectionError"
+                  },
+                  "droppedAttributesCount": 0,
+                  "name": "exception",
+                  "@timestamp": "2026-04-07T05:06:18.814627613Z"
+                }
+              ],
+              "instrumentationScope": {
+                "droppedAttributesCount": 0,
+                "name": "opentelemetry.instrumentation.requests",
+                "schemaUrl": "https://opentelemetry.io/schemas/1.11.0",
+                "version": "0.61b0"
+              },
+              "kind": "Client",
+              "name": "GET",
+              "parentSpanId": "64e65901d8ba7f80",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "spanId": "0b9e88638a33d4a6",
+              "startTime": "2026-04-07T05:06:18.80825834Z",
+              "status": {
+                "code": "Error",
+                "message": "ConnectionError: HTTPConnectionPool(host='frontend-proxy', port=8080): Max retries exceeded with url: /api/products/6E92ZMYYFZ (Caused by NameResolutionError(\"HTTPConnection(host='frontend-proxy', port=8080): Failed to resolve 'frontend-proxy' ([Errno -2] Name or service not known)\"))"
+              },
+              "@timestamp": "0001-01-01T00:00:00Z",
+              "traceId": "3eb95e1fdd8faed32a3faddb3f3fb85c",
+              "traceState": ""
+            },
+            "sort": [
+              1775538378808
+            ]
+          },
+          {
+            "_index": "otel-traces-2026-04-07",
+            "_id": "7vtVZp0BwrU6vbR8pDV8",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "span"
+                },
+                "product.id": "6E92ZMYYFZ"
+              },
+              "droppedAttributesCount": 0,
+              "droppedEventsCount": 0,
+              "droppedLinksCount": 0,
+              "endTime": "2026-04-07T05:06:18.814840246Z",
+              "instrumentationScope": {
+                "droppedAttributesCount": 0,
+                "name": "locustfile",
+                "schemaUrl": "",
+                "version": ""
+              },
+              "kind": "Internal",
+              "name": "user_browse_product",
+              "parentSpanId": "",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "spanId": "64e65901d8ba7f80",
+              "startTime": "2026-04-07T05:06:18.807616214Z",
+              "status": {
+                "code": "Unset",
+                "message": ""
+              },
+              "@timestamp": "0001-01-01T00:00:00Z",
+              "traceId": "3eb95e1fdd8faed32a3faddb3f3fb85c",
+              "traceState": ""
+            },
+            "sort": [
+              1775538378807
+            ]
+          },
+          {
+            "_index": "otel-traces-2026-04-07",
+            "_id": "-ftVZp0BwrU6vbR8pjV5",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "span"
+                },
+                "http.flavor": "1.1",
+                "http.method": "GET",
+                "http.request_content_length": 0,
+                "http.response_content_length": 105,
+                "http.route": "/status",
+                "http.scheme": "http",
+                "http.status_code": 200,
+                "http.target": "/status",
+                "http.user_agent": "Go-http-client/1.1",
+                "net.host.name": "_",
+                "net.host.port": 8081,
+                "net.sock.peer.addr": "192.168.16.13",
+                "net.sock.peer.port": 60064,
+                "original_span_name": "image-provider"
+              },
+              "droppedAttributesCount": 0,
+              "droppedEventsCount": 0,
+              "droppedLinksCount": 0,
+              "endTime": "2026-04-07T05:06:18.519Z",
+              "instrumentationScope": {
+                "droppedAttributesCount": 0,
+                "name": "nginx",
+                "schemaUrl": "",
+                "version": "1.29.0"
+              },
+              "kind": "Server",
+              "name": "GET /status",
+              "parentSpanId": "",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "image-provider"
+              },
+              "spanId": "c3a9b34f6d93f3ed",
+              "startTime": "2026-04-07T05:06:18.519Z",
+              "status": {
+                "code": "Unset",
+                "message": ""
+              },
+              "@timestamp": "0001-01-01T00:00:00Z",
+              "traceId": "64a3d12cbea970d3b1a8c6524fd17ee0",
+              "traceState": ""
+            },
+            "sort": [
+              1775538378519
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "traces",
+    "data_count": 6882,
+    "response_bytes": 30898,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:06:25Z",
+  "source": "recorded",
+  "generator": "scripts/opensearch-record-live.sh"
+}

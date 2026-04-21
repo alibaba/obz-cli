@@ -1,0 +1,61 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/traces/traces-by-id-not-found",
+  "description": "Datadog trace by ID: nonexistent trace_id — empty result",
+  "backend": "datadog",
+  "tags": [
+    "traces",
+    "query",
+    "trace-by-id",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/spans/events/search",
+    "query_params": {},
+    "body": {
+      "data": {
+        "attributes": {
+          "filter": {
+            "from": "now-2h",
+            "to": "now",
+            "query": "trace_id:00000000000000000000000000000000"
+          },
+          "sort": "timestamp",
+          "page": {
+            "limit": 50
+          }
+        },
+        "type": "search_request"
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [],
+      "meta": {
+        "elapsed": 144,
+        "request_id": "pddv1ChZPQ01yRnFEc1RzV0ZFWlBiR080MFNnIisKG-NmSvTgZJkXWQXr318kXfhRoFefv3J8kbqtIxIMA98AZ1TMOAAs2aoK",
+        "status": "done",
+        "page": null,
+        "traffic_type": "sampled"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "traces",
+    "data_count": 0,
+    "series_count": 0,
+    "response_bytes": 200,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:38:56Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

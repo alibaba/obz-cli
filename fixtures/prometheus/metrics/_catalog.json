@@ -1,0 +1,557 @@
+{
+  "catalog_version": "1.0",
+  "backend": "prometheus/metrics",
+  "generated_at": "2026-04-07T05:07:05Z",
+  "fixtures": [
+    {
+      "file": "error-invalid-time.json",
+      "id": "prometheus/metrics/error-invalid-time",
+      "description": "Error: invalid time parameter",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1024,
+      "tags": [
+        "metrics",
+        "error",
+        "invalid-time",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-missing-query.json",
+      "id": "prometheus/metrics/error-missing-query",
+      "description": "Error: missing query parameter",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 983,
+      "tags": [
+        "metrics",
+        "error",
+        "missing-param",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-not-found.json",
+      "id": "prometheus/metrics/error-not-found",
+      "description": "Error: unknown API path",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 784,
+      "tags": [
+        "metrics",
+        "error",
+        "not-found",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-step-zero.json",
+      "id": "prometheus/metrics/error-step-zero",
+      "description": "Error: step=0 in range query",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1073,
+      "tags": [
+        "metrics",
+        "error",
+        "step-zero",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-syntax.json",
+      "id": "prometheus/metrics/error-syntax",
+      "description": "Error: PromQL syntax error — unmatched parenthesis",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1013,
+      "tags": [
+        "metrics",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-aggr.json",
+      "id": "prometheus/metrics/instant-aggr",
+      "description": "PromQL instant query: sum by job — total span calls per service",
+      "result_type": "vector",
+      "series_count": 5,
+      "total_points": 5,
+      "size_category": "small",
+      "file_size_bytes": 1943,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "aggregation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-empty.json",
+      "id": "prometheus/metrics/instant-empty",
+      "description": "PromQL instant query: no matching series",
+      "result_type": "vector",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1008,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-rate.json",
+      "id": "prometheus/metrics/instant-rate",
+      "description": "PromQL instant query: rate — span metrics call rate over 5m",
+      "result_type": "vector",
+      "series_count": 18,
+      "total_points": 18,
+      "size_category": "medium",
+      "file_size_bytes": 9516,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "rate",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-scalar.json",
+      "id": "prometheus/metrics/instant-scalar",
+      "description": "PromQL instant query: scalar arithmetic — 1+1",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1063,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "scalar",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-vector-multi.json",
+      "id": "prometheus/metrics/instant-vector-multi",
+      "description": "PromQL instant query: multiple series — traces_span_metrics_calls_total by service",
+      "result_type": "vector",
+      "series_count": 18,
+      "total_points": 18,
+      "size_category": "medium",
+      "file_size_bytes": 10348,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "vector",
+        "multi",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-vector-single.json",
+      "id": "prometheus/metrics/instant-vector-single",
+      "description": "PromQL instant query: single series — http_client_duration for frontend",
+      "result_type": "vector",
+      "series_count": 3,
+      "total_points": 3,
+      "size_category": "small",
+      "file_size_bytes": 2817,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "vector",
+        "single",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "label-values.json",
+      "id": "prometheus/metrics/label-values",
+      "description": "Label values: __name__ — list all metric names",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 17481,
+      "tags": [
+        "metrics",
+        "metadata",
+        "label-values",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "label-values-empty.json",
+      "id": "prometheus/metrics/label-values-empty",
+      "description": "Label values: nonexistent label — empty result",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 913,
+      "tags": [
+        "metrics",
+        "metadata",
+        "label-values",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "label-values-job.json",
+      "id": "prometheus/metrics/label-values-job",
+      "description": "Label values: job — list all job label values",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 1129,
+      "tags": [
+        "metrics",
+        "metadata",
+        "label-values",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "labels.json",
+      "id": "prometheus/metrics/labels",
+      "description": "Labels: all label names",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 4013,
+      "tags": [
+        "metrics",
+        "metadata",
+        "labels",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "labels-with-match.json",
+      "id": "prometheus/metrics/labels-with-match",
+      "description": "Labels: label names for specific metric — traces_span_metrics_calls_total",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1149,
+      "tags": [
+        "metrics",
+        "metadata",
+        "labels",
+        "match",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metadata.json",
+      "id": "prometheus/metrics/metadata",
+      "description": "Metadata: metric metadata for traces_span_metrics_calls_total",
+      "result_type": "unknown",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 894,
+      "tags": [
+        "metrics",
+        "metadata",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "post-labels.json",
+      "id": "prometheus/metrics/post-labels",
+      "description": "Labels via POST",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 4039,
+      "tags": [
+        "metrics",
+        "metadata",
+        "labels",
+        "post",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "post-query.json",
+      "id": "prometheus/metrics/post-query",
+      "description": "PromQL instant query via POST — same as instant-vector-multi",
+      "result_type": "vector",
+      "series_count": 18,
+      "total_points": 18,
+      "size_category": "medium",
+      "file_size_bytes": 10318,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "post",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "post-query-range.json",
+      "id": "prometheus/metrics/post-query-range",
+      "description": "PromQL range query via POST — same as range-matrix-multi",
+      "result_type": "matrix",
+      "series_count": 18,
+      "total_points": 558,
+      "size_category": "medium",
+      "file_size_bytes": 55647,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "post",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "post-series.json",
+      "id": "prometheus/metrics/post-series",
+      "description": "Series via POST: find series for span metrics",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 7483,
+      "tags": [
+        "metrics",
+        "metadata",
+        "series",
+        "post",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-empty-matrix.json",
+      "id": "prometheus/metrics/range-empty-matrix",
+      "description": "PromQL range query: no matching series",
+      "result_type": "matrix",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1049,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-matrix-aggr.json",
+      "id": "prometheus/metrics/range-matrix-aggr",
+      "description": "PromQL range query: sum by job — aggregated span calls over 30m",
+      "result_type": "matrix",
+      "series_count": 5,
+      "total_points": 155,
+      "size_category": "small",
+      "file_size_bytes": 14562,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "matrix",
+        "aggregation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-matrix-histogram.json",
+      "id": "prometheus/metrics/range-matrix-histogram",
+      "description": "PromQL range query: histogram_quantile — p95 span duration over 30m",
+      "result_type": "matrix",
+      "series_count": 18,
+      "total_points": 558,
+      "size_category": "medium",
+      "file_size_bytes": 59130,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "matrix",
+        "histogram",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-matrix-multi.json",
+      "id": "prometheus/metrics/range-matrix-multi",
+      "description": "PromQL range query: multiple series — span calls by service over 30m",
+      "result_type": "matrix",
+      "series_count": 18,
+      "total_points": 558,
+      "size_category": "medium",
+      "file_size_bytes": 55659,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "matrix",
+        "multi",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-matrix-rate.json",
+      "id": "prometheus/metrics/range-matrix-rate",
+      "description": "PromQL range query: rate — span metrics call rate over 30m",
+      "result_type": "matrix",
+      "series_count": 18,
+      "total_points": 558,
+      "size_category": "medium",
+      "file_size_bytes": 61586,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "matrix",
+        "rate",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-matrix-small.json",
+      "id": "prometheus/metrics/range-matrix-small",
+      "description": "PromQL range query: single series over 30m — container cpu utilization",
+      "result_type": "matrix",
+      "series_count": 32,
+      "total_points": 992,
+      "size_category": "medium",
+      "file_size_bytes": 105147,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "matrix",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "series-empty.json",
+      "id": "prometheus/metrics/series-empty",
+      "description": "Series: no matching series",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 954,
+      "tags": [
+        "metrics",
+        "metadata",
+        "series",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "series-metadata.json",
+      "id": "prometheus/metrics/series-metadata",
+      "description": "Series: find series matching traces_span_metrics_calls_total for cart",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1922,
+      "tags": [
+        "metrics",
+        "metadata",
+        "series",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/logs/series",
+  "description": "Loki series: all log streams",
+  "backend": "loki",
+  "tags": [
+    "logs",
+    "metadata",
+    "series",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/loki/api/v1/series",
+    "query_params": {
+      "match[]": "{service_name=~\".+\"}",
+      "start": "1775534747000000000",
+      "end": "1775538347000000000"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": [
+        {
+          "service_name": "load-generator"
+        },
+        {
+          "service_instance_id": "103811b4-240b-4157-89db-29d23c87ff78",
+          "service_name": "otelcol-contrib"
+        },
+        {
+          "service_name": "recommendation"
+        }
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "series",
+    "log_count": 0,
+    "data_count": 3,
+    "response_bytes": 193,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:05:47Z",
+  "source": "recorded",
+  "generator": "scripts/loki-record-live.sh"
+}

@@ -1,0 +1,718 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/logs/logs-search-error",
+  "description": "Datadog logs search: error status logs",
+  "backend": "datadog",
+  "tags": [
+    "logs",
+    "query",
+    "filter",
+    "error",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/logs/events/search",
+    "query_params": {},
+    "body": {
+      "filter": {
+        "from": "now-1h",
+        "to": "now",
+        "query": "status:error"
+      },
+      "sort": "timestamp",
+      "page": {
+        "limit": 10
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [
+        {
+          "id": "AwAAAZ1OMRtFFeDWSgAAABhBWjFPTVNMWUFBQ2hUSDNuTTJzTWhRQU0AAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAClg",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:34.341Z",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "line": {
+                  "number": 196
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON"
+                }
+              },
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133334341300255"
+              },
+              "id": "c02edf4020b69de24e022b924a3f2f7c931d8aaa7355cc16ce59e5ef647bcd43",
+              "error": "context canceled",
+              "status": "error"
+            },
+            "message": "Could not parse docker containerStats for container id",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:34.341Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMRtGFeDWSwAAABhBWjFPTVNMWUFBQ2hUSDNuTTJzTWhRQU4AAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAClQ",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:34.342Z",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "line": {
+                  "number": 196
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON"
+                }
+              },
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133334342599191"
+              },
+              "id": "64aed22f01d4a62c278a6823fa8dcfc92effd3a8fae611a0355a4f1f8732e857",
+              "error": "context canceled",
+              "status": "error"
+            },
+            "message": "Could not parse docker containerStats for container id",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:34.342Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMRtJFeDWTAAAABhBWjFPTVNMWUFBQ2hUSDNuTTJzTWhRQU8AAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAClA",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:34.345Z",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "line": {
+                  "number": 196
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON"
+                }
+              },
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133334345338053"
+              },
+              "id": "6ecb6b71ee8244d4792a09c8a14ee812806bbfaef35baa819586f22da11b90a1",
+              "error": "context canceled",
+              "status": "error"
+            },
+            "message": "Could not parse docker containerStats for container id",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:34.345Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMRtLFeDWTQAAABhBWjFPTVNMWUFBQ2hUSDNuTTJzTWhRQVAAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACkw",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:34.347Z",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "line": {
+                  "number": 196
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON"
+                }
+              },
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133334347502541"
+              },
+              "id": "a464fd591bc8d536f097bcd3afb94dcaa9255cadcc34a71640202749aa7ac3de",
+              "error": "context canceled",
+              "status": "error"
+            },
+            "message": "Could not parse docker containerStats for container id",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:34.347Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMRtcFeDWTgAAABhBWjFPTVNMWUFBQ2hUSDNuTTJzTWhRQVEAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACkg",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:34.364Z",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "line": {
+                  "number": 196
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON"
+                }
+              },
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133334364533709"
+              },
+              "id": "1f4051c77ae9ac0059206e1f0366e05a70ab160529a8b4df02231752e99c9bc4",
+              "error": "context canceled",
+              "status": "error"
+            },
+            "message": "Could not parse docker containerStats for container id",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:34.364Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMRtkFeDWTwAAABhBWjFPTVNMWUFBQ2hUSDNuTTJzTWhRQVIAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACkQ",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:34.372Z",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "line": {
+                  "number": 196
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON"
+                }
+              },
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133334372416865"
+              },
+              "id": "39e6a8d9fe1d45cc1f2883dbd13091c887e9ba8da243133ce0e4986d001cbfb7",
+              "error": "context canceled",
+              "status": "error"
+            },
+            "message": "Could not parse docker containerStats for container id",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:34.372Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMRtoFeDWUAAAABhBWjFPTVNMWUFBQ2hUSDNuTTJzTWhRQVMAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACkA",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:34.376Z",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "line": {
+                  "number": 196
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON"
+                }
+              },
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133334376542733"
+              },
+              "id": "68816571f99c4f85fcf0c5ec69e1c0ef89bc5b7e730b6be87847ad609156d2f7",
+              "error": "context canceled",
+              "status": "error"
+            },
+            "message": "Could not parse docker containerStats for container id",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:34.376Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMRtpFeDWUQAAABhBWjFPTVNMWUFBQ2hUSDNuTTJzTWhRQVQAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACjw",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:34.377Z",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "line": {
+                  "number": 196
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON"
+                }
+              },
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133334377323794"
+              },
+              "id": "b4cd0c040ef98422149313a3063d527a1367a58317a12b48d45fd7ce40df7993",
+              "error": "context canceled",
+              "status": "error"
+            },
+            "message": "Could not parse docker containerStats for container id",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:34.377Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMRttFeDWUgAAABhBWjFPTVNMWUFBQ2hUSDNuTTJzTWhRQVUAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACjg",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:35:34.381Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133334381143829"
+              },
+              "error": "context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:34.381Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMR_IFeDWWAAAABhBWjFPTVNMWUFBQ2hUSDNuTTJzTWhRQWEAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACjQ",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "reason": "dial tcp 11.231.220.118:9200: i/o timeout",
+              "code": {
+                "file": {
+                  "path": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/opensearchexporter@v0.146.0/logger.go"
+                },
+                "stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/opensearchexporter.(*clientLogger).LogRoundTrip\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/exporter/opensearchexporter@v0.146.0/logger.go:36\ngithub.com/opensearch-project/opensearch-go/v4/opensearchtransport.(*Client).logRoundTrip\n\tgithub.com/opensearch-project/opensearch-go/v4@v4.6.0/opensearchtransport/opensearchtransport.go:491\ngithub.com/opensearch-project/opensearch-go/v4/opensearchtransport.(*Client).Perform\n\tgithub.com/opensearch-project/opensearch-go/v4@v4.6.0/opensearchtransport/opensearchtransport.go:318\ngithub.com/opensearch-project/opensearch-go/v4.(*Client).Perform\n\tgithub.com/opensearch-project/opensearch-go/v4@v4.6.0/opensearch.go:236\ngithub.com/opensearch-project/opensearch-go/v4.(*Client).Do\n\tgithub.com/opensearch-project/opensearch-go/v4@v4.6.0/opensearch.go:251\ngithub.com/opensearch-project/opensearch-go/v4/opensearchapi.(*Client).do\n\tgithub.com/opensearch-project/opensearch-go/v4@v4.6.0/opensearchapi/opensearchapi.go:102\ngithub.com/opensearch-project/opensearch-go/v4/opensearchapi.Client.Bulk\n\tgithub.com/opensearch-project/opensearch-go/v4@v4.6.0/opensearchapi/api_bulk.go:24\ngithub.com/opensearch-project/opensearch-go/v4/opensearchutil.(*worker).flush\n\tgithub.com/opensearch-project/opensearch-go/v4@v4.6.0/opensearchutil/bulk_indexer.go:505\ngithub.com/opensearch-project/opensearch-go/v4/opensearchutil.(*bulkIndexer).Close\n\tgithub.com/opensearch-project/opensearch-go/v4@v4.6.0/opensearchutil/bulk_indexer.go:237\ngithub.com/open-telemetry/opentelemetry-collector-contrib/exporter/opensearchexporter.(*logBulkIndexer).close\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/exporter/opensearchexporter@v0.146.0/log_bulk_indexer.go:41\ngithub.com/open-telemetry/opentelemetry-collector-contrib/exporter/opensearchexporter.(*logExporter).pushLogData\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/exporter/opensearchexporter@v0.146.0/sso_log_exporter.go:84\ngo.opentelemetry.io/collector/consumer.ConsumeLogsFunc.ConsumeLogs\n\tgo.opentelemetry.io/collector/consumer@v1.52.0/logs.go:27\ngo.opentelemetry.io/collector/exporter/exporterhelper.NewLogs.RequestConsumeFromLogs.func2\n\tgo.opentelemetry.io/collector/exporter/exporterhelper@v0.146.1/internal/queuebatch/logs.go:125\ngo.opentelemetry.io/collector/exporter/exporterhelper/internal/sender.(*sender[...]).Send\n\tgo.opentelemetry.io/collector/exporter/exporterhelper@v0.146.1/internal/sender/sender.go:31\ngo.opentelemetry.io/collector/exporter/exporterhelper/internal.(*retrySender).Send\n\tgo.opentelemetry.io/collector/exporter/exporterhelper@v0.146.1/internal/retry_sender.go:91\ngo.opentelemetry.io/collector/exporter/exporterhelper/internal.(*obsReportSender[...]).Send\n\tgo.opentelemetry.io/collector/exporter/exporterhelper@v0.146.1/internal/obs_report_sender.go:105\ngo.opentelemetry.io/collector/exporter/exporterhelper/internal.NewQueueSender.func1\n\tgo.opentelemetry.io/collector/exporter/exporterhelper@v0.146.1/internal/queue_sender.go:49\ngo.opentelemetry.io/collector/exporter/exporterhelper/internal/queuebatch.(*partitionBatcher).flush.func1\n\tgo.opentelemetry.io/collector/exporter/exporterhelper@v0.146.1/internal/queuebatch/partition_batcher.go:244\ngo.opentelemetry.io/collector/exporter/exporterhelper/internal/queuebatch.(*workerPool).execute.func1\n\tgo.opentelemetry.io/collector/exporter/exporterhelper@v0.146.1/internal/queuebatch/partition_batcher.go:266",
+                "line": {
+                  "number": 36
+                },
+                "function": {
+                  "name": "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/opensearchexporter.(*clientLogger).LogRoundTrip"
+                }
+              },
+              "method": "POST",
+              "os": {
+                "type": "linux"
+              },
+              "duration": 30000642693,
+              "path": "/_bulk",
+              "hostname": "btorch011167034027.cm10",
+              "@timestamp": "2026-04-02T12:35:35.496Z",
+              "otelcol": {
+                "component": {
+                  "kind": "exporter",
+                  "id": "opensearch"
+                },
+                "signal": "logs"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133335496634520"
+              },
+              "status": "error"
+            },
+            "message": "Request failed.",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:35.496Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        }
+      ],
+      "meta": {
+        "page": {
+          "after": "eyJhZnRlciI6IkF3QUFBWjFPTVJfSUZlRFdXQUFBQUJoQldqRlBUVk5NV1VGQlEyaFVTRE51VFRKelRXaFJRV0VBQUFBa1pqRTVaRFJsTXpNdE5ERXpPUzAwWmpRekxUazJaV1F0Wm1KaU1tTmpaamxrT0RVeEFBQUNqUSIsInZhbHVlcyI6WyIyMDI2LTA0LTAyVDEyOjM1OjM1LjQ5NloiLDM2NzA1NjQ3Ml19"
+        },
+        "elapsed": 56,
+        "request_id": "pddv1ChZiam1FREhEbFR3dUkzM1hhMmNXSFNnIisKG2IQSxbxxBJmblGWNZwvdLWS-aSuLDDe3U8nXhIMyKwiuz69Myu3EUZu",
+        "status": "done"
+      },
+      "links": {
+        "next": "https://ap1.datadoghq.com/api/v2/logs/events?filter%5Bfrom%5D=now-1h&filter%5Bquery%5D=status%3Aerror&filter%5Bto%5D=now&page%5Bcursor%5D=eyJhZnRlciI6IkF3QUFBWjFPTVJfSUZlRFdXQUFBQUJoQldqRlBUVk5NV1VGQlEyaFVTRE51VFRKelRXaFJRV0VBQUFBa1pqRTVaRFJsTXpNdE5ERXpPUzAwWmpRekxUazJaV1F0Wm1KaU1tTmpaamxrT0RVeEFBQUNqUSIsInZhbHVlcyI6WyIyMDI2LTA0LTAyVDEyOjM1OjM1LjQ5NloiLDM2NzA1NjQ3Ml19&page%5Blimit%5D=10&sort=timestamp"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs",
+    "data_count": 10,
+    "series_count": 0,
+    "response_bytes": 23934,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

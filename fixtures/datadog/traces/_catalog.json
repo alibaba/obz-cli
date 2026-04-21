@@ -1,0 +1,139 @@
+{
+  "catalog_version": "1.0",
+  "backend": "datadog/traces",
+  "generated_at": "2026-04-02T13:42:48Z",
+  "fixtures": [
+    {
+      "file": "traces-by-id.json",
+      "id": "datadog/traces/traces-by-id",
+      "description": "Datadog trace by ID: all spans for a specific trace (via span search filter)",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 14051,
+      "tags": [
+        "traces",
+        "query",
+        "trace-by-id",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "traces-by-id-not-found.json",
+      "id": "datadog/traces/traces-by-id-not-found",
+      "description": "Datadog trace by ID: nonexistent trace_id — empty result",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1412,
+      "tags": [
+        "traces",
+        "query",
+        "trace-by-id",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "traces-search.json",
+      "id": "datadog/traces/traces-search",
+      "description": "Datadog traces search: all spans from last 1h",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 66912,
+      "tags": [
+        "traces",
+        "query",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "traces-search-empty.json",
+      "id": "datadog/traces/traces-search-empty",
+      "description": "Datadog traces search: nonexistent service — empty",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1367,
+      "tags": [
+        "traces",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "traces-search-error.json",
+      "id": "datadog/traces/traces-search-error",
+      "description": "Datadog traces search: spans with error status",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 92958,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "error",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "traces-search-operation.json",
+      "id": "datadog/traces/traces-search-operation",
+      "description": "Datadog traces search: spans filtered by resource_name (operation)",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 107820,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "operation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "traces-search-service.json",
+      "id": "datadog/traces/traces-search-service",
+      "description": "Datadog traces search: spans for cart service",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 36568,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}
