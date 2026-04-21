@@ -1,0 +1,47 @@
+{
+  "fixture_version": "1.0",
+  "id": "jaeger/traces/services",
+  "description": "Jaeger API: list all services",
+  "backend": "jaeger",
+  "tags": [
+    "traces",
+    "services",
+    "metadata",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/services",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [
+        "image-provider",
+        "load-generator",
+        "cart",
+        "ad",
+        "product-reviews"
+      ],
+      "total": 5,
+      "limit": 0,
+      "offset": 0,
+      "errors": null
+    }
+  },
+  "facts": {
+    "result_type": "services",
+    "data_count": 5,
+    "trace_count": 0,
+    "span_count": 0,
+    "response_bytes": 119,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:10:17Z",
+  "source": "recorded",
+  "generator": "scripts/jaeger-record-live.sh"
+}

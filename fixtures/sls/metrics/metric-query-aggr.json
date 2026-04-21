@@ -1,0 +1,306 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/metrics/metric-query-aggr",
+  "description": "SLS MetricStore PromQL: avg container memory by container_name",
+  "backend": "sls",
+  "tags": [
+    "metrics",
+    "query",
+    "promql",
+    "aggregation",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/prometheus/sunfire-cli-test/cli-test-metrics/api/v1/query",
+    "query_params": {
+      "query": "avg by (container_name) (container_memory_usage_total)",
+      "time": "1775139667"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "container_name": "shipping"
+            },
+            "value": [
+              1775139667,
+              "8421376"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "vtraces"
+            },
+            "value": [
+              1775139667,
+              "118804480"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "ad"
+            },
+            "value": [
+              1775139667,
+              "261763072"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "recommendation"
+            },
+            "value": [
+              1775139667,
+              "45846528"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "flagd"
+            },
+            "value": [
+              1775139667,
+              "31629312"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "payment"
+            },
+            "value": [
+              1775139667,
+              "110338048"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "llm"
+            },
+            "value": [
+              1775139667,
+              "0"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "loki"
+            },
+            "value": [
+              1775139667,
+              "130568192"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "vm"
+            },
+            "value": [
+              1775139667,
+              "63574016"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "otel-collector"
+            },
+            "value": [
+              1775139667,
+              "101388288"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "vlogs"
+            },
+            "value": [
+              1775139667,
+              "122281984"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "prometheus"
+            },
+            "value": [
+              1775139667,
+              "125546496"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "currency"
+            },
+            "value": [
+              1775139667,
+              "2920448"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "frontend"
+            },
+            "value": [
+              1775139667,
+              "77312000"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "postgresql"
+            },
+            "value": [
+              1775139667,
+              "42041344"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "image-provider"
+            },
+            "value": [
+              1775139667,
+              "8499200"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "tempo"
+            },
+            "value": [
+              1775139667,
+              "516993024"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "valkey-cart"
+            },
+            "value": [
+              1775139667,
+              "4898816"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "checkout"
+            },
+            "value": [
+              1775139667,
+              "13971456"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "email"
+            },
+            "value": [
+              1775139667,
+              "39448576"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "app-a-1.0.20"
+            },
+            "value": [
+              1775139667,
+              "643072"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "app-b-1.0.21"
+            },
+            "value": [
+              1775139667,
+              "36210151424"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "app-a-1.0.19"
+            },
+            "value": [
+              1775139667,
+              "671744"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "quote"
+            },
+            "value": [
+              1775139667,
+              "12570624"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "cart"
+            },
+            "value": [
+              1775139667,
+              "44220416"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "load-generator"
+            },
+            "value": [
+              1775139667,
+              "122064896"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "proton-benchmark"
+            },
+            "value": [
+              1775139667,
+              "2876141568"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "product-reviews"
+            },
+            "value": [
+              1775139667,
+              "87601152"
+            ]
+          },
+          {
+            "metric": {
+              "container_name": "product-catalog"
+            },
+            "value": [
+              1775139667,
+              "14278656"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "vector",
+    "series_count": 29,
+    "data_count": 29,
+    "response_bytes": 2385,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

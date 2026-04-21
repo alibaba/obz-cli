@@ -1,0 +1,60 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/traces/traces-search-empty",
+  "description": "Datadog traces search: nonexistent service — empty",
+  "backend": "datadog",
+  "tags": [
+    "traces",
+    "query",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/spans/events/search",
+    "query_params": {},
+    "body": {
+      "data": {
+        "attributes": {
+          "filter": {
+            "from": "now-1h",
+            "to": "now",
+            "query": "service:nonexistent_xyz"
+          },
+          "sort": "timestamp",
+          "page": {
+            "limit": 10
+          }
+        },
+        "type": "search_request"
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [],
+      "meta": {
+        "elapsed": 66,
+        "request_id": "pddv1ChZEODJjQTVfeVRSYUNIbFF6WFBUdWd3IiwKHLOBRSNots2_wZbKFRUfjDbk7dXXhVLKB3aNv9kSDMasLRjCye9qRv6_xA",
+        "status": "done",
+        "page": null,
+        "traffic_type": "sampled"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "traces",
+    "data_count": 0,
+    "series_count": 0,
+    "response_bytes": 201,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

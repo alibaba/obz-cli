@@ -1,0 +1,30 @@
+[package]
+name = "obz-providers"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Built-in provider implementations for the obz observability CLI"
+
+[dependencies]
+obz-core = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+async-trait = { workspace = true }
+tokio = { workspace = true }
+jiff = { workspace = true }
+reqwest = { version = "0.13", default-features = false, features = ["json", "rustls-no-provider", "query", "form"] }
+urlencoding = "2"
+percent-encoding = "2"
+base64 = "0.22"
+aliyun-log-sdk-sign = "0.2"
+http = "1"
+
+[dev-dependencies]
+rustls = { workspace = true }
+wiremock = "0.6"
+
+[lints]
+workspace = true

@@ -1,0 +1,430 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/traces/search-by-service",
+  "description": "Tempo search: {resource.service.name=\"cart\"} — cart service traces",
+  "backend": "tempo",
+  "tags": [
+    "traces",
+    "search",
+    "service",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/search",
+    "query_params": {
+      "q": "{resource.service.name=\"cart\"}",
+      "start": "1775534557",
+      "end": "1775538157",
+      "limit": "5"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "traces": [
+        {
+          "traceID": "11e8f7f5abb54b9989576f328023803",
+          "rootServiceName": "cart",
+          "rootTraceName": "flagd.evaluation.v2.Service/ResolveBoolean",
+          "startTimeUnixNano": "1775536678719089600",
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "a486feb6dbb6cd35",
+                "startTimeUnixNano": "1775536678719127500",
+                "durationNanos": "487600",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "cart"
+                    }
+                  }
+                ]
+              },
+              {
+                "spanID": "e406d1101d066426",
+                "startTimeUnixNano": "1775536678719089600",
+                "durationNanos": "555400",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "cart"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 2
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "a486feb6dbb6cd35",
+                  "startTimeUnixNano": "1775536678719127500",
+                  "durationNanos": "487600",
+                  "attributes": [
+                    {
+                      "key": "service.name",
+                      "value": {
+                        "stringValue": "cart"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "spanID": "e406d1101d066426",
+                  "startTimeUnixNano": "1775536678719089600",
+                  "durationNanos": "555400",
+                  "attributes": [
+                    {
+                      "key": "service.name",
+                      "value": {
+                        "stringValue": "cart"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "matched": 2
+            }
+          ],
+          "serviceStats": {
+            "cart": {
+              "spanCount": 2,
+              "errorCount": 2
+            }
+          }
+        },
+        {
+          "traceID": "3be95be8e074dbd683b74acf0a58dfd",
+          "rootServiceName": "cart",
+          "rootTraceName": "flagd.evaluation.v2.Service/ResolveBoolean",
+          "startTimeUnixNano": "1775535658718558500",
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "3c83e8781bb349c2",
+                "startTimeUnixNano": "1775535658718586700",
+                "durationNanos": "504400",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "cart"
+                    }
+                  }
+                ]
+              },
+              {
+                "spanID": "14a99bd087478e47",
+                "startTimeUnixNano": "1775535658718558500",
+                "durationNanos": "555300",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "cart"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 2
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "3c83e8781bb349c2",
+                  "startTimeUnixNano": "1775535658718586700",
+                  "durationNanos": "504400",
+                  "attributes": [
+                    {
+                      "key": "service.name",
+                      "value": {
+                        "stringValue": "cart"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "spanID": "14a99bd087478e47",
+                  "startTimeUnixNano": "1775535658718558500",
+                  "durationNanos": "555300",
+                  "attributes": [
+                    {
+                      "key": "service.name",
+                      "value": {
+                        "stringValue": "cart"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "matched": 2
+            }
+          ],
+          "serviceStats": {
+            "cart": {
+              "spanCount": 2,
+              "errorCount": 2
+            }
+          }
+        },
+        {
+          "traceID": "15a49c0af09e7d78b7bfc9c093f5433",
+          "rootServiceName": "cart",
+          "rootTraceName": "flagd.evaluation.v2.Service/ResolveBoolean",
+          "startTimeUnixNano": "1775535478718767300",
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "731635497852cd9b",
+                "startTimeUnixNano": "1775535478718800900",
+                "durationNanos": "512000",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "cart"
+                    }
+                  }
+                ]
+              },
+              {
+                "spanID": "eaae1011c9ab9622",
+                "startTimeUnixNano": "1775535478718767300",
+                "durationNanos": "563600",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "cart"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 2
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "731635497852cd9b",
+                  "startTimeUnixNano": "1775535478718800900",
+                  "durationNanos": "512000",
+                  "attributes": [
+                    {
+                      "key": "service.name",
+                      "value": {
+                        "stringValue": "cart"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "spanID": "eaae1011c9ab9622",
+                  "startTimeUnixNano": "1775535478718767300",
+                  "durationNanos": "563600",
+                  "attributes": [
+                    {
+                      "key": "service.name",
+                      "value": {
+                        "stringValue": "cart"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "matched": 2
+            }
+          ],
+          "serviceStats": {
+            "cart": {
+              "spanCount": 2,
+              "errorCount": 2
+            }
+          }
+        },
+        {
+          "traceID": "1b53357d6e529fb0d62d3e4ac1dfd2e",
+          "rootServiceName": "cart",
+          "rootTraceName": "flagd.evaluation.v2.Service/ResolveBoolean",
+          "startTimeUnixNano": "1775535388719432800",
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "686db1986dc0e572",
+                "startTimeUnixNano": "1775535388719466200",
+                "durationNanos": "477000",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "cart"
+                    }
+                  }
+                ]
+              },
+              {
+                "spanID": "16d73b1224eccc66",
+                "startTimeUnixNano": "1775535388719432800",
+                "durationNanos": "528600",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "cart"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 2
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "686db1986dc0e572",
+                  "startTimeUnixNano": "1775535388719466200",
+                  "durationNanos": "477000",
+                  "attributes": [
+                    {
+                      "key": "service.name",
+                      "value": {
+                        "stringValue": "cart"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "spanID": "16d73b1224eccc66",
+                  "startTimeUnixNano": "1775535388719432800",
+                  "durationNanos": "528600",
+                  "attributes": [
+                    {
+                      "key": "service.name",
+                      "value": {
+                        "stringValue": "cart"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "matched": 2
+            }
+          ],
+          "serviceStats": {
+            "cart": {
+              "spanCount": 2,
+              "errorCount": 2
+            }
+          }
+        },
+        {
+          "traceID": "3c862f11244d642451dc777589e8b2d",
+          "rootServiceName": "cart",
+          "rootTraceName": "flagd.evaluation.v2.Service/ResolveBoolean",
+          "startTimeUnixNano": "1775535238718753500",
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "0998d618febf2e94",
+                "startTimeUnixNano": "1775535238718789400",
+                "durationNanos": "533700",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "cart"
+                    }
+                  }
+                ]
+              },
+              {
+                "spanID": "02fea532dde6f0e8",
+                "startTimeUnixNano": "1775535238718753500",
+                "durationNanos": "591400",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "cart"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 2
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "0998d618febf2e94",
+                  "startTimeUnixNano": "1775535238718789400",
+                  "durationNanos": "533700",
+                  "attributes": [
+                    {
+                      "key": "service.name",
+                      "value": {
+                        "stringValue": "cart"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "spanID": "02fea532dde6f0e8",
+                  "startTimeUnixNano": "1775535238718753500",
+                  "durationNanos": "591400",
+                  "attributes": [
+                    {
+                      "key": "service.name",
+                      "value": {
+                        "stringValue": "cart"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "matched": 2
+            }
+          ],
+          "serviceStats": {
+            "cart": {
+              "spanCount": 2,
+              "errorCount": 2
+            }
+          }
+        }
+      ],
+      "metrics": {
+        "inspectedBytes": "252271",
+        "totalBlocks": 1,
+        "completedJobs": 1,
+        "totalJobs": 4,
+        "totalBlockBytes": "749832"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "search",
+    "data_count": 5,
+    "trace_count": 5,
+    "span_count": 0,
+    "response_bytes": 4945,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:02:37Z",
+  "source": "recorded",
+  "generator": "scripts/tempo-record-live.sh"
+}

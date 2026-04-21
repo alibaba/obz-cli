@@ -1,0 +1,64 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/hits-all",
+  "description": "LogsQL hits: * — log distribution over time",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "hits",
+    "basic",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/hits",
+    "query_params": {},
+    "body": {
+      "query": "*",
+      "step": "600s",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "hits": [
+        {
+          "fields": {},
+          "timestamps": [
+            "2026-04-02T12:50:00Z",
+            "2026-04-02T13:00:00Z",
+            "2026-04-02T13:10:00Z",
+            "2026-04-02T13:20:00Z",
+            "2026-04-02T13:30:00Z",
+            "2026-04-02T13:40:00Z",
+            "2026-04-02T13:50:00Z"
+          ],
+          "values": [
+            2747,
+            2845,
+            2783,
+            2745,
+            2806,
+            2745,
+            2488
+          ],
+          "total": 19159
+        }
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "hits",
+    "data_count": 1,
+    "response_bytes": 260,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

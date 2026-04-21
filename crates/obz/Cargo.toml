@@ -1,0 +1,37 @@
+[package]
+name = "obz"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "A multi-backend observability CLI tool"
+
+[[bin]]
+name = "obz"
+path = "src/main.rs"
+
+[dependencies]
+obz-core = { workspace = true }
+obz-providers = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+clap = { version = "4", features = ["derive", "env"] }
+clap_complete = "4"
+clap_mangen = "0.2"
+comfy-table = "7"
+fd-lock = "4"
+jiff = { workspace = true }
+rustls = { workspace = true }
+serde_yaml = "0.9"
+tempfile = "3"
+futures = "0.3"
+http = "1"
+
+[dev-dependencies]
+async-trait = { workspace = true }
+
+[lints]
+workspace = true

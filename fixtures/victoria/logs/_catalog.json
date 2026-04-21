@@ -1,0 +1,359 @@
+{
+  "catalog_version": "1.0",
+  "backend": "victoria/logs",
+  "generated_at": "2026-04-02T14:00:34Z",
+  "fixtures": [
+    {
+      "file": "error-invalid-field.json",
+      "id": "victoria/logs/error-invalid-field",
+      "description": "VictoriaLogs error: stats on nonexistent field",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1187,
+      "tags": [
+        "logs",
+        "error",
+        "invalid-field",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-syntax.json",
+      "id": "victoria/logs/error-syntax",
+      "description": "LogsQL error: invalid syntax — unmatched parenthesis",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 917,
+      "tags": [
+        "logs",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "facets-all.json",
+      "id": "victoria/logs/facets-all",
+      "description": "LogsQL facets: * — top values for each field",
+      "result_type": "facets",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 18116,
+      "tags": [
+        "logs",
+        "facets",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "field-names.json",
+      "id": "victoria/logs/field-names",
+      "description": "VictoriaLogs field_names: all log field names",
+      "result_type": "field_names",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 4712,
+      "tags": [
+        "logs",
+        "metadata",
+        "field-names",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "field-values-service.json",
+      "id": "victoria/logs/field-values-service",
+      "description": "VictoriaLogs field_values: values of service.name",
+      "result_type": "field_values",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1130,
+      "tags": [
+        "logs",
+        "metadata",
+        "field-values",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "field-values-severity.json",
+      "id": "victoria/logs/field-values-severity",
+      "description": "VictoriaLogs field_values: values of severity",
+      "result_type": "field_values",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1233,
+      "tags": [
+        "logs",
+        "metadata",
+        "field-values",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "hits-all.json",
+      "id": "victoria/logs/hits-all",
+      "description": "LogsQL hits: * — log distribution over time",
+      "result_type": "hits",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1352,
+      "tags": [
+        "logs",
+        "hits",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "hits-by-service.json",
+      "id": "victoria/logs/hits-by-service",
+      "description": "LogsQL hits: * grouped by service.name — hits per service",
+      "result_type": "hits",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 2592,
+      "tags": [
+        "logs",
+        "hits",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-all.json",
+      "id": "victoria/logs/query-all",
+      "description": "LogsQL query: * — all logs",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 28705,
+      "tags": [
+        "logs",
+        "query",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-empty.json",
+      "id": "victoria/logs/query-empty",
+      "description": "LogsQL query: nonexistent_xyz — no matches",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 837,
+      "tags": [
+        "logs",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-fulltext.json",
+      "id": "victoria/logs/query-fulltext",
+      "description": "LogsQL query: 'Exporting failed' — fulltext search",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 29413,
+      "tags": [
+        "logs",
+        "query",
+        "fulltext",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-pipe-fields.json",
+      "id": "victoria/logs/query-pipe-fields",
+      "description": "LogsQL query: severity:error | fields _time, _msg, service.name | sort by (_time) desc | limit 5",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1630,
+      "tags": [
+        "logs",
+        "query",
+        "pipe",
+        "fields",
+        "sort",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-service-filter.json",
+      "id": "victoria/logs/query-service-filter",
+      "description": "LogsQL query: service.name:load-generator — logs from load-generator service",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 22994,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-severity-error.json",
+      "id": "victoria/logs/query-severity-error",
+      "description": "LogsQL query: severity:error — error logs",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 56871,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "severity",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "query-stream-filter.json",
+      "id": "victoria/logs/query-stream-filter",
+      "description": "LogsQL query: {service.name=\"load-generator\"} severity:INFO — stream + field",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 12022,
+      "tags": [
+        "logs",
+        "query",
+        "stream",
+        "filter",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "stats-count-by-service.json",
+      "id": "victoria/logs/stats-count-by-service",
+      "description": "LogsQL stats_query: * | stats by (service.name) count(*)",
+      "result_type": "stats",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1709,
+      "tags": [
+        "logs",
+        "stats",
+        "count",
+        "group-by",
+        "prometheus-compat",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "stats-count-by-severity.json",
+      "id": "victoria/logs/stats-count-by-severity",
+      "description": "LogsQL stats_query: * | stats by (severity) count(*)",
+      "result_type": "stats",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 2071,
+      "tags": [
+        "logs",
+        "stats",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "stats-range-by-severity.json",
+      "id": "victoria/logs/stats-range-by-severity",
+      "description": "LogsQL stats_query_range: * | stats by (severity) count(*)",
+      "result_type": "stats_range",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 4791,
+      "tags": [
+        "logs",
+        "stats",
+        "range",
+        "prometheus-compat",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "streams.json",
+      "id": "victoria/logs/streams",
+      "description": "VictoriaLogs streams: all log streams",
+      "result_type": "streams",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 2021,
+      "tags": [
+        "logs",
+        "metadata",
+        "streams",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

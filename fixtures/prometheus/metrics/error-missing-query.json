@@ -1,0 +1,43 @@
+{
+  "fixture_version": "1.0",
+  "id": "prometheus/metrics/error-missing-query",
+  "description": "Error: missing query parameter",
+  "backend": "prometheus",
+  "tags": [
+    "metrics",
+    "error",
+    "missing-param",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "time": "1775538213"
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "error",
+      "errorType": "bad_data",
+      "error": "invalid parameter \"query\": unknown position: parse error: no expression found in input"
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "series_count": 0,
+    "total_points": 0,
+    "data_count": 0,
+    "response_bytes": 140,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:03:33Z",
+  "source": "recorded",
+  "generator": "scripts/prometheus-record-live.sh"
+}

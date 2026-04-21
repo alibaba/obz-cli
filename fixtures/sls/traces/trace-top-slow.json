@@ -1,0 +1,122 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/traces/trace-top-slow",
+  "description": "SLS Trace SQL: top 10 slowest spans",
+  "backend": "sls",
+  "tags": [
+    "traces",
+    "sql",
+    "top-n",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logstores/cli-test-traces",
+    "query_params": {
+      "type": "log",
+      "from": "1775136067",
+      "to": "1775139667",
+      "query": "* | SELECT traceID, service, name, CAST(duration AS BIGINT) as dur_us ORDER BY dur_us DESC LIMIT 10"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "x-log-progress": "Complete",
+      "x-log-count": "10"
+    },
+    "body": [
+      {
+        "traceID": "fb8b3ecfc60e2377df66e5d1b9a17916",
+        "service": "product-reviews",
+        "name": "flagd.evaluation.v1.Service/EventStream",
+        "dur_us": "600004159",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "traceID": "d6bc38d7fa932b4d062d3c62240a8a07",
+        "service": "product-reviews",
+        "name": "flagd.evaluation.v1.Service/EventStream",
+        "dur_us": "600003720",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "traceID": "8ab272cc277678433015e0b2f7a62ea0",
+        "service": "product-reviews",
+        "name": "flagd.evaluation.v1.Service/EventStream",
+        "dur_us": "600003302",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "traceID": "eeb342a16d110a03e22d30d4124e49a1",
+        "service": "product-reviews",
+        "name": "flagd.evaluation.v1.Service/EventStream",
+        "dur_us": "600003128",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "traceID": "3f81103d8a78205cf15b9030e9a159bd",
+        "service": "product-reviews",
+        "name": "flagd.evaluation.v1.Service/EventStream",
+        "dur_us": "600002515",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "traceID": "00254b84b34cf1ae33f98afd807e7ff9",
+        "service": "product-reviews",
+        "name": "flagd.evaluation.v1.Service/EventStream",
+        "dur_us": "600002357",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "traceID": "252ad324b220a85fba38b890ee64dcde",
+        "service": "ad",
+        "name": "flagd.evaluation.v1.Service/EventStream",
+        "dur_us": "600001292",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "traceID": "5154669c124a8624fc4ed534122ba270",
+        "service": "ad",
+        "name": "flagd.evaluation.v1.Service/EventStream",
+        "dur_us": "600001287",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "traceID": "823588591a3e1599a997190bd8b159b2",
+        "service": "ad",
+        "name": "flagd.evaluation.v1.Service/EventStream",
+        "dur_us": "600001193",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "traceID": "faadc2e42a8e4f022ea5783d0fb14cd6",
+        "service": "ad",
+        "name": "flagd.evaluation.v1.Service/EventStream",
+        "dur_us": "600000817",
+        "__source__": "",
+        "__time__": "1775136067"
+      }
+    ]
+  },
+  "facts": {
+    "result_type": "sql",
+    "log_count": 10,
+    "data_count": 10,
+    "response_bytes": 1918,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

@@ -1,0 +1,96 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/stats-count-by-severity",
+  "description": "LogsQL stats_query: * | stats by (severity) count(*)",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "stats",
+    "count",
+    "group-by",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/stats_query",
+    "query_params": {},
+    "body": {
+      "query": "*+|+stats+by+(severity)+count(*)",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "severity": "error"
+            },
+            "value": [
+              1775138352,
+              "4630"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "severity": "info"
+            },
+            "value": [
+              1775138352,
+              "6843"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "severity": "WARN"
+            },
+            "value": [
+              1775138352,
+              "58"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "severity": "warn"
+            },
+            "value": [
+              1775138352,
+              "1164"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "severity": "INFO"
+            },
+            "value": [
+              1775138352,
+              "3964"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "stats",
+    "data_count": 5,
+    "response_bytes": 466,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

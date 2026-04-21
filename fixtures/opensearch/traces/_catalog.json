@@ -1,0 +1,156 @@
+{
+  "catalog_version": "1.0",
+  "backend": "opensearch/traces",
+  "generated_at": "2026-04-07T05:07:24Z",
+  "fixtures": [
+    {
+      "file": "agg-count-by-service.json",
+      "id": "opensearch/traces/agg-count-by-service",
+      "description": "OpenSearch traces aggregation: count by service",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 1950,
+      "tags": [
+        "traces",
+        "aggregate",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-syntax.json",
+      "id": "opensearch/traces/error-syntax",
+      "description": "OpenSearch traces error: invalid query syntax",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1329,
+      "tags": [
+        "traces",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "index-mapping.json",
+      "id": "opensearch/traces/index-mapping",
+      "description": "OpenSearch: trace index mapping",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 27765,
+      "tags": [
+        "traces",
+        "metadata",
+        "mapping",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-all.json",
+      "id": "opensearch/traces/search-all",
+      "description": "OpenSearch traces: all spans",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 41087,
+      "tags": [
+        "traces",
+        "query",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-error.json",
+      "id": "opensearch/traces/search-by-error",
+      "description": "OpenSearch traces: error status spans",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 75596,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "error",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-operation.json",
+      "id": "opensearch/traces/search-by-operation",
+      "description": "OpenSearch traces: spans named GET",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 88743,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "operation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-service.json",
+      "id": "opensearch/traces/search-by-service",
+      "description": "OpenSearch traces: load-generator service spans",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 60554,
+      "tags": [
+        "traces",
+        "query",
+        "filter",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-empty.json",
+      "id": "opensearch/traces/search-empty",
+      "description": "OpenSearch traces: match nonexistent — empty",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1188,
+      "tags": [
+        "traces",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/metrics/instant-scalar",
+  "description": "PromQL instant query: scalar arithmetic — 1+1",
+  "backend": "mimir",
+  "tags": [
+    "metrics",
+    "query",
+    "instant",
+    "scalar",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "query": "scalar(1+1)",
+      "time": "1775538225"
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "error",
+      "errorType": "bad_data",
+      "error": "invalid parameter \"query\": 1:8: parse error: expected type instant vector in call to function \"scalar\", got scalar"
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "series_count": 0,
+    "total_points": 0,
+    "data_count": 0,
+    "response_bytes": 170,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:03:45Z",
+  "source": "recorded",
+  "generator": "scripts/mimir-record-live.sh"
+}

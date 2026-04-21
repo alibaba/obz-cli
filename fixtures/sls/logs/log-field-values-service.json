@@ -1,0 +1,61 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/logs/log-field-values-service",
+  "description": "SLS Log SQL: distinct values of service field",
+  "backend": "sls",
+  "tags": [
+    "logs",
+    "sql",
+    "metadata",
+    "field-values",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logstores/cli-test-logs",
+    "query_params": {
+      "type": "log",
+      "from": "1775136067",
+      "to": "1775139667",
+      "query": "* | SELECT service, COUNT(*) as cnt GROUP BY service ORDER BY cnt DESC LIMIT 20"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "x-log-progress": "Complete",
+      "x-log-count": "3"
+    },
+    "body": [
+      {
+        "service": "otelcol-contrib",
+        "cnt": "12694",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "service": "load-generator",
+        "cnt": "3722",
+        "__source__": "",
+        "__time__": "1775136067"
+      },
+      {
+        "service": "recommendation",
+        "cnt": "177",
+        "__source__": "",
+        "__time__": "1775136067"
+      }
+    ]
+  },
+  "facts": {
+    "result_type": "sql",
+    "log_count": 3,
+    "data_count": 3,
+    "response_bytes": 271,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

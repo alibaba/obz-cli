@@ -1,0 +1,406 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/logs/log-histogram-error",
+  "description": "SLS Log GetHistograms: severityText:ERROR — error log distribution",
+  "backend": "sls",
+  "tags": [
+    "logs",
+    "histogram",
+    "filter",
+    "error",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logstores/cli-test-logs",
+    "query_params": {
+      "type": "histogram",
+      "from": "1775136067",
+      "to": "1775139667",
+      "query": "severityText:ERROR"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": [
+      {
+        "from": 1775136067,
+        "count": 73,
+        "to": 1775136120,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136120,
+        "count": 74,
+        "to": 1775136180,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136180,
+        "count": 72,
+        "to": 1775136240,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136240,
+        "count": 79,
+        "to": 1775136300,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136300,
+        "count": 77,
+        "to": 1775136360,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136360,
+        "count": 76,
+        "to": 1775136420,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136420,
+        "count": 82,
+        "to": 1775136480,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136480,
+        "count": 71,
+        "to": 1775136540,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136540,
+        "count": 81,
+        "to": 1775136600,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136600,
+        "count": 79,
+        "to": 1775136660,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136660,
+        "count": 88,
+        "to": 1775136720,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136720,
+        "count": 90,
+        "to": 1775136780,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136780,
+        "count": 71,
+        "to": 1775136840,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136840,
+        "count": 70,
+        "to": 1775136900,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136900,
+        "count": 80,
+        "to": 1775136960,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775136960,
+        "count": 72,
+        "to": 1775137020,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137020,
+        "count": 71,
+        "to": 1775137080,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137080,
+        "count": 75,
+        "to": 1775137140,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137140,
+        "count": 72,
+        "to": 1775137200,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137200,
+        "count": 73,
+        "to": 1775137260,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137260,
+        "count": 73,
+        "to": 1775137320,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137320,
+        "count": 79,
+        "to": 1775137380,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137380,
+        "count": 82,
+        "to": 1775137440,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137440,
+        "count": 78,
+        "to": 1775137500,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137500,
+        "count": 82,
+        "to": 1775137560,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137560,
+        "count": 71,
+        "to": 1775137620,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137620,
+        "count": 73,
+        "to": 1775137680,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137680,
+        "count": 74,
+        "to": 1775137740,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137740,
+        "count": 75,
+        "to": 1775137800,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137800,
+        "count": 83,
+        "to": 1775137860,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137860,
+        "count": 80,
+        "to": 1775137920,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137920,
+        "count": 81,
+        "to": 1775137980,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775137980,
+        "count": 77,
+        "to": 1775138040,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138040,
+        "count": 68,
+        "to": 1775138100,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138100,
+        "count": 74,
+        "to": 1775138160,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138160,
+        "count": 79,
+        "to": 1775138220,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138220,
+        "count": 67,
+        "to": 1775138280,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138280,
+        "count": 80,
+        "to": 1775138340,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138340,
+        "count": 73,
+        "to": 1775138400,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138400,
+        "count": 73,
+        "to": 1775138460,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138460,
+        "count": 78,
+        "to": 1775138520,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138520,
+        "count": 83,
+        "to": 1775138580,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138580,
+        "count": 77,
+        "to": 1775138640,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138640,
+        "count": 79,
+        "to": 1775138700,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138700,
+        "count": 76,
+        "to": 1775138760,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138760,
+        "count": 76,
+        "to": 1775138820,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138820,
+        "count": 77,
+        "to": 1775138880,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138880,
+        "count": 83,
+        "to": 1775138940,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775138940,
+        "count": 80,
+        "to": 1775139000,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139000,
+        "count": 85,
+        "to": 1775139060,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139060,
+        "count": 76,
+        "to": 1775139120,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139120,
+        "count": 83,
+        "to": 1775139180,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139180,
+        "count": 79,
+        "to": 1775139240,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139240,
+        "count": 82,
+        "to": 1775139300,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139300,
+        "count": 74,
+        "to": 1775139360,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139360,
+        "count": 77,
+        "to": 1775139420,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139420,
+        "count": 73,
+        "to": 1775139480,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139480,
+        "count": 87,
+        "to": 1775139540,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139540,
+        "count": 83,
+        "to": 1775139600,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139600,
+        "count": 84,
+        "to": 1775139660,
+        "progress": "Complete"
+      },
+      {
+        "from": 1775139660,
+        "count": 7,
+        "to": 1775139667,
+        "progress": "Complete"
+      }
+    ]
+  },
+  "facts": {
+    "result_type": "histogram",
+    "data_count": 61,
+    "response_bytes": 4696,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

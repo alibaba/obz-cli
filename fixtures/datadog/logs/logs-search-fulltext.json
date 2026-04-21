@@ -1,0 +1,889 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/logs/logs-search-fulltext",
+  "description": "Datadog logs search: fulltext search for error/timeout/exception keywords",
+  "backend": "datadog",
+  "tags": [
+    "logs",
+    "query",
+    "fulltext",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/logs/events/search",
+    "query_params": {},
+    "body": {
+      "filter": {
+        "from": "now-1h",
+        "to": "now",
+        "query": "error OR timeout OR exception"
+      },
+      "sort": "timestamp",
+      "page": {
+        "limit": 10
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [
+        {
+          "id": "AwAAAZ1OMWmKCAPbNQAAABhBWjFPTVhENUFBRE9aZmlwbkxGQk53QWMAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACdw",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:35:54.378Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133354378695920"
+              },
+              "error": "context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:35:54.378Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMZCeCWjbKQAAABhBWjFPTVpnSUFBRE9aZmlwbkxGQ25BQVEAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACbQ",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:36:04.382Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133364382276730"
+              },
+              "error": "context canceled; context canceled; context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:36:04.382Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMbe06OatFAAAABhBWjFPTWI4WkFBQ1lVWWZ2Si1QaTBRQVEAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACYw",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:36:14.388Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133374388300867"
+              },
+              "error": "context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:36:14.388Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMd61rBiB7AAAABhBWjFPTWVla0FBRDR5aV9VNEI1alJ3QWIAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACTA",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:36:24.373Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133384373668405"
+              },
+              "error": "context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:36:24.373Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMgXSzCEG1gAAABhBWjFPTWcwNkFBQ2xMdDhHdl9EZGZBQUwAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACRA",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:36:34.386Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133394386515494"
+              },
+              "error": "context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:36:34.386Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMizYcLP6VQAAABhBWjFPTWpSTEFBQk85QlZiNTVPeUtnQVUAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACOQ",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:36:44.376Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133404376653266"
+              },
+              "error": "context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:36:44.376Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMlPl83Ce6AAAABhBWjFPTWx0YUFBQ0lIaFh6cFd2TzJBQWQAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACIw",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:36:54.373Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133414373584529"
+              },
+              "error": "context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:36:54.373Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMnr0Eg3bIQAAABhBWjFPTW9KcUFBRE9aZmlwbkxGTFFRQUkAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACGg",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:37:04.372Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133424372542336"
+              },
+              "error": "context canceled; context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:37:04.372Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMqIL9kOe1gAAABhBWjFPTXFsNkFBQ0lIaFh6cFd2UnF3QUwAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAACEA",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:37:14.379Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133434379444881"
+              },
+              "error": "context canceled; context canceled; context canceled; context canceled; context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:37:14.379Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        },
+        {
+          "id": "AwAAAZ1OMskSJErk5QAAABhBWjFPTXRDTEFBRDkyTUVtcjZIUG93QVMAAAAkZjE5ZDRlMzMtNDEzOS00ZjQzLTk2ZWQtZmJiMmNjZjlkODUxAAAB_Q",
+          "type": "log",
+          "attributes": {
+            "service": "otelcol-contrib",
+            "host": "btorch011167034027.cm10",
+            "attributes": {
+              "errorCauses": [
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                },
+                {
+                  "error": "context canceled"
+                }
+              ],
+              "hostname": "btorch011167034027.cm10",
+              "code": {
+                "file": {
+                  "path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go"
+                },
+                "stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "line": {
+                  "number": 61
+                },
+                "function": {
+                  "name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1"
+                }
+              },
+              "@timestamp": "2026-04-02T12:37:24.370Z",
+              "otelcol": {
+                "component": {
+                  "kind": "receiver",
+                  "id": "docker_stats"
+                },
+                "signal": "metrics"
+              },
+              "os": {
+                "type": "linux"
+              },
+              "service": {
+                "instance": {
+                  "id": "907a5888-24ca-4898-af4c-f201cd414d5a"
+                },
+                "name": "otelcol-contrib",
+                "version": "0.146.1"
+              },
+              "host": {
+                "name": "btorch011167034027.cm10"
+              },
+              "otel": {
+                "severity_text": "error",
+                "severity_number": "17",
+                "timestamp": "1775133444370753110"
+              },
+              "error": "context canceled; context canceled; context canceled; context canceled",
+              "scraper": "docker_stats",
+              "status": "error"
+            },
+            "message": "Error scraping metrics",
+            "status": "error",
+            "timestamp": "2026-04-02T12:37:24.370Z",
+            "tags": [
+              "datadog.submission_auth:api_key",
+              "os.type:linux",
+              "otel_source:datadog_exporter",
+              "service:otelcol-contrib",
+              "source:otlp_log_ingestion",
+              "version:0.146.1"
+            ]
+          }
+        }
+      ],
+      "meta": {
+        "page": {
+          "after": "eyJhZnRlciI6IkF3QUFBWjFPTXNrU0pFcms1UUFBQUJoQldqRlBUWFJEVEVGQlJEa3lUVVZ0Y2paSVVHOTNRVk1BQUFBa1pqRTVaRFJsTXpNdE5ERXpPUzAwWmpRekxUazJaV1F0Wm1KaU1tTmpaamxrT0RVeEFBQUJfUSIsInZhbHVlcyI6WyIyMDI2LTA0LTAyVDEyOjM3OjI0LjM3MFoiLDYwODg4ODAzN119"
+        },
+        "elapsed": 70,
+        "request_id": "pddv1ChY0X3JpS1NxOVNicVdSdTJVUEJqWUxnIisKGxCHFaLIAirQG1XkyyYA1zDbr51XDIHyiMh4MRIM1kWWAxajx3nn-hRF",
+        "status": "done"
+      },
+      "links": {
+        "next": "https://ap1.datadoghq.com/api/v2/logs/events?filter%5Bfrom%5D=now-1h&filter%5Bquery%5D=error+OR+timeout+OR+exception&filter%5Bto%5D=now&page%5Bcursor%5D=eyJhZnRlciI6IkF3QUFBWjFPTXNrU0pFcms1UUFBQUJoQldqRlBUWFJEVEVGQlJEa3lUVVZ0Y2paSVVHOTNRVk1BQUFBa1pqRTVaRFJsTXpNdE5ERXpPUzAwWmpRekxUazJaV1F0Wm1KaU1tTmpaamxrT0RVeEFBQUJfUSIsInZhbHVlcyI6WyIyMDI2LTA0LTAyVDEyOjM3OjI0LjM3MFoiLDYwODg4ODAzN119&page%5Blimit%5D=10&sort=timestamp"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs",
+    "data_count": 10,
+    "series_count": 0,
+    "response_bytes": 24452,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

@@ -1,0 +1,33 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/traces/services",
+  "description": "Jaeger API: list all services",
+  "backend": "victoriatraces",
+  "tags": [
+    "traces",
+    "services",
+    "metadata",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/select/jaeger/api/services",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8"
+    },
+    "body_raw": "cannot get services list: cannot parse query [*]: cannot calculate [uniq by (_stream) with hits limit 18446744073709551615], since it requires more than 48MB of memory"
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 167,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:57:13Z",
+  "source": "recorded",
+  "generator": "scripts/vtraces/record-live.sh"
+}

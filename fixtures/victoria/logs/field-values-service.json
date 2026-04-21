@@ -1,0 +1,54 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/field-values-service",
+  "description": "VictoriaLogs field_values: values of service.name",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "metadata",
+    "field-values",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/field_values",
+    "query_params": {},
+    "body": {
+      "query": "*",
+      "field": "service.name",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "values": [
+        {
+          "value": "otelcol-contrib",
+          "hits": 12637
+        },
+        {
+          "value": "load-generator",
+          "hits": 3848
+        },
+        {
+          "value": "recommendation",
+          "hits": 174
+        }
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "field_values",
+    "data_count": 3,
+    "response_bytes": 130,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

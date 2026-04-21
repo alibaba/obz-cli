@@ -1,0 +1,44 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/metrics/error-syntax",
+  "description": "Error: PromQL syntax error — unmatched parenthesis",
+  "backend": "mimir",
+  "tags": [
+    "metrics",
+    "error",
+    "syntax",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "query": "(invalid+{{+syntax",
+      "time": "1775538225"
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "error",
+      "errorType": "bad_data",
+      "error": "invalid parameter \"query\": 1:11: parse error: unexpected left brace '{'"
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "series_count": 0,
+    "total_points": 0,
+    "data_count": 0,
+    "response_bytes": 125,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:03:45Z",
+  "source": "recorded",
+  "generator": "scripts/mimir-record-live.sh"
+}

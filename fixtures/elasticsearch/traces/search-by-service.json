@@ -1,0 +1,590 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/traces/search-by-service",
+  "description": "ES traces: spans from cart service",
+  "backend": "elasticsearch",
+  "tags": [
+    "traces",
+    "query",
+    "filter",
+    "service",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/traces-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "term": {
+          "resource.attributes.service.name": "cart"
+        }
+      },
+      "size": 10,
+      "sort": [
+        {
+          "@timestamp": "desc"
+        }
+      ]
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 4,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 266,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": [
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZUq4v6w",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552428719.192300",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "71acc8d2a61f744e0c61221c867e9ce3",
+              "span_id": "72b4820f7c7c2ecf",
+              "parent_span_id": "0f34da1eb3584009",
+              "name": "POST",
+              "kind": "Client",
+              "duration": 575100,
+              "attributes": {
+                "http.request.method": "POST",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "url.full": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean",
+                "http.response.status_code": 404,
+                "network.protocol.version": "2",
+                "error.type": "404"
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "host.name": "demo-host-01",
+                  "host.arch": "amd64",
+                  "container.id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+                  "service.name": "cart",
+                  "service.instance.id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.language": "dotnet",
+                  "telemetry.sdk.version": "1.15.0",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "System.Net.Http"
+              }
+            },
+            "sort": [
+              1775552428719
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nLFp07dPHdZUq4v6x",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552428719.163300",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "71acc8d2a61f744e0c61221c867e9ce3",
+              "span_id": "0f34da1eb3584009",
+              "name": "flagd.evaluation.v2.Service/ResolveBoolean",
+              "kind": "Client",
+              "duration": 624600,
+              "attributes": {
+                "rpc.service": "flagd.evaluation.v2.Service",
+                "rpc.method": "ResolveBoolean",
+                "rpc.system": "grpc",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "rpc.grpc.status_code": 12
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "host.name": "demo-host-01",
+                  "host.arch": "amd64",
+                  "container.id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+                  "service.name": "cart",
+                  "service.instance.id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.language": "dotnet",
+                  "telemetry.sdk.version": "1.15.0",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+                "version": "1.15.0-beta.1"
+              }
+            },
+            "sort": [
+              1775552428719
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nK1p07dPHdZW14sUG",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552398719.553700",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "7d601441e934d73be1d38f69e02dbaed",
+              "span_id": "447963f68b460c55",
+              "parent_span_id": "4ca6ceed2951324a",
+              "name": "POST",
+              "kind": "Client",
+              "duration": 521500,
+              "attributes": {
+                "http.request.method": "POST",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "url.full": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean",
+                "http.response.status_code": 404,
+                "network.protocol.version": "2",
+                "error.type": "404"
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "host.name": "demo-host-01",
+                  "host.arch": "amd64",
+                  "container.id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+                  "service.name": "cart",
+                  "service.instance.id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.language": "dotnet",
+                  "telemetry.sdk.version": "1.15.0",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "System.Net.Http"
+              }
+            },
+            "sort": [
+              1775552398719
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nK1p07dPHdZW14sUH",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552398719.512100",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "7d601441e934d73be1d38f69e02dbaed",
+              "span_id": "4ca6ceed2951324a",
+              "name": "flagd.evaluation.v2.Service/ResolveBoolean",
+              "kind": "Client",
+              "duration": 584800,
+              "attributes": {
+                "rpc.service": "flagd.evaluation.v2.Service",
+                "rpc.method": "ResolveBoolean",
+                "rpc.system": "grpc",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "rpc.grpc.status_code": 12
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "host.name": "demo-host-01",
+                  "host.arch": "amd64",
+                  "container.id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+                  "service.name": "cart",
+                  "service.instance.id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.language": "dotnet",
+                  "telemetry.sdk.version": "1.15.0",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+                "version": "1.15.0-beta.1"
+              }
+            },
+            "sort": [
+              1775552398719
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nK1p07dPHdZVA4YZO",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552368718.721600",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "eb3a33a0adae5a070bddf12cb6b59c7c",
+              "span_id": "b0ddb28d8d2dc118",
+              "parent_span_id": "88b80aa9ee7cdc18",
+              "name": "POST",
+              "kind": "Client",
+              "duration": 799100,
+              "attributes": {
+                "http.request.method": "POST",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "url.full": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean",
+                "http.response.status_code": 404,
+                "network.protocol.version": "2",
+                "error.type": "404"
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "host.name": "demo-host-01",
+                  "host.arch": "amd64",
+                  "container.id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+                  "service.name": "cart",
+                  "service.instance.id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.language": "dotnet",
+                  "telemetry.sdk.version": "1.15.0",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "System.Net.Http"
+              }
+            },
+            "sort": [
+              1775552368718
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nK1p07dPHdZVA4YZP",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552368718.681100",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "eb3a33a0adae5a070bddf12cb6b59c7c",
+              "span_id": "88b80aa9ee7cdc18",
+              "name": "flagd.evaluation.v2.Service/ResolveBoolean",
+              "kind": "Client",
+              "duration": 852200,
+              "attributes": {
+                "rpc.service": "flagd.evaluation.v2.Service",
+                "rpc.method": "ResolveBoolean",
+                "rpc.system": "grpc",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "rpc.grpc.status_code": 12
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "host.name": "demo-host-01",
+                  "host.arch": "amd64",
+                  "container.id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+                  "service.name": "cart",
+                  "service.instance.id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.language": "dotnet",
+                  "telemetry.sdk.version": "1.15.0",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+                "version": "1.15.0-beta.1"
+              }
+            },
+            "sort": [
+              1775552368718
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nKo6Yz6TRAJtW2CwR",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552308718.760000",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "bde735a0215b10121179c26125957e84",
+              "span_id": "d521959c7895d5d6",
+              "parent_span_id": "2ded47f1b39d7f8d",
+              "name": "POST",
+              "kind": "Client",
+              "duration": 683700,
+              "attributes": {
+                "http.request.method": "POST",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "url.full": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean",
+                "http.response.status_code": 404,
+                "network.protocol.version": "2",
+                "error.type": "404"
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "host.name": "demo-host-01",
+                  "host.arch": "amd64",
+                  "container.id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+                  "service.name": "cart",
+                  "service.instance.id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.language": "dotnet",
+                  "telemetry.sdk.version": "1.15.0",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "System.Net.Http"
+              }
+            },
+            "sort": [
+              1775552308718
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nKo6Yz6TRAJtW2CwS",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552308718.730700",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "bde735a0215b10121179c26125957e84",
+              "span_id": "2ded47f1b39d7f8d",
+              "name": "flagd.evaluation.v2.Service/ResolveBoolean",
+              "kind": "Client",
+              "duration": 735900,
+              "attributes": {
+                "rpc.service": "flagd.evaluation.v2.Service",
+                "rpc.method": "ResolveBoolean",
+                "rpc.system": "grpc",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "rpc.grpc.status_code": 12
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "host.name": "demo-host-01",
+                  "host.arch": "amd64",
+                  "container.id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+                  "service.name": "cart",
+                  "service.instance.id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.language": "dotnet",
+                  "telemetry.sdk.version": "1.15.0",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+                "version": "1.15.0-beta.1"
+              }
+            },
+            "sort": [
+              1775552308718
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nKewl7tP7klbgm8Kz",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552278719.328900",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "8757541879e6ecafff03be50f805087b",
+              "span_id": "edc1bb308a59573e",
+              "parent_span_id": "030af64c997a1383",
+              "name": "POST",
+              "kind": "Client",
+              "duration": 556300,
+              "attributes": {
+                "http.request.method": "POST",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "url.full": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean",
+                "http.response.status_code": 404,
+                "network.protocol.version": "2",
+                "error.type": "404"
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "host.name": "demo-host-01",
+                  "host.arch": "amd64",
+                  "container.id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+                  "service.name": "cart",
+                  "service.instance.id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.language": "dotnet",
+                  "telemetry.sdk.version": "1.15.0",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "System.Net.Http"
+              }
+            },
+            "sort": [
+              1775552278719
+            ]
+          },
+          {
+            "_index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "_id": "AZ1nKewl7tP7klbgm8K0",
+            "_score": null,
+            "_source": {
+              "@timestamp": "1775552278719.276400",
+              "data_stream": {
+                "type": "traces",
+                "dataset": "generic.otel",
+                "namespace": "default"
+              },
+              "trace_id": "8757541879e6ecafff03be50f805087b",
+              "span_id": "030af64c997a1383",
+              "name": "flagd.evaluation.v2.Service/ResolveBoolean",
+              "kind": "Client",
+              "duration": 631100,
+              "attributes": {
+                "rpc.service": "flagd.evaluation.v2.Service",
+                "rpc.method": "ResolveBoolean",
+                "rpc.system": "grpc",
+                "server.address": "flagd",
+                "server.port": 8013,
+                "rpc.grpc.status_code": 12
+              },
+              "links": [],
+              "status": {
+                "code": "Error"
+              },
+              "resource": {
+                "schema_url": "https://opentelemetry.io/schemas/1.39.0",
+                "attributes": {
+                  "host.name": "demo-host-01",
+                  "host.arch": "amd64",
+                  "container.id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3",
+                  "service.name": "cart",
+                  "service.instance.id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+                  "docker.cli.cobra.command_path": "docker compose",
+                  "telemetry.sdk.name": "opentelemetry",
+                  "telemetry.sdk.language": "dotnet",
+                  "telemetry.sdk.version": "1.15.0",
+                  "os.type": "linux"
+                }
+              },
+              "scope": {
+                "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+                "version": "1.15.0-beta.1"
+              }
+            },
+            "sort": [
+              1775552278719
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "traces",
+    "data_count": 266,
+    "response_bytes": 12196,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

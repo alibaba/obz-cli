@@ -1,0 +1,70 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/traces/error-sort-unmapped",
+  "description": "ES traces error: sort on unmapped field",
+  "backend": "elasticsearch",
+  "tags": [
+    "traces",
+    "error",
+    "sort",
+    "tiny"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/traces-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "size": 1,
+      "sort": [
+        {
+          "nonexistent_field": "desc"
+        }
+      ]
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "error": {
+        "root_cause": [
+          {
+            "type": "query_shard_exception",
+            "reason": "No mapping found for [nonexistent_field] in order to sort on",
+            "index_uuid": "btZ78dWBSVKlrlOnDvEkhA",
+            "index": ".ds-traces-generic.otel-default-2026.04.07-000001"
+          }
+        ],
+        "type": "search_phase_execution_exception",
+        "reason": "all shards failed",
+        "phase": "query",
+        "grouped": true,
+        "failed_shards": [
+          {
+            "shard": 0,
+            "index": ".ds-traces-generic.otel-default-2026.04.07-000001",
+            "node": "Lsd0kM3RR8WNRKnNdmMIsQ",
+            "reason": {
+              "type": "query_shard_exception",
+              "reason": "No mapping found for [nonexistent_field] in order to sort on",
+              "index_uuid": "btZ78dWBSVKlrlOnDvEkhA",
+              "index": ".ds-traces-generic.otel-default-2026.04.07-000001"
+            }
+          }
+        ]
+      },
+      "status": 400
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 678,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

@@ -1,0 +1,37 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/common/error-invalid-api-key",
+  "description": "Datadog error: invalid API key — 403 forbidden",
+  "backend": "datadog",
+  "tags": [
+    "error",
+    "auth",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/validate",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 403,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "errors": [
+        "Forbidden"
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "series_count": 0,
+    "response_bytes": 24,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

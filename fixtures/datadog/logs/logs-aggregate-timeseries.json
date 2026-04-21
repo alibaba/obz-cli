@@ -1,0 +1,118 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/logs/logs-aggregate-timeseries",
+  "description": "Datadog logs aggregate: count timeseries (5m interval)",
+  "backend": "datadog",
+  "tags": [
+    "logs",
+    "aggregate",
+    "timeseries",
+    "histogram",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/logs/analytics/aggregate",
+    "query_params": {},
+    "body": {
+      "compute": [
+        {
+          "aggregation": "count",
+          "type": "timeseries",
+          "interval": "5m"
+        }
+      ],
+      "filter": {
+        "from": "now-1h",
+        "to": "now",
+        "query": "*"
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "meta": {
+        "elapsed": 32,
+        "request_id": "pddv1ChZuZjlFdnJyTlR3bUE2MWRyeHlFN0xBIiwKHGYsve_Zaq6UjahJfbWPoARUMPUPNfPK3KEiYjoSDPS1MDxr2YX21z8tag",
+        "status": "done"
+      },
+      "data": {
+        "buckets": [
+          {
+            "computes": {
+              "c0": [
+                {
+                  "time": "2026-04-02T12:35:00.000Z",
+                  "value": 1118
+                },
+                {
+                  "time": "2026-04-02T12:40:00.000Z",
+                  "value": 1372
+                },
+                {
+                  "time": "2026-04-02T12:45:00.000Z",
+                  "value": 1404
+                },
+                {
+                  "time": "2026-04-02T12:50:00.000Z",
+                  "value": 1360
+                },
+                {
+                  "time": "2026-04-02T12:55:00.000Z",
+                  "value": 1387
+                },
+                {
+                  "time": "2026-04-02T13:00:00.000Z",
+                  "value": 1402
+                },
+                {
+                  "time": "2026-04-02T13:05:00.000Z",
+                  "value": 1443
+                },
+                {
+                  "time": "2026-04-02T13:10:00.000Z",
+                  "value": 1357
+                },
+                {
+                  "time": "2026-04-02T13:15:00.000Z",
+                  "value": 1426
+                },
+                {
+                  "time": "2026-04-02T13:20:00.000Z",
+                  "value": 1385
+                },
+                {
+                  "time": "2026-04-02T13:25:00.000Z",
+                  "value": 1360
+                },
+                {
+                  "time": "2026-04-02T13:30:00.000Z",
+                  "value": 1414
+                },
+                {
+                  "time": "2026-04-02T13:35:00.000Z",
+                  "value": 188
+                }
+              ]
+            },
+            "by": {}
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs_aggregate",
+    "data_count": 1,
+    "series_count": 0,
+    "response_bytes": 841,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

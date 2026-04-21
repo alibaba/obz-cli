@@ -1,0 +1,488 @@
+{
+  "fixture_version": "1.0",
+  "id": "opensearch/logs/search-by-severity",
+  "description": "OpenSearch search: severity ERROR",
+  "backend": "opensearch",
+  "tags": [
+    "logs",
+    "query",
+    "filter",
+    "severity",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/otel-logs-2026-04-07/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "match": {
+          "severity.text": "ERROR"
+        }
+      },
+      "size": 10
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 3,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 339,
+          "relation": "eq"
+        },
+        "max_score": 1.7858658,
+        "hits": [
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "Y_oPZp0BwrU6vbR8G99C",
+            "_score": 1.7858658,
+            "_source": {
+              "attributes": {
+                "code.file.path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go",
+                "code.function.name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1",
+                "code.line.number": 61,
+                "code.stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "error reading process name for pid 1797765: open /hostfs/proc/1797765/status: no such file or directory; error reading process name for pid 1797874: open /hostfs/proc/1797874/status: no such file or directory; error reading process name for pid 1797915: open /hostfs/proc/1797915/status: no such file or directory; error reading process name for pid 1797916: open /hostfs/proc/1797916/status: no such file or directory; error reading cpu times for process \"rustc\" (pid 1797780): open /hostfs/proc/1797780/stat: no such file or directory; error reading memory info for process \"rustc\" (pid 1797780): open /hostfs/proc/1797780/statm: no such file or directory",
+                "scraper": "process"
+              },
+              "body": "Error scraping metrics",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "hostmetrics",
+                  "otelcol.component.kind": "receiver",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:49:19.298146494Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "error",
+                "number": 17
+              },
+              "@timestamp": "2026-04-07T03:49:18.950495198Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "sPoPZp0BwrU6vbR8St8k",
+            "_score": 1.7858658,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go",
+                "code.function.name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON",
+                "code.line.number": 196,
+                "code.stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "context canceled",
+                "id": "c02edf4020b69de24e022b924a3f2f7c931d8aaa7355cc16ce59e5ef647bcd43"
+              },
+              "body": "Could not parse docker containerStats for container id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "docker_stats",
+                  "otelcol.component.kind": "receiver",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:49:31.298059058Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "error",
+                "number": 17
+              },
+              "@timestamp": "2026-04-07T03:49:30.580312641Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "sfoPZp0BwrU6vbR8St8k",
+            "_score": 1.7858658,
+            "_source": {
+              "attributes": {
+                "code.file.path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go",
+                "code.function.name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1",
+                "code.line.number": 61,
+                "code.stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "context canceled",
+                "scraper": "docker_stats"
+              },
+              "body": "Error scraping metrics",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "docker_stats",
+                  "otelcol.component.kind": "receiver",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:49:31.299083017Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "error",
+                "number": 17
+              },
+              "@timestamp": "2026-04-07T03:49:30.59408133Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "1PoPZp0BwrU6vbR8cd8t",
+            "_score": 1.7858658,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go",
+                "code.function.name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON",
+                "code.line.number": 196,
+                "code.stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "context canceled",
+                "id": "6489e04b792221b1d37b416bdf2f63deb74cf0ecd9d71206fb9add95880e111f"
+              },
+              "body": "Could not parse docker containerStats for container id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "docker_stats",
+                  "otelcol.component.kind": "receiver",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:49:41.29256993Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "error",
+                "number": 17
+              },
+              "@timestamp": "2026-04-07T03:49:40.576328471Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "1foPZp0BwrU6vbR8cd8t",
+            "_score": 1.7858658,
+            "_source": {
+              "attributes": {
+                "code.file.path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go",
+                "code.function.name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1",
+                "code.line.number": 61,
+                "code.stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "context canceled",
+                "scraper": "docker_stats"
+              },
+              "body": "Error scraping metrics",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "docker_stats",
+                  "otelcol.component.kind": "receiver",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:49:41.292579238Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "error",
+                "number": 17
+              },
+              "@timestamp": "2026-04-07T03:49:40.590960131Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "W_oPZp0BwrU6vbR85uBc",
+            "_score": 1.7858658,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go",
+                "code.function.name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON",
+                "code.line.number": 196,
+                "code.stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "context canceled",
+                "id": "43ed7139166acc5e269f04cd1c789c3d4e1835ddb6aa1adb295b176437321d33"
+              },
+              "body": "Could not parse docker containerStats for container id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "docker_stats",
+                  "otelcol.component.kind": "receiver",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:50:11.291763752Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "error",
+                "number": 17
+              },
+              "@timestamp": "2026-04-07T03:50:10.584309784Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "XPoPZp0BwrU6vbR85uBc",
+            "_score": 1.7858658,
+            "_source": {
+              "attributes": {
+                "code.file.path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go",
+                "code.function.name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1",
+                "code.line.number": 61,
+                "code.stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "context canceled",
+                "scraper": "docker_stats"
+              },
+              "body": "Error scraping metrics",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "docker_stats",
+                  "otelcol.component.kind": "receiver",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:50:11.291775804Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "error",
+                "number": 17
+              },
+              "@timestamp": "2026-04-07T03:50:10.625854501Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "ffoQZp0BwrU6vbR80OG9",
+            "_score": 1.7858658,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go",
+                "code.function.name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON",
+                "code.line.number": 196,
+                "code.stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "context canceled",
+                "id": "d89d8982a5b8ff5f63d2b6440c94e904c0d032af516633f6a34e61324e6c8053"
+              },
+              "body": "Could not parse docker containerStats for container id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "docker_stats",
+                  "otelcol.component.kind": "receiver",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:51:11.293356083Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "error",
+                "number": 17
+              },
+              "@timestamp": "2026-04-07T03:51:10.577624395Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "fvoQZp0BwrU6vbR80OG9",
+            "_score": 1.7858658,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go",
+                "code.function.name": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON",
+                "code.line.number": 196,
+                "code.stacktrace": "github.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).toStatsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:196\ngithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker.(*Client).FetchContainerStatsAsJSON\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/internal/docker@v0.146.0/docker.go:146\ngithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver.(*metricsReceiver).scrapeV2.func1\n\tgithub.com/open-telemetry/opentelemetry-collector-contrib/receiver/dockerstatsreceiver@v0.146.0/receiver.go:97",
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "context canceled",
+                "id": "6489e04b792221b1d37b416bdf2f63deb74cf0ecd9d71206fb9add95880e111f"
+              },
+              "body": "Could not parse docker containerStats for container id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "docker_stats",
+                  "otelcol.component.kind": "receiver",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:51:11.293366432Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "error",
+                "number": 17
+              },
+              "@timestamp": "2026-04-07T03:51:10.580026062Z"
+            }
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "f_oQZp0BwrU6vbR80OG9",
+            "_score": 1.7858658,
+            "_source": {
+              "attributes": {
+                "code.file.path": "go.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go",
+                "code.function.name": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1",
+                "code.line.number": 61,
+                "code.stacktrace": "go.opentelemetry.io/collector/scraper/scraperhelper.wrapObsMetrics.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/obs_metrics.go:61\ngo.opentelemetry.io/collector/scraper.ScrapeMetricsFunc.ScrapeMetrics\n\tgo.opentelemetry.io/collector/scraper@v0.146.1/metrics.go:24\ngo.opentelemetry.io/collector/scraper/scraperhelper.scrapeMetrics\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:167\ngo.opentelemetry.io/collector/scraper/scraperhelper.NewMetricsController.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/controller.go:139\ngo.opentelemetry.io/collector/scraper/scraperhelper/internal/controller.(*Controller[...]).startScraping.func1\n\tgo.opentelemetry.io/collector/scraper/scraperhelper@v0.146.1/internal/controller/controller.go:117\nsync.(*WaitGroup).Go.func1\n\tsync/waitgroup.go:258",
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "context canceled; context canceled",
+                "errorCauses": [
+                  {
+                    "error": "context canceled"
+                  },
+                  {
+                    "error": "context canceled"
+                  }
+                ],
+                "scraper": "docker_stats"
+              },
+              "body": "Error scraping metrics",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "docker_stats",
+                  "otelcol.component.kind": "receiver",
+                  "otelcol.signal": "metrics"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T03:51:11.293375835Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "error",
+                "number": 17
+              },
+              "@timestamp": "2026-04-07T03:51:10.601975906Z"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs",
+    "data_count": 339,
+    "response_bytes": 19250,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:06:25Z",
+  "source": "recorded",
+  "generator": "scripts/opensearch-record-live.sh"
+}

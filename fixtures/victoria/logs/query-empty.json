@@ -1,0 +1,39 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/query-empty",
+  "description": "LogsQL query: nonexistent_xyz — no matches",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "query",
+    "empty",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/query",
+    "query_params": {},
+    "body": {
+      "query": "nonexistent_xyz_never_matches",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/stream+json"
+    },
+    "body_raw": ""
+  },
+  "facts": {
+    "result_type": "logs",
+    "log_count": 0,
+    "response_bytes": 0,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

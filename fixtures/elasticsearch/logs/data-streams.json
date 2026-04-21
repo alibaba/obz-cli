@@ -1,0 +1,126 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/logs/data-streams",
+  "description": "ES list data streams",
+  "backend": "elasticsearch",
+  "tags": [
+    "logs",
+    "metadata",
+    "data-stream",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/_data_stream",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data_streams": [
+        {
+          "name": "logs-collectortelemetry.otel-default",
+          "timestamp_field": {
+            "name": "@timestamp"
+          },
+          "indices": [
+            {
+              "index_name": ".ds-logs-collectortelemetry.otel-default-2026.04.07-000001",
+              "index_uuid": "5g56iKLzSm64JyB4Wbyffw",
+              "prefer_ilm": true,
+              "ilm_policy": "logs",
+              "managed_by": "Index Lifecycle Management"
+            }
+          ],
+          "generation": 1,
+          "_meta": {
+            "managed": true,
+            "description": "default OpenTelemetry logs template installed by x-pack"
+          },
+          "status": "GREEN",
+          "template": "logs-otel@template",
+          "ilm_policy": "logs",
+          "next_generation_managed_by": "Index Lifecycle Management",
+          "prefer_ilm": true,
+          "hidden": false,
+          "system": false,
+          "allow_custom_routing": false,
+          "replicated": false,
+          "rollover_on_write": false
+        },
+        {
+          "name": "logs-generic.otel-default",
+          "timestamp_field": {
+            "name": "@timestamp"
+          },
+          "indices": [
+            {
+              "index_name": ".ds-logs-generic.otel-default-2026.04.07-000001",
+              "index_uuid": "CAO1b-OnS0iiNtAt9YTNWA",
+              "prefer_ilm": true,
+              "ilm_policy": "logs",
+              "managed_by": "Index Lifecycle Management"
+            }
+          ],
+          "generation": 1,
+          "_meta": {
+            "managed": true,
+            "description": "default OpenTelemetry logs template installed by x-pack"
+          },
+          "status": "GREEN",
+          "template": "logs-otel@template",
+          "ilm_policy": "logs",
+          "next_generation_managed_by": "Index Lifecycle Management",
+          "prefer_ilm": true,
+          "hidden": false,
+          "system": false,
+          "allow_custom_routing": false,
+          "replicated": false,
+          "rollover_on_write": false
+        },
+        {
+          "name": "traces-generic.otel-default",
+          "timestamp_field": {
+            "name": "@timestamp"
+          },
+          "indices": [
+            {
+              "index_name": ".ds-traces-generic.otel-default-2026.04.07-000001",
+              "index_uuid": "btZ78dWBSVKlrlOnDvEkhA",
+              "prefer_ilm": true,
+              "ilm_policy": "traces@lifecycle",
+              "managed_by": "Index Lifecycle Management"
+            }
+          ],
+          "generation": 1,
+          "_meta": {
+            "managed": true,
+            "description": "default OpenTelemetry traces template installed by x-pack"
+          },
+          "status": "GREEN",
+          "template": "traces-otel@template",
+          "ilm_policy": "traces@lifecycle",
+          "next_generation_managed_by": "Index Lifecycle Management",
+          "prefer_ilm": true,
+          "hidden": false,
+          "system": false,
+          "allow_custom_routing": false,
+          "replicated": false,
+          "rollover_on_write": false
+        }
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "data_count": 0,
+    "response_bytes": 1971,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

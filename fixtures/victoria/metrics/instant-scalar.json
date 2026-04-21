@@ -1,0 +1,59 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/metrics/instant-scalar",
+  "description": "PromQL instant query: scalar arithmetic — 1+1",
+  "backend": "victoriametrics",
+  "tags": [
+    "metrics",
+    "query",
+    "instant",
+    "scalar",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "query": "scalar(1+1)",
+      "time": "1775138360"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1775138360,
+              "2"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "0",
+        "executionTimeMsec": 0
+      }
+    }
+  },
+  "facts": {
+    "result_type": "vector",
+    "series_count": 1,
+    "total_points": 1,
+    "data_count": 0,
+    "response_bytes": 154,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:20Z",
+  "source": "recorded",
+  "generator": "scripts/vm/record-live.sh"
+}

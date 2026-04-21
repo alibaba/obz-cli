@@ -1,0 +1,207 @@
+{
+  "catalog_version": "1.0",
+  "backend": "grafana/traces",
+  "generated_at": "2026-04-07T05:07:19Z",
+  "fixtures": [
+    {
+      "file": "error-invalid-query.json",
+      "id": "grafana/traces/error-invalid-query",
+      "description": "Tempo error: invalid TraceQL syntax",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 863,
+      "tags": [
+        "traces",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-not-found.json",
+      "id": "grafana/traces/error-not-found",
+      "description": "Tempo error: unknown API path — 404",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 696,
+      "tags": [
+        "traces",
+        "error",
+        "not-found",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-all.json",
+      "id": "grafana/traces/search-all",
+      "description": "Tempo search: {} — all traces",
+      "result_type": "search",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 2248,
+      "tags": [
+        "traces",
+        "search",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-operation.json",
+      "id": "grafana/traces/search-by-operation",
+      "description": "Tempo search: traces filtered by span name",
+      "result_type": "search",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 4260,
+      "tags": [
+        "traces",
+        "search",
+        "operation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-service.json",
+      "id": "grafana/traces/search-by-service",
+      "description": "Tempo search: {resource.service.name=\"cart\"} — cart service traces",
+      "result_type": "search",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 12632,
+      "tags": [
+        "traces",
+        "search",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-status.json",
+      "id": "grafana/traces/search-by-status",
+      "description": "Tempo search: {status=error} — error traces",
+      "result_type": "search",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 9236,
+      "tags": [
+        "traces",
+        "search",
+        "error",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-empty.json",
+      "id": "grafana/traces/search-empty",
+      "description": "Tempo search: {resource.service.name=\"nonexistent\"} — no matches",
+      "result_type": "search",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1102,
+      "tags": [
+        "traces",
+        "search",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "tag-values-service.json",
+      "id": "grafana/traces/tag-values-service",
+      "description": "Tempo tag values: resource.service.name",
+      "result_type": "tag_values",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1270,
+      "tags": [
+        "traces",
+        "metadata",
+        "tag-values",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "tags.json",
+      "id": "grafana/traces/tags",
+      "description": "Tempo tags: all span tag names",
+      "result_type": "tags",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 3700,
+      "tags": [
+        "traces",
+        "metadata",
+        "tags",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-by-id.json",
+      "id": "grafana/traces/trace-by-id",
+      "description": "Tempo trace by ID: real trace from OTel Demo",
+      "result_type": "trace_detail",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 13172,
+      "tags": [
+        "traces",
+        "trace-detail",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-not-found.json",
+      "id": "grafana/traces/trace-not-found",
+      "description": "Tempo trace by ID: nonexistent trace ID",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 731,
+      "tags": [
+        "traces",
+        "trace-detail",
+        "not-found",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

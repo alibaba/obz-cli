@@ -1,0 +1,53 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/metadata/get-logstore-traces",
+  "description": "SLS GetLogStore: cli-test-traces details",
+  "backend": "sls",
+  "tags": [
+    "metadata",
+    "logstore-detail",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logstores/cli-test-traces",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "logstoreName": "cli-test-traces",
+      "ttl": 30,
+      "shardCount": 8,
+      "enable_tracking": false,
+      "autoSplit": true,
+      "maxSplitShard": 64,
+      "createTime": 1774593840,
+      "lastModifyTime": 1774593840,
+      "archiveSeconds": 0,
+      "appendMeta": false,
+      "telemetryType": "",
+      "mode": "standard",
+      "resourceGroupId": "rg-acfm3yy2rtuinsa",
+      "productType": "",
+      "resourceQuota": {
+        "storage": {
+          "preserved": -1,
+          "used": 0
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "data_count": 0,
+    "response_bytes": 388,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-03-27T09:58:30Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

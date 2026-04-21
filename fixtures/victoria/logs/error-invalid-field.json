@@ -1,0 +1,55 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/logs/error-invalid-field",
+  "description": "VictoriaLogs error: stats on nonexistent field",
+  "backend": "victorialogs",
+  "tags": [
+    "logs",
+    "error",
+    "invalid-field",
+    "tiny"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/select/logsql/stats_query",
+    "query_params": {},
+    "body": {
+      "query": "*+|+stats+by+(nonexistent_xyz)+count(*)",
+      "start": "1775134751",
+      "end": "1775138352"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "count(*)",
+              "nonexistent_xyz": ""
+            },
+            "value": [
+              1775138352,
+              "16660"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 147,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:59:11Z",
+  "source": "recorded",
+  "generator": "scripts/vlogs/record-live.sh"
+}

@@ -1,0 +1,226 @@
+{
+  "catalog_version": "1.0",
+  "backend": "victoria/traces",
+  "generated_at": "2026-04-02T14:00:37Z",
+  "fixtures": [
+    {
+      "file": "error-invalid-path.json",
+      "id": "victoria/traces/error-invalid-path",
+      "description": "Jaeger API error: unsupported API path",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 785,
+      "tags": [
+        "traces",
+        "error",
+        "not-found",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-missing-service.json",
+      "id": "victoria/traces/error-missing-service",
+      "description": "Jaeger API error: search traces without required service param",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 895,
+      "tags": [
+        "traces",
+        "error",
+        "missing-param",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "operations-cart.json",
+      "id": "victoria/traces/operations-cart",
+      "description": "Jaeger API: operations for cart service",
+      "result_type": "operations",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1002,
+      "tags": [
+        "traces",
+        "operations",
+        "metadata",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "operations-empty.json",
+      "id": "victoria/traces/operations-empty",
+      "description": "Jaeger API: operations for nonexistent service",
+      "result_type": "operations",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 905,
+      "tags": [
+        "traces",
+        "operations",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "operations-payment.json",
+      "id": "victoria/traces/operations-payment",
+      "description": "Jaeger API: operations for payment service",
+      "result_type": "operations",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 882,
+      "tags": [
+        "traces",
+        "operations",
+        "metadata",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-error.json",
+      "id": "victoria/traces/search-by-error",
+      "description": "Jaeger API: search traces with error=true tag for cart service",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 18991,
+      "tags": [
+        "traces",
+        "search",
+        "error",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-operation.json",
+      "id": "victoria/traces/search-by-operation",
+      "description": "Jaeger API: search traces for cart POST operation",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 18975,
+      "tags": [
+        "traces",
+        "search",
+        "operation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-service.json",
+      "id": "victoria/traces/search-by-service",
+      "description": "Jaeger API: search traces for cart service",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 18937,
+      "tags": [
+        "traces",
+        "search",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-empty.json",
+      "id": "victoria/traces/search-empty",
+      "description": "Jaeger API: search with nonexistent service — empty result",
+      "result_type": "traces",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1006,
+      "tags": [
+        "traces",
+        "search",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "services.json",
+      "id": "victoria/traces/services",
+      "description": "Jaeger API: list all services",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 872,
+      "tags": [
+        "traces",
+        "services",
+        "metadata",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-by-id.json",
+      "id": "victoria/traces/trace-by-id",
+      "description": "Jaeger API: single trace by ID — real trace from cart service",
+      "result_type": "trace_detail",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 6904,
+      "tags": [
+        "traces",
+        "trace-detail",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "trace-not-found.json",
+      "id": "victoria/traces/trace-not-found",
+      "description": "Jaeger API: nonexistent trace ID",
+      "result_type": "trace_detail",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 985,
+      "tags": [
+        "traces",
+        "trace-detail",
+        "not-found",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

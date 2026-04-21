@@ -1,0 +1,500 @@
+{
+  "fixture_version": "1.0",
+  "id": "opensearch/logs/search-all",
+  "description": "OpenSearch search: match_all — all logs",
+  "backend": "opensearch",
+  "tags": [
+    "logs",
+    "query",
+    "basic",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/otel-logs-2026-04-07/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "match_all": {}
+      },
+      "size": 10,
+      "sort": [
+        {
+          "@timestamp": {
+            "order": "desc"
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 1282,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 10000,
+          "relation": "gte"
+        },
+        "max_score": null,
+        "hits": [
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "BPtVZp0BwrU6vbR8tzb9",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "code.file.path": "/usr/src/app/locustfile.py",
+                "code.function.name": "view_cart",
+                "code.line.number": 174,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "otelServiceName": "load-generator",
+                "otelSpanID": "77bf5ecb72173597",
+                "otelTraceID": "80b3ad9554b514fb4ffb7a1bfbfafdf9",
+                "otelTraceSampled": true
+              },
+              "body": "User viewing cart",
+              "instrumentationScope": {
+                "name": "root"
+              },
+              "observedTimestamp": "2026-04-07T05:06:26.940768706Z",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "severity": {
+                "text": "INFO",
+                "number": 9
+              },
+              "spanId": "77bf5ecb72173597",
+              "@timestamp": "2026-04-07T05:06:25.045934848Z",
+              "traceId": "80b3ad9554b514fb4ffb7a1bfbfafdf9"
+            },
+            "sort": [
+              1775538385045
+            ]
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "BftVZp0BwrU6vbR8tzb9",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "otelServiceName": "load-generator",
+                "otelSpanID": "77bf5ecb72173597",
+                "otelTraceID": "80b3ad9554b514fb4ffb7a1bfbfafdf9",
+                "otelTraceSampled": true
+              },
+              "body": "User viewing cart",
+              "instrumentationScope": {
+                "name": "root"
+              },
+              "observedTimestamp": "2026-04-07T05:06:26.94079793Z",
+              "resource": {
+                "docker.cli.cobra.command_path": "docker compose",
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.name": "load-generator",
+                "telemetry.sdk.language": "python",
+                "telemetry.sdk.name": "opentelemetry",
+                "telemetry.sdk.version": "1.40.0"
+              },
+              "severity": {
+                "text": "INFO",
+                "number": 9
+              },
+              "spanId": "77bf5ecb72173597",
+              "@timestamp": "2026-04-07T05:06:25.045934848Z",
+              "traceId": "80b3ad9554b514fb4ffb7a1bfbfafdf9"
+            },
+            "sort": [
+              1775538385045
+            ]
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "AvtVZp0BwrU6vbR8rTaj",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs@v0.77.0-devel.0.20260213154712-e02b9359151a/transform.go",
+                "code.function.name": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs.transform.func1",
+                "code.line.number": 109,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "span ids must be 16 hex characters",
+                "span_id": "0"
+              },
+              "body": "failed to decode span id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "datadog",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T05:06:24.291001593Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "warn",
+                "number": 13
+              },
+              "@timestamp": "2026-04-07T05:06:23.09060696Z"
+            },
+            "sort": [
+              1775538383090
+            ]
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "A_tVZp0BwrU6vbR8rTaj",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs@v0.77.0-devel.0.20260213154712-e02b9359151a/transform.go",
+                "code.function.name": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs.transform.func1",
+                "code.line.number": 97,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "trace ids must be 32 hex characters",
+                "trace_id": "0"
+              },
+              "body": "failed to decode trace id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "datadog",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T05:06:24.291038475Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "warn",
+                "number": 13
+              },
+              "@timestamp": "2026-04-07T05:06:23.090666243Z"
+            },
+            "sort": [
+              1775538383090
+            ]
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "AftVZp0BwrU6vbR8qTa7",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "resource spans": 1,
+                "spans": 1
+              },
+              "body": "Traces",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "debug",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "traces"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T05:06:23.291516237Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "info",
+                "number": 9
+              },
+              "@timestamp": "2026-04-07T05:06:22.25390389Z"
+            },
+            "sort": [
+              1775538382253
+            ]
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "-_tVZp0BwrU6vbR8qTW7",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs@v0.77.0-devel.0.20260213154712-e02b9359151a/transform.go",
+                "code.function.name": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs.transform.func1",
+                "code.line.number": 109,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "span ids must be 16 hex characters",
+                "span_id": "0"
+              },
+              "body": "failed to decode span id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "datadog",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T05:06:23.291446113Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "warn",
+                "number": 13
+              },
+              "@timestamp": "2026-04-07T05:06:22.091096523Z"
+            },
+            "sort": [
+              1775538382091
+            ]
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "_PtVZp0BwrU6vbR8qTW7",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs@v0.77.0-devel.0.20260213154712-e02b9359151a/transform.go",
+                "code.function.name": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs.transform.func1",
+                "code.line.number": 97,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "trace ids must be 32 hex characters",
+                "trace_id": "0"
+              },
+              "body": "failed to decode trace id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "datadog",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T05:06:23.291455935Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "warn",
+                "number": 13
+              },
+              "@timestamp": "2026-04-07T05:06:22.091172315Z"
+            },
+            "sort": [
+              1775538382091
+            ]
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "_ftVZp0BwrU6vbR8qTW7",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs@v0.77.0-devel.0.20260213154712-e02b9359151a/transform.go",
+                "code.function.name": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs.transform.func1",
+                "code.line.number": 109,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "span ids must be 16 hex characters",
+                "span_id": "0"
+              },
+              "body": "failed to decode span id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "datadog",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T05:06:23.291487192Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "warn",
+                "number": 13
+              },
+              "@timestamp": "2026-04-07T05:06:22.091186134Z"
+            },
+            "sort": [
+              1775538382091
+            ]
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "_vtVZp0BwrU6vbR8qTW7",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs@v0.77.0-devel.0.20260213154712-e02b9359151a/transform.go",
+                "code.function.name": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs.transform.func1",
+                "code.line.number": 97,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "trace ids must be 32 hex characters",
+                "trace_id": "0"
+              },
+              "body": "failed to decode trace id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "datadog",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T05:06:23.291494406Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "warn",
+                "number": 13
+              },
+              "@timestamp": "2026-04-07T05:06:22.091196685Z"
+            },
+            "sort": [
+              1775538382091
+            ]
+          },
+          {
+            "_index": "otel-logs-2026-04-07",
+            "_id": "__tVZp0BwrU6vbR8qTW7",
+            "_score": null,
+            "_source": {
+              "attributes": {
+                "code.file.path": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs@v0.77.0-devel.0.20260213154712-e02b9359151a/transform.go",
+                "code.function.name": "github.com/DataDog/datadog-agent/pkg/opentelemetry-mapping-go/otlp/logs.transform.func1",
+                "code.line.number": 109,
+                "data_stream": {
+                  "dataset": "default",
+                  "namespace": "namespace",
+                  "type": "record"
+                },
+                "error": "span ids must be 16 hex characters",
+                "span_id": "0"
+              },
+              "body": "failed to decode span id",
+              "instrumentationScope": {
+                "attributes": {
+                  "otelcol.component.id": "datadog",
+                  "otelcol.component.kind": "exporter",
+                  "otelcol.signal": "logs"
+                },
+                "name": "go.opentelemetry.io/collector/service"
+              },
+              "observedTimestamp": "2026-04-07T05:06:23.291500108Z",
+              "resource": {
+                "host.name": "demo-host-01",
+                "os.type": "linux",
+                "service.instance.id": "103811b4-240b-4157-89db-29d23c87ff78",
+                "service.name": "otelcol-contrib",
+                "service.version": "0.146.1"
+              },
+              "severity": {
+                "text": "warn",
+                "number": 13
+              },
+              "@timestamp": "2026-04-07T05:06:22.09120728Z"
+            },
+            "sort": [
+              1775538382091
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs",
+    "data_count": 10000,
+    "response_bytes": 10382,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:06:25Z",
+  "source": "recorded",
+  "generator": "scripts/opensearch-record-live.sh"
+}

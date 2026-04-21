@@ -1,0 +1,36 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/metrics/tags-list",
+  "description": "Datadog tags: list all host tags",
+  "backend": "datadog",
+  "tags": [
+    "metrics",
+    "tags",
+    "list",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/tags/hosts",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "tags": {}
+    }
+  },
+  "facts": {
+    "result_type": "tags",
+    "data_count": 0,
+    "series_count": 0,
+    "response_bytes": 11,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

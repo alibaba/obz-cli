@@ -1,0 +1,557 @@
+{
+  "catalog_version": "1.0",
+  "backend": "victoria/metrics",
+  "generated_at": "2026-04-02T14:00:27Z",
+  "fixtures": [
+    {
+      "file": "error-invalid-time.json",
+      "id": "victoria/metrics/error-invalid-time",
+      "description": "Error: invalid time parameter",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 975,
+      "tags": [
+        "metrics",
+        "error",
+        "invalid-time",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-missing-query.json",
+      "id": "victoria/metrics/error-missing-query",
+      "description": "Error: missing query parameter",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 903,
+      "tags": [
+        "metrics",
+        "error",
+        "missing-param",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-not-found.json",
+      "id": "victoria/metrics/error-not-found",
+      "description": "Error: unknown API path",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 882,
+      "tags": [
+        "metrics",
+        "error",
+        "not-found",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-step-zero.json",
+      "id": "victoria/metrics/error-step-zero",
+      "description": "Error: step=0 in range query",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1007,
+      "tags": [
+        "metrics",
+        "error",
+        "step-zero",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-syntax.json",
+      "id": "victoria/metrics/error-syntax",
+      "description": "Error: PromQL syntax error — unmatched parenthesis",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1103,
+      "tags": [
+        "metrics",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-aggr.json",
+      "id": "victoria/metrics/instant-aggr",
+      "description": "PromQL instant query: sum by job — total span calls per service",
+      "result_type": "vector",
+      "series_count": 5,
+      "total_points": 5,
+      "size_category": "small",
+      "file_size_bytes": 2036,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "aggregation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-empty.json",
+      "id": "victoria/metrics/instant-empty",
+      "description": "PromQL instant query: no matching series",
+      "result_type": "vector",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1091,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-rate.json",
+      "id": "victoria/metrics/instant-rate",
+      "description": "PromQL instant query: rate — span metrics call rate over 5m",
+      "result_type": "vector",
+      "series_count": 20,
+      "total_points": 20,
+      "size_category": "medium",
+      "file_size_bytes": 10318,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "rate",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-scalar.json",
+      "id": "victoria/metrics/instant-scalar",
+      "description": "PromQL instant query: scalar arithmetic — 1+1",
+      "result_type": "vector",
+      "series_count": 1,
+      "total_points": 1,
+      "size_category": "tiny",
+      "file_size_bytes": 1199,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "scalar",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-vector-multi.json",
+      "id": "victoria/metrics/instant-vector-multi",
+      "description": "PromQL instant query: multiple series — traces_span_metrics_calls_total by service",
+      "result_type": "vector",
+      "series_count": 20,
+      "total_points": 20,
+      "size_category": "medium",
+      "file_size_bytes": 11346,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "vector",
+        "multi",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "instant-vector-single.json",
+      "id": "victoria/metrics/instant-vector-single",
+      "description": "PromQL instant query: single series — http_client_duration for frontend",
+      "result_type": "vector",
+      "series_count": 3,
+      "total_points": 3,
+      "size_category": "small",
+      "file_size_bytes": 2659,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "vector",
+        "single",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "label-values.json",
+      "id": "victoria/metrics/label-values",
+      "description": "Label values: __name__ — list all metric names",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 15507,
+      "tags": [
+        "metrics",
+        "metadata",
+        "label-values",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "label-values-empty.json",
+      "id": "victoria/metrics/label-values-empty",
+      "description": "Label values: nonexistent label — empty result",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 908,
+      "tags": [
+        "metrics",
+        "metadata",
+        "label-values",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "label-values-job.json",
+      "id": "victoria/metrics/label-values-job",
+      "description": "Label values: job — list all job label values",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 1106,
+      "tags": [
+        "metrics",
+        "metadata",
+        "label-values",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "labels.json",
+      "id": "victoria/metrics/labels",
+      "description": "Labels: all label names",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 3777,
+      "tags": [
+        "metrics",
+        "metadata",
+        "labels",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "labels-with-match.json",
+      "id": "victoria/metrics/labels-with-match",
+      "description": "Labels: label names for specific metric — traces_span_metrics_calls_total",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 1119,
+      "tags": [
+        "metrics",
+        "metadata",
+        "labels",
+        "match",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metadata.json",
+      "id": "victoria/metrics/metadata",
+      "description": "Metadata: metric metadata for traces_span_metrics_calls_total",
+      "result_type": "unknown",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 889,
+      "tags": [
+        "metrics",
+        "metadata",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "post-labels.json",
+      "id": "victoria/metrics/post-labels",
+      "description": "Labels via POST",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 3803,
+      "tags": [
+        "metrics",
+        "metadata",
+        "labels",
+        "post",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "post-query.json",
+      "id": "victoria/metrics/post-query",
+      "description": "PromQL instant query via POST — same as instant-vector-multi",
+      "result_type": "vector",
+      "series_count": 20,
+      "total_points": 20,
+      "size_category": "medium",
+      "file_size_bytes": 11315,
+      "tags": [
+        "metrics",
+        "query",
+        "instant",
+        "post",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "post-query-range.json",
+      "id": "victoria/metrics/post-query-range",
+      "description": "PromQL range query via POST — same as range-matrix-multi",
+      "result_type": "matrix",
+      "series_count": 20,
+      "total_points": 440,
+      "size_category": "medium",
+      "file_size_bytes": 47433,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "post",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "post-series.json",
+      "id": "victoria/metrics/post-series",
+      "description": "Series via POST: find series for span metrics",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 8064,
+      "tags": [
+        "metrics",
+        "metadata",
+        "series",
+        "post",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-empty-matrix.json",
+      "id": "victoria/metrics/range-empty-matrix",
+      "description": "PromQL range query: no matching series",
+      "result_type": "matrix",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1132,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-matrix-aggr.json",
+      "id": "victoria/metrics/range-matrix-aggr",
+      "description": "PromQL range query: sum by job — aggregated span calls over 30m",
+      "result_type": "matrix",
+      "series_count": 5,
+      "total_points": 110,
+      "size_category": "small",
+      "file_size_bytes": 11157,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "matrix",
+        "aggregation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-matrix-histogram.json",
+      "id": "victoria/metrics/range-matrix-histogram",
+      "description": "PromQL range query: histogram_quantile — p95 span duration over 30m",
+      "result_type": "matrix",
+      "series_count": 18,
+      "total_points": 438,
+      "size_category": "medium",
+      "file_size_bytes": 48486,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "matrix",
+        "histogram",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-matrix-multi.json",
+      "id": "victoria/metrics/range-matrix-multi",
+      "description": "PromQL range query: multiple series — span calls by service over 30m",
+      "result_type": "matrix",
+      "series_count": 20,
+      "total_points": 440,
+      "size_category": "medium",
+      "file_size_bytes": 47445,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "matrix",
+        "multi",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-matrix-rate.json",
+      "id": "victoria/metrics/range-matrix-rate",
+      "description": "PromQL range query: rate — span metrics call rate over 30m",
+      "result_type": "matrix",
+      "series_count": 20,
+      "total_points": 540,
+      "size_category": "medium",
+      "file_size_bytes": 60035,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "matrix",
+        "rate",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "range-matrix-small.json",
+      "id": "victoria/metrics/range-matrix-small",
+      "description": "PromQL range query: single series over 30m — container cpu utilization",
+      "result_type": "matrix",
+      "series_count": 1,
+      "total_points": 31,
+      "size_category": "tiny",
+      "file_size_bytes": 4402,
+      "tags": [
+        "metrics",
+        "query",
+        "range",
+        "matrix",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "series-empty.json",
+      "id": "victoria/metrics/series-empty",
+      "description": "Series: no matching series",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 949,
+      "tags": [
+        "metrics",
+        "metadata",
+        "series",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "series-metadata.json",
+      "id": "victoria/metrics/series-metadata",
+      "description": "Series: find series matching traces_span_metrics_calls_total for cart",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "small",
+      "file_size_bytes": 2183,
+      "tags": [
+        "metrics",
+        "metadata",
+        "series",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

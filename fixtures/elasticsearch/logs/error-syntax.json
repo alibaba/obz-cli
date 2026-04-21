@@ -1,0 +1,58 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/logs/error-syntax",
+  "description": "ES error: invalid query syntax (parsing_exception)",
+  "backend": "elasticsearch",
+  "tags": [
+    "logs",
+    "error",
+    "syntax",
+    "tiny"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/logs-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "query": {
+        "invalid_query_type": {}
+      }
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "error": {
+        "root_cause": [
+          {
+            "type": "parsing_exception",
+            "reason": "unknown query [invalid_query_type]",
+            "line": 1,
+            "col": 32
+          }
+        ],
+        "type": "parsing_exception",
+        "reason": "unknown query [invalid_query_type]",
+        "line": 1,
+        "col": 32,
+        "caused_by": {
+          "type": "named_object_not_found_exception",
+          "reason": "[1:32] unknown field [invalid_query_type]"
+        }
+      },
+      "status": 400
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 332,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

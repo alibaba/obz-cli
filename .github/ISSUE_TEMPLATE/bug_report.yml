@@ -1,0 +1,83 @@
+name: Bug Report
+description: Report a bug in obz
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please fill out the sections below
+        so we can reproduce and fix the issue.
+
+  - type: input
+    id: version
+    attributes:
+      label: obz version
+      description: Run `obz --version` and paste the output.
+      placeholder: "obz 0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      description: e.g. macOS 15.1 (ARM), Ubuntu 24.04, Windows 11
+      placeholder: "macOS 15.1 (Apple Silicon)"
+    validations:
+      required: true
+
+  - type: input
+    id: install-method
+    attributes:
+      label: Installation method
+      description: How did you install obz?
+      placeholder: "cargo install, GitHub release binary, install.sh, etc."
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug description
+      description: A clear and concise description of the bug.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: |
+        Provide the exact commands and config to reproduce the issue.
+        Include the full command with flags (redact sensitive values).
+      render: bash
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: |
+        What happened? Paste the full output.
+        If possible, re-run with `-v` (verbose) and include the output.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Any other context, screenshots, or logs.
+    validations:
+      required: false

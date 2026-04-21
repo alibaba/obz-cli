@@ -1,0 +1,25 @@
+[package]
+name = "obz-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Core framework for the obz observability CLI — models, traits, time parsing, output formatting"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+async-trait = { workspace = true }
+thiserror = "2"
+parse_datetime = "0.14"
+jiff = { workspace = true }
+comfy-table = "7"
+csv = "1"
+
+[lints]
+workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true }

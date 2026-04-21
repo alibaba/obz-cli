@@ -1,0 +1,486 @@
+{
+  "fixture_version": "1.0",
+  "id": "opensearch/logs/index-mapping",
+  "description": "OpenSearch: log index mapping",
+  "backend": "opensearch",
+  "tags": [
+    "logs",
+    "metadata",
+    "mapping",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/otel-logs-2026-04-07/_mapping",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "otel-logs-2026-04-07": {
+        "mappings": {
+          "properties": {
+            "@timestamp": {
+              "type": "date"
+            },
+            "attributes": {
+              "properties": {
+                "code": {
+                  "properties": {
+                    "file": {
+                      "properties": {
+                        "path": {
+                          "type": "text",
+                          "fields": {
+                            "keyword": {
+                              "type": "keyword",
+                              "ignore_above": 256
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "function": {
+                      "properties": {
+                        "name": {
+                          "type": "text",
+                          "fields": {
+                            "keyword": {
+                              "type": "keyword",
+                              "ignore_above": 256
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "line": {
+                      "properties": {
+                        "number": {
+                          "type": "long"
+                        }
+                      }
+                    },
+                    "stacktrace": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    }
+                  }
+                },
+                "data points": {
+                  "type": "long"
+                },
+                "data_stream": {
+                  "properties": {
+                    "dataset": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    },
+                    "namespace": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    },
+                    "type": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    }
+                  }
+                },
+                "error": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "errorCauses": {
+                  "properties": {
+                    "error": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    }
+                  }
+                },
+                "grpc_log": {
+                  "type": "boolean"
+                },
+                "host": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "id": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "interval": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "log records": {
+                  "type": "long"
+                },
+                "metrics": {
+                  "type": "long"
+                },
+                "otelServiceName": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "otelSpanID": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "otelTraceID": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "otelTraceSampled": {
+                  "type": "boolean"
+                },
+                "resource logs": {
+                  "type": "long"
+                },
+                "resource metrics": {
+                  "type": "long"
+                },
+                "resource spans": {
+                  "type": "long"
+                },
+                "scraper": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "span_id": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                },
+                "spans": {
+                  "type": "long"
+                },
+                "trace_id": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                }
+              }
+            },
+            "body": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "instrumentationScope": {
+              "properties": {
+                "attributes": {
+                  "properties": {
+                    "otelcol": {
+                      "properties": {
+                        "component": {
+                          "properties": {
+                            "id": {
+                              "type": "text",
+                              "fields": {
+                                "keyword": {
+                                  "type": "keyword",
+                                  "ignore_above": 256
+                                }
+                              }
+                            },
+                            "kind": {
+                              "type": "text",
+                              "fields": {
+                                "keyword": {
+                                  "type": "keyword",
+                                  "ignore_above": 256
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "signal": {
+                          "type": "text",
+                          "fields": {
+                            "keyword": {
+                              "type": "keyword",
+                              "ignore_above": 256
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "name": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                }
+              }
+            },
+            "observedTimestamp": {
+              "type": "date"
+            },
+            "resource": {
+              "properties": {
+                "docker": {
+                  "properties": {
+                    "cli": {
+                      "properties": {
+                        "cobra": {
+                          "properties": {
+                            "command_path": {
+                              "type": "text",
+                              "fields": {
+                                "keyword": {
+                                  "type": "keyword",
+                                  "ignore_above": 256
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "host": {
+                  "properties": {
+                    "name": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    }
+                  }
+                },
+                "os": {
+                  "properties": {
+                    "type": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    }
+                  }
+                },
+                "service": {
+                  "properties": {
+                    "instance": {
+                      "properties": {
+                        "id": {
+                          "type": "text",
+                          "fields": {
+                            "keyword": {
+                              "type": "keyword",
+                              "ignore_above": 256
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    },
+                    "version": {
+                      "type": "text",
+                      "fields": {
+                        "keyword": {
+                          "type": "keyword",
+                          "ignore_above": 256
+                        }
+                      }
+                    }
+                  }
+                },
+                "telemetry": {
+                  "properties": {
+                    "auto": {
+                      "properties": {
+                        "version": {
+                          "type": "text",
+                          "fields": {
+                            "keyword": {
+                              "type": "keyword",
+                              "ignore_above": 256
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "sdk": {
+                      "properties": {
+                        "language": {
+                          "type": "text",
+                          "fields": {
+                            "keyword": {
+                              "type": "keyword",
+                              "ignore_above": 256
+                            }
+                          }
+                        },
+                        "name": {
+                          "type": "text",
+                          "fields": {
+                            "keyword": {
+                              "type": "keyword",
+                              "ignore_above": 256
+                            }
+                          }
+                        },
+                        "version": {
+                          "type": "text",
+                          "fields": {
+                            "keyword": {
+                              "type": "keyword",
+                              "ignore_above": 256
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "severity": {
+              "properties": {
+                "number": {
+                  "type": "long"
+                },
+                "text": {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 256
+                    }
+                  }
+                }
+              }
+            },
+            "spanId": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "traceId": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "data_count": 0,
+    "response_bytes": 4018,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:06:25Z",
+  "source": "recorded",
+  "generator": "scripts/opensearch-record-live.sh"
+}

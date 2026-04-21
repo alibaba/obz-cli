@@ -1,0 +1,282 @@
+{
+  "catalog_version": "1.0",
+  "backend": "sls/metrics",
+  "generated_at": "2026-04-02T14:21:25Z",
+  "fixtures": [
+    {
+      "file": "metric-error-syntax.json",
+      "id": "sls/metrics/metric-error-syntax",
+      "description": "SLS MetricStore PromQL error: invalid PromQL syntax",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1235,
+      "tags": [
+        "metrics",
+        "error",
+        "promql",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-instant-query.json",
+      "id": "sls/metrics/metric-instant-query",
+      "description": "SLS MetricStore PromQL: instant query — container CPU utilization",
+      "result_type": "vector",
+      "series_count": 29,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 19189,
+      "tags": [
+        "metrics",
+        "query",
+        "promql",
+        "instant",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-instant-rate.json",
+      "id": "sls/metrics/metric-instant-rate",
+      "description": "SLS MetricStore PromQL: instant query — rate of container CPU over 5m",
+      "result_type": "vector",
+      "series_count": 29,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 17605,
+      "tags": [
+        "metrics",
+        "query",
+        "promql",
+        "instant",
+        "rate",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-label-values.json",
+      "id": "sls/metrics/metric-label-values",
+      "description": "SLS MetricStore PromQL: list all metric names (/label/__name__/values)",
+      "result_type": "label_values",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 13745,
+      "tags": [
+        "metrics",
+        "metadata",
+        "promql",
+        "label-values",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-label-values-container.json",
+      "id": "sls/metrics/metric-label-values-container",
+      "description": "SLS MetricStore PromQL: values of container_name label",
+      "result_type": "label_values",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 1497,
+      "tags": [
+        "metrics",
+        "metadata",
+        "promql",
+        "label-values",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-label-values-empty.json",
+      "id": "sls/metrics/metric-label-values-empty",
+      "description": "SLS MetricStore PromQL: values of nonexistent label — empty",
+      "result_type": "label_values",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 920,
+      "tags": [
+        "metrics",
+        "metadata",
+        "promql",
+        "label-values",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-labels.json",
+      "id": "sls/metrics/metric-labels",
+      "description": "SLS MetricStore PromQL: all label names (/labels)",
+      "result_type": "label_values",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 25304,
+      "tags": [
+        "metrics",
+        "metadata",
+        "promql",
+        "labels",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-query-aggr.json",
+      "id": "sls/metrics/metric-query-aggr",
+      "description": "SLS MetricStore PromQL: avg container memory by container_name",
+      "result_type": "vector",
+      "series_count": 29,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 6692,
+      "tags": [
+        "metrics",
+        "query",
+        "promql",
+        "aggregation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-query-empty.json",
+      "id": "sls/metrics/metric-query-empty",
+      "description": "SLS MetricStore PromQL: nonexistent metric — empty",
+      "result_type": "vector",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 966,
+      "tags": [
+        "metrics",
+        "query",
+        "promql",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-range-aggr.json",
+      "id": "sls/metrics/metric-range-aggr",
+      "description": "SLS MetricStore PromQL: range query — avg CPU by container_name over 10m",
+      "result_type": "matrix",
+      "series_count": 29,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 35681,
+      "tags": [
+        "metrics",
+        "query",
+        "promql",
+        "range",
+        "aggregation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-range-empty.json",
+      "id": "sls/metrics/metric-range-empty",
+      "description": "SLS MetricStore PromQL: range query — nonexistent metric, empty result",
+      "result_type": "matrix",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1053,
+      "tags": [
+        "metrics",
+        "query",
+        "promql",
+        "range",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-range-query.json",
+      "id": "sls/metrics/metric-range-query",
+      "description": "SLS MetricStore PromQL: range query — container CPU over 10m",
+      "result_type": "matrix",
+      "series_count": 29,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 47919,
+      "tags": [
+        "metrics",
+        "query",
+        "promql",
+        "range",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-series.json",
+      "id": "sls/metrics/metric-series",
+      "description": "SLS MetricStore PromQL: series for container_cpu_utilization",
+      "result_type": "series",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 14192,
+      "tags": [
+        "metrics",
+        "metadata",
+        "promql",
+        "series",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "metric-series-empty.json",
+      "id": "sls/metrics/metric-series-empty",
+      "description": "SLS MetricStore PromQL: series for nonexistent metric — empty",
+      "result_type": "series",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 966,
+      "tags": [
+        "metrics",
+        "metadata",
+        "promql",
+        "series",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

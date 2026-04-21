@@ -1,0 +1,894 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/logs/index-mapping",
+  "description": "ES log index mapping: field types and structure",
+  "backend": "elasticsearch",
+  "tags": [
+    "logs",
+    "metadata",
+    "mapping",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/logs-generic.otel-default/_mapping",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      ".ds-logs-generic.otel-default-2026.04.07-000001": {
+        "mappings": {
+          "dynamic": "false",
+          "_data_stream_timestamp": {
+            "enabled": true
+          },
+          "dynamic_templates": [
+            {
+              "complex_attributes": {
+                "path_match": [
+                  "resource.attributes.*",
+                  "scope.attributes.*",
+                  "attributes.*"
+                ],
+                "match_mapping_type": "object",
+                "mapping": {
+                  "type": "flattened"
+                }
+              }
+            },
+            {
+              "ecs_timestamp": {
+                "match": "@timestamp",
+                "mapping": {
+                  "ignore_malformed": false,
+                  "type": "date"
+                }
+              }
+            },
+            {
+              "ecs_message_match_only_text": {
+                "path_match": [
+                  "message",
+                  "*.message"
+                ],
+                "unmatch_mapping_type": "object",
+                "mapping": {
+                  "type": "match_only_text"
+                }
+              }
+            },
+            {
+              "ecs_non_indexed_keyword": {
+                "path_match": "*event.original",
+                "mapping": {
+                  "doc_values": false,
+                  "index": false,
+                  "type": "keyword"
+                }
+              }
+            },
+            {
+              "ecs_non_indexed_long": {
+                "path_match": "*.x509.public_key_exponent",
+                "mapping": {
+                  "doc_values": false,
+                  "index": false,
+                  "type": "long"
+                }
+              }
+            },
+            {
+              "ecs_ip": {
+                "path_match": [
+                  "ip",
+                  "*.ip",
+                  "*_ip"
+                ],
+                "match_mapping_type": "string",
+                "mapping": {
+                  "type": "ip"
+                }
+              }
+            },
+            {
+              "ecs_wildcard": {
+                "path_match": [
+                  "*.io.text",
+                  "*.message_id",
+                  "*registry.data.strings",
+                  "*url.path"
+                ],
+                "unmatch_mapping_type": "object",
+                "mapping": {
+                  "type": "wildcard"
+                }
+              }
+            },
+            {
+              "ecs_path_match_wildcard_and_match_only_text": {
+                "path_match": [
+                  "*.body.content",
+                  "*url.full",
+                  "*url.original"
+                ],
+                "unmatch_mapping_type": "object",
+                "mapping": {
+                  "fields": {
+                    "text": {
+                      "type": "match_only_text"
+                    }
+                  },
+                  "type": "wildcard"
+                }
+              }
+            },
+            {
+              "ecs_match_wildcard_and_match_only_text": {
+                "match": [
+                  "*command_line",
+                  "*stack_trace"
+                ],
+                "unmatch_mapping_type": "object",
+                "mapping": {
+                  "fields": {
+                    "text": {
+                      "type": "match_only_text"
+                    }
+                  },
+                  "type": "wildcard"
+                }
+              }
+            },
+            {
+              "ecs_path_match_keyword_and_match_only_text": {
+                "path_match": [
+                  "*.title",
+                  "*.executable",
+                  "*.name",
+                  "*.working_directory",
+                  "*.full_name",
+                  "*file.path",
+                  "*file.target_path",
+                  "*os.full",
+                  "*email.subject",
+                  "*vulnerability.description",
+                  "*user_agent.original"
+                ],
+                "unmatch_mapping_type": "object",
+                "mapping": {
+                  "fields": {
+                    "text": {
+                      "type": "match_only_text"
+                    }
+                  },
+                  "type": "keyword"
+                }
+              }
+            },
+            {
+              "ecs_date": {
+                "path_match": [
+                  "*.timestamp",
+                  "*_timestamp",
+                  "*.not_after",
+                  "*.not_before",
+                  "*.accessed",
+                  "created",
+                  "*.created",
+                  "*.installed",
+                  "*.creation_date",
+                  "*.ctime",
+                  "*.mtime",
+                  "ingested",
+                  "*.ingested",
+                  "*.start",
+                  "*.end",
+                  "*.indicator.first_seen",
+                  "*.indicator.last_seen",
+                  "*.indicator.modified_at",
+                  "*threat.enrichments.matched.occurred"
+                ],
+                "unmatch_mapping_type": "object",
+                "mapping": {
+                  "type": "date"
+                }
+              }
+            },
+            {
+              "ecs_path_match_float": {
+                "path_match": [
+                  "*.score.*",
+                  "*_score*"
+                ],
+                "path_unmatch": "*.version",
+                "unmatch_mapping_type": "object",
+                "mapping": {
+                  "type": "float"
+                }
+              }
+            },
+            {
+              "ecs_usage_double_scaled_float": {
+                "path_match": "*.usage",
+                "match_mapping_type": [
+                  "double",
+                  "long",
+                  "string"
+                ],
+                "mapping": {
+                  "scaling_factor": 1000,
+                  "type": "scaled_float"
+                }
+              }
+            },
+            {
+              "ecs_geo_point": {
+                "path_match": "*.geo.location",
+                "mapping": {
+                  "type": "geo_point"
+                }
+              }
+            },
+            {
+              "ecs_flattened": {
+                "path_match": [
+                  "*structured_data",
+                  "*exports",
+                  "*imports"
+                ],
+                "match_mapping_type": "object",
+                "mapping": {
+                  "type": "flattened"
+                }
+              }
+            },
+            {
+              "all_strings_to_keywords": {
+                "match_mapping_type": "string",
+                "mapping": {
+                  "ignore_above": 1024,
+                  "type": "keyword"
+                }
+              }
+            }
+          ],
+          "date_detection": false,
+          "properties": {
+            "@timestamp": {
+              "type": "date",
+              "ignore_malformed": false
+            },
+            "attributes": {
+              "type": "passthrough",
+              "priority": 20,
+              "dynamic": "true",
+              "properties": {
+                "code.file.path": {
+                  "type": "keyword",
+                  "fields": {
+                    "text": {
+                      "type": "match_only_text"
+                    }
+                  }
+                },
+                "code.function.name": {
+                  "type": "keyword",
+                  "fields": {
+                    "text": {
+                      "type": "match_only_text"
+                    }
+                  }
+                },
+                "code.line.number": {
+                  "type": "long"
+                },
+                "event.name": {
+                  "type": "keyword",
+                  "fields": {
+                    "text": {
+                      "type": "match_only_text"
+                    }
+                  }
+                },
+                "exception.escaped": {
+                  "type": "keyword",
+                  "ignore_above": 1024
+                },
+                "exception.message": {
+                  "type": "keyword",
+                  "ignore_above": 1024
+                },
+                "exception.stacktrace": {
+                  "type": "wildcard",
+                  "fields": {
+                    "text": {
+                      "type": "match_only_text"
+                    }
+                  }
+                },
+                "exception.type": {
+                  "type": "keyword",
+                  "ignore_above": 1024
+                },
+                "message.id": {
+                  "type": "long"
+                },
+                "message.type": {
+                  "type": "keyword",
+                  "ignore_above": 1024
+                },
+                "otelServiceName": {
+                  "type": "keyword",
+                  "ignore_above": 1024
+                },
+                "otelSpanID": {
+                  "type": "keyword",
+                  "ignore_above": 1024
+                },
+                "otelTraceID": {
+                  "type": "keyword",
+                  "ignore_above": 1024
+                },
+                "otelTraceSampled": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "body": {
+              "properties": {
+                "structured": {
+                  "type": "flattened"
+                },
+                "text": {
+                  "type": "match_only_text"
+                }
+              }
+            },
+            "cloud": {
+              "properties": {
+                "service": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.cloud.platform"
+                    }
+                  }
+                }
+              }
+            },
+            "container": {
+              "properties": {
+                "image": {
+                  "properties": {
+                    "tag": {
+                      "type": "alias",
+                      "path": "resource.attributes.container.image.tags"
+                    }
+                  }
+                }
+              }
+            },
+            "data_stream": {
+              "properties": {
+                "dataset": {
+                  "type": "constant_keyword",
+                  "value": "generic.otel"
+                },
+                "namespace": {
+                  "type": "constant_keyword",
+                  "value": "default"
+                },
+                "type": {
+                  "type": "constant_keyword",
+                  "value": "logs"
+                }
+              }
+            },
+            "dropped_attributes_count": {
+              "type": "long"
+            },
+            "error": {
+              "properties": {
+                "exception": {
+                  "properties": {
+                    "message": {
+                      "type": "alias",
+                      "path": "attributes.exception.message"
+                    },
+                    "type": {
+                      "type": "alias",
+                      "path": "attributes.exception.type"
+                    }
+                  }
+                },
+                "stack_trace": {
+                  "type": "alias",
+                  "path": "attributes.exception.stacktrace"
+                }
+              }
+            },
+            "event": {
+              "properties": {
+                "dataset": {
+                  "type": "alias",
+                  "path": "data_stream.dataset"
+                }
+              }
+            },
+            "event_name": {
+              "type": "keyword"
+            },
+            "host": {
+              "properties": {
+                "architecture": {
+                  "type": "alias",
+                  "path": "resource.attributes.host.arch"
+                },
+                "os": {
+                  "properties": {
+                    "full": {
+                      "type": "alias",
+                      "path": "resource.attributes.os.description"
+                    },
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.os.name"
+                    },
+                    "platform": {
+                      "type": "alias",
+                      "path": "resource.attributes.os.type"
+                    },
+                    "version": {
+                      "type": "alias",
+                      "path": "resource.attributes.os.version"
+                    }
+                  }
+                }
+              }
+            },
+            "kubernetes": {
+              "properties": {
+                "container": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.container.name"
+                    }
+                  }
+                },
+                "cronjob": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.cronjob.name"
+                    }
+                  }
+                },
+                "daemonset": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.daemonset.name"
+                    }
+                  }
+                },
+                "deployment": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.deployment.name"
+                    }
+                  }
+                },
+                "job": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.job.name"
+                    }
+                  }
+                },
+                "namespace": {
+                  "type": "alias",
+                  "path": "resource.attributes.k8s.namespace.name"
+                },
+                "node": {
+                  "properties": {
+                    "hostname": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.node.hostname"
+                    },
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.node.name"
+                    },
+                    "uid": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.node.uid"
+                    }
+                  }
+                },
+                "pod": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.pod.name"
+                    },
+                    "uid": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.pod.uid"
+                    }
+                  }
+                },
+                "replicaset": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.replicaset.name"
+                    }
+                  }
+                },
+                "statefulset": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.k8s.statefulset.name"
+                    }
+                  }
+                }
+              }
+            },
+            "log": {
+              "properties": {
+                "level": {
+                  "type": "alias",
+                  "path": "severity_text"
+                }
+              }
+            },
+            "message": {
+              "type": "alias",
+              "path": "body.text"
+            },
+            "observed_timestamp": {
+              "type": "date_nanos"
+            },
+            "process": {
+              "properties": {
+                "executable": {
+                  "type": "alias",
+                  "path": "resource.attributes.process.executable.path"
+                }
+              }
+            },
+            "resource": {
+              "properties": {
+                "attributes": {
+                  "type": "passthrough",
+                  "time_series_dimension": true,
+                  "priority": 40,
+                  "dynamic": "true",
+                  "properties": {
+                    "cloud.platform": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "container.id": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "container.image.tags": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "deployment.environment": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "docker.cli.cobra.command_path": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "host.arch": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "host.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.container.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.cronjob.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.daemonset.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.deployment.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.job.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.namespace.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.node.hostname": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.node.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.node.uid": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.pod.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.pod.uid": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.replicaset.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "k8s.statefulset.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "os.description": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "os.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "os.type": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "os.version": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "process.command_line": {
+                      "type": "wildcard",
+                      "fields": {
+                        "text": {
+                          "type": "match_only_text"
+                        }
+                      }
+                    },
+                    "process.executable.path": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "process.pid": {
+                      "type": "long",
+                      "time_series_dimension": true
+                    },
+                    "process.runtime.description": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "process.runtime.name": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "process.runtime.version": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "service.instance.id": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "service.name": {
+                      "type": "keyword",
+                      "time_series_dimension": true,
+                      "fields": {
+                        "text": {
+                          "type": "match_only_text"
+                        }
+                      }
+                    },
+                    "telemetry.auto.version": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "telemetry.distro.name": {
+                      "type": "keyword",
+                      "time_series_dimension": true,
+                      "fields": {
+                        "text": {
+                          "type": "match_only_text"
+                        }
+                      }
+                    },
+                    "telemetry.distro.version": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "telemetry.sdk.language": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    },
+                    "telemetry.sdk.name": {
+                      "type": "keyword",
+                      "time_series_dimension": true,
+                      "fields": {
+                        "text": {
+                          "type": "match_only_text"
+                        }
+                      }
+                    },
+                    "telemetry.sdk.version": {
+                      "type": "keyword",
+                      "ignore_above": 1024,
+                      "time_series_dimension": true
+                    }
+                  }
+                },
+                "dropped_attributes_count": {
+                  "type": "long"
+                },
+                "schema_url": {
+                  "type": "keyword",
+                  "ignore_above": 1024
+                }
+              }
+            },
+            "scope": {
+              "properties": {
+                "attributes": {
+                  "type": "passthrough",
+                  "time_series_dimension": true,
+                  "priority": 30,
+                  "dynamic": "true"
+                },
+                "dropped_attributes_count": {
+                  "type": "long"
+                },
+                "name": {
+                  "type": "keyword",
+                  "ignore_above": 1024,
+                  "time_series_dimension": true
+                },
+                "schema_url": {
+                  "type": "keyword",
+                  "ignore_above": 1024
+                },
+                "version": {
+                  "type": "version"
+                }
+              }
+            },
+            "service": {
+              "properties": {
+                "environment": {
+                  "type": "alias",
+                  "path": "resource.attributes.deployment.environment"
+                },
+                "language": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.telemetry.sdk.language"
+                    }
+                  }
+                },
+                "node": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.service.instance.id"
+                    }
+                  }
+                },
+                "runtime": {
+                  "properties": {
+                    "name": {
+                      "type": "alias",
+                      "path": "resource.attributes.process.runtime.name"
+                    },
+                    "version": {
+                      "type": "alias",
+                      "path": "resource.attributes.process.runtime.version"
+                    }
+                  }
+                }
+              }
+            },
+            "severity_number": {
+              "type": "byte"
+            },
+            "severity_text": {
+              "type": "keyword"
+            },
+            "span": {
+              "properties": {
+                "id": {
+                  "type": "alias",
+                  "path": "span_id"
+                }
+              }
+            },
+            "span_id": {
+              "type": "keyword"
+            },
+            "trace": {
+              "properties": {
+                "id": {
+                  "type": "alias",
+                  "path": "trace_id"
+                }
+              }
+            },
+            "trace_id": {
+              "type": "keyword"
+            }
+          }
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "metadata",
+    "data_count": 0,
+    "response_bytes": 11315,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

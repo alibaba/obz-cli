@@ -1,0 +1,47 @@
+{
+  "fixture_version": "1.0",
+  "id": "jaeger/traces/trace-not-found",
+  "description": "Jaeger API: nonexistent trace ID",
+  "backend": "jaeger",
+  "tags": [
+    "traces",
+    "trace-detail",
+    "not-found",
+    "edge-case",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/traces/00000000000000000000000099999999",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 404,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": null,
+      "total": 0,
+      "limit": 0,
+      "offset": 0,
+      "errors": [
+        {
+          "code": 404,
+          "msg": "trace not found"
+        }
+      ]
+    }
+  },
+  "facts": {
+    "result_type": "trace_detail",
+    "data_count": 0,
+    "trace_count": 0,
+    "span_count": 0,
+    "response_bytes": 92,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:10:17Z",
+  "source": "recorded",
+  "generator": "scripts/jaeger-record-live.sh"
+}

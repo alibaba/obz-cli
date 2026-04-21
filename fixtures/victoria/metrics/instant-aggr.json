@@ -1,0 +1,97 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/metrics/instant-aggr",
+  "description": "PromQL instant query: sum by job — total span calls per service",
+  "backend": "victoriametrics",
+  "tags": [
+    "metrics",
+    "query",
+    "instant",
+    "aggregation",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "query": "sum+by+(job)+(traces_span_metrics_calls_total)",
+      "time": "1775138360"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "job": "ad"
+            },
+            "value": [
+              1775138360,
+              "443"
+            ]
+          },
+          {
+            "metric": {
+              "job": "cart"
+            },
+            "value": [
+              1775138360,
+              "17760"
+            ]
+          },
+          {
+            "metric": {
+              "job": "image-provider"
+            },
+            "value": [
+              1775138360,
+              "26616"
+            ]
+          },
+          {
+            "metric": {
+              "job": "load-generator"
+            },
+            "value": [
+              1775138360,
+              "330243"
+            ]
+          },
+          {
+            "metric": {
+              "job": "product-reviews"
+            },
+            "value": [
+              1775138360,
+              "443"
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "seriesFetched": "20",
+        "executionTimeMsec": 1
+      }
+    }
+  },
+  "facts": {
+    "result_type": "vector",
+    "series_count": 5,
+    "total_points": 5,
+    "data_count": 0,
+    "response_bytes": 417,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:59:20Z",
+  "source": "recorded",
+  "generator": "scripts/vm/record-live.sh"
+}

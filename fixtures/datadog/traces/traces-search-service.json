@@ -1,0 +1,1091 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/traces/traces-search-service",
+  "description": "Datadog traces search: spans for cart service",
+  "backend": "datadog",
+  "tags": [
+    "traces",
+    "query",
+    "filter",
+    "service",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/spans/events/search",
+    "query_params": {},
+    "body": {
+      "data": {
+        "attributes": {
+          "filter": {
+            "from": "now-1h",
+            "to": "now",
+            "query": "service:cart"
+          },
+          "sort": "timestamp",
+          "page": {
+            "limit": 10
+          }
+        },
+        "type": "search_request"
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [
+        {
+          "id": "AZ1OMfxPAAANstXUgt5yrKrl",
+          "type": "spans",
+          "attributes": {
+            "custom": {
+              "container": {
+                "id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              },
+              "docker": {
+                "cli": {
+                  "cobra": {
+                    "command_path": "docker compose"
+                  }
+                }
+              },
+              "duration": 717100,
+              "error": {
+                "type": "404"
+              },
+              "host": {
+                "arch": "amd64",
+                "name": "btorch011167034027.cm10"
+              },
+              "http": {
+                "host": "flagd",
+                "method": "POST",
+                "path_group": "/?/ResolveBoolean",
+                "server_name": "flagd",
+                "status_code": "404",
+                "url": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean",
+                "url_details": {
+                  "host": "flagd",
+                  "path": "/flagd.evaluation.v2.Service/ResolveBoolean",
+                  "port": "8013",
+                  "scheme": "http"
+                },
+                "version": "2"
+              },
+              "infra_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "language": "dotnet",
+              "os": {
+                "type": "linux"
+              },
+              "otel": {
+                "library": {
+                  "name": "System.Net.Http"
+                },
+                "status_code": "Error",
+                "trace_id": "53fd836c6dbb96a8e5aa2f9d9ca6c9c5"
+              },
+              "peer": {
+                "hostname": "flagd"
+              },
+              "server": {
+                "port": 8013
+              },
+              "service": {
+                "instance": {
+                  "id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                }
+              },
+              "span": {
+                "kind": "client"
+              },
+              "span_tags": [
+                "ingestion_reason:probabilistic"
+              ],
+              "telemetry": {
+                "sdk": {
+                  "language": "dotnet",
+                  "name": "opentelemetry",
+                  "version": "1.15.0"
+                }
+              }
+            },
+            "end_timestamp": "2026-04-02T12:36:28.72Z",
+            "env": "none",
+            "error": {
+              "type": "404"
+            },
+            "host": "btorch011167034027.cm10",
+            "ingestion_reason": "",
+            "operation_name": "http.client.request",
+            "parent_id": "2908825893177094829",
+            "resource_hash": "ba66c0209b09ac3a",
+            "resource_name": "POST",
+            "retained_by": "retention_filter",
+            "service": "cart",
+            "single_span": false,
+            "span_id": "18442998452458812173",
+            "start_timestamp": "2026-04-02T12:36:28.72Z",
+            "status": "error",
+            "tags": [
+              "ingestion_reason:probabilistic",
+              "source:apm",
+              "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+            ],
+            "trace_id": "53fd836c6dbb96a8e5aa2f9d9ca6c9c5",
+            "type": "http"
+          }
+        },
+        {
+          "id": "AZ1OMfxPAACFh7mERr8qbarl",
+          "type": "spans",
+          "attributes": {
+            "custom": {
+              "container": {
+                "id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              },
+              "container_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "docker": {
+                "cli": {
+                  "cobra": {
+                    "command_path": "docker compose"
+                  }
+                }
+              },
+              "duration": 774600,
+              "host": {
+                "arch": "amd64",
+                "name": "btorch011167034027.cm10"
+              },
+              "http": {
+                "server_name": "flagd"
+              },
+              "infra_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "language": "dotnet",
+              "os": {
+                "type": "linux"
+              },
+              "otel": {
+                "library": {
+                  "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+                  "version": "1.15.0-beta.1"
+                },
+                "status_code": "Error",
+                "trace_id": "53fd836c6dbb96a8e5aa2f9d9ca6c9c5"
+              },
+              "peer": {
+                "hostname": "flagd",
+                "rpc": {
+                  "service": "flagd.evaluation.v2.service",
+                  "system": "grpc"
+                }
+              },
+              "rpc": {
+                "grpc": {
+                  "status_code": 12
+                },
+                "method": "ResolveBoolean",
+                "service": "flagd.evaluation.v2.Service",
+                "system": "grpc"
+              },
+              "server": {
+                "port": 8013
+              },
+              "service": {
+                "instance": {
+                  "id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                }
+              },
+              "span": {
+                "kind": "client"
+              },
+              "span_tags": [
+                "ingestion_reason:probabilistic"
+              ],
+              "telemetry": {
+                "sdk": {
+                  "language": "dotnet",
+                  "name": "opentelemetry",
+                  "version": "1.15.0"
+                }
+              }
+            },
+            "end_timestamp": "2026-04-02T12:36:28.72Z",
+            "env": "none",
+            "error": null,
+            "host": "btorch011167034027.cm10",
+            "ingestion_reason": "",
+            "operation_name": "grpc.client.request",
+            "parent_id": "0",
+            "resource_hash": "87a3dc238b12d1b6",
+            "resource_name": "ResolveBoolean flagd.evaluation.v2.Service",
+            "retained_by": "retention_filter",
+            "service": "cart",
+            "single_span": false,
+            "span_id": "2908825893177094829",
+            "start_timestamp": "2026-04-02T12:36:28.72Z",
+            "status": "error",
+            "tags": [
+              "ingestion_reason:probabilistic",
+              "source:apm",
+              "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+            ],
+            "trace_id": "53fd836c6dbb96a8e5aa2f9d9ca6c9c5",
+            "type": "http"
+          }
+        },
+        {
+          "id": "AZ1OMnGAAADdl02402yrmBCn",
+          "type": "spans",
+          "attributes": {
+            "custom": {
+              "container": {
+                "id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              },
+              "docker": {
+                "cli": {
+                  "cobra": {
+                    "command_path": "docker compose"
+                  }
+                }
+              },
+              "duration": 585500,
+              "error": {
+                "type": "404"
+              },
+              "host": {
+                "arch": "amd64",
+                "name": "btorch011167034027.cm10"
+              },
+              "http": {
+                "host": "flagd",
+                "method": "POST",
+                "path_group": "/?/ResolveBoolean",
+                "server_name": "flagd",
+                "status_code": "404",
+                "url": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean",
+                "url_details": {
+                  "host": "flagd",
+                  "path": "/flagd.evaluation.v2.Service/ResolveBoolean",
+                  "port": "8013",
+                  "scheme": "http"
+                },
+                "version": "2"
+              },
+              "infra_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "language": "dotnet",
+              "os": {
+                "type": "linux"
+              },
+              "otel": {
+                "library": {
+                  "name": "System.Net.Http"
+                },
+                "status_code": "Error",
+                "trace_id": "bdc84e6e28ecddafa710a706c2ca92e7"
+              },
+              "peer": {
+                "hostname": "flagd"
+              },
+              "server": {
+                "port": 8013
+              },
+              "service": {
+                "instance": {
+                  "id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                }
+              },
+              "span": {
+                "kind": "client"
+              },
+              "span_tags": [
+                "ingestion_reason:probabilistic"
+              ],
+              "telemetry": {
+                "sdk": {
+                  "language": "dotnet",
+                  "name": "opentelemetry",
+                  "version": "1.15.0"
+                }
+              }
+            },
+            "end_timestamp": "2026-04-02T12:36:58.719Z",
+            "env": "none",
+            "error": {
+              "type": "404"
+            },
+            "host": "btorch011167034027.cm10",
+            "ingestion_reason": "",
+            "operation_name": "http.client.request",
+            "parent_id": "8162139692443994422",
+            "resource_hash": "ba66c0209b09ac3a",
+            "resource_name": "POST",
+            "retained_by": "retention_filter",
+            "service": "cart",
+            "single_span": false,
+            "span_id": "8594233187709737484",
+            "start_timestamp": "2026-04-02T12:36:58.719Z",
+            "status": "error",
+            "tags": [
+              "ingestion_reason:probabilistic",
+              "source:apm",
+              "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+            ],
+            "trace_id": "bdc84e6e28ecddafa710a706c2ca92e7",
+            "type": "http"
+          }
+        },
+        {
+          "id": "AZ1OMnGAAADoq8sNh9nZ5hCn",
+          "type": "spans",
+          "attributes": {
+            "custom": {
+              "container": {
+                "id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              },
+              "container_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "docker": {
+                "cli": {
+                  "cobra": {
+                    "command_path": "docker compose"
+                  }
+                }
+              },
+              "duration": 658700,
+              "host": {
+                "arch": "amd64",
+                "name": "btorch011167034027.cm10"
+              },
+              "http": {
+                "server_name": "flagd"
+              },
+              "infra_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "language": "dotnet",
+              "os": {
+                "type": "linux"
+              },
+              "otel": {
+                "library": {
+                  "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+                  "version": "1.15.0-beta.1"
+                },
+                "status_code": "Error",
+                "trace_id": "bdc84e6e28ecddafa710a706c2ca92e7"
+              },
+              "peer": {
+                "hostname": "flagd",
+                "rpc": {
+                  "service": "flagd.evaluation.v2.service",
+                  "system": "grpc"
+                }
+              },
+              "rpc": {
+                "grpc": {
+                  "status_code": 12
+                },
+                "method": "ResolveBoolean",
+                "service": "flagd.evaluation.v2.Service",
+                "system": "grpc"
+              },
+              "server": {
+                "port": 8013
+              },
+              "service": {
+                "instance": {
+                  "id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                }
+              },
+              "span": {
+                "kind": "client"
+              },
+              "span_tags": [
+                "ingestion_reason:probabilistic"
+              ],
+              "telemetry": {
+                "sdk": {
+                  "language": "dotnet",
+                  "name": "opentelemetry",
+                  "version": "1.15.0"
+                }
+              }
+            },
+            "end_timestamp": "2026-04-02T12:36:58.719Z",
+            "env": "none",
+            "error": null,
+            "host": "btorch011167034027.cm10",
+            "ingestion_reason": "",
+            "operation_name": "grpc.client.request",
+            "parent_id": "0",
+            "resource_hash": "87a3dc238b12d1b6",
+            "resource_name": "ResolveBoolean flagd.evaluation.v2.Service",
+            "retained_by": "retention_filter",
+            "service": "cart",
+            "single_span": false,
+            "span_id": "8162139692443994422",
+            "start_timestamp": "2026-04-02T12:36:58.719Z",
+            "status": "error",
+            "tags": [
+              "ingestion_reason:probabilistic",
+              "source:apm",
+              "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+            ],
+            "trace_id": "bdc84e6e28ecddafa710a706c2ca92e7",
+            "type": "http"
+          }
+        },
+        {
+          "id": "AZ1OMua7AACbDKZKljiIi5B0",
+          "type": "spans",
+          "attributes": {
+            "custom": {
+              "container": {
+                "id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              },
+              "docker": {
+                "cli": {
+                  "cobra": {
+                    "command_path": "docker compose"
+                  }
+                }
+              },
+              "duration": 776800,
+              "error": {
+                "type": "404"
+              },
+              "host": {
+                "arch": "amd64",
+                "name": "btorch011167034027.cm10"
+              },
+              "http": {
+                "host": "flagd",
+                "method": "POST",
+                "path_group": "/?/ResolveBoolean",
+                "server_name": "flagd",
+                "status_code": "404",
+                "url": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean",
+                "url_details": {
+                  "host": "flagd",
+                  "path": "/flagd.evaluation.v2.Service/ResolveBoolean",
+                  "port": "8013",
+                  "scheme": "http"
+                },
+                "version": "2"
+              },
+              "infra_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "language": "dotnet",
+              "os": {
+                "type": "linux"
+              },
+              "otel": {
+                "library": {
+                  "name": "System.Net.Http"
+                },
+                "status_code": "Error",
+                "trace_id": "7501e9f920b023107490339722281f51"
+              },
+              "peer": {
+                "hostname": "flagd"
+              },
+              "server": {
+                "port": 8013
+              },
+              "service": {
+                "instance": {
+                  "id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                }
+              },
+              "span": {
+                "kind": "client"
+              },
+              "span_tags": [
+                "ingestion_reason:probabilistic"
+              ],
+              "telemetry": {
+                "sdk": {
+                  "language": "dotnet",
+                  "name": "opentelemetry",
+                  "version": "1.15.0"
+                }
+              }
+            },
+            "end_timestamp": "2026-04-02T12:37:28.719Z",
+            "env": "none",
+            "error": {
+              "type": "404"
+            },
+            "host": "btorch011167034027.cm10",
+            "ingestion_reason": "",
+            "operation_name": "http.client.request",
+            "parent_id": "746569209307986668",
+            "resource_hash": "ba66c0209b09ac3a",
+            "resource_name": "POST",
+            "retained_by": "retention_filter",
+            "service": "cart",
+            "single_span": false,
+            "span_id": "10032991705604611038",
+            "start_timestamp": "2026-04-02T12:37:28.719Z",
+            "status": "error",
+            "tags": [
+              "ingestion_reason:probabilistic",
+              "source:apm",
+              "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+            ],
+            "trace_id": "7501e9f920b023107490339722281f51",
+            "type": "http"
+          }
+        },
+        {
+          "id": "AZ1OMua7AACmPyhs-gu1sJB0",
+          "type": "spans",
+          "attributes": {
+            "custom": {
+              "container": {
+                "id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              },
+              "container_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "docker": {
+                "cli": {
+                  "cobra": {
+                    "command_path": "docker compose"
+                  }
+                }
+              },
+              "duration": 841800,
+              "host": {
+                "arch": "amd64",
+                "name": "btorch011167034027.cm10"
+              },
+              "http": {
+                "server_name": "flagd"
+              },
+              "infra_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "language": "dotnet",
+              "os": {
+                "type": "linux"
+              },
+              "otel": {
+                "library": {
+                  "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+                  "version": "1.15.0-beta.1"
+                },
+                "status_code": "Error",
+                "trace_id": "7501e9f920b023107490339722281f51"
+              },
+              "peer": {
+                "hostname": "flagd",
+                "rpc": {
+                  "service": "flagd.evaluation.v2.service",
+                  "system": "grpc"
+                }
+              },
+              "rpc": {
+                "grpc": {
+                  "status_code": 12
+                },
+                "method": "ResolveBoolean",
+                "service": "flagd.evaluation.v2.Service",
+                "system": "grpc"
+              },
+              "server": {
+                "port": 8013
+              },
+              "service": {
+                "instance": {
+                  "id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                }
+              },
+              "span": {
+                "kind": "client"
+              },
+              "span_tags": [
+                "ingestion_reason:probabilistic"
+              ],
+              "telemetry": {
+                "sdk": {
+                  "language": "dotnet",
+                  "name": "opentelemetry",
+                  "version": "1.15.0"
+                }
+              }
+            },
+            "end_timestamp": "2026-04-02T12:37:28.719Z",
+            "env": "none",
+            "error": null,
+            "host": "btorch011167034027.cm10",
+            "ingestion_reason": "",
+            "operation_name": "grpc.client.request",
+            "parent_id": "0",
+            "resource_hash": "87a3dc238b12d1b6",
+            "resource_name": "ResolveBoolean flagd.evaluation.v2.Service",
+            "retained_by": "retention_filter",
+            "service": "cart",
+            "single_span": false,
+            "span_id": "746569209307986668",
+            "start_timestamp": "2026-04-02T12:37:28.719Z",
+            "status": "error",
+            "tags": [
+              "ingestion_reason:probabilistic",
+              "source:apm",
+              "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+            ],
+            "trace_id": "7501e9f920b023107490339722281f51",
+            "type": "http"
+          }
+        },
+        {
+          "id": "AZ1OM1voAABQu-zQvkakHd9S",
+          "type": "spans",
+          "attributes": {
+            "custom": {
+              "container": {
+                "id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              },
+              "docker": {
+                "cli": {
+                  "cobra": {
+                    "command_path": "docker compose"
+                  }
+                }
+              },
+              "duration": 547000,
+              "error": {
+                "type": "404"
+              },
+              "host": {
+                "arch": "amd64",
+                "name": "btorch011167034027.cm10"
+              },
+              "http": {
+                "host": "flagd",
+                "method": "POST",
+                "path_group": "/?/ResolveBoolean",
+                "server_name": "flagd",
+                "status_code": "404",
+                "url": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean",
+                "url_details": {
+                  "host": "flagd",
+                  "path": "/flagd.evaluation.v2.Service/ResolveBoolean",
+                  "port": "8013",
+                  "scheme": "http"
+                },
+                "version": "2"
+              },
+              "infra_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "language": "dotnet",
+              "os": {
+                "type": "linux"
+              },
+              "otel": {
+                "library": {
+                  "name": "System.Net.Http"
+                },
+                "status_code": "Error",
+                "trace_id": "d0605b4aa7c77aa752dfd032532f368f"
+              },
+              "peer": {
+                "hostname": "flagd"
+              },
+              "server": {
+                "port": 8013
+              },
+              "service": {
+                "instance": {
+                  "id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                }
+              },
+              "span": {
+                "kind": "client"
+              },
+              "span_tags": [
+                "ingestion_reason:probabilistic"
+              ],
+              "telemetry": {
+                "sdk": {
+                  "language": "dotnet",
+                  "name": "opentelemetry",
+                  "version": "1.15.0"
+                }
+              }
+            },
+            "end_timestamp": "2026-04-02T12:37:58.719Z",
+            "env": "none",
+            "error": {
+              "type": "404"
+            },
+            "host": "btorch011167034027.cm10",
+            "ingestion_reason": "",
+            "operation_name": "http.client.request",
+            "parent_id": "14304990110883711395",
+            "resource_hash": "ba66c0209b09ac3a",
+            "resource_name": "POST",
+            "retained_by": "retention_filter",
+            "service": "cart",
+            "single_span": false,
+            "span_id": "16371999617868873659",
+            "start_timestamp": "2026-04-02T12:37:58.719Z",
+            "status": "error",
+            "tags": [
+              "ingestion_reason:probabilistic",
+              "source:apm",
+              "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+            ],
+            "trace_id": "d0605b4aa7c77aa752dfd032532f368f",
+            "type": "http"
+          }
+        },
+        {
+          "id": "AZ1OM1voAAAR9UjSvjTjEN9S",
+          "type": "spans",
+          "attributes": {
+            "custom": {
+              "container": {
+                "id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              },
+              "container_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "docker": {
+                "cli": {
+                  "cobra": {
+                    "command_path": "docker compose"
+                  }
+                }
+              },
+              "duration": 603300,
+              "host": {
+                "arch": "amd64",
+                "name": "btorch011167034027.cm10"
+              },
+              "http": {
+                "server_name": "flagd"
+              },
+              "infra_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "language": "dotnet",
+              "os": {
+                "type": "linux"
+              },
+              "otel": {
+                "library": {
+                  "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+                  "version": "1.15.0-beta.1"
+                },
+                "status_code": "Error",
+                "trace_id": "d0605b4aa7c77aa752dfd032532f368f"
+              },
+              "peer": {
+                "hostname": "flagd",
+                "rpc": {
+                  "service": "flagd.evaluation.v2.service",
+                  "system": "grpc"
+                }
+              },
+              "rpc": {
+                "grpc": {
+                  "status_code": 12
+                },
+                "method": "ResolveBoolean",
+                "service": "flagd.evaluation.v2.Service",
+                "system": "grpc"
+              },
+              "server": {
+                "port": 8013
+              },
+              "service": {
+                "instance": {
+                  "id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                }
+              },
+              "span": {
+                "kind": "client"
+              },
+              "span_tags": [
+                "ingestion_reason:probabilistic"
+              ],
+              "telemetry": {
+                "sdk": {
+                  "language": "dotnet",
+                  "name": "opentelemetry",
+                  "version": "1.15.0"
+                }
+              }
+            },
+            "end_timestamp": "2026-04-02T12:37:58.719Z",
+            "env": "none",
+            "error": null,
+            "host": "btorch011167034027.cm10",
+            "ingestion_reason": "",
+            "operation_name": "grpc.client.request",
+            "parent_id": "0",
+            "resource_hash": "87a3dc238b12d1b6",
+            "resource_name": "ResolveBoolean flagd.evaluation.v2.Service",
+            "retained_by": "retention_filter",
+            "service": "cart",
+            "single_span": false,
+            "span_id": "14304990110883711395",
+            "start_timestamp": "2026-04-02T12:37:58.719Z",
+            "status": "error",
+            "tags": [
+              "ingestion_reason:probabilistic",
+              "source:apm",
+              "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+            ],
+            "trace_id": "d0605b4aa7c77aa752dfd032532f368f",
+            "type": "http"
+          }
+        },
+        {
+          "id": "AZ1OM9EZAABNBGNA2m-6diSA",
+          "type": "spans",
+          "attributes": {
+            "custom": {
+              "container": {
+                "id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              },
+              "docker": {
+                "cli": {
+                  "cobra": {
+                    "command_path": "docker compose"
+                  }
+                }
+              },
+              "duration": 879300,
+              "error": {
+                "type": "404"
+              },
+              "host": {
+                "arch": "amd64",
+                "name": "btorch011167034027.cm10"
+              },
+              "http": {
+                "host": "flagd",
+                "method": "POST",
+                "path_group": "/?/ResolveBoolean",
+                "server_name": "flagd",
+                "status_code": "404",
+                "url": "http://flagd:8013/flagd.evaluation.v2.Service/ResolveBoolean",
+                "url_details": {
+                  "host": "flagd",
+                  "path": "/flagd.evaluation.v2.Service/ResolveBoolean",
+                  "port": "8013",
+                  "scheme": "http"
+                },
+                "version": "2"
+              },
+              "infra_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "language": "dotnet",
+              "os": {
+                "type": "linux"
+              },
+              "otel": {
+                "library": {
+                  "name": "System.Net.Http"
+                },
+                "status_code": "Error",
+                "trace_id": "0d3468a8954cb4c380248d3cc3dcbaac"
+              },
+              "peer": {
+                "hostname": "flagd"
+              },
+              "server": {
+                "port": 8013
+              },
+              "service": {
+                "instance": {
+                  "id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                }
+              },
+              "span": {
+                "kind": "client"
+              },
+              "span_tags": [
+                "ingestion_reason:probabilistic"
+              ],
+              "telemetry": {
+                "sdk": {
+                  "language": "dotnet",
+                  "name": "opentelemetry",
+                  "version": "1.15.0"
+                }
+              }
+            },
+            "end_timestamp": "2026-04-02T12:38:28.719Z",
+            "env": "none",
+            "error": {
+              "type": "404"
+            },
+            "host": "btorch011167034027.cm10",
+            "ingestion_reason": "",
+            "operation_name": "http.client.request",
+            "parent_id": "6795569111239590440",
+            "resource_hash": "ba66c0209b09ac3a",
+            "resource_name": "POST",
+            "retained_by": "retention_filter",
+            "service": "cart",
+            "single_span": false,
+            "span_id": "16927177936740620167",
+            "start_timestamp": "2026-04-02T12:38:28.719Z",
+            "status": "error",
+            "tags": [
+              "ingestion_reason:probabilistic",
+              "source:apm",
+              "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+            ],
+            "trace_id": "0d3468a8954cb4c380248d3cc3dcbaac",
+            "type": "http"
+          }
+        },
+        {
+          "id": "AZ1OM9EZAACyCdsq8gqo5SSA",
+          "type": "spans",
+          "attributes": {
+            "custom": {
+              "container": {
+                "id": "ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              },
+              "container_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "docker": {
+                "cli": {
+                  "cobra": {
+                    "command_path": "docker compose"
+                  }
+                }
+              },
+              "duration": 939600,
+              "host": {
+                "arch": "amd64",
+                "name": "btorch011167034027.cm10"
+              },
+              "http": {
+                "server_name": "flagd"
+              },
+              "infra_tags": [
+                "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+              ],
+              "language": "dotnet",
+              "os": {
+                "type": "linux"
+              },
+              "otel": {
+                "library": {
+                  "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+                  "version": "1.15.0-beta.1"
+                },
+                "status_code": "Error",
+                "trace_id": "0d3468a8954cb4c380248d3cc3dcbaac"
+              },
+              "peer": {
+                "hostname": "flagd",
+                "rpc": {
+                  "service": "flagd.evaluation.v2.service",
+                  "system": "grpc"
+                }
+              },
+              "rpc": {
+                "grpc": {
+                  "status_code": 12
+                },
+                "method": "ResolveBoolean",
+                "service": "flagd.evaluation.v2.Service",
+                "system": "grpc"
+              },
+              "server": {
+                "port": 8013
+              },
+              "service": {
+                "instance": {
+                  "id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30"
+                }
+              },
+              "span": {
+                "kind": "client"
+              },
+              "span_tags": [
+                "ingestion_reason:probabilistic"
+              ],
+              "telemetry": {
+                "sdk": {
+                  "language": "dotnet",
+                  "name": "opentelemetry",
+                  "version": "1.15.0"
+                }
+              }
+            },
+            "end_timestamp": "2026-04-02T12:38:28.719Z",
+            "env": "none",
+            "error": null,
+            "host": "btorch011167034027.cm10",
+            "ingestion_reason": "",
+            "operation_name": "grpc.client.request",
+            "parent_id": "0",
+            "resource_hash": "87a3dc238b12d1b6",
+            "resource_name": "ResolveBoolean flagd.evaluation.v2.Service",
+            "retained_by": "retention_filter",
+            "service": "cart",
+            "single_span": false,
+            "span_id": "6795569111239590440",
+            "start_timestamp": "2026-04-02T12:38:28.719Z",
+            "status": "error",
+            "tags": [
+              "ingestion_reason:probabilistic",
+              "source:apm",
+              "container_id:ca10c6e86399a8c1c7c592cf320a761dc3695d1481459fb87fbe598d403cf3f3"
+            ],
+            "trace_id": "0d3468a8954cb4c380248d3cc3dcbaac",
+            "type": "http"
+          }
+        }
+      ],
+      "meta": {
+        "elapsed": 61,
+        "request_id": "pddv1ChZ5VUVmUEo0RVM3ZXJsaThTYW1MQzh3IiwKHFYm62areloI6Rfpfw4ICUzORlLPe_HceZ_GdcQSDMG-2G_Tcl_BAXYiiA",
+        "status": "done",
+        "page": {
+          "after": "eyJhZnRlciI6IkF3QUFBWjFPTThSdmwyc1E3d0FBQUJoQldqRlBUVGxGV2tGQlEzbERaSE54T0dkeGJ6VlRVMEVBQUFBa01ERTVaRFJsTkRVdFpqUTNZUzAwTm1SakxUaG1NbU10WlRNNU1HUmhOemswWlRRd0FBQUFaUSIsInZhbHVlcyI6WyIyMDI2LTA0LTAyVDEyOjM4OjI4LjcxOVoiLC0xNzU0NTkwOTkzXX0="
+        },
+        "traffic_type": "sampled"
+      },
+      "links": {
+        "next": "https://api.ap1.datadoghq.com/api/v2/spans/events?filter%5Bfrom%5D=1775133373000&filter%5Bquery%5D=service%3Acart&filter%5Bto%5D=1775136973000&page%5Bcursor%5D=eyJhZnRlciI6IkF3QUFBWjFPTThSdmwyc1E3d0FBQUJoQldqRlBUVGxGV2tGQlEzbERaSE54T0dkeGJ6VlRVMEVBQUFBa01ERTVaRFJsTkRVdFpqUTNZUzAwTm1SakxUaG1NbU10WlRNNU1HUmhOemswWlRRd0FBQUFaUSIsInZhbHVlcyI6WyIyMDI2LTA0LTAyVDEyOjM4OjI4LjcxOVoiLC0xNzU0NTkwOTkzXX0%3D&page%5Blimit%5D=10&sort=timestamp"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "traces",
+    "data_count": 10,
+    "series_count": 0,
+    "response_bytes": 18946,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

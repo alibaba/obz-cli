@@ -1,0 +1,331 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/traces/search-by-status",
+  "description": "Tempo search: {status=error} — error traces",
+  "backend": "tempo",
+  "tags": [
+    "traces",
+    "search",
+    "error",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/search",
+    "query_params": {
+      "q": "{status=error}",
+      "start": "1775534557",
+      "end": "1775538157",
+      "limit": "5"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "traces": [
+        {
+          "traceID": "bb37962e25ee96edcc17b5510e52a8",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_add_to_cart",
+          "startTimeUnixNano": "1775537143631384703",
+          "durationMs": 9,
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "5682e884041fe611",
+                "startTimeUnixNano": "1775537143631909037",
+                "durationNanos": "4983979",
+                "attributes": [
+                  {
+                    "key": "status",
+                    "value": {
+                      "stringValue": "error"
+                    }
+                  }
+                ]
+              },
+              {
+                "spanID": "1a8a9bcd428c40e9",
+                "startTimeUnixNano": "1775537143637342237",
+                "durationNanos": "3766798",
+                "attributes": [
+                  {
+                    "key": "status",
+                    "value": {
+                      "stringValue": "error"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 2
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "5682e884041fe611",
+                  "startTimeUnixNano": "1775537143631909037",
+                  "durationNanos": "4983979",
+                  "attributes": [
+                    {
+                      "key": "status",
+                      "value": {
+                        "stringValue": "error"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "spanID": "1a8a9bcd428c40e9",
+                  "startTimeUnixNano": "1775537143637342237",
+                  "durationNanos": "3766798",
+                  "attributes": [
+                    {
+                      "key": "status",
+                      "value": {
+                        "stringValue": "error"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "matched": 2
+            }
+          ],
+          "serviceStats": {
+            "load-generator": {
+              "spanCount": 3,
+              "errorCount": 2
+            }
+          }
+        },
+        {
+          "traceID": "721f546d6c100676a654af317afb72",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_browse_product",
+          "startTimeUnixNano": "1775536732931086180",
+          "durationMs": 5,
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "4e2dd03b86f961cf",
+                "startTimeUnixNano": "1775536732931587643",
+                "durationNanos": "4831728",
+                "attributes": [
+                  {
+                    "key": "status",
+                    "value": {
+                      "stringValue": "error"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "4e2dd03b86f961cf",
+                  "startTimeUnixNano": "1775536732931587643",
+                  "durationNanos": "4831728",
+                  "attributes": [
+                    {
+                      "key": "status",
+                      "value": {
+                        "stringValue": "error"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "matched": 1
+            }
+          ],
+          "serviceStats": {
+            "load-generator": {
+              "spanCount": 2,
+              "errorCount": 1
+            }
+          }
+        },
+        {
+          "traceID": "a2e6fccabe98a732c728373c0b1ed3",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_view_cart",
+          "startTimeUnixNano": "1775535713168810482",
+          "durationMs": 6,
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "3edb9b022a83c8a8",
+                "startTimeUnixNano": "1775535713169337588",
+                "durationNanos": "5600137",
+                "attributes": [
+                  {
+                    "key": "status",
+                    "value": {
+                      "stringValue": "error"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "3edb9b022a83c8a8",
+                  "startTimeUnixNano": "1775535713169337588",
+                  "durationNanos": "5600137",
+                  "attributes": [
+                    {
+                      "key": "status",
+                      "value": {
+                        "stringValue": "error"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "matched": 1
+            }
+          ],
+          "serviceStats": {
+            "load-generator": {
+              "spanCount": 2,
+              "errorCount": 1
+            }
+          }
+        },
+        {
+          "traceID": "b013efc2515087ddf26dab2e671f5b",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_browse_product",
+          "startTimeUnixNano": "1775535427658718619",
+          "durationMs": 5,
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "f52b888aff07d86e",
+                "startTimeUnixNano": "1775535427659255256",
+                "durationNanos": "4933180",
+                "attributes": [
+                  {
+                    "key": "status",
+                    "value": {
+                      "stringValue": "error"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "f52b888aff07d86e",
+                  "startTimeUnixNano": "1775535427659255256",
+                  "durationNanos": "4933180",
+                  "attributes": [
+                    {
+                      "key": "status",
+                      "value": {
+                        "stringValue": "error"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "matched": 1
+            }
+          ],
+          "serviceStats": {
+            "load-generator": {
+              "spanCount": 2,
+              "errorCount": 1
+            }
+          }
+        },
+        {
+          "traceID": "abfd48da175c826befcbc6c93ae086",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_index",
+          "startTimeUnixNano": "1775534844990556979",
+          "durationMs": 5,
+          "spanSet": {
+            "spans": [
+              {
+                "spanID": "32f6bcfdab22cac7",
+                "startTimeUnixNano": "1775534844991075471",
+                "durationNanos": "4896762",
+                "attributes": [
+                  {
+                    "key": "status",
+                    "value": {
+                      "stringValue": "error"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          },
+          "spanSets": [
+            {
+              "spans": [
+                {
+                  "spanID": "32f6bcfdab22cac7",
+                  "startTimeUnixNano": "1775534844991075471",
+                  "durationNanos": "4896762",
+                  "attributes": [
+                    {
+                      "key": "status",
+                      "value": {
+                        "stringValue": "error"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "matched": 1
+            }
+          ],
+          "serviceStats": {
+            "load-generator": {
+              "spanCount": 2,
+              "errorCount": 1
+            }
+          }
+        }
+      ],
+      "metrics": {
+        "inspectedBytes": "250173",
+        "totalBlocks": 1,
+        "completedJobs": 1,
+        "totalJobs": 4,
+        "totalBlockBytes": "749832"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "search",
+    "data_count": 5,
+    "trace_count": 5,
+    "span_count": 0,
+    "response_bytes": 3607,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:02:37Z",
+  "source": "recorded",
+  "generator": "scripts/tempo-record-live.sh"
+}

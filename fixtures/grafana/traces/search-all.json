@@ -1,0 +1,84 @@
+{
+  "fixture_version": "1.0",
+  "id": "grafana/traces/search-all",
+  "description": "Tempo search: {} — all traces",
+  "backend": "tempo",
+  "tags": [
+    "traces",
+    "search",
+    "basic",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/search",
+    "query_params": {
+      "start": "1775534557",
+      "end": "1775538157",
+      "limit": "5"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "traces": [
+        {
+          "traceID": "85646466e72edc3e5563f9124c7e5646",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_get_ads",
+          "startTimeUnixNano": "1775538118616032102",
+          "durationMs": 5
+        },
+        {
+          "traceID": "49aba843c3e2b99045c2f34bd61ba19e",
+          "rootServiceName": "image-provider",
+          "rootTraceName": "GET /status",
+          "startTimeUnixNano": "1775538118519000000"
+        },
+        {
+          "traceID": "560dc67fb18341098c7633dc178a4c17",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_get_product_reviews",
+          "startTimeUnixNano": "1775538114084205689",
+          "durationMs": 5
+        },
+        {
+          "traceID": "1ce23993917a0365d9a8997d9cd096e4",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "user_browse_product",
+          "startTimeUnixNano": "1775538114016558201",
+          "durationMs": 5
+        },
+        {
+          "traceID": "3ceb5c0e8426ffb3e87e196c7745d842",
+          "rootServiceName": "load-generator",
+          "rootTraceName": "POST",
+          "startTimeUnixNano": "1775538110976797737",
+          "durationMs": 1
+        }
+      ],
+      "metrics": {
+        "inspectedTraces": 8,
+        "inspectedBytes": "19698",
+        "totalBlocks": 1,
+        "completedJobs": 1,
+        "totalJobs": 4,
+        "totalBlockBytes": "749832"
+      }
+    }
+  },
+  "facts": {
+    "result_type": "search",
+    "data_count": 5,
+    "trace_count": 5,
+    "span_count": 0,
+    "response_bytes": 989,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:02:37Z",
+  "source": "recorded",
+  "generator": "scripts/tempo-record-live.sh"
+}

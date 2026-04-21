@@ -1,0 +1,394 @@
+{
+  "catalog_version": "1.0",
+  "backend": "elasticsearch/logs",
+  "generated_at": "2026-04-07T08:54:57Z",
+  "fixtures": [
+    {
+      "file": "agg-count-by-event.json",
+      "id": "elasticsearch/logs/agg-count-by-event",
+      "description": "ES aggregation: log count by event_name",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 1609,
+      "tags": [
+        "logs",
+        "aggregate",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-count-by-service.json",
+      "id": "elasticsearch/logs/agg-count-by-service",
+      "description": "ES aggregation: log count by service",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 1923,
+      "tags": [
+        "logs",
+        "aggregate",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-count-by-severity.json",
+      "id": "elasticsearch/logs/agg-count-by-severity",
+      "description": "ES aggregation: log count by severity_number",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 1694,
+      "tags": [
+        "logs",
+        "aggregate",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-histogram.json",
+      "id": "elasticsearch/logs/agg-histogram",
+      "description": "ES aggregation: log count histogram over time (5m interval)",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 3385,
+      "tags": [
+        "logs",
+        "aggregate",
+        "histogram",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-service-severity-matrix.json",
+      "id": "elasticsearch/logs/agg-service-severity-matrix",
+      "description": "ES aggregation: nested service × severity_number matrix",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 3787,
+      "tags": [
+        "logs",
+        "aggregate",
+        "nested",
+        "matrix",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "cluster-info.json",
+      "id": "elasticsearch/logs/cluster-info",
+      "description": "ES cluster info: version, cluster name",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1275,
+      "tags": [
+        "logs",
+        "metadata",
+        "cluster",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "data-streams.json",
+      "id": "elasticsearch/logs/data-streams",
+      "description": "ES list data streams",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 3812,
+      "tags": [
+        "logs",
+        "metadata",
+        "data-stream",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-field-type.json",
+      "id": "elasticsearch/logs/error-field-type",
+      "description": "ES error: aggregation on text field without keyword (illegal_argument_exception)",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 4955,
+      "tags": [
+        "logs",
+        "error",
+        "field-type",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-index-not-found.json",
+      "id": "elasticsearch/logs/error-index-not-found",
+      "description": "ES error: search on nonexistent index (index_not_found_exception)",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1484,
+      "tags": [
+        "logs",
+        "error",
+        "not-found",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-syntax.json",
+      "id": "elasticsearch/logs/error-syntax",
+      "description": "ES error: invalid query syntax (parsing_exception)",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1342,
+      "tags": [
+        "logs",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "field-caps.json",
+      "id": "elasticsearch/logs/field-caps",
+      "description": "ES field capabilities: discover searchable fields for logs",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 48981,
+      "tags": [
+        "logs",
+        "metadata",
+        "field-caps",
+        "medium"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "index-mapping.json",
+      "id": "elasticsearch/logs/index-mapping",
+      "description": "ES log index mapping: field types and structure",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 28694,
+      "tags": [
+        "logs",
+        "metadata",
+        "mapping",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "index-stats.json",
+      "id": "elasticsearch/logs/index-stats",
+      "description": "ES index stats: doc count, store size for logs",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 20290,
+      "tags": [
+        "logs",
+        "metadata",
+        "stats",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "indices.json",
+      "id": "elasticsearch/logs/indices",
+      "description": "ES list indices: _cat/indices",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1848,
+      "tags": [
+        "logs",
+        "metadata",
+        "indices",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-all.json",
+      "id": "elasticsearch/logs/search-all",
+      "description": "ES search: match_all — all logs",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 66654,
+      "tags": [
+        "logs",
+        "query",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-service.json",
+      "id": "elasticsearch/logs/search-by-service",
+      "description": "ES search: logs from load-generator service",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 66718,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-severity.json",
+      "id": "elasticsearch/logs/search-by-severity",
+      "description": "ES search: logs with severity_number >= 9 (WARN+)",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 19513,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "severity",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-trace-id.json",
+      "id": "elasticsearch/logs/search-by-trace-id",
+      "description": "ES search: logs correlated to a specific trace",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 9021,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "trace-correlation",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-empty.json",
+      "id": "elasticsearch/logs/search-empty",
+      "description": "ES search: match nonexistent — empty result",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1204,
+      "tags": [
+        "logs",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-fulltext.json",
+      "id": "elasticsearch/logs/search-fulltext",
+      "description": "ES search: fulltext search for error/exception keywords",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 78511,
+      "tags": [
+        "logs",
+        "query",
+        "fulltext",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-log-by-trace-id.json",
+      "id": "elasticsearch/logs/search-log-by-trace-id",
+      "description": "ES search: all logs for a specific trace_id",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 9032,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "trace-id",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "fixture_version": "1.0",
+  "id": "datadog/logs/logs-aggregate-by-status",
+  "description": "Datadog logs aggregate: count by status",
+  "backend": "datadog",
+  "tags": [
+    "logs",
+    "aggregate",
+    "group-by",
+    "status",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/logs/analytics/aggregate",
+    "query_params": {},
+    "body": {
+      "compute": [
+        {
+          "aggregation": "count",
+          "type": "total"
+        }
+      ],
+      "filter": {
+        "from": "now-1h",
+        "to": "now",
+        "query": "*"
+      },
+      "group_by": [
+        {
+          "facet": "status",
+          "limit": 10
+        }
+      ]
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "meta": {
+        "elapsed": 46,
+        "request_id": "pddv1ChZPZFlwX09QeVNwMnI2NVBIQW5WelBnIiwKHOub5c_R-9dTULQSuHO9jzbquY7G4RK9GSpre8oSDE5XaqZa4AVJ5fiICw",
+        "status": "done"
+      },
+      "data": {
+        "buckets": [
+          {
+            "by": {
+              "status": "error"
+            },
+            "computes": {
+              "c0": 4644
+            }
+          },
+          {
+            "by": {
+              "status": "info"
+            },
+            "computes": {
+              "c0": 10740
+            }
+          },
+          {
+            "by": {
+              "status": "warn"
+            },
+            "computes": {
+              "c0": 1259
+            }
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "logs_aggregate",
+    "data_count": 3,
+    "series_count": 0,
+    "response_bytes": 321,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-02T13:34:29Z",
+  "source": "recorded",
+  "generator": "scripts/datadog/record-live.sh"
+}

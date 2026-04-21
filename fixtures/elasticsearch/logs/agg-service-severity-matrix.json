@@ -1,0 +1,154 @@
+{
+  "fixture_version": "1.0",
+  "id": "elasticsearch/logs/agg-service-severity-matrix",
+  "description": "ES aggregation: nested service × severity_number matrix",
+  "backend": "elasticsearch",
+  "tags": [
+    "logs",
+    "aggregate",
+    "nested",
+    "matrix",
+    "small"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/logs-generic.otel-default/_search",
+    "query_params": {},
+    "body": {
+      "size": 0,
+      "aggs": {
+        "by_service": {
+          "terms": {
+            "field": "resource.attributes.service.name",
+            "size": 10
+          },
+          "aggs": {
+            "by_severity": {
+              "terms": {
+                "field": "severity_number",
+                "size": 10
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "took": 11,
+      "timed_out": false,
+      "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+      },
+      "hits": {
+        "total": {
+          "value": 7046,
+          "relation": "eq"
+        },
+        "max_score": null,
+        "hits": []
+      },
+      "aggregations": {
+        "by_service": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "load-generator",
+              "doc_count": 6683,
+              "by_severity": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": 9,
+                    "doc_count": 4160
+                  },
+                  {
+                    "key": 13,
+                    "doc_count": 4
+                  },
+                  {
+                    "key": 17,
+                    "doc_count": 2
+                  }
+                ]
+              }
+            },
+            {
+              "key": "recommendation",
+              "doc_count": 201,
+              "by_severity": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": 9,
+                    "doc_count": 132
+                  },
+                  {
+                    "key": 13,
+                    "doc_count": 68
+                  },
+                  {
+                    "key": 17,
+                    "doc_count": 1
+                  }
+                ]
+              }
+            },
+            {
+              "key": "ad",
+              "doc_count": 155,
+              "by_severity": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": []
+              }
+            },
+            {
+              "key": "product-reviews",
+              "doc_count": 6,
+              "by_severity": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": []
+              }
+            },
+            {
+              "key": "checkout",
+              "doc_count": 1,
+              "by_severity": {
+                "doc_count_error_upper_bound": 0,
+                "sum_other_doc_count": 0,
+                "buckets": [
+                  {
+                    "key": 9,
+                    "doc_count": 1
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "facts": {
+    "result_type": "aggs",
+    "data_count": 7046,
+    "response_bytes": 1049,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T09:01:07Z",
+  "source": "recorded",
+  "generator": "scripts/elasticsearch-record-live.sh"
+}

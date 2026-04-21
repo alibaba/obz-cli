@@ -1,0 +1,58 @@
+{
+  "fixture_version": "1.0",
+  "id": "opensearch/logs/indices",
+  "description": "OpenSearch: list indices",
+  "backend": "opensearch",
+  "tags": [
+    "logs",
+    "metadata",
+    "indices",
+    "small"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/_cat/indices?format=json",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": [
+      {
+        "health": "yellow",
+        "status": "open",
+        "index": "otel-traces-2026-04-07",
+        "uuid": "ZlXIiI-gT465injnsbVBdQ",
+        "pri": "1",
+        "rep": "1",
+        "docs.count": "2907",
+        "docs.deleted": "0",
+        "store.size": "7.2mb",
+        "pri.store.size": "7.2mb"
+      },
+      {
+        "health": "yellow",
+        "status": "open",
+        "index": "otel-logs-2026-04-07",
+        "uuid": "DrdkQD2yQ_2KMryPCDW1Vg",
+        "pri": "1",
+        "rep": "1",
+        "docs.count": "17263",
+        "docs.deleted": "0",
+        "store.size": "3.2mb",
+        "pri.store.size": "3.2mb"
+      }
+    ]
+  },
+  "facts": {
+    "result_type": "metadata",
+    "data_count": 0,
+    "response_bytes": 412,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:06:25Z",
+  "source": "recorded",
+  "generator": "scripts/opensearch-record-live.sh"
+}

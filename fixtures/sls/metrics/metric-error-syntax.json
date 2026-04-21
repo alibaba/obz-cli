@@ -1,0 +1,49 @@
+{
+  "fixture_version": "1.0",
+  "id": "sls/metrics/metric-error-syntax",
+  "description": "SLS MetricStore PromQL error: invalid PromQL syntax",
+  "backend": "sls",
+  "tags": [
+    "metrics",
+    "error",
+    "promql",
+    "syntax",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/prometheus/sunfire-cli-test/cli-test-metrics/api/v1/query",
+    "query_params": {
+      "query": "invalid{{{syntax",
+      "time": "1775139667"
+    }
+  },
+  "response": {
+    "status_code": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "error",
+      "errorType": "bad_data",
+      "error": "bad_data: invalid parameter '\"query\"': 1:9: parse error: unexpected left brace '{'",
+      "slsStatus": {
+        "retryPolicy": "None",
+        "errorCode": "BadParameterError",
+        "errorMessages": [
+          "bad_data: invalid parameter '\"query\"': 1:9: parse error: unexpected left brace '{'"
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "series_count": 0,
+    "data_count": 0,
+    "response_bytes": 320,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T14:21:07Z",
+  "source": "recorded",
+  "generator": "scripts/sls/record-live.py"
+}

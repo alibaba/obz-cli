@@ -1,0 +1,33 @@
+{
+  "fixture_version": "1.0",
+  "id": "jaeger/traces/error-invalid-path",
+  "description": "Jaeger API error: unsupported API path",
+  "backend": "jaeger",
+  "tags": [
+    "traces",
+    "error",
+    "not-found",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/nonexistent",
+    "query_params": {}
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8"
+    },
+    "body_raw": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <!-- prevent caching of this HTML by any server, Go or otherwise -->\n    <meta http-equiv=\"cache-control\" content=\"max-age=0\" />\n    <meta http-equiv=\"cache-control\" content=\"no-cache\" />\n    <meta http-equiv=\"expires\" content=\"0\" />\n    <meta http-equiv=\"expires\" content=\"Tue, 01 Jan 1980 1:00:00 GMT\" />\n    <meta http-equiv=\"pragma\" content=\"no-cache\" />\n\n    <!-- NOTE: The document MUST have a <base> element. package.json#homepage is set to \".\" as part of resolving https://github.com/jaegertracing/jaeger-ui/issues/42 and therefore static assets are linked via relative URLs. This will break on many document URLs, e.g. /trace/abc, unless a valid base URL is provided. The base href defaults to \"/\" but the query-service can inject an override. -->\n    <base href=\"/jaeger/ui/\" data-inject-target=\"BASE_URL\" />\n    <link rel=\"shortcut icon\" href=\"./static/favicon-BxcVf0am.ico\">\n    <title>Jaeger UI</title>\n    <script>\n      // Jaeger UI config data is embedded by the query-service via search-replace.\n      // Please see ./README.md#configuration for details.\n\n      // TODO the JSON/JS bifurcation below could be avoided by using a single template function like:\n      // function getJaegerUiConfig() { return null; }\n\n      // Important! Do not alter the following line; query-service looks for that exact pattern.\n      // JAEGER_CONFIG_JS\n\n      function getJaegerUiConfig() {\n        if(typeof window.UIConfig === 'function') {\n          return UIConfig();\n        }\n        const DEFAULT_CONFIG = null;\n        // Important! Do not alter the following line; query-service looks for that exact pattern.\n        const JAEGER_CONFIG = DEFAULT_CONFIG;\n        return JAEGER_CONFIG;\n      }\n      // Jaeger storage compabilities data is embedded by the query-service via search-replace.\n      function getJaegerStorageCapabilities() {\n        const DEFAULT_STORAGE_CAPABILITIES = { \"archiveStorage\": false };\n        const JAEGER_STORAGE_CAPABILITIES = {\"archiveStorage\":false};\n        return JAEGER_STORAGE_CAPABILITIES;\n      }\n      // Jaeger version data is embedded by the query-service via search/replace.\n      function getJaegerVersion() {\n        const DEFAULT_VERSION = {'gitCommit':'', 'gitVersion':'', 'buildDate':''};\n        // Important! Do not alter the following line; query-service looks for that exact pattern.\n        const JAEGER_VERSION = {\"gitCommit\":\"9173e343bfabb4ce8ff04d5b60c4d34058e5744a\",\"gitVersion\":\"v2.14.1\",\"buildDate\":\"2026-01-02T18:34:55Z\"};\n        return JAEGER_VERSION;\n      }\n\n      // Workaround some legacy NPM dependencies that assume this is always defined.\n      window.global = {};\n    </script>\n    <script type=\"module\" crossorigin src=\"./static/index-Ba4Pmzjs.js\"></script>\n    <link rel=\"stylesheet\" crossorigin href=\"./static/index-BCPS3alI.css\">\n    <script type=\"module\">import.meta.url;import(\"_\").catch(()=>1);(async function*(){})().next();window.__vite_is_modern_browser=true</script>\n    <script type=\"module\">!function(){if(window.__vite_is_modern_browser)return;console.warn(\"vite: loading legacy chunks, syntax error above and the same error below should be ignored\");var e=document.getElementById(\"vite-legacy-polyfill\"),n=document.createElement(\"script\");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>\n  </head>\n  <body>\n    <div id=\"jaeger-ui-root\"></div>\n    <!--\n      This file is the main entry point for the Jaeger UI application.\n      See https://vitejs.dev/guide/#index-html-and-project-root for more information\n      on how asset references are managed by the build system.\n    -->\n    <script nomodule>!function(){var e=document,t=e.createElement(\"script\");if(!(\"noModule\"in t)&&\"onbeforeload\"in t){var n=!1;e.addEventListener(\"beforeload\",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute(\"nomodule\")||!n)return;e.preventDefault()}),!0),t.type=\"module\",t.src=\".\",e.head.appendChild(t),t.remove()}}();</script>\n    <script nomodule crossorigin id=\"vite-legacy-polyfill\" src=\"./static/polyfills-legacy-eC6-qqte.js\"></script>\n    <script nomodule crossorigin id=\"vite-legacy-entry\" data-src=\"./static/index-legacy-Bz8uGIV_.js\">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>\n  </body>\n</html>"
+  },
+  "facts": {
+    "result_type": "error",
+    "data_count": 0,
+    "response_bytes": 4499,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-07T05:10:17Z",
+  "source": "recorded",
+  "generator": "scripts/jaeger-record-live.sh"
+}

@@ -1,0 +1,46 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/metrics/error-step-zero",
+  "description": "Error: step=0 in range query",
+  "backend": "victoriametrics",
+  "tags": [
+    "metrics",
+    "error",
+    "step-zero",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query_range",
+    "query_params": {
+      "query": "up",
+      "start": "1775134760",
+      "end": "1775138360",
+      "step": "0"
+    }
+  },
+  "response": {
+    "status_code": 422,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "error",
+      "errorType": "422",
+      "error": "step=0ms is out of allowed range [1ms ... 3153600000000ms]"
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "series_count": 0,
+    "total_points": 0,
+    "data_count": 0,
+    "response_bytes": 105,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:59:20Z",
+  "source": "recorded",
+  "generator": "scripts/vm/record-live.sh"
+}

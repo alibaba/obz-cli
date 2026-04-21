@@ -1,0 +1,44 @@
+{
+  "fixture_version": "1.0",
+  "id": "victoria/metrics/error-syntax",
+  "description": "Error: PromQL syntax error — unmatched parenthesis",
+  "backend": "victoriametrics",
+  "tags": [
+    "metrics",
+    "error",
+    "syntax",
+    "tiny"
+  ],
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/query",
+    "query_params": {
+      "query": "(invalid+{{+syntax",
+      "time": "1775138360"
+    }
+  },
+  "response": {
+    "status_code": 422,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "error",
+      "errorType": "422",
+      "error": "error when executing query=\"(invalid {{ syntax\" for (time=1775138336265, step=300000): labelFilterExpr: unexpected token \"{\"; want \"ident\"; unparsed data: \"{ syntax\""
+    }
+  },
+  "facts": {
+    "result_type": "error",
+    "series_count": 0,
+    "total_points": 0,
+    "data_count": 0,
+    "response_bytes": 220,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": true
+  },
+  "recorded_at": "2026-04-02T13:59:20Z",
+  "source": "recorded",
+  "generator": "scripts/vm/record-live.sh"
+}

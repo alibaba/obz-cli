@@ -1,0 +1,325 @@
+{
+  "fixture_version": "1.0",
+  "id": "prometheus/metrics/post-query",
+  "description": "PromQL instant query via POST — same as instant-vector-multi",
+  "backend": "prometheus",
+  "tags": [
+    "metrics",
+    "query",
+    "instant",
+    "post",
+    "medium"
+  ],
+  "request": {
+    "method": "POST",
+    "path": "/api/v1/query",
+    "query_params": {},
+    "body": {
+      "query": "traces_span_metrics_calls_total",
+      "time": "1775538213"
+    }
+  },
+  "response": {
+    "status_code": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_view_cart",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "271"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "instance": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+              "job": "cart",
+              "service_instance_id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+              "service_name": "cart",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "POST",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775538213,
+              "162"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_checkout_single",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "59"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "GET",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775538213,
+              "2249"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "image-provider",
+              "service_name": "image-provider",
+              "span_kind": "SPAN_KIND_SERVER",
+              "span_name": "GET /status",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "486"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_add_to_cart",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "457"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_browse_product",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "782"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "instance": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+              "job": "cart",
+              "service_instance_id": "a10da6de-7ec8-4b66-873e-b09bc9ba0c30",
+              "service_name": "cart",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "flagd.evaluation.v2.Service/ResolveBoolean",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775538213,
+              "162"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_get_ads",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "263"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "POST",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775538213,
+              "673"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_get_recommendations",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "238"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "POST",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "426"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_get_product_reviews",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "146"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_index",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "92"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_checkout_multi",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "74"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "load-generator",
+              "service_name": "load-generator",
+              "span_kind": "SPAN_KIND_INTERNAL",
+              "span_name": "user_ask_product_ai_assistant",
+              "status_code": "STATUS_CODE_UNSET"
+            },
+            "value": [
+              1775538213,
+              "83"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "job": "product-reviews",
+              "service_name": "product-reviews",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "flagd.evaluation.v1.Service/EventStream",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775538213,
+              "8"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "traces_span_metrics_calls_total",
+              "host_name": "demo-host-01",
+              "instance": "17fd8516-3de2-4ccc-ac4d-4853dd6da14c",
+              "job": "ad",
+              "service_instance_id": "17fd8516-3de2-4ccc-ac4d-4853dd6da14c",
+              "service_name": "ad",
+              "span_kind": "SPAN_KIND_CLIENT",
+              "span_name": "flagd.evaluation.v1.Service/EventStream",
+              "status_code": "STATUS_CODE_ERROR"
+            },
+            "value": [
+              1775538213,
+              "8"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "facts": {
+    "result_type": "vector",
+    "series_count": 18,
+    "total_points": 18,
+    "data_count": 18,
+    "response_bytes": 5323,
+    "has_nan": false,
+    "has_inf": false,
+    "has_empty_result": false
+  },
+  "recorded_at": "2026-04-07T05:03:33Z",
+  "source": "recorded",
+  "generator": "scripts/prometheus-record-live.sh"
+}

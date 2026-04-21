@@ -1,0 +1,41 @@
+{
+  "catalog_version": "1.0",
+  "backend": "sls/metadata",
+  "generated_at": "2026-04-02T14:21:30Z",
+  "fixtures": [
+    {
+      "file": "get-logstore-traces.json",
+      "id": "sls/metadata/get-logstore-traces",
+      "description": "SLS GetLogStore: cli-test-traces details",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1217,
+      "tags": [
+        "metadata",
+        "logstore-detail",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "list-logstores.json",
+      "id": "sls/metadata/list-logstores",
+      "description": "SLS ListLogStores: all logstores in project",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "medium",
+      "file_size_bytes": 1067,
+      "tags": [
+        "metadata",
+        "logstores",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}

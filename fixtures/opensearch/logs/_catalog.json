@@ -1,0 +1,210 @@
+{
+  "catalog_version": "1.0",
+  "backend": "opensearch/logs",
+  "generated_at": "2026-04-07T05:07:22Z",
+  "fixtures": [
+    {
+      "file": "agg-count-by-service.json",
+      "id": "opensearch/logs/agg-count-by-service",
+      "description": "OpenSearch aggregation: count by resource.service.name",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 1784,
+      "tags": [
+        "logs",
+        "aggregate",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-count-by-severity.json",
+      "id": "opensearch/logs/agg-count-by-severity",
+      "description": "OpenSearch aggregation: count by severity.text",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 2006,
+      "tags": [
+        "logs",
+        "aggregate",
+        "count",
+        "group-by",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "agg-histogram.json",
+      "id": "opensearch/logs/agg-histogram",
+      "description": "OpenSearch aggregation: log count histogram over time",
+      "result_type": "aggs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 4186,
+      "tags": [
+        "logs",
+        "aggregate",
+        "histogram",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "error-syntax.json",
+      "id": "opensearch/logs/error-syntax",
+      "description": "OpenSearch error: invalid query syntax",
+      "result_type": "error",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1316,
+      "tags": [
+        "logs",
+        "error",
+        "syntax",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "index-mapping.json",
+      "id": "opensearch/logs/index-mapping",
+      "description": "OpenSearch: log index mapping",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 14914,
+      "tags": [
+        "logs",
+        "metadata",
+        "mapping",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "indices.json",
+      "id": "opensearch/logs/indices",
+      "description": "OpenSearch: list indices",
+      "result_type": "metadata",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1326,
+      "tags": [
+        "logs",
+        "metadata",
+        "indices",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-all.json",
+      "id": "opensearch/logs/search-all",
+      "description": "OpenSearch search: match_all — all logs",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 18648,
+      "tags": [
+        "logs",
+        "query",
+        "basic",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-service.json",
+      "id": "opensearch/logs/search-by-service",
+      "description": "OpenSearch search: match resource.service.name=otelcol-contrib",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 15076,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "service",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-by-severity.json",
+      "id": "opensearch/logs/search-by-severity",
+      "description": "OpenSearch search: severity ERROR",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 27465,
+      "tags": [
+        "logs",
+        "query",
+        "filter",
+        "severity",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-empty.json",
+      "id": "opensearch/logs/search-empty",
+      "description": "OpenSearch search: match nonexistent — empty",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "tiny",
+      "file_size_bytes": 1180,
+      "tags": [
+        "logs",
+        "query",
+        "empty",
+        "edge-case",
+        "tiny"
+      ],
+      "source": "recorded",
+      "generated": false
+    },
+    {
+      "file": "search-fulltext.json",
+      "id": "opensearch/logs/search-fulltext",
+      "description": "OpenSearch search: fulltext error keyword",
+      "result_type": "logs",
+      "series_count": 0,
+      "total_points": 0,
+      "size_category": "large",
+      "file_size_bytes": 27336,
+      "tags": [
+        "logs",
+        "query",
+        "fulltext",
+        "small"
+      ],
+      "source": "recorded",
+      "generated": false
+    }
+  ]
+}
