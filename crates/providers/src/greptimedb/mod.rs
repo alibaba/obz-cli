@@ -1,13 +1,13 @@
-//! GreptimeDB metric provider.
+//! `GreptimeDB` metric provider.
 //!
-//! GreptimeDB exposes a Prometheus-compatible HTTP API under the
+//! `GreptimeDB` exposes a Prometheus-compatible HTTP API under the
 //! `/v1/prometheus` path prefix. This module reuses the shared
 //! [`PromqlMetricProvider`] — all six `MetricProvider` methods are
 //! implemented in [`crate::promql::provider`].
 //!
 //! # Default database
 //!
-//! GreptimeDB routes queries to the `public` database by default.
+//! `GreptimeDB` routes queries to the `public` database by default.
 //! To target a different database, append `?db=<name>` directly in
 //! your queries or set a custom `db` query parameter via the `db`
 //! config key (passed as an extra header workaround is not needed —
@@ -25,9 +25,9 @@
 //! | `metric label-values`     | `GET /v1/prometheus/api/v1/label/{name}/values` |
 //! | `metric series`           | `GET /v1/prometheus/api/v1/series`             |
 
-/// GreptimeDB → obz model conversion functions (re-exported from `promql`).
+/// `GreptimeDB` → obz model conversion functions (re-exported from `promql`).
 pub(crate) mod convert;
-/// GreptimeDB API response deserialization types (re-exported from `promql`).
+/// `GreptimeDB` API response deserialization types (re-exported from `promql`).
 pub(crate) mod response;
 
 use crate::promql::provider::PromqlMetricProvider;
@@ -41,7 +41,7 @@ use obz_core::registry::{BuiltProvider, ProviderMeta, SupportedCommands};
 // Registration
 // ---------------------------------------------------------------------------
 
-/// Factory function: build a [`BuiltProvider`] for GreptimeDB.
+/// Factory function: build a [`BuiltProvider`] for `GreptimeDB`.
 fn build(config: &obz_core::provider::ProviderConfig) -> Result<BuiltProvider, ObzError> {
     let endpoint = config.require_config("endpoint")?;
     validate_endpoint(endpoint)?;
@@ -78,7 +78,7 @@ fn build(config: &obz_core::provider::ProviderConfig) -> Result<BuiltProvider, O
     })
 }
 
-/// Return the [`ProviderMeta`] for GreptimeDB.
+/// Return the [`ProviderMeta`] for `GreptimeDB`.
 ///
 /// Called by [`obz_providers::register_all`] at startup.
 pub(crate) fn meta() -> ProviderMeta {
@@ -98,9 +98,7 @@ pub(crate) fn meta() -> ProviderMeta {
             trace_get: false,
         },
         build,
-        check: Some(|config| {
-            Box::pin(crate::probe::http_get_probe(config, "/v1/health"))
-        }),
+        check: Some(|config| Box::pin(crate::probe::http_get_probe(config, "/v1/health"))),
         command_flags: &[],
         extension_commands: &[],
     }
