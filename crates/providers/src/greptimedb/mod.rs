@@ -2,16 +2,15 @@
 //!
 //! `GreptimeDB` exposes a Prometheus-compatible HTTP API under the
 //! `/v1/prometheus` path prefix. This module reuses the shared
-//! [`PromqlMetricProvider`] — all six `MetricProvider` methods are
-//! implemented in [`crate::promql::provider`].
+//! [`PromqlMetricProvider`] for query, list, labels, label-values, and
+//! series commands.
 //!
 //! # Default database
 //!
 //! `GreptimeDB` routes queries to the `public` database by default.
-//! To target a different database, append `?db=<name>` directly in
-//! your queries or set a custom `db` query parameter via the `db`
-//! config key (passed as an extra header workaround is not needed —
-//! the default works for most deployments).
+//! To target a different database, pass the `db` query parameter in
+//! your `PromQL` request. The default database is `public`, which suits
+//! most deployments.
 //!
 //! # API Endpoints
 //!
@@ -20,7 +19,6 @@
 //! | `metric query` (instant)  | `GET /v1/prometheus/api/v1/query`              |
 //! | `metric query` (range)    | `GET /v1/prometheus/api/v1/query_range`        |
 //! | `metric list`             | `GET /v1/prometheus/api/v1/label/__name__/values` |
-//! | `metric info`             | `GET /v1/prometheus/api/v1/metadata`           |
 //! | `metric labels`           | `GET /v1/prometheus/api/v1/labels`             |
 //! | `metric label-values`     | `GET /v1/prometheus/api/v1/label/{name}/values` |
 //! | `metric series`           | `GET /v1/prometheus/api/v1/series`             |
@@ -89,7 +87,7 @@ pub(crate) fn meta() -> ProviderMeta {
         supported_commands: SupportedCommands {
             metric_query: true,
             metric_list: true,
-            metric_info: true,
+            metric_info: false,
             metric_labels: true,
             metric_label_values: true,
             metric_series: true,

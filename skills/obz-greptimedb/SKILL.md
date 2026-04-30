@@ -1,10 +1,11 @@
 ---
 name: obz-greptimedb
 description: >
-  GreptimeDB provider for obz. Covers all 6 metric commands using PromQL
-  via GreptimeDB's Prometheus-compatible API. Use this skill when the user
-  mentions "GreptimeDB", "Greptime", "obz metric -p greptimedb", or needs
-  to query metrics stored in a GreptimeDB instance.
+  GreptimeDB provider for obz. Covers PromQL metric query, list, labels,
+  label-values, and series commands via GreptimeDB's Prometheus-compatible API.
+  Use this skill when the user mentions "GreptimeDB", "Greptime",
+  "obz metric -p greptimedb", or needs to query metrics stored in a
+  GreptimeDB instance.
 ---
 
 # obz-greptimedb: GreptimeDB Provider
@@ -17,22 +18,24 @@ description: >
 | Signal           | Metric                                             |
 | Query language   | PromQL                                             |
 | Default port     | 4000 (HTTP)                                        |
-| Auth             | Basic auth or no auth                              |
+| Auth             | Bearer token, Basic auth, or no auth               |
 | Provider flags   | None                                               |
-| Supported cmds   | query, list, info, labels, label-values, series    |
+| Supported cmds   | query, list, labels, label-values, series          |
 
 ## Supported Commands
 
-All six core metric commands work with this provider:
+GreptimeDB supports these metric commands:
 
 ```
 obz metric query        # Run an instant or range PromQL query
 obz metric list         # List available metric names
-obz metric info         # Show metadata for a specific metric
 obz metric labels       # List all known label names
 obz metric label-values # List values for a given label
 obz metric series       # List matching time series
 ```
+
+`obz metric info` is not declared as supported because GreptimeDB does not
+currently expose the Prometheus metadata endpoint used by that command.
 
 ## Quick Start
 
@@ -56,16 +59,28 @@ obz metric label-values -p greptimedb --endpoint http://localhost:4000 --label _
 
 ## Authentication
 
-GreptimeDB supports basic auth (username + password). Configure credentials
-in `~/.config/obz/config.yaml`:
+GreptimeDB supports bearer token auth, basic auth (username + password), or no
+auth. Configure credentials in `~/.config/obz/config.yaml`:
 
 ```yaml
 providers:
   greptime-prod:
+    provider: greptimedb
     endpoint: http://localhost:4000
     auth:
       username: ${env:GREPTIME_USER}
       password: ${env:GREPTIME_PASS}
+```
+
+For token-based deployments:
+
+```yaml
+providers:
+  greptime-cloud:
+    provider: greptimedb
+    endpoint: https://greptime.example.com
+    auth:
+      token: ${env:GREPTIME_TOKEN}
 ```
 
 Then query with just `-p`:
@@ -79,6 +94,7 @@ For unauthenticated local development instances:
 ```yaml
 providers:
   greptime-local:
+    provider: greptimedb
     endpoint: http://localhost:4000
 ```
 
@@ -92,7 +108,6 @@ obz automatically routes to the correct paths:
 | `metric query` (instant) | `GET /v1/prometheus/api/v1/query`            |
 | `metric query` (range)   | `GET /v1/prometheus/api/v1/query_range`      |
 | `metric list`            | `GET /v1/prometheus/api/v1/label/__name__/values` |
-| `metric info`            | `GET /v1/prometheus/api/v1/metadata`         |
 | `metric labels`          | `GET /v1/prometheus/api/v1/labels`           |
 | `metric label-values`    | `GET /v1/prometheus/api/v1/label/{name}/values` |
 | `metric series`          | `GET /v1/prometheus/api/v1/series`           |
@@ -128,8 +143,15 @@ histogram_quantile(0.99, rate(http_request_duration_seconds_bucket[5m]))
 
 Verify connectivity:
 
+```yaml
+providers:
+  greptimedb:
+    provider: greptimedb
+    endpoint: http://localhost:4000
+```
+
 ```bash
-obz provider check -p greptimedb --endpoint http://localhost:4000
+obz provider check greptimedb
 ```
 
 This issues a `GET /v1/health` request to confirm the GreptimeDB instance
