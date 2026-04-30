@@ -2,6 +2,12 @@
 
 [English](README.md)
 
+[![CI](https://github.com/alibaba/obz-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/alibaba/obz-cli/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/alibaba/obz-cli?sort=semver&display_name=tag)](https://github.com/alibaba/obz-cli/releases)
+[![Downloads](https://img.shields.io/github/downloads/alibaba/obz-cli/total)](https://github.com/alibaba/obz-cli/releases)
+[![License](https://img.shields.io/github/license/alibaba/obz-cli)](LICENSE)
+[![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](Cargo.toml)
+
 多后端可观测性 CLI，统一查询 metrics、logs、traces — AI Agent 友好。当前支持 10+ 种后端，语义化查询能力将在后续版本中支持。
 
 ## 为什么用 obz？
