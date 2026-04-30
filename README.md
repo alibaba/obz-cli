@@ -2,6 +2,12 @@
 
 [中文](README.zh-CN.md)
 
+[![CI](https://github.com/alibaba/obz-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/alibaba/obz-cli/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/alibaba/obz-cli?sort=semver&display_name=tag)](https://github.com/alibaba/obz-cli/releases)
+[![Downloads](https://img.shields.io/github/downloads/alibaba/obz-cli/total)](https://github.com/alibaba/obz-cli/releases)
+[![License](https://img.shields.io/github/license/alibaba/obz-cli)](LICENSE)
+[![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](Cargo.toml)
+
 A multi-backend observability CLI for metrics, logs, and traces — unified interface, AI-Agent friendly. Currently supports 10+ backends, with semantic querying planned for future releases.
 
 ## Why obz?
