@@ -20,7 +20,7 @@ A multi-backend observability CLI for metrics, logs, and traces — unified inte
 
 ## Features
 
-- **Unified interface** — One set of commands for 10+ backends: VictoriaMetrics, Prometheus, Grafana Mimir, VictoriaLogs, Grafana Loki, VictoriaTraces, Jaeger, Grafana Tempo, OpenSearch, Elasticsearch, Alibaba Cloud SLS, and Datadog
+- **Unified interface** — One set of commands for 10+ backends: VictoriaMetrics, Prometheus, Grafana Mimir, GreptimeDB, VictoriaLogs, Grafana Loki, VictoriaTraces, Jaeger, Grafana Tempo, OpenSearch, Elasticsearch, Alibaba Cloud SLS, and Datadog
 - **Agent-first** — Default JSON output with structured error responses (category, exit code, recoverability, fix suggestions), built-in per-provider skill documents for AI Agents, and output projection (`--fields`, `--truncate`) to reduce token usage
 - **Backend passthrough** — Uses native query languages (MetricsQL, PromQL, LogsQL, LogQL, TraceQL, DQL, etc.)
 - **Extensible** — Three-layer architecture (CLI / core framework / provider adapters) with one-way dependencies; adding a new backend means implementing a provider trait and registering it — no changes to the core
@@ -106,14 +106,14 @@ Per-provider usage details are available in the [skills](skills/) directory — 
 
 ### Metric
 
-| Command | VM | Prom | Mimir | SLS | DD |
-|---------|:--:|:----:|:-----:|:---:|:--:|
-| `metric query` | MetricsQL | PromQL | PromQL | PromQL | Datadog Query |
-| `metric list` | Yes | Yes | Yes | Yes | Yes |
-| `metric info` | Yes | Yes | Yes | — | Yes |
-| `metric labels` | Yes | Yes | Yes | Yes | — |
-| `metric label-values` | Yes | Yes | Yes | Yes | — |
-| `metric series` | Yes | Yes | Yes | Yes | — |
+| Command | VM | Prom | Mimir | Greptime | SLS | DD |
+|---------|:--:|:----:|:-----:|:--------:|:---:|:--:|
+| `metric query` | MetricsQL | PromQL | PromQL | PromQL | PromQL | Datadog Query |
+| `metric list` | Yes | Yes | Yes | Yes | Yes | Yes |
+| `metric info` | Yes | Yes | Yes | — | — | Yes |
+| `metric labels` | Yes | Yes | Yes | Yes | Yes | — |
+| `metric label-values` | Yes | Yes | Yes | Yes | Yes | — |
+| `metric series` | Yes | Yes | Yes | Yes | Yes | — |
 
 ### Log
 
@@ -132,7 +132,7 @@ Per-provider usage details are available in the [skills](skills/) directory — 
 | `trace tags` | — | — | Yes | — | — | — | — |
 | `trace tag-values` | — | — | Yes | — | — | — | — |
 
-**Provider aliases**: `vm` (VictoriaMetrics), `vl` (VictoriaLogs), `vt` (VictoriaTraces), `sls` (Alibaba Cloud SLS), `dd` (Datadog), `prom` (Prometheus), `jg` (Jaeger), `os` (OpenSearch), `es` (Elasticsearch), `mimir` (Grafana Mimir), `loki` (Grafana Loki), `tempo` (Grafana Tempo)
+**Provider aliases**: `vm` (VictoriaMetrics), `vl` (VictoriaLogs), `vt` (VictoriaTraces), `sls` (Alibaba Cloud SLS), `dd` (Datadog), `prom` (Prometheus), `greptime` (GreptimeDB), `jg` (Jaeger), `os` (OpenSearch), `es` (Elasticsearch), `mimir` (Grafana Mimir), `loki` (Grafana Loki), `tempo` (Grafana Tempo)
 
 ## Configuration
 

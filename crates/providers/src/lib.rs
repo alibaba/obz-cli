@@ -23,6 +23,7 @@
 
 mod datadog;
 mod elasticsearch;
+mod greptimedb;
 mod jaeger;
 mod jaegerapi;
 mod loki;
@@ -58,6 +59,7 @@ pub fn register_all(registry: &mut obz_core::ProviderRegistry) {
     registry.register(sls::meta());
     registry.register(datadog::meta());
     registry.register(prometheus::meta());
+    registry.register(greptimedb::meta());
     registry.register(jaeger::meta());
     registry.register(opensearch::meta());
     registry.register(elasticsearch::meta());

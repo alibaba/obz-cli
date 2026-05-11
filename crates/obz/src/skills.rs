@@ -87,6 +87,12 @@ pub(crate) static SKILLS: &[SkillEntry] = &[
         content: include_str!("../../../skills/obz-prometheus/SKILL.md"),
     },
     SkillEntry {
+        name: "obz-greptimedb",
+        description: "GreptimeDB metric queries via PromQL",
+        provider: Some("greptimedb"),
+        content: include_str!("../../../skills/obz-greptimedb/SKILL.md"),
+    },
+    SkillEntry {
         name: "obz-jaeger",
         description: "Trace search via Jaeger API",
         provider: Some("jaeger"),
@@ -455,8 +461,8 @@ mod tests {
     fn skill_count() {
         assert_eq!(
             SKILLS.len(),
-            13,
-            "expected 13 skills (1 core + 12 providers)"
+            14,
+            "expected 14 skills (1 core + 13 providers)"
         );
     }
 
@@ -512,7 +518,11 @@ mod tests {
 
         let result = install(
             dir.path().to_str().unwrap(),
-            &["obz-vm".to_string(), "obz-sls".to_string()],
+            &[
+                "obz-vm".to_string(),
+                "obz-sls".to_string(),
+                "obz-greptimedb".to_string(),
+            ],
             false,
             config_dir.path(),
             &registry,
@@ -521,6 +531,7 @@ mod tests {
 
         assert!(dir.path().join("obz-vm/SKILL.md").exists());
         assert!(dir.path().join("obz-sls/SKILL.md").exists());
+        assert!(dir.path().join("obz-greptimedb/SKILL.md").exists());
         assert!(!dir.path().join("obz-dd/SKILL.md").exists());
     }
 
@@ -601,6 +612,10 @@ mod tests {
         let entry = find_skill("obz-core").unwrap();
         assert_eq!(entry.name, "obz-core");
         assert!(entry.provider.is_none());
+
+        let entry = find_skill("obz-greptimedb").unwrap();
+        assert_eq!(entry.name, "obz-greptimedb");
+        assert_eq!(entry.provider, Some("greptimedb"));
     }
 
     #[test]
@@ -625,6 +640,15 @@ mod tests {
             "should start with YAML frontmatter"
         );
         assert!(output.contains("obz-core"));
+    }
+
+    #[test]
+    fn show_greptimedb_skill() {
+        let mut buf = Vec::new();
+        show_to_writer(&["obz-greptimedb".to_string()], &mut buf).unwrap();
+        let output = String::from_utf8(buf).unwrap();
+        assert!(output.contains("obz-greptimedb"));
+        assert!(output.contains("GreptimeDB"));
     }
 
     #[test]
@@ -657,6 +681,10 @@ mod tests {
         assert_eq!(skill_name_for_provider("victoriametrics"), Some("obz-vm"));
         assert_eq!(skill_name_for_provider("sls"), Some("obz-sls"));
         assert_eq!(skill_name_for_provider("datadog"), Some("obz-dd"));
+        assert_eq!(
+            skill_name_for_provider("greptimedb"),
+            Some("obz-greptimedb")
+        );
     }
 
     #[test]

@@ -20,7 +20,7 @@
 
 ## 特性
 
-- **多后端统一接口** — 一套命令查询 10+ 种后端：VictoriaMetrics、Prometheus、Grafana Mimir、VictoriaLogs、Grafana Loki、VictoriaTraces、Jaeger、Grafana Tempo、OpenSearch、Elasticsearch、阿里云 SLS、Datadog
+- **多后端统一接口** — 一套命令查询 10+ 种后端：VictoriaMetrics、Prometheus、Grafana Mimir、GreptimeDB、VictoriaLogs、Grafana Loki、VictoriaTraces、Jaeger、Grafana Tempo、OpenSearch、Elasticsearch、阿里云 SLS、Datadog
 - **Agent-first** — 默认 JSON 输出，结构化错误响应（错误分类、退出码、是否可重试、修复建议），内置各 Provider 的 AI Agent 技能文档，支持输出投影（--fields、--truncate）减少 token 消耗
 - **后端透传** — 使用后端原生查询语言（MetricsQL、PromQL、LogsQL、LogQL、TraceQL、DQL 等），不发明 DSL
 - **可扩展** — 三层架构（CLI 层 / 核心框架 / Provider 适配层），依赖方向单向；新增后端只需实现 Provider trait 并注册，不需要改动核心框架
@@ -106,14 +106,14 @@ obz skills                输出面向 AI Agent 的 Provider 技能文档
 
 ### Metric
 
-| 命令 | VM | Prom | Mimir | SLS | DD |
-|------|:--:|:----:|:-----:|:---:|:--:|
-| `metric query` | MetricsQL | PromQL | PromQL | PromQL | Datadog Query |
-| `metric list` | 支持 | 支持 | 支持 | 支持 | 支持 |
-| `metric info` | 支持 | 支持 | 支持 | — | 支持 |
-| `metric labels` | 支持 | 支持 | 支持 | 支持 | — |
-| `metric label-values` | 支持 | 支持 | 支持 | 支持 | — |
-| `metric series` | 支持 | 支持 | 支持 | 支持 | — |
+| 命令 | VM | Prom | Mimir | Greptime | SLS | DD |
+|------|:--:|:----:|:-----:|:--------:|:---:|:--:|
+| `metric query` | MetricsQL | PromQL | PromQL | PromQL | PromQL | Datadog Query |
+| `metric list` | 支持 | 支持 | 支持 | 支持 | 支持 | 支持 |
+| `metric info` | 支持 | 支持 | 支持 | — | — | 支持 |
+| `metric labels` | 支持 | 支持 | 支持 | 支持 | 支持 | — |
+| `metric label-values` | 支持 | 支持 | 支持 | 支持 | 支持 | — |
+| `metric series` | 支持 | 支持 | 支持 | 支持 | 支持 | — |
 
 ### Log
 
@@ -132,7 +132,7 @@ obz skills                输出面向 AI Agent 的 Provider 技能文档
 | `trace tags` | — | — | 支持 | — | — | — | — |
 | `trace tag-values` | — | — | 支持 | — | — | — | — |
 
-**Provider 别名**：`vm`（VictoriaMetrics）、`vl`（VictoriaLogs）、`vt`（VictoriaTraces）、`sls`（阿里云 SLS）、`dd`（Datadog）、`prom`（Prometheus）、`jg`（Jaeger）、`os`（OpenSearch）、`es`（Elasticsearch）、`mimir`（Grafana Mimir）、`loki`（Grafana Loki）、`tempo`（Grafana Tempo）
+**Provider 别名**：`vm`（VictoriaMetrics）、`vl`（VictoriaLogs）、`vt`（VictoriaTraces）、`sls`（阿里云 SLS）、`dd`（Datadog）、`prom`（Prometheus）、`greptime`（GreptimeDB）、`jg`（Jaeger）、`os`（OpenSearch）、`es`（Elasticsearch）、`mimir`（Grafana Mimir）、`loki`（Grafana Loki）、`tempo`（Grafana Tempo）
 
 ## 配置文件
 
