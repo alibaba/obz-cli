@@ -649,6 +649,16 @@ mod tests {
         let output = String::from_utf8(buf).unwrap();
         assert!(output.contains("obz-greptimedb"));
         assert!(output.contains("GreptimeDB"));
+        assert!(output.contains("db: public"));
+        assert!(output.contains("root HTTP(S) URL only"));
+        assert!(output.contains("path"));
+        assert!(output.contains("query string"));
+        assert!(output.contains("fragment"));
+        assert!(output.contains("metric list` is also not declared as supported"));
+        assert!(output.contains("obz metric label-values -p greptimedb"));
+        assert!(output.contains("--match 'up'"));
+        assert!(!output.contains("--label __name__"));
+        assert!(!output.contains("--range"));
     }
 
     #[test]

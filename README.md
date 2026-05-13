@@ -109,7 +109,7 @@ Per-provider usage details are available in the [skills](skills/) directory — 
 | Command | VM | Prom | Mimir | Greptime | SLS | DD |
 |---------|:--:|:----:|:-----:|:--------:|:---:|:--:|
 | `metric query` | MetricsQL | PromQL | PromQL | PromQL | PromQL | Datadog Query |
-| `metric list` | Yes | Yes | Yes | Yes | Yes | Yes |
+| `metric list` | Yes | Yes | Yes | — | Yes | Yes |
 | `metric info` | Yes | Yes | Yes | — | — | Yes |
 | `metric labels` | Yes | Yes | Yes | Yes | Yes | — |
 | `metric label-values` | Yes | Yes | Yes | Yes | Yes | — |
@@ -173,6 +173,11 @@ providers:
     auth:
       api-key: ${env:DD_API_KEY}
       app-key: ${env:DD_APP_KEY}
+
+  greptime:
+    provider: greptimedb
+    endpoint: http://localhost:4000  # root URL only; no path, query, or fragment
+    db: public                      # required; GreptimeDB database name
 
   es-prod:
     provider: es
