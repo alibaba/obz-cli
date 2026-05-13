@@ -53,6 +53,10 @@ pub(crate) struct PromqlMetricProvider {
     ///
     /// Used for Grafana multi-tenancy (`X-Scope-OrgID`).
     extra_headers: Vec<(String, String)>,
+    /// Extra query parameters applied to every request.
+    ///
+    /// Used for backend-specific routing knobs such as `GreptimeDB` `db`.
+    extra_query: Vec<(String, String)>,
     /// Provider display name for error messages (e.g. `"VictoriaMetrics"`).
     provider_name: &'static str,
     /// Whether to print HTTP request/response details to stderr.
@@ -90,9 +94,16 @@ impl PromqlMetricProvider {
             basic_auth,
             path_prefix,
             extra_headers,
+            extra_query: Vec::new(),
             provider_name,
             verbose,
         }
+    }
+
+    /// Return a clone with additional query parameters on every request.
+    pub(crate) fn with_extra_query(mut self, extra_query: Vec<(String, String)>) -> Self {
+        self.extra_query = extra_query;
+        self
     }
 
     /// Build a GET request with authentication and extra headers applied.
@@ -102,6 +113,9 @@ impl PromqlMetricProvider {
         req = apply_standard_auth(req, &self.bearer_token, &self.basic_auth);
         for (name, value) in &self.extra_headers {
             req = req.header(name.as_str(), value.as_str());
+        }
+        for (name, value) in &self.extra_query {
+            req = req.query(&[(name.as_str(), value.as_str())]);
         }
         req
     }
