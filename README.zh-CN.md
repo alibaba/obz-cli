@@ -109,7 +109,7 @@ obz skills                输出面向 AI Agent 的 Provider 技能文档
 | 命令 | VM | Prom | Mimir | Greptime | SLS | DD |
 |------|:--:|:----:|:-----:|:--------:|:---:|:--:|
 | `metric query` | MetricsQL | PromQL | PromQL | PromQL | PromQL | Datadog Query |
-| `metric list` | 支持 | 支持 | 支持 | 支持 | 支持 | 支持 |
+| `metric list` | 支持 | 支持 | 支持 | — | 支持 | 支持 |
 | `metric info` | 支持 | 支持 | 支持 | — | — | 支持 |
 | `metric labels` | 支持 | 支持 | 支持 | 支持 | 支持 | — |
 | `metric label-values` | 支持 | 支持 | 支持 | 支持 | 支持 | — |
@@ -172,6 +172,11 @@ providers:
     auth:
       api-key: ${env:DD_API_KEY}
       app-key: ${env:DD_APP_KEY}
+
+  greptime:
+    provider: greptimedb
+    endpoint: http://localhost:4000  # 只能填根 URL；不能包含 path、query 或 fragment
+    db: public                      # 必填；GreptimeDB 数据库名
 
   es-prod:
     provider: es
