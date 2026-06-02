@@ -61,15 +61,16 @@ fn main() -> ExitCode {
     let start_time = SystemTime::now();
     let start_instant = Instant::now();
 
-    let outcome = run_cli();
+    let traceparent = telemetry::downstream_traceparent();
+    let outcome = run_cli(&traceparent);
 
     let duration = start_instant.elapsed();
-    telemetry::record(&outcome, start_time, duration);
+    telemetry::record(&outcome, start_time, duration, &traceparent);
 
     ExitCode::from(outcome.exit_code as u8)
 }
 
-fn run_cli() -> CliOutcome {
+fn run_cli(traceparent: &str) -> CliOutcome {
     let registry = build_registry();
 
     let config_dir = std::env::var_os("OBZ_CONFIG_DIR")
@@ -187,7 +188,7 @@ fn run_cli() -> CliOutcome {
         .enable_all()
         .build()
         .expect("failed to build tokio runtime")
-        .block_on(dispatch::run(&registry, matches, &config_dir));
+        .block_on(dispatch::run(&registry, matches, &config_dir, traceparent));
 
     match result {
         Ok(()) => CliOutcome::success(&signal_module),
