@@ -29,6 +29,9 @@ serde_yaml = "0.9"
 tempfile = "3"
 futures = "0.3"
 http = "1"
+opentelemetry = { version = "0.32", default-features = false, features = ["trace", "metrics"] }
+opentelemetry_sdk = { version = "0.32", default-features = false, features = ["trace", "metrics", "rt-tokio-current-thread"] }
+opentelemetry-otlp = { version = "0.32", default-features = false, features = ["trace", "metrics", "http-proto", "reqwest-blocking-client"] }
 
 [dev-dependencies]
 async-trait = { workspace = true }
