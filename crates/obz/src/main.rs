@@ -179,10 +179,7 @@ fn run_cli(traceparent: &str) -> CliOutcome {
         }
     }
 
-    let signal_module = matches
-        .subcommand_name()
-        .unwrap_or("cli")
-        .to_string();
+    let signal_module = matches.subcommand_name().unwrap_or("cli").to_string();
 
     let (provider_for_errors, result) = tokio::runtime::Builder::new_current_thread()
         .enable_all()

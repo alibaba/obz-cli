@@ -32,7 +32,6 @@ allow = [
     "ISC",
     "Unicode-3.0",
     "CDLA-Permissive-2.0",
-    "Zlib",
 ]
 confidence-threshold = 0.8
 
@@ -83,10 +82,14 @@ skip = [
     { name = "thiserror", version = "<2" },
     { name = "thiserror-impl", version = "<2" },
 
-    # tempfile 3.27+ depends on getrandom 0.4, while ring (via rustls) still
-    # uses getrandom 0.2. No types are exchanged across the boundary — both are
-    # used internally for random byte generation.
-    { name = "getrandom", version = "<0.3" },
+    # opentelemetry_sdk → rand → getrandom 0.3, while tempfile uses getrandom 0.4.
+    # No types are exchanged across the boundary — both are used internally for
+    # random byte generation.
+    { name = "getrandom", version = "<0.4" },
+
+    # getrandom 0.3 pulls r-efi 5.x, getrandom 0.4 pulls r-efi 6.x.
+    # Platform-specific EFI types, never exchanged across crate boundaries.
+    { name = "r-efi", version = "<6" },
 ]
 
 # -- Sources: restrict where crates can come from -----------------------------

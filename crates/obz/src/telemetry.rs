@@ -153,15 +153,11 @@ fn record_inner(
         .map(|p| p.display().to_string())
         .unwrap_or_else(|_| "obz".to_string());
 
-    let service_name =
-        std::env::var("OTEL_SERVICE_NAME").unwrap_or_else(|_| "obz".to_string());
+    let service_name = std::env::var("OTEL_SERVICE_NAME").unwrap_or_else(|_| "obz".to_string());
 
     let resource = Resource::builder()
         .with_service_name(service_name)
-        .with_attributes([KeyValue::new(
-            "service.version",
-            env!("CARGO_PKG_VERSION"),
-        )])
+        .with_attributes([KeyValue::new("service.version", env!("CARGO_PKG_VERSION"))])
         .build();
 
     let span_exporter = opentelemetry_otlp::SpanExporter::builder()
@@ -240,7 +236,7 @@ fn record_inner(
     Ok(())
 }
 
-/// Build an OTel [`Context`] from the downstream `traceparent` string we
+/// Build an `OTel` [`Context`] from the downstream `traceparent` string we
 /// generated earlier. The span recorded here becomes a child of the
 /// upstream `TRACEPARENT` (if one was set), keeping the same trace-id.
 fn build_parent_context(traceparent: &str) -> Context {
@@ -292,27 +288,21 @@ mod tests {
         assert!(parse_traceparent("").is_none());
         assert!(parse_traceparent("not-a-traceparent").is_none());
         // Invalid version 0xff
-        assert!(parse_traceparent(
-            "ff-4bf92f3577b86cd56163f4d0e6c7318e-00f067aa0ba902b7-01"
-        )
-        .is_none());
+        assert!(
+            parse_traceparent("ff-4bf92f3577b86cd56163f4d0e6c7318e-00f067aa0ba902b7-01").is_none()
+        );
         // All-zero trace-id
-        assert!(parse_traceparent(
-            "00-00000000000000000000000000000000-00f067aa0ba902b7-01"
-        )
-        .is_none());
+        assert!(
+            parse_traceparent("00-00000000000000000000000000000000-00f067aa0ba902b7-01").is_none()
+        );
         // All-zero parent-id
-        assert!(parse_traceparent(
-            "00-4bf92f3577b86cd56163f4d0e6c7318e-0000000000000000-01"
-        )
-        .is_none());
+        assert!(
+            parse_traceparent("00-4bf92f3577b86cd56163f4d0e6c7318e-0000000000000000-01").is_none()
+        );
         // Wrong trace-id length
         assert!(parse_traceparent("00-4bf92f-00f067aa0ba902b7-01").is_none());
         // Wrong parent-id length
-        assert!(parse_traceparent(
-            "00-4bf92f3577b86cd56163f4d0e6c7318e-00f067-01"
-        )
-        .is_none());
+        assert!(parse_traceparent("00-4bf92f3577b86cd56163f4d0e6c7318e-00f067-01").is_none());
     }
 
     #[test]
@@ -381,10 +371,7 @@ mod tests {
             error_type_for(5, Some(ErrorCode::NotSupported)),
             Some("_OTHER".to_string())
         );
-        assert_eq!(
-            error_type_for(1, None),
-            Some("_OTHER".to_string())
-        );
+        assert_eq!(error_type_for(1, None), Some("_OTHER".to_string()));
     }
 
     #[test]
