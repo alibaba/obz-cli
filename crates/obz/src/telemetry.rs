@@ -9,7 +9,7 @@ use opentelemetry::trace::{
 };
 use opentelemetry::{Context, KeyValue};
 use opentelemetry_sdk::metrics::SdkMeterProvider;
-use opentelemetry_sdk::trace::SdkTracerProvider;
+use opentelemetry_sdk::trace::{IdGenerator, SdkTracerProvider};
 use opentelemetry_sdk::Resource;
 
 use obz_core::ErrorCode;
@@ -33,7 +33,13 @@ struct ParsedTraceparent {
 
 fn parse_traceparent(value: &str) -> Option<ParsedTraceparent> {
     let parts: Vec<&str> = value.trim().split('-').collect();
-    if parts.len() < 4 {
+    // W3C v00 traceparent shape: exactly four hyphen-separated fields with
+    // fixed hex widths 2/32/16/2. Reject anything else (including v00 headers
+    // carrying extra trailing fields).
+    if parts.len() != 4 {
+        return None;
+    }
+    if parts[0].len() != 2 || parts[3].len() != 2 {
         return None;
     }
     let version = u8::from_str_radix(parts[0], 16).ok()?;
@@ -46,6 +52,12 @@ fn parse_traceparent(value: &str) -> Option<ParsedTraceparent> {
     }
     let parent_id = parts[2];
     if parent_id.len() != 16 || parent_id.chars().all(|c| c == '0') {
+        return None;
+    }
+    // Validate hex (str_radix below catches non-hex flags; ensure ids are hex too).
+    if !trace_id.chars().all(|c| c.is_ascii_hexdigit())
+        || !parent_id.chars().all(|c| c.is_ascii_hexdigit())
+    {
         return None;
     }
     let trace_flags = u8::from_str_radix(parts[3], 16).ok()?;
@@ -163,10 +175,21 @@ fn record_inner(
     let span_exporter = opentelemetry_otlp::SpanExporter::builder()
         .with_http()
         .build()?;
-    let tracer_provider = SdkTracerProvider::builder()
+    let mut tracer_provider_builder = SdkTracerProvider::builder()
         .with_resource(resource.clone())
-        .with_simple_exporter(span_exporter)
-        .build();
+        .with_simple_exporter(span_exporter);
+    if let Some(ids) = parse_traceparent(traceparent).and_then(|p| {
+        hex_to_bytes::<16>(&p.trace_id)
+            .ok()
+            .zip(hex_to_bytes::<8>(&p.parent_id).ok())
+    }) {
+        let (trace_id_bytes, span_id_bytes) = ids;
+        tracer_provider_builder = tracer_provider_builder.with_id_generator(FixedIdGenerator {
+            trace_id: TraceId::from_bytes(trace_id_bytes),
+            span_id: SpanId::from_bytes(span_id_bytes),
+        });
+    }
+    let tracer_provider = tracer_provider_builder.build();
 
     let metric_exporter = opentelemetry_otlp::MetricExporter::builder()
         .with_http()
@@ -191,7 +214,7 @@ fn record_inner(
         span_attrs.push(KeyValue::new("error.type", et.clone()));
     }
 
-    let parent_cx = build_parent_context(traceparent);
+    let parent_cx = upstream_parent_context();
 
     let mut span = tracer
         .span_builder("obz")
@@ -236,11 +259,17 @@ fn record_inner(
     Ok(())
 }
 
-/// Build an `OTel` [`Context`] from the downstream `traceparent` string we
-/// generated earlier. The span recorded here becomes a child of the
-/// upstream `TRACEPARENT` (if one was set), keeping the same trace-id.
-fn build_parent_context(traceparent: &str) -> Context {
-    let Some(parsed) = parse_traceparent(traceparent) else {
+/// Build an `OTel` [`Context`] from the upstream `TRACEPARENT` environment
+/// variable. The CLI span is exported as a child of that context, so the
+/// invoker (whoever set `TRACEPARENT`) sees the CLI span attached to their
+/// existing trace tree. Returns the empty current context when no valid
+/// upstream traceparent is present, making the CLI span a trace root.
+fn upstream_parent_context() -> Context {
+    let Some(parsed) = std::env::var("TRACEPARENT")
+        .ok()
+        .as_deref()
+        .and_then(parse_traceparent)
+    else {
         return Context::current();
     };
     let Ok(trace_id_bytes) = hex_to_bytes::<16>(&parsed.trace_id) else {
@@ -252,9 +281,29 @@ fn build_parent_context(traceparent: &str) -> Context {
     let trace_id = TraceId::from_bytes(trace_id_bytes);
     let span_id = SpanId::from_bytes(parent_id_bytes);
     let flags = TraceFlags::new(parsed.trace_flags);
-
     let span_context = SpanContext::new(trace_id, span_id, flags, true, TraceState::default());
     Context::current().with_remote_span_context(span_context)
+}
+
+/// Forces the SDK to assign a pre-determined `trace_id` and `span_id` to the
+/// first span it creates, so the downstream `traceparent` header (already
+/// propagated to provider HTTP requests) refers to the exact span this
+/// process exports. Any additional spans fall back to random ids generated
+/// from the standard library's hasher entropy.
+#[derive(Debug)]
+struct FixedIdGenerator {
+    trace_id: TraceId,
+    span_id: SpanId,
+}
+
+impl IdGenerator for FixedIdGenerator {
+    fn new_trace_id(&self) -> TraceId {
+        self.trace_id
+    }
+
+    fn new_span_id(&self) -> SpanId {
+        self.span_id
+    }
 }
 
 fn hex_to_bytes<const N: usize>(hex: &str) -> Result<[u8; N], ()> {
@@ -303,6 +352,29 @@ mod tests {
         assert!(parse_traceparent("00-4bf92f-00f067aa0ba902b7-01").is_none());
         // Wrong parent-id length
         assert!(parse_traceparent("00-4bf92f3577b86cd56163f4d0e6c7318e-00f067-01").is_none());
+        // Extra trailing field (v00 must have exactly 4 segments)
+        assert!(
+            parse_traceparent("00-4bf92f3577b86cd56163f4d0e6c7318e-00f067aa0ba902b7-01-extra")
+                .is_none()
+        );
+        // Version field wrong width
+        assert!(
+            parse_traceparent("0-4bf92f3577b86cd56163f4d0e6c7318e-00f067aa0ba902b7-01").is_none()
+        );
+        assert!(
+            parse_traceparent("000-4bf92f3577b86cd56163f4d0e6c7318e-00f067aa0ba902b7-01").is_none()
+        );
+        // Flags field wrong width
+        assert!(
+            parse_traceparent("00-4bf92f3577b86cd56163f4d0e6c7318e-00f067aa0ba902b7-1").is_none()
+        );
+        assert!(
+            parse_traceparent("00-4bf92f3577b86cd56163f4d0e6c7318e-00f067aa0ba902b7-001").is_none()
+        );
+        // Non-hex characters in trace-id
+        assert!(
+            parse_traceparent("00-zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-00f067aa0ba902b7-01").is_none()
+        );
     }
 
     #[test]
