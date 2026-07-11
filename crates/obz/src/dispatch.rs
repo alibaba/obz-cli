@@ -38,6 +38,7 @@ pub(crate) async fn run(
     registry: &ProviderRegistry,
     matches: ArgMatches,
     config_dir: &Path,
+    traceparent: &str,
 ) -> (Option<String>, Result<(), ExecuteError>) {
     // Load config.yaml. Missing file/dir is not an error — we get an empty ObzConfig.
     let obz_config = match config::load(config_dir) {
@@ -176,6 +177,9 @@ pub(crate) async fn run(
         // Collect provider-specific flags from the subcommand matches.
         // CLI flags override credential-process output.
         collect_provider_flags(&mut config, meta, &matches);
+
+        // Propagate W3C Trace Context to downstream provider API calls.
+        config.set_header("traceparent", traceparent);
 
         // Instantiate exactly the one selected provider.
         // Provider-specific required flags (e.g. --endpoint) are validated

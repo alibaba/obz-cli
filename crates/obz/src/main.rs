@@ -22,13 +22,17 @@ mod manpage;
 mod provider_cmd;
 mod resolve;
 mod skills;
+mod telemetry;
 
 use std::io::Write;
 use std::process::ExitCode;
+use std::time::{Instant, SystemTime};
 
 use obz_core::execute::ExecuteError;
 use obz_core::model::response::Response;
 use obz_core::registry::ProviderRegistry;
+
+use telemetry::CliOutcome;
 
 // ---------------------------------------------------------------------------
 // Registry
@@ -49,24 +53,30 @@ fn build_registry() -> ProviderRegistry {
 // ---------------------------------------------------------------------------
 
 fn main() -> ExitCode {
-    // Install ring as the default rustls crypto provider.
-    // reqwest is built with "rustls-no-provider" to avoid pulling aws-lc-rs,
-    // so we must install a provider before any TLS connections are made.
-    // Using `let _ =` instead of `.expect()` because `install_default()`
-    // returns `Err` if a provider is already installed (harmless).
+    // reqwest is built with "rustls-no-provider"; install ring before any TLS.
     let _ = rustls::crypto::ring::default_provider().install_default();
 
     install_panic_hook();
 
+    let start_time = SystemTime::now();
+    let start_instant = Instant::now();
+
+    let traceparent = telemetry::downstream_traceparent();
+    let outcome = run_cli(&traceparent);
+
+    let duration = start_instant.elapsed();
+    telemetry::record(&outcome, start_time, duration, &traceparent);
+
+    ExitCode::from(outcome.exit_code as u8)
+}
+
+fn run_cli(traceparent: &str) -> CliOutcome {
     let registry = build_registry();
 
-    // Resolve the configuration directory early — used both for pre-parse
-    // (default provider in --help) and for dispatch.
     let config_dir = std::env::var_os("OBZ_CONFIG_DIR")
         .map(std::path::PathBuf::from)
         .unwrap_or_else(|| dirs_or_default("obz"));
 
-    // Pre-parse --provider / -p from raw args to customize --help output.
     let raw_args: Vec<String> = std::env::args().collect();
     let selected_provider = raw_args.windows(2).find_map(|w| {
         if w[0] == "-p" || w[0] == "--provider" {
@@ -76,37 +86,28 @@ fn main() -> ExitCode {
         }
     });
 
-    // When no -p is given, check config for a default provider.
-    // This allows --help output to show only the default provider's flags.
     let selected_provider = selected_provider.or_else(|| {
         let cfg = match config::load(&config_dir) {
             Ok(c) => c,
             Err(e) => {
-                // Don't silently swallow config errors — the user should
-                // know their YAML is broken even in --help mode.
                 let _ = writeln!(std::io::stderr(), "Warning: failed to load config: {e}");
                 return None;
             }
         };
-        // Extract the signal subcommand (metric/log/trace) from raw args.
-        // Only consider the first positional token (skip flags and their
-        // values) to avoid mismatching parameter values like `--query metric`.
         let signal = extract_signal(&raw_args);
         signal.and_then(|s| cfg.default_provider(s).map(str::to_string))
     });
 
     let matches = cli::build_cli(&registry, selected_provider.as_deref()).get_matches();
 
-    // Handle `completions` before provider resolution — it does not need --provider.
     if let Some(("completions", sub)) = matches.subcommand() {
         let shell = *sub
             .get_one::<clap_complete::Shell>("shell")
             .expect("clap requires <shell>");
         cli::generate_completions(&registry, shell);
-        return ExitCode::SUCCESS;
+        return CliOutcome::success("cli");
     }
 
-    // Handle `generate-man-pages` before provider resolution.
     if let Some(("generate-man-pages", sub)) = matches.subcommand() {
         let out_dir = sub
             .get_one::<String>("out_dir")
@@ -118,31 +119,26 @@ fn main() -> ExitCode {
                     .map(|rd| rd.filter_map(Result::ok).count())
                     .unwrap_or(0);
                 eprintln!("Generated {count} man pages in {out_dir}");
-                return ExitCode::SUCCESS;
+                return CliOutcome::success("cli");
             }
             Err(e) => {
                 let _ = writeln!(std::io::stderr(), "Error generating man pages: {e}");
-                return ExitCode::from(1);
+                return CliOutcome::error(1, None, "cli");
             }
         }
     }
 
-    // Handle `provider list` before provider resolution — it does not need --provider.
     if let Some(("provider", sub)) = matches.subcommand() {
         if let Some(("list", _)) = sub.subcommand() {
-            // Missing config dir or missing files are fine (empty config),
-            // but a *broken* config file (YAML parse error, unreadable) is
-            // a real error — the user should fix it before trusting the
-            // provider status display.
             let obz_config = match config::load(&config_dir) {
                 Ok(c) => c,
                 Err(e) => {
                     let _ = writeln!(std::io::stderr(), "Error: {e}");
-                    return ExitCode::from(1);
+                    return CliOutcome::error(1, None, "provider");
                 }
             };
             provider_cmd::list_providers(&registry, &obz_config, &config_dir);
-            return ExitCode::SUCCESS;
+            return CliOutcome::success("provider");
         }
 
         if let Some(("check", check_sub)) = sub.subcommand() {
@@ -150,7 +146,7 @@ fn main() -> ExitCode {
                 Ok(c) => c,
                 Err(e) => {
                     let _ = writeln!(std::io::stderr(), "Error: {e}");
-                    return ExitCode::from(1);
+                    return CliOutcome::error(1, None, "provider");
                 }
             };
 
@@ -165,32 +161,40 @@ fn main() -> ExitCode {
                         std::io::stderr(),
                         "Error: failed to build tokio runtime: {error}"
                     );
-                    return ExitCode::from(1);
+                    return CliOutcome::error(1, None, "provider");
                 }
             };
 
-            return runtime.block_on(provider_cmd::check_providers(
+            let exit_code = runtime.block_on(provider_cmd::check_providers(
                 &registry,
                 &obz_config,
                 name,
                 &config_dir,
             ));
+            let code = exit_code_to_i32(exit_code);
+            if code == 0 {
+                return CliOutcome::success("provider");
+            }
+            return CliOutcome::error(code, None, "provider");
         }
     }
+
+    let signal_module = matches.subcommand_name().unwrap_or("cli").to_string();
 
     let (provider_for_errors, result) = tokio::runtime::Builder::new_current_thread()
         .enable_all()
         .build()
         .expect("failed to build tokio runtime")
-        .block_on(dispatch::run(&registry, matches, &config_dir));
+        .block_on(dispatch::run(&registry, matches, &config_dir, traceparent));
 
     match result {
-        Ok(()) => ExitCode::SUCCESS,
-        Err(ExecuteError::Io(e)) if e.kind() == std::io::ErrorKind::BrokenPipe => ExitCode::SUCCESS,
+        Ok(()) => CliOutcome::success(&signal_module),
+        Err(ExecuteError::Io(e)) if e.kind() == std::io::ErrorKind::BrokenPipe => {
+            CliOutcome::success(&signal_module)
+        }
         Err(ExecuteError::Obz(obz_err)) => {
             let detail = obz_err.to_error_detail(provider_for_errors.as_deref());
 
-            // Human-readable summary to stderr.
             let _ = writeln!(std::io::stderr(), "Error: {}", detail.message);
             if let Some(ref chain) = detail.source_chain {
                 for cause in chain {
@@ -201,21 +205,28 @@ fn main() -> ExitCode {
                 let _ = writeln!(std::io::stderr(), "Tip: {suggestion}");
             }
 
-            let exit_code = detail.category.exit_code() as u8;
+            let exit_code = detail.category.exit_code();
 
-            // Structured JSON to stdout — AI Agents parse this.
-            let resp: Response<serde_json::Value> = Response::error(detail);
+            let resp: Response<serde_json::Value> = Response::error(detail.clone());
             let stdout = std::io::stdout();
             let mut out = stdout.lock();
             let _ = serde_json::to_writer_pretty(&mut out, &resp);
             let _ = writeln!(out);
 
-            ExitCode::from(exit_code)
+            CliOutcome::error(exit_code, Some(detail.code), &signal_module)
         }
         Err(e) => {
             let _ = writeln!(std::io::stderr(), "Error: {e}");
-            ExitCode::from(1)
+            CliOutcome::error(1, None, &signal_module)
         }
+    }
+}
+
+fn exit_code_to_i32(code: ExitCode) -> i32 {
+    if code == ExitCode::SUCCESS {
+        0
+    } else {
+        1
     }
 }
 
